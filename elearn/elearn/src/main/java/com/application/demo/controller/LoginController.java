@@ -24,9 +24,9 @@ public class LoginController {
 
         if (user != null && user.getPassword().equals(request.getPassword())) {
             
-            return ResponseEntity.ok(user.getDeptName());
+            return ResponseEntity.ok(user.getDept());
         } else {
-            
+            //System.out.print("login failed");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
         }
     }
