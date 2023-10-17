@@ -13,7 +13,7 @@ export class AuthGuardService {
     this.isAuthenticated = value;
   }
 
-  // Call this method to check if the user is authenticated
+
   isAuthenticatedUser(): boolean {
     return this.isAuthenticated;
   }
