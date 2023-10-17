@@ -14,23 +14,9 @@ export class LoginComponent {
   // password: any;
   myForm: FormGroup;
 
-  // constructor(private http: HttpClient, private router: Router, private authService: AuthGuardService) {}
-  // constructor(private http: HttpClient, private router: Router) {}
-  constructor(private http: HttpClient, private router: Router,private formBuilder: FormBuilder, private authService: AuthGuardService) {
-    this.myForm = this.formBuilder.group({
-      // name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      // phone: ['', [Validators.required, Validators.pattern(/^\d{3}-\d{3}-\d{4}$/)]]
-    });
-  }
-  get email() {
-    return this.myForm.get('email');
-  }
 
-  get password() {
-    return this.myForm.get('password');
-  }
+  constructor(private http: HttpClient, private router: Router, private authService: AuthGuardService) {}
+
 
   login() {
     
@@ -47,8 +33,10 @@ export class LoginComponent {
         const role = response;
         this.authService.setAuthenticated(true);
 
-    
-        if (role === '') {
+
+    // Redirect to the desired page (e.g., /admin or /student
+        if (role === 'IT') {
+
           this.router.navigate(['/admin']); // Redirect to admin page
         } else if (role === 'student') {
           this.router.navigate(['/upload-excel']); // Redirect to student page

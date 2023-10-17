@@ -6,21 +6,14 @@ import { Injectable } from '@angular/core';
 export class AuthGuardService {
   private isAuthenticated = false;
 
-  constructor() {
-   
-    const storedAuthStatus = localStorage.getItem('isAuthenticated');
-    this.isAuthenticated = storedAuthStatus ? JSON.parse(storedAuthStatus) : false;
-  }
+  constructor() {}
 
-  
+  // Call this method to set the user as authenticated
   setAuthenticated(value: boolean) {
     this.isAuthenticated = value;
-    
-
-    localStorage.setItem('isAuthenticated', JSON.stringify(value));
   }
 
-  
+
   isAuthenticatedUser(): boolean {
     return this.isAuthenticated;
   }
