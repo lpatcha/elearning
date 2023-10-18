@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 import { AuthGuardService } from '../auth-guard.service';
 
 import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../notification.service'
+
 
 @Component({
   selector: 'app-login',
@@ -14,10 +15,8 @@ import { NotificationService } from '../notification.service'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  // email: any;
-  // password: any;
-  myForm: FormGroup;
-
+  email: any;
+  password: any;
 
   // constructor(private http: HttpClient, private router: Router, private authService: AuthGuardService) {}
   // constructor(private http: HttpClient, private router: Router) {}
@@ -40,9 +39,11 @@ export class LoginComponent {
   }
 
 
+
   login() {
     
     const authUrl = 'http://localhost:8080/login';
+
 
 
     if (this.myForm.valid) {
@@ -77,7 +78,24 @@ export class LoginComponent {
           this.toastr.success('Login SuccessFul', '', );
 
           this.router.navigate(['/admin']); // Redirect to admin page
+
+    // Create an object to hold the user's credentials
+    const credentials = {
+      email: this.email,
+      password: this.password,
+    };
+
+    // Make an HTTP POST request to authenticate the user
+    this.http.post<any>(authUrl, credentials).subscribe(
+      (response) => {
+        const role = response.message;
+        if (role === 'IT') {
+          this.router.navigate(['/upload-excel']); // Redirect to admin page
+
         } else if (role === 'student') {
+
+          this.router.navigate(['/upload-excel']); // Redirect to student page
+
           console.log("debugin")
          
           this.toastr.success('Login SuccessFul', '', );
@@ -96,6 +114,7 @@ export class LoginComponent {
          else {
           window.alert('Wrong username or password! Please try again!');
           console.error('Invalid role:', role);
+
         }
         if(response==null){
           window.alert('Wrong username or password! Please try again!');
@@ -107,9 +126,5 @@ export class LoginComponent {
         console.error('Login failed:', error);
       }
     );
-    }
   }
-
-
-  
 }

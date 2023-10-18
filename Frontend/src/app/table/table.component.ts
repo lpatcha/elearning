@@ -24,12 +24,15 @@ export class TableComponent {
     {
       headerName: 'Username',
       field: 'email',
-<<<<<<< Updated upstream
-=======
+
+      cellRenderer: UsernameLinkRendererComponent,
+
+
       cellStyle: { textAlign: 'left' },
       filter:true,
->>>>>>> Stashed changes
+
       // cellRenderer: UsernameLinkRendererComponent,
+
       // cellRendererParams: {
       //   innerRenderer: (params: { value: any; }) => {
       //     return `<a href="${params.value}">${params.value}</a>`;
@@ -49,25 +52,20 @@ export class TableComponent {
       enableDisableCallback: this.enableDisableCallback.bind(this),
       label: 'Delete',
     },
-   },
+  },
     {
-<<<<<<< Updated upstream
+
       headerName: 'Action',
-=======
+      cellRenderer: ButtonRendererComponent,
+
       headerName: 'Action', cellStyle: { textAlign: 'left' },
->>>>>>> Stashed changes
+
       cellRenderer: UsernameLinkRendererComponent,
+
       cellRendererParams: {
-        label: 'view',
+        onClick: this.deleteRow.bind(this),
+        label: 'Delete',
       },
-    }
-  //   {
-  //     headerName: 'Action',
-  //     cellRenderer: ButtonRendererComponent,
-  //     cellRendererParams: {
-  //       onClick: this.deleteRow.bind(this),
-  //       label: 'Delete',
-  //     },
     //   cellRendererFramework  : ButtonRendererComponent, // Use your custom cell renderer component here
     //   cellRendererParams: {
     //    onClick: this.deleteRow.bind(this), // Add any custom parameters or event handlers here
@@ -77,7 +75,7 @@ export class TableComponent {
       //   enableDisableCallback: this.enableDisable.bind(this),
       //   deleteCallback: this.deleteRow.bind(this),
       // },
-    // },
+    },
   ];
 
   pageSize = 10;
@@ -255,7 +253,34 @@ export class TableComponent {
     console.log('Enable/Disable:', data);
   }
 
-<<<<<<< Updated upstream
+
+  deleteRow(data: any) {
+    // Implement row deletion logic based on data
+    // const selectedNode = this.gridApi.getSelectedNodes()[0];
+    // // console.log(data.);
+    // if (selectedNode) {
+    //   const selectedData = selectedNode.data;
+    //   console.log(selectedData);
+    //   const selectedIndex = this.rowData.indexOf(selectedData);
+    //   if (selectedIndex !== -1) {
+    //     this.rowData.splice(selectedIndex, 1);
+    //     this.gridApi.setRowData(this.rowData);
+    //   }
+    // }
+    const id=data.id;
+    const url=`http://localhost:8080/table/delete/${id}`;
+    this.http.delete(url).subscribe((response)=>{
+      console.log('Delete:',response);},
+    (error: HttpErrorResponse) => {
+      // Handle errors here
+      if (error.status === 200) {
+        console.log('DELETE request was successful with status 200');
+        this.loadData();
+      } else {
+        console.error('DELETE request failed with status code:', error.status);
+      }
+
+
   // deleteRow(data: any) {
   //   // Implement row deletion logic based on data
   //   const id=data.id;
@@ -271,16 +296,19 @@ export class TableComponent {
   //       console.error('DELETE request failed with status code:', error.status);
   //     }
 
-  //     // You can access error.error to get the error response data if needed
-  //     const errorData = error.error;
 
-  //     // Handle errors as needed
-  //   }
-  //     )
-  
-  //   console.log('Delete:', data);
-  // }
-=======
+      // You can access error.error to get the error response data if needed
+      const errorData = error.error;
+
+      // Handle errors as needed
+    }
+      )
+
+    console.log('Delete:', data);
+  }
+}
+
+
 
   sentmail(){
     console.log("hi");
@@ -303,7 +331,7 @@ export class TableComponent {
         (error: any) => {
             console.error('An error occurred while creating the admin:', error);
           })
->>>>>>> Stashed changes
+
 }
 
   // deleteRow(data: any) {

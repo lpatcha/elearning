@@ -25,17 +25,18 @@ export class UserDetailsComponent {
 
   ngOnInit() {
     this.route.params.subscribe((data1) => {
-<<<<<<< Updated upstream
+
       console.log(data1);
       const email = data1['id']; // Access the id parameter here
       
       console.log(email);
+
       this.http.get<any[]>(`http://localhost:8080/table/getuserdetails/${email}`).subscribe((data) => {
-=======
+
       const email = data1['id'];
 
       this.http.get<any>(`http://localhost:8080/table/getuserdetails/${email}`).subscribe((data) => {
->>>>>>> Stashed changes
+
         this.cardData = data;
       });
     });
