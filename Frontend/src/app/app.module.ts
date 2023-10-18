@@ -22,6 +22,8 @@ import { TableComponent } from './table/table.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AdminNavHeaderComponent } from './admin-nav-header/admin-nav-header.component';
+
 
 
 
@@ -38,7 +40,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     UsernameLinkRendererComponent,
     ButtonRendererComponent,
     UserDetailsComponent,
-    TableComponent
+
+    TableComponent,
+    AdminNavHeaderComponent
 
   
   ],

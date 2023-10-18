@@ -12,7 +12,6 @@ export class AdminComponent {
     constructor(private router: Router,private logoutService: LogoutService,private http: HttpClient) {}
 
 
-
     showCreateUserForm() {
         this.router.navigate(['/create']);
     }
@@ -35,7 +34,6 @@ export class AdminComponent {
                 console.error('An error occurred while creating the admin:', error);
               })
     }
-
 
     logout() {
         this.logoutService.logout();
