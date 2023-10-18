@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthGuardService } from '../auth-guard.service';
-<<<<<<< Updated upstream
-=======
+
 import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../notification.service'
->>>>>>> Stashed changes
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,13 +18,12 @@ export class LoginComponent {
   // password: any;
   myForm: FormGroup;
 
+
   // constructor(private http: HttpClient, private router: Router, private authService: AuthGuardService) {}
   // constructor(private http: HttpClient, private router: Router) {}
-<<<<<<< Updated upstream
-  constructor(private http: HttpClient, private router: Router,private formBuilder: FormBuilder, private authService: AuthGuardService) {
-=======
+
   constructor(private http: HttpClient, private router: Router,private formBuilder: FormBuilder, private authService: AuthGuardService, private toastr: ToastrService, private notifyService : NotificationService) {
->>>>>>> Stashed changes
+
     this.myForm = this.formBuilder.group({
       // name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -41,17 +39,18 @@ export class LoginComponent {
     return this.myForm.get('password');
   }
 
+
   login() {
     
     const authUrl = 'http://localhost:8080/login';
 
-    
+
     if (this.myForm.valid) {
       const formData = this.myForm.value;
 
 
     
-<<<<<<< Updated upstream
+
     this.http.post(authUrl, formData, { responseType: 'text' }).subscribe(
       (response: any) => {
         const role = response;
@@ -59,7 +58,7 @@ export class LoginComponent {
 
     
         if (role === '') {
-=======
+
     this.http.post(authUrl, formData).subscribe(
       (response: any) => {
         let role = response.role;
@@ -76,7 +75,7 @@ export class LoginComponent {
           console.log("debug")
           this.notifyService.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
           this.toastr.success('Login SuccessFul', '', );
->>>>>>> Stashed changes
+
           this.router.navigate(['/admin']); // Redirect to admin page
         } else if (role === 'student') {
           console.log("debugin")

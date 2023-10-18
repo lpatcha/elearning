@@ -24,8 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AdminNavHeaderComponent } from './admin-nav-header/admin-nav-header.component';
-<<<<<<< Updated upstream
-=======
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
@@ -41,7 +40,8 @@ import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
->>>>>>> Stashed changes
+
+
 
 
 
@@ -59,10 +59,11 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     ButtonRendererComponent,
     
     UserDetailsComponent,
+
     TableComponent,
-<<<<<<< Updated upstream
+
     AdminNavHeaderComponent
-=======
+
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
@@ -76,7 +77,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     AllCoursesComponent,
     CourseModulesComponent,
     CourseContentComponent
->>>>>>> Stashed changes
+
   
   ],
 
@@ -94,10 +95,10 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     MatFormFieldModule,
     AgGridModule,
     MatCardModule,
-<<<<<<< Updated upstream
+
     MatDatepickerModule,
     MatNativeDateModule,
-=======
+
     CarouselModule,
     YouTubePlayerModule,
     ToastrModule.forRoot({
@@ -114,7 +115,6 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
->>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,12 +15,12 @@ export class AuthGuardService {
   
   setAuthenticated(value: boolean) {
     this.isAuthenticated = value;
-    
 
     localStorage.setItem('isAuthenticated', JSON.stringify(value));
   }
 
   
+
   isAuthenticatedUser(): boolean {
     return this.isAuthenticated;
   }
