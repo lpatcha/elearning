@@ -20,7 +20,7 @@ export class AuthGuardService {
     localStorage.setItem('isAuthenticated', JSON.stringify(value));
   }
 
-  // Call this method to check if the user is authenticated
+
   isAuthenticatedUser(): boolean {
     return this.isAuthenticated;
   }

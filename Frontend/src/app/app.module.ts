@@ -39,6 +39,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     ButtonRendererComponent,
     UserDetailsComponent,
     TableComponent
+
   
   ],
 
