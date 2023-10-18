@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { CreateAdminComponent } from './create-admin/create-admin.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -21,6 +21,10 @@ import { ButtonRendererComponent } from './button-renderer/button-renderer.compo
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { TableComponent } from './table/table.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
+
 
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -86,6 +90,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
   
 
   imports: [
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -95,6 +100,11 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     MatButtonModule,
     MatFormFieldModule,
     AgGridModule,
+
+    MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
 
     MatCardModule,
 
@@ -117,6 +127,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

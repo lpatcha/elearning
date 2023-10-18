@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LogoutService } from '../logout.service';
+import { HttpClient } from '@angular/common/http';
 
 import { LogoutService } from '../logout.service';
 import { HttpClient } from '@angular/common/http';
@@ -14,6 +16,7 @@ import { NotificationService } from '../notification.service';
     styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
+
 
     gridApi: any;
   rowDataUsers: string="";
@@ -48,8 +51,6 @@ export class AdminComponent {
       //   console.log("hiiihihih");
       // }
       
-    
-
 
 
     showCreateUserForm() {
@@ -63,6 +64,10 @@ export class AdminComponent {
     sentmail(){
         console.log("hi");
 
+
+    sentmail(){
+        console.log("hi");
+
         this.toastr.success('User Creation SuccessFul', '', {
           timeOut: 3000, // Adjust the duration as needed
           progressBar: false,
@@ -70,6 +75,7 @@ export class AdminComponent {
           positionClass: 'toastr-success', // Apply the custom CSS class
           tapToDismiss: false, // Disable click to dismiss
         });
+
 
         this.http.post('http://localhost:8080/api/admin/sentmail',null).subscribe(
             (response: any) => {

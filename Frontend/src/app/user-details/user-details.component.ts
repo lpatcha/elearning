@@ -33,6 +33,9 @@ export class UserDetailsComponent {
 
       this.http.get<any[]>(`http://localhost:8080/table/getuserdetails/${email}`).subscribe((data) => {
 
+
+      this.http.get<any[]>(`http://localhost:8080/table/getuserdetails/${email}`).subscribe((data) => {
+
       const email = data1['id'];
 
       this.http.get<any>(`http://localhost:8080/table/getuserdetails/${email}`).subscribe((data) => {

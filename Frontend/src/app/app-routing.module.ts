@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { TableComponent } from './table/table.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { AuthGuard } from './auth.guard';
+
 
 import { AuthGuard } from './auth.guard';
 
@@ -22,7 +24,7 @@ import { AdduserComponent } from './adduser/adduser.component';
 
 
 const routes: Routes = [
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent,canActivate: [AuthGuard] },
   { path: 'registration', component: RegistrationComponent },
 
 
@@ -31,7 +33,11 @@ const routes: Routes = [
   { path: 'create', component: CreateAdminComponent,canActivate: [AuthGuard] },
 
   { path: 'upload-excel', component:ExcelUploadComponent }, 
+
+  { path: 'create', component: CreateAdminComponent,canActivate: [AuthGuard] },
+
   { path: 'create', component: CreateAdminComponent },
+
 
   { path: 'login', component: LoginComponent },
   { path: 'table', component: TableComponent },

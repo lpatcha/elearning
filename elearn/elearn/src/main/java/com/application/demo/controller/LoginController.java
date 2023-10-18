@@ -30,6 +30,9 @@ public class LoginController {
         	userdetails = userTempRepository.findByEmail(request.getEmail());
             
 
+            return ResponseEntity.ok(user.getDept());
+
+
             return ResponseEntity.ok(user.getDeptName());
 
 

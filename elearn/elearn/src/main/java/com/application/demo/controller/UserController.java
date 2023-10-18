@@ -1,5 +1,6 @@
 package com.application.demo.controller;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
@@ -43,7 +44,7 @@ public class UserController {
         	System.out.println(userTempDto.getRole());
         	System.out.println(userTempDto.getEmail());
         	System.out.println(userTempDto.getId());
-        	userTempDto.setStatus("active");
+        	userTempDto.setStatus("Req Sent");
             userTempRepository.save(userTempDto);
             String registrationToken = UUID.randomUUID().toString();
 
@@ -92,7 +93,8 @@ public class UserController {
             if (userTemp == null) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found.");
             }
-            
+            userTemp.setStatus("active");
+            userTempRepository.save(userTemp);
             // Save the complete user details in the user_full_details table
             userFullDetailsRepository.save(userFullDetails);
 
@@ -103,7 +105,24 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred.");
         }
     }
+    @PostMapping("/admin/sentmail")
+    public ResponseEntity<String> sentMailRequest() {
+        try {
+        	List<UserTemp> mailsent=userTempRepository.findAll();
+        	for(UserTemp temp:mailsent) {
+        		if(temp.getStatus().equals("Req Sent")) {
+        			String registrationToken = UUID.randomUUID().toString();
+        			 emailService.sendRegistrationEmail(temp.getEmail(), registrationToken);
+        		}
+        	}
 
+
+            return ResponseEntity.status(HttpStatus.CREATED).body("Mails sent successfully.");
+        } catch (Exception e) {
+        	System.out.println(e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred.");
+        }
+    }
 
     
     
