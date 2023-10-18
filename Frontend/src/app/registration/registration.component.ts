@@ -66,10 +66,21 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     // Retrieve the email and token from the query parameters
     this.route.queryParams.subscribe(params => {
+
       //  this.myForm.value.email = params['email'];
        this.myForm?.get('email')?.setValue(params['email']);
        this.myForm.get('email')?.disable();
+
+      //  this.myForm.value.email = params['email'];
+       this.myForm?.get('email')?.setValue(params['email']);
+       this.myForm.get('email')?.disable();
+
+
+      this.email = params['email'];
+      
+
       // You can also retrieve and use the token if needed
+
     });
   }
 
@@ -87,6 +98,7 @@ export class RegistrationComponent implements OnInit {
         if (response.message === 'Student registration initiated successfully.') {
           // Send an email to the admin with the registration link
           // this.sendRegistrationEmail(this.email);
+          this.router.navigate(['/admin']);
           console.log('Registration email sent to successful');
         } else {
           console.error('Admin creation failed.');
