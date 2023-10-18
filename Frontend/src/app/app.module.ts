@@ -27,6 +27,7 @@ import { AdminNavHeaderComponent } from './admin-nav-header/admin-nav-header.com
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,8 +40,10 @@ import { AdminNavHeaderComponent } from './admin-nav-header/admin-nav-header.com
     UsernameLinkRendererComponent,
     ButtonRendererComponent,
     UserDetailsComponent,
+
     TableComponent,
     AdminNavHeaderComponent
+
   
   ],
 

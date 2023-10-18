@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class AdminComponent {
     constructor(private router: Router,private logoutService: LogoutService,private http: HttpClient) {}
 
+
     showCreateUserForm() {
         this.router.navigate(['/create']);
     }

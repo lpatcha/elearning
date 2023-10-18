@@ -14,6 +14,7 @@ export class LoginComponent {
   // password: any;
   myForm: FormGroup;
 
+
   // constructor(private http: HttpClient, private router: Router, private authService: AuthGuardService) {}
   // constructor(private http: HttpClient, private router: Router) {}
   constructor(private http: HttpClient, private router: Router,private formBuilder: FormBuilder, private authService: AuthGuardService) {
@@ -32,11 +33,12 @@ export class LoginComponent {
     return this.myForm.get('password');
   }
 
+
   login() {
     
     const authUrl = 'http://localhost:8080/login';
 
-    
+
     if (this.myForm.valid) {
       const formData = this.myForm.value;
 
@@ -49,6 +51,7 @@ export class LoginComponent {
 
     
         if (role === '') {
+
           this.router.navigate(['/admin']); // Redirect to admin page
         } else if (role === 'student') {
           this.router.navigate(['/upload-excel']); // Redirect to student page
