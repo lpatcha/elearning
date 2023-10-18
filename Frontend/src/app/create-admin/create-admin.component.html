@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 <app-admin-nav-header></app-admin-nav-header>
+=======
+<app-header></app-header>
+>>>>>>> Stashed changes
 <div class="container">
     <h2>Create Admin</h2>
     <form (ngSubmit)="submitAdminCreationForm()">
@@ -6,11 +10,17 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" [(ngModel)]="email" class="form-control" required>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="role">Role</label>
         <input type="text" id="role" name="role" [(ngModel)]="role" class="form-control" required>
+      </div> -->
+      <div class="form-group">
+        <label for="roleSelect">Role:</label>
+        <select id="roleSelect" [(ngModel)]="role" name="role">
+          <option *ngFor="let option of dropdownOptions" [value]="option.value">{{ option.label }}</option>
+        </select>
       </div>
-  
+      
       <button type="submit" class="btn btn-primary">Create Admin</button>
     </form>
   </div>

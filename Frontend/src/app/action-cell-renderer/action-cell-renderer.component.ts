@@ -1,13 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-action-cell-renderer',
-//   templateUrl: './action-cell-renderer.component.html',
-//   styleUrls: ['./action-cell-renderer.component.css']
-// })
-// export class ActionCellRendererComponent {
-
-// }
 import { Component } from '@angular/core';
 
 @Component({
@@ -19,11 +9,19 @@ import { Component } from '@angular/core';
   <!-- Content to display when the condition is true -->
 </div>
 <div *ngIf="params.data.status==='active'">
+<<<<<<< Updated upstream
    <button (click)="enableDisable()">inactive</button>
 <!-- Content to display when the condition is true -->
 </div>
 <div *ngIf="params.data.status==='inactive'">
    <button (click)="enableDisable()">active</button>
+=======
+   <button (click)="enableDisable()" class="btn btn-primary">inactive</button>
+<!-- Content to display when the condition is true -->
+</div>
+<div *ngIf="params.data.status==='inactive'">
+   <button (click)="enableDisable()" class="btn btn-primary">active</button>
+>>>>>>> Stashed changes
 <!-- Content to display when the condition is true -->
 </div>
 
@@ -40,6 +38,7 @@ export class ActionCellRendererComponent {
   enableDisable(): void {
     if (this.params.enableDisableCallback) {
       // console.log(this.params.data);
+      
       this.params.enableDisableCallback(this.params.data);
       
     }
