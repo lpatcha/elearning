@@ -12,22 +12,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-action-cell-renderer',
-  // <button (click)="enableDisable()">{{params.data.status}}</button>
   template: `
-    <div *ngIf="params.data.status==='Req Sent'">
-              <p>Req Sent</p>
-  <!-- Content to display when the condition is true -->
-</div>
-<div *ngIf="params.data.status==='active'">
-   <button (click)="enableDisable()">inactive</button>
-<!-- Content to display when the condition is true -->
-</div>
-<div *ngIf="params.data.status==='inactive'">
-   <button (click)="enableDisable()">active</button>
-<!-- Content to display when the condition is true -->
-</div>
-
-
+    <button (click)="enableDisable()">{{params.data.status}}</button>
   `,
 })
 export class ActionCellRendererComponent {

@@ -1,19 +1,17 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { AuthGuardService } from '../auth-guard.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  // email: any;
-  // password: any;
-  myForm: FormGroup;
+  email: any;
+  password: any;
 
+<<<<<<< Updated upstream
 
   // constructor(private http: HttpClient, private router: Router, private authService: AuthGuardService) {}
   // constructor(private http: HttpClient, private router: Router) {}
@@ -32,12 +30,16 @@ export class LoginComponent {
   get password() {
     return this.myForm.get('password');
   }
+=======
+  constructor(private http: HttpClient, private router: Router) {}
+>>>>>>> Stashed changes
 
 
   login() {
     
     const authUrl = 'http://localhost:8080/login';
 
+<<<<<<< Updated upstream
 
     if (this.myForm.valid) {
       const formData = this.myForm.value;
@@ -53,19 +55,27 @@ export class LoginComponent {
         if (role === '') {
 
           this.router.navigate(['/admin']); // Redirect to admin page
+=======
+    // Create an object to hold the user's credentials
+    const credentials = {
+      email: this.email,
+      password: this.password,
+    };
+
+    // Make an HTTP POST request to authenticate the user
+    this.http.post<any>(authUrl, credentials).subscribe(
+      (response) => {
+        const role = response.message;
+        if (role === 'IT') {
+          this.router.navigate(['/upload-excel']); // Redirect to admin page
+>>>>>>> Stashed changes
         } else if (role === 'student') {
           this.router.navigate(['/upload-excel']); // Redirect to student page
-        } else {
-          console.error('Invalid role:', role);
         }
       },
       (error) => {
         console.error('Login failed:', error);
       }
     );
-    }
   }
-
-
-  
 }

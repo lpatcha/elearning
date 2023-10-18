@@ -7,16 +7,19 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { TableComponent } from './table/table.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
-import { AuthGuard } from './auth.guard';
-
 
 const routes: Routes = [
-  { path: 'admin', component: AdminComponent,canActivate: [AuthGuard] },
+  { path: 'admin', component: AdminComponent },
   { path: 'registration', component: RegistrationComponent },
+<<<<<<< Updated upstream
 
   { path: 'upload-excel', component:ExcelUploadComponent,canActivate: [AuthGuard] }, 
 
   { path: 'create', component: CreateAdminComponent,canActivate: [AuthGuard] },
+=======
+  { path: 'upload-excel', component:ExcelUploadComponent }, 
+  { path: 'create', component: CreateAdminComponent },
+>>>>>>> Stashed changes
   { path: 'login', component: LoginComponent },
   { path: 'table', component: TableComponent },
   { path: 'user-details/:id', component: UserDetailsComponent ,canActivate: [AuthGuard]},
