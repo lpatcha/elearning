@@ -1,7 +1,7 @@
-# OnlineLearningManagement
+# OnlineLearningManagementSystem
 
 ## Introduction
-The Online Learning Management System is designed to assist teachers and students in effectively organizing online education. It offers a user-friendly interface for accessing educational resources and assignments.
+The Online Learning Management System is designed to assist teachers and students in effectively organizing online education. It offers a user-friendly interface for accessing educational resources and course content.
 
 ## Project Architecture:
 
@@ -11,7 +11,9 @@ The Online Learning Management System is designed to assist teachers and student
 This layer is responsible for the user interface and interaction with the OLMS.
 It includes components such as web browsers and user interfaces.
 Users interact with the OLMS through these components, accessing features like 
-User registration, course content and assignments.
+i) User registration 
+ii) course content 
+iii) assignments etc.
 Communication: The presentation layer sends user requests and input to the application layer for processing.
 
 ### Application Layer:
