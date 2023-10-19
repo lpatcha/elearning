@@ -2,22 +2,15 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LogoutService } from '../logout.service';
 import { HttpClient } from '@angular/common/http';
-
-import { LogoutService } from '../logout.service';
-import { HttpClient } from '@angular/common/http';
-
 import { ColDef } from 'ag-grid-community';
 import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../notification.service';
-
 @Component({
     selector: 'app-admin',
     templateUrl: './admin.component.html',
     styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-
-
     gridApi: any;
   rowDataUsers: string="";
     constructor(private router: Router,private logoutService: LogoutService,private http: HttpClient,private toastr:ToastrService,private notifyService : NotificationService) {}
@@ -51,7 +44,7 @@ export class AdminComponent {
       //   console.log("hiiihihih");
       // }
       
-
+    
 
     showCreateUserForm() {
         this.router.navigate(['/create']);
@@ -60,14 +53,8 @@ export class AdminComponent {
     showCreateMultipleUsersForm() {
         this.router.navigate(['/upload-excel']);
     }
-
     sentmail(){
         console.log("hi");
-
-
-    sentmail(){
-        console.log("hi");
-
         this.toastr.success('User Creation SuccessFul', '', {
           timeOut: 3000, // Adjust the duration as needed
           progressBar: false,
@@ -75,14 +62,12 @@ export class AdminComponent {
           positionClass: 'toastr-success', // Apply the custom CSS class
           tapToDismiss: false, // Disable click to dismiss
         });
-
-
         this.http.post('http://localhost:8080/api/admin/sentmail',null).subscribe(
             (response: any) => {
                 console.log("hiiiiii");
                 if (response.message === 'Mails sent successfully.') {
                     console.log('Registration email sent to successful');
-
+                    
                   } else {
                     console.error('Admin creation failed.');
                   }
@@ -95,7 +80,6 @@ export class AdminComponent {
     logout() {
         this.logoutService.logout();
       }
-
     UsesTable(){
       this.rowDataUsers="user";
       }
@@ -123,5 +107,4 @@ export class AdminComponent {
         }
        
       }
-
 }

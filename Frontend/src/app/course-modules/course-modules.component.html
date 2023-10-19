@@ -6,25 +6,31 @@
     <a href="#about">About</a>
   </div> -->
   <app-header></app-header>
+  <app-moduleheader [coursename]="courseName"></app-moduleheader>
+  <div class="app-container">
   <div class="sidebar">
     <h2>Module List</h2>
     <ul>
       <!-- <li *ngFor="let module of moduleNames">
         <a [routerLink]="['/modules', module]">{{ module }}</a>
       </li> -->
-      <li *ngFor="let module of moduleNames">
-        <label [routerLink]="['/modules', module]" style="cursor: pointer;">{{ module }}</label>
+      <li *ngFor="let module of moduleNames ">
+        <label [routerLink]="['/modules', module.modulename]" style="cursor: pointer;">{{ module.modulename }}</label>
        </li>
-       <li> 
+      <li>
+       <button (click)="openInputDialog()">Add Module</button>
+       </li>
+       <!-- <li> 
         <label [routerLink]="['/userenroll',courseName]" style="cursor: pointer;"> Enrolled students </label>
-      </li>
+      </li> -->
     </ul>
   </div>
-  <div class ="container">
+  <div class ="content">
   <div class="continer">
     <div>
     <div style="font-weight: bolder; color: darkgreen; font-size: 35px; margin-bottom: 2%;">Welcome to {{courseName}} course 👋 </div>
     <youtube-player style="margin-right: 5%;" id="player" [videoId]="video" suggestedQuality="highres" [height]="380" [width]="640"></youtube-player>
+  </div>
     <div class="chapter-list" >
         <div style="font-weight: bold; font-size: large; align-items: center; color: darkred;"><i class="fa fa-list"></i> Course Contents</div>
         <div style="color: gray; font-weight: 400; font-size: small; margin-bottom: 5%;">(click on chapter name to get into the videos)</div>
@@ -85,7 +91,7 @@
             <div style="color: gray; font-weight: 600; font-size: small; margin-left: 12%;">subcontents (1/1)</div>
         </div>
         <hr *ngIf="chapter.chapter8name !== ''">
-    </div>
+</div>
 </div>
 </div>
   <!-- <div class="content">

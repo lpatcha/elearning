@@ -4,35 +4,19 @@ import { Component } from '@angular/core';
   selector: 'app-action-cell-renderer',
   // <button (click)="enableDisable()">{{params.data.status}}</button>
   template: `
-
-
-    <button (click)="enableDisable()">{{params.data.status}}</button>
-
-
     <div *ngIf="params.data.status==='Req Sent'">
               <p>Req Sent</p>
   <!-- Content to display when the condition is true -->
 </div>
 <div *ngIf="params.data.status==='active'">
-
-   <button (click)="enableDisable()">inactive</button>
-<!-- Content to display when the condition is true -->
-</div>
-<div *ngIf="params.data.status==='inactive'">
-   <button (click)="enableDisable()">active</button>
-<!-- Content to display when the condition is true -->
-</div>
-
-
-
    <button (click)="enableDisable()" class="btn btn-primary">inactive</button>
 <!-- Content to display when the condition is true -->
 </div>
 <div *ngIf="params.data.status==='inactive'">
    <button (click)="enableDisable()" class="btn btn-primary">active</button>
-
 <!-- Content to display when the condition is true -->
 </div>
+
 
   `,
 })

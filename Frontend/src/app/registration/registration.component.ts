@@ -66,21 +66,10 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
     // Retrieve the email and token from the query parameters
     this.route.queryParams.subscribe(params => {
-
       //  this.myForm.value.email = params['email'];
        this.myForm?.get('email')?.setValue(params['email']);
        this.myForm.get('email')?.disable();
-
-      //  this.myForm.value.email = params['email'];
-       this.myForm?.get('email')?.setValue(params['email']);
-       this.myForm.get('email')?.disable();
-
-
-      this.email = params['email'];
-      
-
-      // You can also retrieve and use the token if needed
-
+     
     });
   }
 

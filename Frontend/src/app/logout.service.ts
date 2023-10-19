@@ -12,11 +12,7 @@ export class LogoutService {
 
   logout() {
     // Implement your logout logic here (e.g., clear session data, tokens, etc.)
-
-
     localStorage.removeItem('isAuthenticated');
-
-
     // Redirect to the login page after logout
     this.router.navigate(['/login']);
   }
