@@ -22,7 +22,7 @@ It handles user authentication, course management, content delivery, and other b
 It includes components such as the OLMS server, application server, and database server.
 Communication: The application layer receives user requests from the presentation layer and processes them. It interacts with the database server to retrieve or store data. It then formulates responses and sends them back to the presentation layer.
 
-### Data Layer:
+### Model Layer:
 This layer is responsible for storing and managing the data used by the OLMS.
 It includes components such as the database server or file storage server.
 The data layer stores user profiles, course materials, grades, and other relevant information.
