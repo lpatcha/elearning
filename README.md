@@ -39,7 +39,7 @@ MySQL Database
 ## Backend Setup (Spring Boot)
 Clone the repository:
 
-git clone https://github.com/Phani-E650/OnlineLearningManagement.git
+git clone https://github.com/lpatcha/elearning.git
 
 cd OnlineLearningManagement/backend
 
