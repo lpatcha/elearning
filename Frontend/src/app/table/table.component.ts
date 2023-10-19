@@ -24,18 +24,9 @@ export class TableComponent {
     {
       headerName: 'Username',
       field: 'email',
-
-      // cellRenderer: UsernameLinkRendererComponent,
-
-
-      cellRenderer: UsernameLinkRendererComponent,
-
-
       cellStyle: { textAlign: 'left' },
       filter:true,
-
       // cellRenderer: UsernameLinkRendererComponent,
-
       // cellRendererParams: {
       //   innerRenderer: (params: { value: any; }) => {
       //     return `<a href="${params.value}">${params.value}</a>`;
@@ -57,18 +48,8 @@ export class TableComponent {
     },
    },
     {
-
-      headerName: 'Action',
-
-      cellRenderer: UsernameLinkRendererComponent,
-
-      cellRenderer: ButtonRendererComponent,
-
       headerName: 'Action', cellStyle: { textAlign: 'left' },
-
       cellRenderer: UsernameLinkRendererComponent,
-
-
       cellRendererParams: {
         label: 'view',
       },
@@ -268,89 +249,6 @@ export class TableComponent {
   }
 
 
-  // deleteRow(data: any) {
-  //   // Implement row deletion logic based on data
-  //   const id=data.id;
-  //   const url=`http://localhost:8080/table/delete/${id}`;
-  //   this.http.delete(url).subscribe((response)=>{
-  //     console.log('Delete:',response);},
-  //   (error: HttpErrorResponse) => {
-  //     // Handle errors here
-  //     if (error.status === 200) {
-  //       console.log('DELETE request was successful with status 200');
-  //       this.loadData();
-  //     } else {
-  //       console.error('DELETE request failed with status code:', error.status);
-  //     }
-
-  //     // You can access error.error to get the error response data if needed
-  //     const errorData = error.error;
-
-  //     // Handle errors as needed
-  //   }
-  //     )
-  
-  //   console.log('Delete:', data);
-  // }
-
-
-  deleteRow(data: any) {
-    // Implement row deletion logic based on data
-    // const selectedNode = this.gridApi.getSelectedNodes()[0];
-    // // console.log(data.);
-    // if (selectedNode) {
-    //   const selectedData = selectedNode.data;
-    //   console.log(selectedData);
-    //   const selectedIndex = this.rowData.indexOf(selectedData);
-    //   if (selectedIndex !== -1) {
-    //     this.rowData.splice(selectedIndex, 1);
-    //     this.gridApi.setRowData(this.rowData);
-    //   }
-    // }
-    const id=data.id;
-    const url=`http://localhost:8080/table/delete/${id}`;
-    this.http.delete(url).subscribe((response)=>{
-      console.log('Delete:',response);},
-    (error: HttpErrorResponse) => {
-      // Handle errors here
-      if (error.status === 200) {
-        console.log('DELETE request was successful with status 200');
-        this.loadData();
-      } else {
-        console.error('DELETE request failed with status code:', error.status);
-      }
-
-
-  // deleteRow(data: any) {
-  //   // Implement row deletion logic based on data
-  //   const id=data.id;
-  //   const url=`http://localhost:8080/table/delete/${id}`;
-  //   this.http.delete(url).subscribe((response)=>{
-  //     console.log('Delete:',response);},
-  //   (error: HttpErrorResponse) => {
-  //     // Handle errors here
-  //     if (error.status === 200) {
-  //       console.log('DELETE request was successful with status 200');
-  //       this.loadData();
-  //     } else {
-  //       console.error('DELETE request failed with status code:', error.status);
-  //     }
-
-
-      // You can access error.error to get the error response data if needed
-      const errorData = error.error;
-
-      // Handle errors as needed
-    }
-      )
-
-    console.log('Delete:', data);
-  }
-
-}
-
-
-
   sentmail(){
     console.log("hi");
     this.toastr.success('User Creation SuccessFul', '', {
@@ -372,7 +270,6 @@ export class TableComponent {
         (error: any) => {
             console.error('An error occurred while creating the admin:', error);
           })
-
 }
 
   // deleteRow(data: any) {

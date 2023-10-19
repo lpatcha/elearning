@@ -23,13 +23,7 @@ import { TableComponent } from './table/table.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
-
-
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AdminNavHeaderComponent } from './admin-nav-header/admin-nav-header.component';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
@@ -45,7 +39,10 @@ import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-
+import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
+import { InputDialogComponent } from './input-dialog/input-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 
@@ -63,12 +60,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     ButtonRendererComponent,
     
     UserDetailsComponent,
-
-
     TableComponent,
-
-    AdminNavHeaderComponent
-
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
@@ -81,10 +73,11 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     CourseListComponent,
     AllCoursesComponent,
     CourseModulesComponent,
-    CourseContentComponent
-
-    TableComponent
-
+    CourseContentComponent,
+    ModuleheaderComponent,
+    InputDialogComponent,
+    UpdateProfileComponent
+  
   ],
 
   
@@ -100,17 +93,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     MatButtonModule,
     MatFormFieldModule,
     AgGridModule,
-
     MatCardModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-
-
-    MatCardModule,
-
-    MatDatepickerModule,
-    MatNativeDateModule,
-
     CarouselModule,
     YouTubePlayerModule,
     ToastrModule.forRoot({
@@ -127,7 +110,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
-
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
