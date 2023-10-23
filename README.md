@@ -1,3 +1,23 @@
+
+# Online Learning Management System
+
+Online Learning Management System (LMS) built using Spring Boot for the backend and Angular for the frontend.
+
+## Prerequisites
+
+Before you can run the application, you need to have the following software installed:
+
+- Java Development Kit (JDK) - Version 11.0+
+- Node.js - Version 16.16.0
+- Angular CLI - Version 16.2.2
+- MySQL Database
+
+## Backend Setup (Spring Boot)
+
+1. Clone the repository:
+   
+   git clone https://github.com/Phani-E650/OnlineLearningManagement.git
+
 # OnlineLearningManagementSystem
 
 ## Introduction
@@ -40,6 +60,7 @@ MySQL Database
 Clone the repository:
 
 git clone https://github.com/lpatcha/elearning.git
+main
 
 cd OnlineLearningManagement/backend
 
@@ -49,9 +70,19 @@ spring.datasource.username=your_db_username
 
 spring.datasource.password=your_db_password
 
+
+
+Build and run the Spring Boot application:
+./mvnw spring-boot:run
+
+
+## Frontend Setup (Angular)
+
+
 Build and run the Spring Boot application: ./mvnw spring-boot:ru
 
 ## Frontend Setup (Angular):
+main
 cd OnlineLearningManagement/frontend
 
 npm install
