@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthGuardService } from '../auth-guard.service';
-import { ToastrService } from 'ngx-toastr';
-import { NotificationService } from '../notification.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,7 +16,7 @@ export class LoginComponent {
 
   // constructor(private http: HttpClient, private router: Router, private authService: AuthGuardService) {}
   // constructor(private http: HttpClient, private router: Router) {}
-  constructor(private http: HttpClient, private router: Router,private formBuilder: FormBuilder, private authService: AuthGuardService, private toastr: ToastrService, private notifyService : NotificationService) {
+  constructor(private http: HttpClient, private router: Router,private formBuilder: FormBuilder, private authService: AuthGuardService) {
     this.myForm = this.formBuilder.group({
       // name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -57,32 +55,14 @@ export class LoginComponent {
 
     
         if (role === 'admin') {
-          console.log("debug")
-          this.notifyService.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
-          this.toastr.success('Login SuccessFul', '', );
           this.router.navigate(['/admin']); // Redirect to admin page
         } else if (role === 'student') {
-          console.log("debugin")
-         
-          this.toastr.success('Login SuccessFul', '', );
-
-          this.router.navigate(['/admin']); // Redirect to student page
-          //this.toastr.success('User details updated successfully', 'Success');
-
-          
-
-
+          this.router.navigate(['/upload-excel']); // Redirect to student page
         } else {
-          window.alert('Wrong username or password! Please try again!');
           console.error('Invalid role:', role);
-        }
-        if(response==null){
-          window.alert('Wrong username or password! Please try again!');
-
         }
       },
       (error) => {
-        window.alert('Wrong username or password! Please try again!');
         console.error('Login failed:', error);
       }
     );
