@@ -28,6 +28,7 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
+<<<<<<< Updated upstream
 
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
@@ -37,6 +38,14 @@ import { timeout } from 'rxjs';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 
 
+=======
+import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { AddcourseComponent } from './addcourse/addcourse.component';
+import { CoursestableComponent } from './coursestable/coursestable.component';
+import { ApprovecourseComponent } from './approvecourse/approvecourse.component';
+import { CourseListComponent } from './course-list/course-list.component';
+>>>>>>> Stashed changes
 
 
 
@@ -58,6 +67,7 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
+<<<<<<< Updated upstream
 
     CategoryCreateComponent,
     TeacherdashboardComponent,
@@ -65,6 +75,16 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
     AddcourseComponent
 
 
+=======
+    CategoryCreateComponent,
+    TeacherdashboardComponent,
+    AdduserComponent,
+    AddcourseComponent,
+    CoursestableComponent,
+    ApprovecourseComponent,
+    CourseListComponent
+  
+>>>>>>> Stashed changes
   ],
 
   
@@ -81,7 +101,6 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
     MatFormFieldModule,
     AgGridModule,
     MatCardModule,
-
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,
@@ -93,7 +112,6 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
     }
 
     ),  
-
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
