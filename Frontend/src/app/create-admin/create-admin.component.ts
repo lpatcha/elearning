@@ -1,8 +1,15 @@
+// import { Component } from '@angular/core';
+
+// @Component({
+//   selector: 'app-create-admin',
+//   templateUrl: './create-admin.component.html',
+//   styleUrls: ['./create-admin.component.css']
+// })
+// export class CreateAdminComponent {
+
+// }
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-
 
 @Component({
   selector: 'app-create-admin',
@@ -13,11 +20,11 @@ export class CreateAdminComponent {
   email: string = '';
   role: string = '';
 
-  constructor(private http: HttpClient,private toastr: ToastrService,private router:Router) {}
+  constructor(private http: HttpClient) {}
   dropdownOptions = [
-    { value: 'admin', label: 'Admin' },
-    { value: 'student', label: 'Student' },
-    { value: 'teacher', label: 'teacher' },
+    { value: 'Admin', label: 'Admin' },
+    { value: 'Student', label: 'Student' },
+    { value: 'Teacher', label: 'teacher' },
   ];
 
   submitAdminCreationForm(): void {
@@ -31,31 +38,11 @@ export class CreateAdminComponent {
           // Send an email to the admin with the registration link
           // this.sendRegistrationEmail(this.email);
           console.log('Registration email sent to successful');
-          this.router.navigate(['/admin']); // Redirect to student page
-          //this.toastr.success('User details updated successfully', 'Success');
-
-          this.toastr.success('User Creation SuccessFul', '', {
-            timeOut: 3000, // Adjust the duration as needed
-            progressBar: false,
-            closeButton: false,
-            positionClass: 'toastr-success', // Apply the custom CSS class
-            tapToDismiss: false, // Disable click to dismiss
-          });
         } else {
           console.error('Admin creation failed.');
         }
       },
       (error: any) => {
-        this.router.navigate(['/admin']); // Redirect to student page
-          //this.toastr.success('User details updated successfully', 'Success');
-
-          this.toastr.success('User Creation Failed', '', {
-            timeOut: 3000, // Adjust the duration as needed
-            progressBar: false,
-            closeButton: false,
-            positionClass: 'toastr-success', // Apply the custom CSS class
-            tapToDismiss: false, // Disable click to dismiss
-          });
         console.error('An error occurred while creating the admin:', error);
       }
     );
