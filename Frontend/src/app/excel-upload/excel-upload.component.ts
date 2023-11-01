@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -12,7 +11,7 @@ export class ExcelUploadComponent {
   data: any[] = [];
   email: any;
   role: any;
-  constructor(private http: HttpClient, public dialog: MatDialog) {}
+  constructor(private http: HttpClient) {}
   onFileChange(event: any): void {
     const file = event.target.files[0];
     if (file) {
@@ -27,7 +26,6 @@ export class ExcelUploadComponent {
       reader.readAsArrayBuffer(file);
     }
   }
-  
 
   uploadData(): void {
     

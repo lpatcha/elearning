@@ -17,9 +17,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-
-
-
 export class HeaderComponent implements OnInit {
 
   loggedUser = '';
@@ -47,18 +44,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  // params: any;
-
-  // agInit(params: any): void {
-  //   this.params = params;
-  // }
-  onClick(): void {
-    // if (this.params.onClick) {
-      console.log("hii");
-      this.router.navigate(['update-details', this.loggedUser]);
-     // this.params.onClick(this.params.data);
-    // }
-  }
   logout()
   {
     // sessionStorage.clear();
@@ -71,20 +56,14 @@ export class HeaderComponent implements OnInit {
   navigateHome()
   {
     if(this.currRole === "admin"){
-      console.log("admin")
       this.router.navigate(['/admin']);
     }
-    else if(this.currRole === "teacher"){
-      this.router.navigate(['/teacherdashboard']);
+    else if(this.currRole === "professor"){
+      this.router.navigate(['/professordashboard']);
     }
-    else if(this.currRole === "student"){
-      this.router.navigate(['/studentdashboard']);
+    else if(this.currRole === "user"){
+      this.router.navigate(['/userdashboard']);
     }
-  }
-
-  viewDetails()
-  {
-
   }
 
 

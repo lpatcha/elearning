@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { LogoutService } from '../logout.service';
 import { HttpClient } from '@angular/common/http';
 import { MyServiceService } from '../my-service.service';
@@ -10,10 +10,8 @@ import { MyServiceService } from '../my-service.service';
   styleUrls: ['./category-create.component.css']
 })
 export class CategoryCreateComponent {
-  constructor(private myService: MyServiceService,private http: HttpClient,private cdr: ChangeDetectorRef){};
+  constructor(private myService: MyServiceService,private http: HttpClient){};
   categoriesWithSubcategories: any[] = [];
-  showInputBox = false;  // To control the visibility of the input box
-  newCategory: string = ''; 
   categories = [
     {
       name: 'Category 1',
@@ -46,7 +44,6 @@ export class CategoryCreateComponent {
   {
     console.log("hiiiiii");
     this.fetchCategoriesWithSubcategories();
-    this.cdr.detectChanges();
     if (response.message === 'successfully created.') {
         console.log('Registration email sent to successful');
       } else {
@@ -55,7 +52,6 @@ export class CategoryCreateComponent {
 },
 (error: any) => {
     console.error('An error occurred while creating the admin:', error);
-    this.fetchCategoriesWithSubcategories();
   }
   )
     // this.categoriesWithSubcategories.push({
@@ -78,33 +74,10 @@ export class CategoryCreateComponent {
         // Handle error
       }
     );
-    this.cdr.detectChanges();
   }
   ngOnInit(){
 
  this.fetchCategoriesWithSubcategories();
-  }
-  saveCategory() {
-    // Handle the saving logic here, e.g., add the new category to an array
-    // For demonstration purposes, let's just log the new category.
-    const category={
-      "name":this.newCategory
-    }
-    this.myService.addcategory(category).subscribe((response)=>
-    {
-         console.log("successfully added");
-         this.fetchCategoriesWithSubcategories();
-    },
-    (error: any) => {
-      console.error('An error occurred while creating the admin:', error);
-    });
-    console.log('New category:', this.newCategory);
-    
-    // You can save this category to your TypeScript file or perform any other desired actions.
-    
-    // Reset the input box and hide it
-    this.newCategory = '';
-    this.showInputBox = false;
   }
 
 }

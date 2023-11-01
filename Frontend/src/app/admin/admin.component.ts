@@ -9,6 +9,7 @@ import { NotificationService } from '../notification.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ExcelUploadComponent } from '../excel-upload/excel-upload.component';
 
+
 @Component({
     selector: 'app-admin',
     templateUrl: './admin.component.html',
@@ -17,7 +18,7 @@ import { ExcelUploadComponent } from '../excel-upload/excel-upload.component';
 export class AdminComponent {
     gridApi: any;
   rowDataUsers: string="";
-    constructor(public dialog: MatDialog,private router: Router,private logoutService: LogoutService,private http: HttpClient,private toastr:ToastrService,private notifyService : NotificationService) {}
+    constructor(private router: Router,private logoutService: LogoutService,private http: HttpClient) {}
     loggedUser = '';
   currRole = '';
   title = '';
@@ -48,12 +49,7 @@ export class AdminComponent {
       //   console.log("hiiihihih");
       // }
       
-      openExcelDialog(): void {
-        this.dialog.open(ExcelUploadComponent, {
-          width: '400px', // Set the width as per your design
-          height:'400px'
-        });
-      }
+    
 
     showCreateUserForm() {
         this.router.navigate(['/create']);
@@ -64,19 +60,11 @@ export class AdminComponent {
     }
     sentmail(){
         console.log("hi");
-        this.toastr.success('User Creation SuccessFul', '', {
-          timeOut: 3000, // Adjust the duration as needed
-          progressBar: false,
-          closeButton: false,
-          positionClass: 'toastr-success', // Apply the custom CSS class
-          tapToDismiss: false, // Disable click to dismiss
-        });
         this.http.post('http://localhost:8080/api/admin/sentmail',null).subscribe(
             (response: any) => {
                 console.log("hiiiiii");
                 if (response.message === 'Mails sent successfully.') {
                     console.log('Registration email sent to successful');
-                    
                   } else {
                     console.error('Admin creation failed.');
                   }
@@ -99,6 +87,8 @@ export class AdminComponent {
         this.rowDataUsers="teacher";
       }
   ngOnInit(){
+        // console.log("ggh")
+        //  this.loadData();
         this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
         this.loggedUser = this.loggedUser.replace(/"/g, '');
     
@@ -108,7 +98,7 @@ export class AdminComponent {
         if(this.currRole === "admin"){
           this.title = "Admin Dashboard";
         }
-        else if(this.currRole === "teacher"){
+        else if(this.currRole === "professor"){
           this.title = "";
         }
         else if(this.currRole === "user"){
