@@ -9,6 +9,11 @@ import { TableComponent } from './table/table.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AuthGuard } from './auth.guard';
 import { CategoryCreateComponent } from './category-create/category-create.component';
+<<<<<<< Updated upstream
+=======
+import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
+import { AddcourseComponent } from './addcourse/addcourse.component';
+>>>>>>> Stashed changes
 
 
 const routes: Routes = [
@@ -21,6 +26,7 @@ const routes: Routes = [
   { path: 'user-details/:id', component: UserDetailsComponent ,canActivate: [AuthGuard]},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'createcategory', component: CategoryCreateComponent },
+  { path: 'teacherdashboard', component: TeacherdashboardComponent },
 ];
 
 @NgModule({

@@ -70,8 +70,18 @@ export class LoginComponent {
           });
 
 
+        }
+        else if (role === 'teacher') {
+          this.router.navigate(['/teacherdashboard']);
 
+<<<<<<< Updated upstream
         } else {
+=======
+        }
+
+         else {
+          window.alert('Wrong username or password! Please try again!');
+>>>>>>> Stashed changes
           console.error('Invalid role:', role);
         }
       },

@@ -28,8 +28,14 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
+<<<<<<< Updated upstream
+=======
+import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { AddcourseComponent } from './addcourse/addcourse.component';
 
 
+>>>>>>> Stashed changes
 
 
 @NgModule({
@@ -49,7 +55,14 @@ import { ToastrModule } from 'ngx-toastr';
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
+<<<<<<< Updated upstream
     CategoryCreateComponent
+=======
+    CategoryCreateComponent,
+    TeacherdashboardComponent,
+    AdduserComponent,
+    AddcourseComponent
+>>>>>>> Stashed changes
   
   ],
 

@@ -98,7 +98,7 @@ export class AdminComponent {
         if(this.currRole === "admin"){
           this.title = "Admin Dashboard";
         }
-        else if(this.currRole === "professor"){
+        else if(this.currRole === "teacher"){
           this.title = "";
         }
         else if(this.currRole === "user"){

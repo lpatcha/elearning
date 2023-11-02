@@ -23,7 +23,8 @@ export class TableComponent {
     {
       headerName: 'Username',
       field: 'email',
-      cellStyle: { textAlign: 'left' }
+      cellStyle: { textAlign: 'left' },
+      filter:true,
       // cellRenderer: UsernameLinkRendererComponent,
       // cellRendererParams: {
       //   innerRenderer: (params: { value: any; }) => {
@@ -37,7 +38,7 @@ export class TableComponent {
       //   suppressCount: true,
       // }as IGroupCellRendererParams,
     },
-    { headerName: 'Role', field: 'role', cellStyle: { textAlign: 'left' } },
+    { headerName: 'Role', field: 'role', cellStyle: { textAlign: 'left' },filter:true, },
     { headerName: 'Status', field: 'status' , cellStyle: { textAlign: 'left' },
     cellRenderer: ActionCellRendererComponent,
     cellRendererParams: {
