@@ -24,7 +24,8 @@ export class TableComponent {
     {
       headerName: 'Username',
       field: 'email',
-      cellStyle: { textAlign: 'left' }
+      cellStyle: { textAlign: 'left' },
+      filter:true,
       // cellRenderer: UsernameLinkRendererComponent,
       // cellRendererParams: {
       //   innerRenderer: (params: { value: any; }) => {
@@ -38,7 +39,7 @@ export class TableComponent {
       //   suppressCount: true,
       // }as IGroupCellRendererParams,
     },
-    { headerName: 'Role', field: 'role', cellStyle: { textAlign: 'left' } },
+    { headerName: 'Role', field: 'role', cellStyle: { textAlign: 'left' },filter:true, },
     { headerName: 'Status', field: 'status' , cellStyle: { textAlign: 'left' },
     cellRenderer: ActionCellRendererComponent,
     cellRendererParams: {
@@ -250,6 +251,7 @@ export class TableComponent {
 
   sentmail(){
     console.log("hi");
+
     this.toastr.success('User Creation SuccessFul', '', {
       timeOut: 3000, // Adjust the duration as needed
       progressBar: false,
@@ -257,6 +259,7 @@ export class TableComponent {
       positionClass: 'toastr-success', // Apply the custom CSS class
       tapToDismiss: false, // Disable click to dismiss
     });
+
     this.http.post('http://localhost:8080/api/admin/sentmail',null).subscribe(
         (response: any) => {
             console.log("hiiiiii");

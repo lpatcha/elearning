@@ -5,7 +5,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthGuardService } from '../auth-guard.service';
 import { ToastrService } from 'ngx-toastr';
+
 import { NotificationService } from '../notification.service'
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,7 +20,9 @@ export class LoginComponent {
 
   // constructor(private http: HttpClient, private router: Router, private authService: AuthGuardService) {}
   // constructor(private http: HttpClient, private router: Router) {}
+
   constructor(private http: HttpClient, private router: Router,private formBuilder: FormBuilder, private authService: AuthGuardService, private toastr: ToastrService, private notifyService : NotificationService) {
+
     this.myForm = this.formBuilder.group({
       // name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -62,24 +66,33 @@ export class LoginComponent {
           this.toastr.success('Login SuccessFul', '', );
           this.router.navigate(['/admin']); // Redirect to admin page
         } else if (role === 'student') {
+
           console.log("debugin")
          
           this.toastr.success('Login SuccessFul', '', );
+
+
+          
+
+
 
           this.router.navigate(['/admin']); // Redirect to student page
           //this.toastr.success('User details updated successfully', 'Success');
 
           
 
-
-<<<<<<< Updated upstream
-        } else {
-=======
         }
+        else if (role === 'teacher') {
+          this.router.navigate(['/teacherdashboard']);
+
+
+        } 
+
+
 
          else {
           window.alert('Wrong username or password! Please try again!');
->>>>>>> Stashed changes
+
           console.error('Invalid role:', role);
         }
         if(response==null){
