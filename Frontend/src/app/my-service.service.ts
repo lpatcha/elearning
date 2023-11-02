@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Course } from './models/course';
 
 import { Course } from './models/course';
 
@@ -36,5 +37,13 @@ export class MyServiceService {
     return this.http.post<any>(`${this.baseUrl}/addCourse`,course);
   }
 
+  getCourse() : Observable<any>
+  {
+    return this.http.get<any>(`${this.baseUrl}/getcourses`);
+  }
+  enablecourse(id:any):Observable<any>{
+    return this.http.put((`${this.baseUrl}/enablecourse/${id}`),null);
+  }
+  
 
 }
