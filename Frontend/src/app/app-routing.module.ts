@@ -15,6 +15,9 @@ import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.c
 import { AddcourseComponent } from './addcourse/addcourse.component';
 >>>>>>> Stashed changes
 
+import { AddcourseComponent } from './addcourse/addcourse.component';
+
+
 
 const routes: Routes = [
   { path: 'admin', component: AdminComponent,canActivate: [AuthGuard] },
@@ -24,6 +27,10 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'table', component: TableComponent },
   { path: 'user-details/:id', component: UserDetailsComponent ,canActivate: [AuthGuard]},
+
+  {path:'add-course',component:AddcourseComponent,canActivate:[AuthGuard]},
+
+
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'createcategory', component: CategoryCreateComponent },
   { path: 'teacherdashboard', component: TeacherdashboardComponent },

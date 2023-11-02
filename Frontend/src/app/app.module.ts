@@ -28,14 +28,17 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
-<<<<<<< Updated upstream
-=======
+
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 
+import { timeout } from 'rxjs';
+import { AddcourseComponent } from './addcourse/addcourse.component';
 
->>>>>>> Stashed changes
+
+
+
 
 
 @NgModule({
@@ -55,15 +58,13 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
-<<<<<<< Updated upstream
-    CategoryCreateComponent
-=======
+
     CategoryCreateComponent,
     TeacherdashboardComponent,
     AdduserComponent,
     AddcourseComponent
->>>>>>> Stashed changes
-  
+
+
   ],
 
   
@@ -80,7 +81,19 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
     MatFormFieldModule,
     AgGridModule,
     MatCardModule,
-    ToastrModule.forRoot(),
+
+    ToastrModule.forRoot({
+      timeOut: 15000,
+      extendedTimeOut: 3000,
+      positionClass: 'toast-top-right',
+      progressBar: true,
+      progressAnimation : 'decreasing',
+      closeButton: true,
+
+    }
+
+    ),  
+
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
