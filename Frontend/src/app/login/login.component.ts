@@ -81,9 +81,16 @@ export class LoginComponent {
           });
 
 
+        }
+        else if (role === 'teacher') {
+          this.router.navigate(['/teacherdashboard']);
 
-        } else {
+
+        } 
+
+         else {
           window.alert('Wrong username or password! Please try again!');
+
           console.error('Invalid role:', role);
         }
         if(response==null){
