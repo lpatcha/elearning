@@ -25,6 +25,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AdminNavHeaderComponent } from './admin-nav-header/admin-nav-header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { CategoryCreateComponent } from './category-create/category-create.component';
+import { ToastrModule } from 'ngx-toastr';
+import { timeout } from 'rxjs';
+import { AddcourseComponent } from './addcourse/addcourse.component';
+
+
 
 
 
@@ -40,10 +47,14 @@ import { HeaderComponent } from './header/header.component';
     ActionCellRendererComponent,
     UsernameLinkRendererComponent,
     ButtonRendererComponent,
+    
     UserDetailsComponent,
     TableComponent,
     AdminNavHeaderComponent,
-    HeaderComponent
+    HeaderComponent,
+    CategoryListComponent,
+    CategoryCreateComponent,
+    AddcourseComponent
   
   ],
 
@@ -61,6 +72,17 @@ import { HeaderComponent } from './header/header.component';
     MatFormFieldModule,
     AgGridModule,
     MatCardModule,
+    ToastrModule.forRoot({
+      timeOut: 15000,
+      extendedTimeOut: 3000,
+      positionClass: 'toast-top-right',
+      progressBar: true,
+      progressAnimation : 'decreasing',
+      closeButton: true,
+
+    }
+
+    ),  
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,

@@ -17,13 +17,16 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
+
+
 export class HeaderComponent implements OnInit {
 
   loggedUser = '';
   currRole = '';
   title = '';
 
-  constructor(private activatedRoute: ActivatedRoute, private _router : Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void 
   {
@@ -46,21 +49,30 @@ export class HeaderComponent implements OnInit {
 
   logout()
   {
-    sessionStorage.clear();
-    this._router.navigate(['/login']);
+    // sessionStorage.clear();
+    // this._router.navigate(['/login']);
+    localStorage.removeItem('isAuthenticated');
+    // Redirect to the login page after logout
+    this.router.navigate(['/login']);
   }
 
   navigateHome()
   {
     if(this.currRole === "admin"){
-      this._router.navigate(['/admin']);
+      console.log("admin")
+      this.router.navigate(['/admin']);
     }
     else if(this.currRole === "professor"){
-      this._router.navigate(['/professordashboard']);
+      this.router.navigate(['/professordashboard']);
     }
     else if(this.currRole === "user"){
-      this._router.navigate(['/userdashboard']);
+      this.router.navigate(['/userdashboard']);
     }
+  }
+
+  viewDetails()
+  {
+
   }
 
 
