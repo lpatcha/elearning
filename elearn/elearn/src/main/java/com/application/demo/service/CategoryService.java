@@ -2,7 +2,9 @@ package com.application.demo.service;
 
 
 
+
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,7 @@ public class CategoryService {
     public CategoryEntity createCategory(CategoryEntity category) {
         return categoryRepository.save(category);
         
+
     }
     
     public List<CategoryEntity> getCategoriesWithSubcategories() {
@@ -83,6 +86,5 @@ public class CategoryService {
         }
     }
 
-    
     
 }

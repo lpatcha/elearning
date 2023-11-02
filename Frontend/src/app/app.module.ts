@@ -28,6 +28,7 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
+
 import { timeout } from 'rxjs';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 
@@ -53,9 +54,9 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
+
     CategoryCreateComponent,
-    AddcourseComponent
-  
+    AddcourseComponent 
   ],
 
   
@@ -72,6 +73,7 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
     MatFormFieldModule,
     AgGridModule,
     MatCardModule,
+
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,
@@ -83,6 +85,7 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
     }
 
     ),  
+
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
