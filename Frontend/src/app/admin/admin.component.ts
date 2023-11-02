@@ -5,7 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { ColDef } from 'ag-grid-community';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.min.js';
+<<<<<<< Updated upstream
 
+=======
+import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from '../notification.service';
+>>>>>>> Stashed changes
 @Component({
     selector: 'app-admin',
     templateUrl: './admin.component.html',
@@ -14,7 +19,7 @@ import { ColDef } from 'ag-grid-community';
 export class AdminComponent {
     gridApi: any;
   rowDataUsers: string="";
-    constructor(private router: Router,private logoutService: LogoutService,private http: HttpClient) {}
+    constructor(private router: Router,private logoutService: LogoutService,private http: HttpClient,private toastr:ToastrService,private notifyService : NotificationService) {}
     loggedUser = '';
   currRole = '';
   title = '';
@@ -56,11 +61,19 @@ export class AdminComponent {
     }
     sentmail(){
         console.log("hi");
+        this.toastr.success('User Creation SuccessFul', '', {
+          timeOut: 3000, // Adjust the duration as needed
+          progressBar: false,
+          closeButton: false,
+          positionClass: 'toastr-success', // Apply the custom CSS class
+          tapToDismiss: false, // Disable click to dismiss
+        });
         this.http.post('http://localhost:8080/api/admin/sentmail',null).subscribe(
             (response: any) => {
                 console.log("hiiiiii");
                 if (response.message === 'Mails sent successfully.') {
                     console.log('Registration email sent to successful');
+                    
                   } else {
                     console.error('Admin creation failed.');
                   }
@@ -85,6 +98,7 @@ export class AdminComponent {
   ngOnInit(){
         // console.log("ggh")
         //  this.loadData();
+        //this.notifyService.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
         this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
         this.loggedUser = this.loggedUser.replace(/"/g, '');
     
