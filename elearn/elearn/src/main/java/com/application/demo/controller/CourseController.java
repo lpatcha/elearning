@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.application.demo.entity.CourseEntity;
@@ -46,26 +45,8 @@ public class CourseController {
 		return courseObj;
 	}
 	
-	@GetMapping("/getcoursebyemail/{email}")
-    public ResponseEntity<List<CourseEntity>> getCoursesByEmail(@PathVariable String email) {
-        List<CourseEntity> courses = courseService.getCoursesByProfessorName(email);
-        if (courses.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(courses, HttpStatus.OK);
-    }
-	@GetMapping("/getcoursebycousename/{email}/{coursename}")
-    public ResponseEntity<CourseEntity> getCoursesByEmailandcoursename(@PathVariable String email,@PathVariable String coursename) {
-        List<CourseEntity> courses = courseService.getCoursesByProfessorName(email);
-        List<CourseEntity> filteredCourses = courses.stream()
-                .filter(course -> course.getCourseName().equals(coursename))
-                .toList();
-        CourseEntity course=filteredCourses.get(0);
-        if (courses.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(course, HttpStatus.OK);
-    }
+	
+	
 	public String getNewID()
 	{
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"0123456789"+"abcdefghijklmnopqrstuvxyz";

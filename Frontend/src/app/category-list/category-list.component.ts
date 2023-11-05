@@ -52,11 +52,11 @@ onSaveSubcategory(categoryName: string) {
 
 onAddCategory(categoryName: string) {
   this.parentname=categoryName;
-  this.toggleInputBox(); 
+  this.toggleInputBox(); // Call toggleInputBox when clicking the "+" button
 }
 
 onAddCategoryInChild(eventData: { categoryName: string, parentCategory: string }) {
-  this.addCategory.emit(eventData); 
+  this.addCategory.emit(eventData); // Pass the event data to the parent
 }
 
 }

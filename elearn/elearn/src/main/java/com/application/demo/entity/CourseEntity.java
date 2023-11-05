@@ -1,18 +1,13 @@
 package com.application.demo.entity;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-
 
 @Entity
 public class CourseEntity {
@@ -28,30 +23,16 @@ public class CourseEntity {
     private String department;
     private String courseStatus;
 
-    private Date endDate;
-    private String category;
-	private String modules;
+    
+    private String modules;
     
     private String professorName;
     
     
-    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
-    @JsonIgnore
-    public List<AnnouncementEntity> announcements= new ArrayList<>();
-    
-
-	
-
-
-
-	
-
-
-
 
 	public CourseEntity(Long id, String courseName, String courseId, String courseDescription, Date startDate,
-			int numberOfWeeks, Long userId, String department, String courseStatus, Date endDate, String category,
-			String modules, String professorName, List<AnnouncementEntity> announcements) {
+			int numberOfWeeks, Long userId, String department, String courseStatus, String modules,
+			String professorName) {
 		super();
 		this.id = id;
 		this.courseName = courseName;
@@ -62,30 +43,13 @@ public class CourseEntity {
 		this.userId = userId;
 		this.department = department;
 		this.courseStatus = courseStatus;
-		this.endDate = endDate;
-		this.category = category;
 		this.modules = modules;
 		this.professorName = professorName;
-		this.announcements = announcements;
 	}
-
-
-
 
 	public CourseEntity() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	
-	
-	
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
 	}
 
 	public String getCourseId() {
@@ -103,14 +67,6 @@ public class CourseEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-
 
 	public String getCourseName() {
 		return courseName;
@@ -152,7 +108,6 @@ public class CourseEntity {
 		this.userId = userId;
 	}
 
-	
 	public String getDepartment() {
 		return department;
 	}
@@ -185,25 +140,7 @@ public class CourseEntity {
 		this.professorName = professorName;
 	}
 
-
-
-
-	public List<AnnouncementEntity> getAnnouncements() {
-		return announcements;
-	}
-
-
-
-
-	public void setAnnouncements(List<AnnouncementEntity> announcements) {
-		this.announcements = announcements;
-	}
-
-
-
-
-	
-    
+    // getters and setters
     
     
     

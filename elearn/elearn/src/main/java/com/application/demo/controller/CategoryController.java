@@ -44,7 +44,7 @@ public class CategoryController {
         return categoryService.getAllLeafCategories();
     }
     
-    @PostMapping("/addcategory")
+    @PostMapping
     public CategoryEntity addCategory(@RequestBody CategoryEntity category) {
         return categoryService.addCategory(category);
     }
