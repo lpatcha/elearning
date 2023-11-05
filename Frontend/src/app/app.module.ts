@@ -12,7 +12,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ExcelUploadComponent } from './excel-upload/excel-upload.component';
 import { AgGridModule } from 'ag-grid-angular';
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { ActionCellRendererComponent } from './action-cell-renderer/action-cell-renderer.component';
@@ -35,22 +34,7 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
 import { ApprovecourseComponent } from './approvecourse/approvecourse.component';
 import { CourseListComponent } from './course-list/course-list.component';
-import { AllCoursesComponent } from './all-courses/all-courses.component';
-import { CourseModulesComponent } from './course-modules/course-modules.component';
-import { CourseContentComponent } from './course-content/course-content.component';
-import { YouTubePlayerModule } from '@angular/youtube-player';
-import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
-import { InputDialogComponent } from './input-dialog/input-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { UpdateProfileComponent } from './update-profile/update-profile.component';
-import { AnnouncementsComponent } from './announcements/announcements.component';
-import { VideoaddComponent } from './videoadd/videoadd.component';
-import { AssignmentsComponent } from './assignments/assignments.component';
-import { AssignmentListComponent } from './assignment-list/assignment-list.component';
-import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocontent.component';
-import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
-import { UpdateCourseComponent } from './update-course/update-course.component';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 
 
 
@@ -77,21 +61,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     AddcourseComponent,
     CoursestableComponent,
     ApprovecourseComponent,
-    CourseListComponent,
-    AllCoursesComponent,
-    CourseModulesComponent,
-    CourseContentComponent,
-    ModuleheaderComponent,
-    InputDialogComponent,
-    UpdateProfileComponent,
-    AnnouncementsComponent,
-    VideoaddComponent,
-    AssignmentsComponent,
-    AssignmentListComponent,
-    UpdatevideocontentComponent,
-    UpdatemoduleComponent,
-    UpdateCourseComponent,
-   
+    CourseListComponent
   
   ],
 
@@ -102,7 +72,6 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    PdfViewerModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -110,8 +79,6 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     MatFormFieldModule,
     AgGridModule,
     MatCardModule,
-    CarouselModule,
-    YouTubePlayerModule,
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,
@@ -126,8 +93,6 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
-    MatDialogModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.application.demo.entity.CourseEntity;
@@ -35,63 +34,19 @@ public class CourseController {
 	private CourseRepository courseRepo;
 	
 	
-//	@PostMapping("/addCourse")
-//	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
-//	{
-//		
-//		
-//		
-//		
-//		CourseEntity courseObj = null;
-//		String newID = getNewID();
-//		course.setCourseId(newID);
-//		
-//		courseObj = courseService.addNewCourse(course);
-//		return courseObj;
-//	}
-	
-	
 	@PostMapping("/addCourse")
-	public ResponseEntity<?> addNewCourse(@RequestBody CourseEntity course) {
-	    // Check if a course with the same courseName and professorName already exists
-	    CourseEntity existingCourse = courseService.findCourseByCourseNameAndProfessorNameAndCategoryName(course.getCourseName(), course.getProfessorName(), course.getCategory());
-
-	    if (existingCourse != null) {
-	        // A course with the same name and professor already exists, return an error response
-	        return ResponseEntity.status(HttpStatus.CONFLICT).body("Course already exists.");
-	    }
-
-	    // Generate a new ID and save the course
-	    String newID = getNewID();
-	    course.setCourseId(newID);
-	    CourseEntity courseObj = courseService.addNewCourse(course);
-
-	    return ResponseEntity.ok(courseObj);
+	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
+	{
+		CourseEntity courseObj = null;
+		String newID = getNewID();
+		course.setCourseId(newID);
+		
+		courseObj = courseService.addNewCourse(course);
+		return courseObj;
 	}
-
 	
 	
 	
-	@GetMapping("/getcoursebyemail/{email}")
-    public ResponseEntity<List<CourseEntity>> getCoursesByEmail(@PathVariable String email) {
-        List<CourseEntity> courses = courseService.getCoursesByProfessorName(email);
-        if (courses.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(courses, HttpStatus.OK);
-    }
-	@GetMapping("/getcoursebycousename/{email}/{coursename}")
-    public ResponseEntity<CourseEntity> getCoursesByEmailandcoursename(@PathVariable String email,@PathVariable String coursename) {
-        List<CourseEntity> courses = courseService.getCoursesByProfessorName(email);
-        List<CourseEntity> filteredCourses = courses.stream()
-                .filter(course -> course.getCourseName().equals(coursename))
-                .toList();
-        CourseEntity course=filteredCourses.get(0);
-        if (courses.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(course, HttpStatus.OK);
-    }
 	public String getNewID()
 	{
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"0123456789"+"abcdefghijklmnopqrstuvxyz";
@@ -108,9 +63,6 @@ public class CourseController {
 	public List<CourseEntity> getcourses(){
 		return courseService.getAllCourses();
 	}
-	
-	
-	
 	
 	 @PutMapping("/enablecourse/{id}")
 	    public ResponseEntity<CourseEntity> updateEntity(@PathVariable Long id) {
@@ -135,26 +87,7 @@ public class CourseController {
 	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	        }
 	    }
-	 
-	 @CrossOrigin(origins = "http://localhost:4200")
-	 @PutMapping("updatecourse")
-	 public ResponseEntity<CourseEntity> updateCourse(@RequestBody CourseEntity updatedCourse) {
-	     Optional<CourseEntity> courseOptional = courseRepo.findById(updatedCourse.getId());
-
-	     if (courseOptional.isPresent()) {
-	         CourseEntity existingCourse = courseOptional.get();
-	         existingCourse.setCourseName(updatedCourse.getCourseName());
-	         existingCourse.setCourseDescription(updatedCourse.getCourseDescription());
-	         
-	         CourseEntity updatedEntity = courseRepo.save(existingCourse);
-	         return new ResponseEntity<>(updatedEntity, HttpStatus.OK);
-	     } else {
-	         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-	     }
-	 }
-
 	
-	 
 	
 	
 
