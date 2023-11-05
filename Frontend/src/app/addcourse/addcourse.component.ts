@@ -19,9 +19,7 @@ export class AddcourseComponent implements OnInit {
 
   constructor(private courseService : MyServiceService, private _router : Router, private http : HttpClient) { }
 
-  ngOnInit(
-    
-  ): void 
+  ngOnInit(): void 
   {
     this.http.get<string[]>('http://localhost:8080/category/leaf').subscribe((response) => {
       this.categories = response;
@@ -51,7 +49,7 @@ export class AddcourseComponent implements OnInit {
     this.courseService.addCourse(this.course).subscribe(
       data => {
         console.log("Course added Successfully !!!");
-        this._router.navigate(['/addchapter']);
+        this._router.navigate(['/addcourse']);
       },
       error => {
         console.log("Process Failed");
