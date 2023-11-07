@@ -31,7 +31,7 @@ export class MyServiceService {
   {
     return this.http.post<any>(`${this.baseUrl}/addCourse`,course);
   }
-|
+
   getCourse() : Observable<any>
   {
     return this.http.get<any>(`${this.baseUrl}/getcourses`);
@@ -39,8 +39,14 @@ export class MyServiceService {
   enablecourse(id:any):Observable<any>{
     return this.http.put((`${this.baseUrl}/enablecourse/${id}`),null);
   }
+
   addcategory(category:any):Observable<any>{
       return this.http.post<any>(`${this.baseUrl}/category/addcategory`,category);
+  }
+
+  getCoursesByEmail(loggedUser : string) : Observable<any>
+  {
+    return this.http.get<any>(`${this.baseUrl}/getcoursebyemail/`+loggedUser);
   }
 
 }
