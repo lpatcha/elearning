@@ -3,22 +3,17 @@ import { Router } from '@angular/router';
 import { LogoutService } from '../logout.service';
 import { HttpClient } from '@angular/common/http';
 import { ColDef } from 'ag-grid-community';
-<<<<<<< Updated upstream
-
 
 import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../notification.service';
-
-
 import { MatDialog } from '@angular/material/dialog';
 import { ExcelUploadComponent } from '../excel-upload/excel-upload.component';
 
-=======
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.min.js';
 import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../notification.service';
->>>>>>> Stashed changes
+
 @Component({
     selector: 'app-admin',
     templateUrl: './admin.component.html',

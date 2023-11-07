@@ -59,7 +59,7 @@ export class HeaderComponent implements OnInit {
   navigateHome()
   {
     if(this.currRole === "admin"){
-
+      console.log("admin")
       this.router.navigate(['/admin']);
     }
     else if(this.currRole === "teacher"){

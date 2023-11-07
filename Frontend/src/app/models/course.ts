@@ -11,7 +11,9 @@ export class Course {
     courseStatus: string = 'inactive';
     categoryId: string = ''; 
     instructorname: string ='';
+
     category: string ='';
+
     professorName:any;
     courseDescription: string='';
     constructor() {}

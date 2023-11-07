@@ -29,28 +29,18 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
+import { timeout } from 'rxjs';
+import { AddcourseComponent } from './addcourse/addcourse.component';
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
 import { ApprovecourseComponent } from './approvecourse/approvecourse.component';
-<<<<<<< Updated upstream
-
-
-
-import { timeout } from 'rxjs';
-import { AddcourseComponent } from './addcourse/addcourse.component';
-
-
-=======
 import { CourseListComponent } from './course-list/course-list.component';
+
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
->>>>>>> Stashed changes
+
 
 
 
@@ -66,36 +56,21 @@ import { CourseModulesComponent } from './course-modules/course-modules.componen
     ActionCellRendererComponent,
     UsernameLinkRendererComponent,
     ButtonRendererComponent,
-    
     UserDetailsComponent,
     TableComponent,
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
-<<<<<<< Updated upstream
-
-   
     CoursestableComponent,
-    ApprovecourseComponent
-
-
+    ApprovecourseComponent,
     CategoryCreateComponent,
-    TeacherdashboardComponent,
-    AdduserComponent,
-    AddcourseComponent
-
-=======
-    CategoryCreateComponent,
+    AddcourseComponent,
     TeacherdashboardComponent,
     AdduserComponent,
     AddcourseComponent,
-    CoursestableComponent,
-    ApprovecourseComponent,
-    CourseListComponent,
     AllCoursesComponent,
     CourseModulesComponent
-  
->>>>>>> Stashed changes
+
   ],
 
   
@@ -112,11 +87,7 @@ import { CourseModulesComponent } from './course-modules/course-modules.componen
     MatFormFieldModule,
     AgGridModule,
     MatCardModule,
-<<<<<<< Updated upstream
-
-=======
     CarouselModule,
->>>>>>> Stashed changes
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,
@@ -128,7 +99,6 @@ import { CourseModulesComponent } from './course-modules/course-modules.componen
     }
 
     ),  
-
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
