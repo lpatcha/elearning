@@ -69,31 +69,22 @@ export class LoginComponent {
           this.router.navigate(['/admin']); // Redirect to student page
           //this.toastr.success('User details updated successfully', 'Success');
 
-          
 
-<<<<<<< Updated upstream
+          console.log("debugin")
+         
+          this.toastr.success('Login SuccessFul', '', );
+
           this.router.navigate(['/upload-excel']); // Redirect to student page
-          //this.toastr.success('User details updated successfully', 'Success');
-
-          this.toastr.success('User details updated successfully', '', {
-            timeOut: 3000, // Adjust the duration as needed
-            progressBar: false,
-            closeButton: false,
-            positionClass: 'toastr-success', // Apply the custom CSS class
-            tapToDismiss: false, // Disable click to dismiss
-          });
 
 
-=======
->>>>>>> Stashed changes
         }
         else if (role === 'teacher') {
           this.router.navigate(['/teacherdashboard']);
 
 
         } 
-
          else {
+
           window.alert('Wrong username or password! Please try again!');
 
           console.error('Invalid role:', role);
@@ -109,8 +100,5 @@ export class LoginComponent {
       }
     );
     }
-  }
-
-
-  
+  } 
 }
