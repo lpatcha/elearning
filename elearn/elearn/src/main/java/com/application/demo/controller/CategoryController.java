@@ -39,12 +39,10 @@ public class CategoryController {
 //    public CategoryEntity createCategory(@RequestBody CategoryEntity category) {
 //        return categoryRepository.save(category);
 //    }
-
     @GetMapping("/leaf")
     public List<CategoryEntity> getAllLeafCategories() {
         return categoryService.getAllLeafCategories();
     }
-
     
     @PostMapping("/addcategory")
     public CategoryEntity addCategory(@RequestBody CategoryEntity category) {

@@ -35,6 +35,7 @@
       <button (click)="onSaveSubcategory(newSubcategoryName)" class="btn btn-primary">Save</button>
     </li>
   </ul>
+
 </div> -->
 
 
@@ -50,13 +51,15 @@
         [categories]="category.subcategories"
         (addCategory)="onAddCategoryInChild($event)" 
       ></app-category-list>
-            </li> <li *ngIf="isAddingSubcategory">
-      <input [(ngModel)]="newSubcategoryName" placeholder="Enter subcategory name" />
-      <button (click)="onSaveSubcategory(newSubcategoryName)" class="btn btn-primary">Save</button>
-    </li>
+            </li> 
           </ng-container>
+          <li *ngIf="isAddingSubcategory">
+            <input [(ngModel)]="newSubcategoryName" placeholder="Enter subcategory name" />
+            <button (click)="onSaveSubcategory(newSubcategoryName)" class="btn btn-primary">Save</button>
+          </li>
         </ul>
       </div>
     </div>
   </div>
+
   

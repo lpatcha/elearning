@@ -28,12 +28,21 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
+<<<<<<< Updated upstream
 
 
 import { timeout } from 'rxjs';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 
 
+=======
+import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { AddcourseComponent } from './addcourse/addcourse.component';
+import { CoursestableComponent } from './coursestable/coursestable.component';
+import { ApprovecourseComponent } from './approvecourse/approvecourse.component';
+import { CourseListComponent } from './course-list/course-list.component';
+>>>>>>> Stashed changes
 
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
@@ -63,6 +72,7 @@ import { CourseListComponent } from './course-list/course-list.component';
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
+<<<<<<< Updated upstream
 
     CoursestableComponent,
     ApprovecourseComponent
@@ -80,6 +90,16 @@ import { CourseListComponent } from './course-list/course-list.component';
     ApprovecourseComponent,
     CourseListComponent
 
+=======
+    CategoryCreateComponent,
+    TeacherdashboardComponent,
+    AdduserComponent,
+    AddcourseComponent,
+    CoursestableComponent,
+    ApprovecourseComponent,
+    CourseListComponent
+  
+>>>>>>> Stashed changes
   ],
 
   
@@ -96,7 +116,6 @@ import { CourseListComponent } from './course-list/course-list.component';
     MatFormFieldModule,
     AgGridModule,
     MatCardModule,
-
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,
@@ -108,7 +127,6 @@ import { CourseListComponent } from './course-list/course-list.component';
     }
 
     ),  
-
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
