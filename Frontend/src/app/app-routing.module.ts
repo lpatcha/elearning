@@ -33,8 +33,6 @@ const routes: Routes = [
 
   { path: 'teacherdashboard', component: TeacherdashboardComponent },
   { path: 'cousetable', component: CoursestableComponent },
-
-
 ];
 
 @NgModule({

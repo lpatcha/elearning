@@ -36,6 +36,7 @@ export class MyServiceService {
   {
     return this.http.post<any>(`${this.baseUrl}/addCourse`,course);
   }
+<<<<<<< Updated upstream
 
   getCourse() : Observable<any>
   {
@@ -46,4 +47,17 @@ export class MyServiceService {
   }
   
 
+=======
+  getCourse() : Observable<any>
+  {
+    return this.http.get<any>(`${this.baseUrl}/getcourses`);
+  }
+  enablecourse(id:any):Observable<any>{
+    return this.http.put((`${this.baseUrl}/enablecourse/${id}`),null);
+  }
+  addcategory(category:any):Observable<any>{
+      return this.http.post<any>(`${this.baseUrl}/category/addcategory`,category);
+  }
+  
+>>>>>>> Stashed changes
 }
