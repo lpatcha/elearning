@@ -2,7 +2,11 @@ package com.application.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+<<<<<<< Updated upstream
 import java.util.Optional;
+=======
+
+>>>>>>> Stashed changes
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.UserTemp;
@@ -27,10 +32,13 @@ public class CourseController {
 	
 	@Autowired
 	private CourseService courseService;
+<<<<<<< Updated upstream
 
 
+=======
+	@Autowired
+>>>>>>> Stashed changes
 	private CourseRepository courseRepo;
-
 	
 	@PostMapping("/addCourse")
 	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
@@ -43,8 +51,26 @@ public class CourseController {
 		return courseObj;
 	}
 	
-	
-	
+	@GetMapping("/getcoursebyemail/{email}")
+    public ResponseEntity<List<CourseEntity>> getCoursesByEmail(@PathVariable String email) {
+        List<CourseEntity> courses = courseService.getCoursesByProfessorName(email);
+        if (courses.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(courses, HttpStatus.OK);
+    }
+	@GetMapping("/getcoursebycousename/{email}/{coursename}")
+    public ResponseEntity<CourseEntity> getCoursesByEmailandcoursename(@PathVariable String email,@PathVariable String coursename) {
+        List<CourseEntity> courses = courseService.getCoursesByProfessorName(email);
+        List<CourseEntity> filteredCourses = courses.stream()
+                .filter(course -> course.getCourseName().equals(coursename))
+                .toList();
+        CourseEntity course=filteredCourses.get(0);
+        if (courses.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(course, HttpStatus.OK);
+    }
 	public String getNewID()
 	{
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"0123456789"+"abcdefghijklmnopqrstuvxyz";
@@ -57,7 +83,6 @@ public class CourseController {
         return sb.toString();
 	}
 	
-
 	@GetMapping("/getcourses")
 	public List<CourseEntity> getcourses(){
 		return courseService.getAllCourses();
@@ -87,5 +112,10 @@ public class CourseController {
 	        }
 	    }
 	
+<<<<<<< Updated upstream
+=======
+	
+	
+>>>>>>> Stashed changes
 
 }
