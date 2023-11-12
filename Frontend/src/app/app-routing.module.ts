@@ -12,10 +12,11 @@ import { CategoryCreateComponent } from './category-create/category-create.compo
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
-\
+
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 import { CourseContentComponent } from './course-content/course-content.component';
+
 
 
 
@@ -35,9 +36,6 @@ const routes: Routes = [
   { path: 'allcourses', component: AllCoursesComponent },
   {path:'allcourses/:coursename',component:CourseModulesComponent},
   { path: 'course-content', component: CourseContentComponent },
-
-  { path: 'allcourses', component: AllCoursesComponent },
-  {path:'allcourses/:coursename',component:CourseModulesComponent}
 
 ];
 

@@ -2,6 +2,9 @@ package com.application.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +30,7 @@ public class CourseController {
 	
 	@Autowired
 	private CourseService courseService;
+
 	private CourseRepository courseRepo;
 
 	@PostMapping("/addCourse")
@@ -48,7 +52,20 @@ public class CourseController {
         }
         return new ResponseEntity<>(courses, HttpStatus.OK);
     }
-	
+
+	@GetMapping("/getcoursebycousename/{email}/{coursename}")
+    public ResponseEntity<CourseEntity> getCoursesByEmailandcoursename(@PathVariable String email,@PathVariable String coursename) {
+        List<CourseEntity> courses = courseService.getCoursesByProfessorName(email);
+        List<CourseEntity> filteredCourses = courses.stream()
+                .filter(course -> course.getCourseName().equals(coursename))
+                .toList();
+        CourseEntity course=filteredCourses.get(0);
+        if (courses.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(course, HttpStatus.OK);
+    }
+
 	public String getNewID()
 	{
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"0123456789"+"abcdefghijklmnopqrstuvxyz";
@@ -90,6 +107,7 @@ public class CourseController {
 	        }
 	    }
 	
+
 
 
 }

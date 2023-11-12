@@ -62,6 +62,7 @@ export class LoginComponent {
           this.toastr.success('Login SuccessFul', '', );
           this.router.navigate(['/admin']); // Redirect to admin page
         } else if (role === 'student') {
+
           console.log("debugin")
          
           this.toastr.success('Login SuccessFul', '', );
@@ -75,7 +76,6 @@ export class LoginComponent {
           this.toastr.success('Login SuccessFul', '', );
 
           this.router.navigate(['/upload-excel']); // Redirect to student page
-
         }
         else if (role === 'teacher') {
           this.router.navigate(['/teacherdashboard']);
@@ -83,7 +83,6 @@ export class LoginComponent {
         }
 
          else {
-
           window.alert('Wrong username or password! Please try again!');
           console.error('Invalid role:', role);
         }

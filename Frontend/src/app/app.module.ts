@@ -30,6 +30,7 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
 
+
 import { timeout } from 'rxjs';
 
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
@@ -38,7 +39,6 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
 import { ApprovecourseComponent } from './approvecourse/approvecourse.component';
 import { CourseListComponent } from './course-list/course-list.component';
-
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 import { CourseContentComponent } from './course-content/course-content.component';
@@ -59,19 +59,16 @@ import { CourseContentComponent } from './course-content/course-content.componen
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
+    CoursestableComponent,
+    ApprovecourseComponent
     CategoryCreateComponent,
     AddcourseComponent,
     TeacherdashboardComponent,
     AdduserComponent,
-    AddcourseComponent,
-    CoursestableComponent,
-    ApprovecourseComponent,
     CourseListComponent,
     AllCoursesComponent,
     CourseModulesComponent,
     CourseContentComponent
-  
-
   ],
 
   
