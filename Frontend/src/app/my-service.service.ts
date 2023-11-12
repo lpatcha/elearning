@@ -2,8 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 import { Course } from './models/course';
+import { Enrollment } from './models/enroll';
 
 @Injectable({
   providedIn: 'root'
@@ -43,10 +47,24 @@ export class MyServiceService {
       return this.http.post<any>(`${this.baseUrl}/category/addcategory`,category);
   }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   getCoursesByEmail(loggedUser : string) : Observable<any>
   {
     return this.http.get<any>(`${this.baseUrl}/getcoursebyemail/`+loggedUser);
+  }
+  getCoursesByEmailandcoursename(loggedUser : string,cousename:string) : Observable<any>
+  {
+    return this.http.get<any>(`${this.baseUrl}/getcoursebycousename/${loggedUser}/${cousename}`);
+  }
+  addenrollment(enroll:Enrollment){
+     return this.http.post<any>(`${this.baseUrl}/addenrollment`,enroll);
+  }
+  getUsersByEmailandcoursename(loggedUser : string,cousename:string) : Observable<any>
+  {
+    return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
   }
   
 }
