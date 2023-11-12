@@ -5,9 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { ColDef } from 'ag-grid-community';
 import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../notification.service';
+<<<<<<< Updated upstream
 import { MatDialog } from '@angular/material/dialog';
 import { ExcelUploadComponent } from '../excel-upload/excel-upload.component';
 
+=======
+>>>>>>> Stashed changes
 @Component({
     selector: 'app-admin',
     templateUrl: './admin.component.html',
@@ -93,9 +96,6 @@ export class AdminComponent {
         this.rowDataUsers="teacher";
       }
   ngOnInit(){
-        // console.log("ggh")
-        //  this.loadData();
-        //this.notifyService.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
         this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
         this.loggedUser = this.loggedUser.replace(/"/g, '');
     
