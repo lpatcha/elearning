@@ -29,8 +29,9 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
+
 import { timeout } from 'rxjs';
-import { AddcourseComponent } from './addcourse/addcourse.component';
+
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
@@ -40,10 +41,7 @@ import { CourseListComponent } from './course-list/course-list.component';
 
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
-
-
-
-
+import { CourseContentComponent } from './course-content/course-content.component';
 
 @NgModule({
   declarations: [
@@ -61,15 +59,18 @@ import { CourseModulesComponent } from './course-modules/course-modules.componen
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
-    CoursestableComponent,
-    ApprovecourseComponent,
     CategoryCreateComponent,
     AddcourseComponent,
     TeacherdashboardComponent,
     AdduserComponent,
     AddcourseComponent,
+    CoursestableComponent,
+    ApprovecourseComponent,
+    CourseListComponent,
     AllCoursesComponent,
-    CourseModulesComponent
+    CourseModulesComponent,
+    CourseContentComponent
+  
 
   ],
 

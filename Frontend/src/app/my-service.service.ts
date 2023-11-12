@@ -31,7 +31,6 @@ export class MyServiceService {
   {
     return this.http.post<any>(`${this.baseUrl}/addCourse`,course);
   }
-
   getCourse() : Observable<any>
   {
     return this.http.get<any>(`${this.baseUrl}/getcourses`);
@@ -44,9 +43,10 @@ export class MyServiceService {
       return this.http.post<any>(`${this.baseUrl}/category/addcategory`,category);
   }
 
+
   getCoursesByEmail(loggedUser : string) : Observable<any>
   {
     return this.http.get<any>(`${this.baseUrl}/getcoursebyemail/`+loggedUser);
   }
-
+  
 }

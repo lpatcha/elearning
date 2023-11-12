@@ -76,11 +76,11 @@ export class LoginComponent {
 
           this.router.navigate(['/upload-excel']); // Redirect to student page
 
-
         }
         else if (role === 'teacher') {
           this.router.navigate(['/teacherdashboard']);
 
+        }
 
          else {
 
