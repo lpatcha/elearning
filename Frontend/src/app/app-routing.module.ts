@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'cousetable', component: CoursestableComponent },
   { path: 'allcourses', component: AllCoursesComponent },
   {path:'allcourses/:coursename',component:CourseModulesComponent}
+
 ];
 
 @NgModule({

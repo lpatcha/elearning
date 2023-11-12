@@ -69,7 +69,12 @@ export class LoginComponent {
           this.router.navigate(['/admin']); // Redirect to student page
           //this.toastr.success('User details updated successfully', 'Success');
 
-          
+
+          console.log("debugin")
+         
+          this.toastr.success('Login SuccessFul', '', );
+
+          this.router.navigate(['/upload-excel']); // Redirect to student page
 
         }
         else if (role === 'teacher') {
@@ -78,6 +83,7 @@ export class LoginComponent {
         }
 
          else {
+
           window.alert('Wrong username or password! Please try again!');
           console.error('Invalid role:', role);
         }
@@ -92,8 +98,5 @@ export class LoginComponent {
       }
     );
     }
-  }
-
-
-  
+  } 
 }
