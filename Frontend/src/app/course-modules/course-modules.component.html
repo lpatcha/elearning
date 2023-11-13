@@ -14,7 +14,14 @@
       <li *ngFor="let module of moduleNames">
         <label [routerLink]="['/modules', module]" style="cursor: pointer;">{{ module }}</label>
        </li>
+<<<<<<< Updated upstream
        <li> 
+=======
+      <li>
+       <button (click)="openInputDialog()">Add Module</button>
+       </li>
+       <!-- <li> 
+>>>>>>> Stashed changes
         <label [routerLink]="['/userenroll',courseName]" style="cursor: pointer;"> Enrolled students </label>
       </li>
     </ul>

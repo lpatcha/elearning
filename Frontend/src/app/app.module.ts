@@ -41,6 +41,15 @@ import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+<<<<<<< Updated upstream
+=======
+import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
+import { InputDialogComponent } from './input-dialog/input-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
+
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -67,8 +76,15 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     CourseListComponent,
     AllCoursesComponent,
     CourseModulesComponent,
+<<<<<<< Updated upstream
     CourseContentComponent
 
+=======
+    CourseContentComponent,
+    ModuleheaderComponent,
+    InputDialogComponent
+  
+>>>>>>> Stashed changes
   ],
 
   
@@ -86,9 +102,13 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     AgGridModule,
     MatCardModule,
     CarouselModule,
+<<<<<<< Updated upstream
 
     YouTubePlayerModule,
 
+=======
+    YouTubePlayerModule,
+>>>>>>> Stashed changes
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,
@@ -103,6 +123,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
