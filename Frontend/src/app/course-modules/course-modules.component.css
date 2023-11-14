@@ -180,9 +180,15 @@ body {
     margin-left: 200px;
     padding: 1px 16px;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     height: 1000px;
 =======
     height: 80%;
+>>>>>>> Stashed changes
+=======
+    height: 80%;
+    margin-bottom:200px;
+    flex: 1;
 >>>>>>> Stashed changes
   }
   .sidebar ul {

@@ -5,14 +5,25 @@
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
   </div> -->
+<<<<<<< Updated upstream
+=======
+  <app-header></app-header>
+  <app-moduleheader [coursename]="courseName"></app-moduleheader>
+  <div class="app-container">
+>>>>>>> Stashed changes
   <div class="sidebar">
     <h2>Module List</h2>
     <ul>
       <!-- <li *ngFor="let module of moduleNames">
         <a [routerLink]="['/modules', module]">{{ module }}</a>
       </li> -->
+<<<<<<< Updated upstream
       <li *ngFor="let module of moduleNames">
         <label [routerLink]="['/modules', module]" style="cursor: pointer;">{{ module }}</label>
+=======
+      <li *ngFor="let module of moduleNames ">
+        <label [routerLink]="['/modules', module.modulename]" style="cursor: pointer;">{{ module.modulename }}</label>
+>>>>>>> Stashed changes
        </li>
 <<<<<<< Updated upstream
        <li> 
@@ -26,7 +37,11 @@
       </li>
     </ul>
   </div>
+<<<<<<< Updated upstream
   <div class ="container">
+=======
+  <div class ="content">
+>>>>>>> Stashed changes
   <div class="continer">
     <div>
     <div style="font-weight: bolder; color: darkgreen; font-size: 35px; margin-bottom: 2%;">Welcome to {{courseName}} course 👋 </div>

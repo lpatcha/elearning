@@ -29,7 +29,10 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
+<<<<<<< Updated upstream
 import { timeout } from 'rxjs';
+=======
+>>>>>>> Stashed changes
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
@@ -42,6 +45,7 @@ import { CourseModulesComponent } from './course-modules/course-modules.componen
 import { CourseContentComponent } from './course-content/course-content.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
@@ -49,6 +53,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 
 
+>>>>>>> Stashed changes
+=======
+import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
+import { InputDialogComponent } from './input-dialog/input-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+import { AnnouncementsComponent } from './announcements/announcements.component';
 >>>>>>> Stashed changes
 
 @NgModule({
@@ -67,15 +78,17 @@ import { MatDialogModule } from '@angular/material/dialog';
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
-    CoursestableComponent,
-    ApprovecourseComponent
     CategoryCreateComponent,
     AddcourseComponent,
     TeacherdashboardComponent,
     AdduserComponent,
+    AddcourseComponent,
+    CoursestableComponent,
+    ApprovecourseComponent,
     CourseListComponent,
     AllCoursesComponent,
     CourseModulesComponent,
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     CourseContentComponent
 
@@ -83,6 +96,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     CourseContentComponent,
     ModuleheaderComponent,
     InputDialogComponent
+=======
+    CourseContentComponent,
+    ModuleheaderComponent,
+    InputDialogComponent,
+    UpdateProfileComponent,
+    AnnouncementsComponent
+>>>>>>> Stashed changes
   
 >>>>>>> Stashed changes
   ],
@@ -103,9 +123,13 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCardModule,
     CarouselModule,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     YouTubePlayerModule,
 
+=======
+    YouTubePlayerModule,
+>>>>>>> Stashed changes
 =======
     YouTubePlayerModule,
 >>>>>>> Stashed changes

@@ -4,11 +4,13 @@ import { Observable } from 'rxjs';
 import { Course } from '../models/course';
 import { MyServiceService } from '../my-service.service';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 import { Module } from '../models/module';
 import { MatDialog } from '@angular/material/dialog';
 import { InputDialogComponent } from '../input-dialog/input-dialog.component';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-course-modules',
@@ -17,9 +19,12 @@ import { InputDialogComponent } from '../input-dialog/input-dialog.component';
 })
 export class CourseModulesComponent {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   moduleNames: string[] = ['Home', 'News', 'Contact', 'About'];
   video = 'P2wNzig_SLA';
 =======
+=======
+>>>>>>> Stashed changes
   moduleNames: Module[]| undefined;
   video = 'jpvZXcGkUMY';
 >>>>>>> Stashed changes

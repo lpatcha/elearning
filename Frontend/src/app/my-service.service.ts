@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 =======
 >>>>>>> Stashed changes
@@ -11,10 +12,11 @@ import { Course } from './models/course';
 import { Enrollment } from './models/enroll';
 
 =======
+=======
+>>>>>>> Stashed changes
 import { Course } from './models/course';
 import { Enrollment } from './models/enroll';
 import { Module } from './models/module';
->>>>>>> Stashed changes
 
 @Injectable({
   providedIn: 'root'
@@ -42,7 +44,6 @@ export class MyServiceService {
   {
     return this.http.post<any>(`${this.baseUrl}/addCourse`,course);
   }
-
   getCourse() : Observable<any>
   {
     return this.http.get<any>(`${this.baseUrl}/getcourses`);
@@ -56,7 +57,10 @@ export class MyServiceService {
   }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   getCoursesByEmail(loggedUser : string) : Observable<any>
@@ -75,9 +79,12 @@ export class MyServiceService {
     return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
   }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   
 
 =======
+=======
+>>>>>>> Stashed changes
   addmodule(module:Module){
     return this.http.post<any>(`${this.baseUrl}/modules/add`,module);
  }
@@ -86,5 +93,8 @@ export class MyServiceService {
    return this.http.get<any>(`${this.baseUrl}/modules/getmodules/${loggedUser}/${cousename}`);
  }
   
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
