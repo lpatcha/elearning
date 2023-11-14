@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+<<<<<<< Updated upstream
 
 import { Course } from './models/course';
 import { Enrollment } from './models/enroll';
@@ -9,6 +10,11 @@ import { Enrollment } from './models/enroll';
 import { Module } from './models/module';
 
 
+=======
+import { Course } from './models/course';
+import { Enrollment } from './models/enroll';
+import { Module } from './models/module';
+>>>>>>> Stashed changes
 
 @Injectable({
   providedIn: 'root'
@@ -64,7 +70,10 @@ export class MyServiceService {
   {
     return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
   }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   addmodule(module:Module){
     return this.http.post<any>(`${this.baseUrl}/modules/add`,module);
  }
@@ -74,5 +83,8 @@ export class MyServiceService {
  }
 
   
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 }

@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./course-content.component.css']
 })
 export class CourseContentComponent {
-
   
   content: any = {}; // Store form data here
   selectedFile: File | null = null;

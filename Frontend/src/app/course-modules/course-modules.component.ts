@@ -3,9 +3,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course';
 import { MyServiceService } from '../my-service.service';
+<<<<<<< Updated upstream
 
 import { Module } from '../models/module';
 
+=======
+import { Module } from '../models/module';
+import { MatDialog } from '@angular/material/dialog';
+import { InputDialogComponent } from '../input-dialog/input-dialog.component';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-course-modules',
@@ -13,7 +19,10 @@ import { Module } from '../models/module';
   styleUrls: ['./course-modules.component.css']
 })
 export class CourseModulesComponent {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   moduleNames: Module[]| undefined;
   video = 'jpvZXcGkUMY';
   courseName = 'springboot';
@@ -25,7 +34,7 @@ export class CourseModulesComponent {
   coursedetails : Observable<Course> | undefined;
   createmodule: Module = new Module();
 
-  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService) { }
+  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
@@ -398,6 +407,5 @@ export class CourseModulesComponent {
   {
     return document.querySelector('script[src="' + target + '"]') ? true : false
   }
-
 
 }
