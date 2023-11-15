@@ -29,13 +29,7 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
-<<<<<<< Updated upstream
-
-
 import { timeout } from 'rxjs';
-
-=======
->>>>>>> Stashed changes
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
@@ -48,6 +42,11 @@ import { CourseContentComponent } from './course-content/course-content.componen
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +58,7 @@ import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
     ActionCellRendererComponent,
     UsernameLinkRendererComponent,
     ButtonRendererComponent,
+    
     UserDetailsComponent,
     TableComponent,
     AdminNavHeaderComponent,
@@ -67,19 +67,15 @@ import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
     CoursestableComponent,
     ApprovecourseComponent
     CategoryCreateComponent,
-    AddcourseComponent,
     TeacherdashboardComponent,
     AdduserComponent,
     CourseListComponent,
     AllCoursesComponent,
     CourseModulesComponent,
-<<<<<<< Updated upstream
-    CourseContentComponent
-=======
+
     CourseContentComponent,
     ModuleheaderComponent
   
->>>>>>> Stashed changes
   ],
 
   
@@ -97,10 +93,9 @@ import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
     AgGridModule,
     MatCardModule,
     CarouselModule,
-<<<<<<< Updated upstream
-=======
+
     YouTubePlayerModule,
->>>>>>> Stashed changes
+
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,
