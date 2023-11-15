@@ -1,4 +1,7 @@
+
 <!-- src/app/user-list/user-list.component.html -->
+<app-header></app-header>
+
 <div class="user-list">
     <h1>User List</h1>
     <ul>
@@ -6,6 +9,7 @@
     </ul>
     <button (click)="addUser()">Add User</button>
   </div>
+
 
   <div class="container">
     <input type="file" (change)="onFileChange($event)" accept=".xlsx">

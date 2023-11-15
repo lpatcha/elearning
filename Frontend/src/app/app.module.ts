@@ -29,7 +29,10 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
+
 import { timeout } from 'rxjs';
+
+
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
@@ -42,6 +45,9 @@ import { CourseModulesComponent } from './course-modules/course-modules.componen
 import { CourseContentComponent } from './course-content/course-content.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +59,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     ActionCellRendererComponent,
     UsernameLinkRendererComponent,
     ButtonRendererComponent,
+    
     UserDetailsComponent,
     TableComponent,
     AdminNavHeaderComponent,
@@ -61,7 +68,6 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     CoursestableComponent,
     ApprovecourseComponent
     CategoryCreateComponent,
-    AddcourseComponent,
     TeacherdashboardComponent,
     AdduserComponent,
     CourseListComponent,
@@ -88,7 +94,6 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
     CarouselModule,
 
     YouTubePlayerModule,
-
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,
