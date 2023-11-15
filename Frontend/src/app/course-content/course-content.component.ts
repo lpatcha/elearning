@@ -25,6 +25,7 @@ export class CourseContentComponent {
     this.selectedFile = event.target.files[0];
   }
 
+
   content: any = {}; // Store form data here
   selectedFile: File | null = null;
 

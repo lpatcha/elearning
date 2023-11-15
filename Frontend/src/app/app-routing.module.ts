@@ -15,12 +15,8 @@ import { CoursestableComponent } from './coursestable/coursestable.component';
 
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
-
 import { CourseContentComponent } from './course-content/course-content.component';
-
 import { AdduserComponent } from './adduser/adduser.component';
-
-
 
 
 
@@ -42,7 +38,9 @@ const routes: Routes = [
   {path:'allcourses/:coursename',component:CourseModulesComponent},
   { path: 'course-content', component: CourseContentComponent },
 
+
   { path: 'userenroll/:coursename', component: AdduserComponent },
+
 
 ];
 

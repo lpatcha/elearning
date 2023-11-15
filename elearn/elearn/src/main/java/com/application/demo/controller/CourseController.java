@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,10 +33,12 @@ public class CourseController {
 	@Autowired
 	private CourseService courseService;
 
+
 	@Autowired
 	private CourseRepository courseRepo;
-	
-	
+
+
+
 	@PostMapping("/addCourse")
 	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
 	{
@@ -112,5 +113,4 @@ public class CourseController {
 	        }
 	    }
 	
-
 }
