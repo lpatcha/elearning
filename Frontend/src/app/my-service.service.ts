@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 =======
 >>>>>>> Stashed changes
 import { Course } from './models/course';
+import { Enrollment } from './models/enroll';
+
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +36,7 @@ export class MyServiceService {
   {
     return this.http.post<any>(`${this.baseUrl}/addCourse`,course);
   }
+
   getCourse() : Observable<any>
   {
     return this.http.get<any>(`${this.baseUrl}/getcourses`);
@@ -53,5 +56,17 @@ export class MyServiceService {
   {
     return this.http.get<any>(`${this.baseUrl}/getcoursebyemail/`+loggedUser);
   }
+  getCoursesByEmailandcoursename(loggedUser : string,cousename:string) : Observable<any>
+  {
+    return this.http.get<any>(`${this.baseUrl}/getcoursebycousename/${loggedUser}/${cousename}`);
+  }
+  addenrollment(enroll:Enrollment){
+     return this.http.post<any>(`${this.baseUrl}/addenrollment`,enroll);
+  }
+  getUsersByEmailandcoursename(loggedUser : string,cousename:string) : Observable<any>
+  {
+    return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
+  }
   
+
 }

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Course } from '../models/course';
+import { MyServiceService } from '../my-service.service';
 
 @Component({
   selector: 'app-course-modules',
@@ -6,10 +10,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./course-modules.component.css']
 })
 export class CourseModulesComponent {
-<<<<<<< Updated upstream
-=======
+
   moduleNames: string[] = ['Home', 'News', 'Contact', 'About'];
-  video = 'jpvZXcGkUMY';
+
   courseName = 'springboot';
   // chapterlist : Observable<Chapter[]> | undefined;
   chapter : any | undefined;
@@ -76,6 +79,7 @@ export class CourseModulesComponent {
     chapter8name: 'chapter8',
     chapter8id: 'jpvZXcGkUMY',
  }
+
     // this.chapterlist = this._service.getChappterListByCourseName(this.courseName);
     // this.courselist = this._service.getCourseListByName(this.courseName);
 
@@ -186,6 +190,6 @@ export class CourseModulesComponent {
   {
     return document.querySelector('script[src="' + target + '"]') ? true : false
   }
->>>>>>> Stashed changes
+
 
 }
