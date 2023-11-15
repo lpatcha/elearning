@@ -71,11 +71,6 @@ export class LoginComponent {
           //this.toastr.success('User details updated successfully', 'Success');
 
 
-          console.log("debugin")
-         
-          this.toastr.success('Login SuccessFul', '', );
-
-          this.router.navigate(['/upload-excel']); // Redirect to student page
         }
         else if (role === 'teacher') {
           this.router.navigate(['/teacherdashboard']);
@@ -97,5 +92,8 @@ export class LoginComponent {
       }
     );
     }
-  } 
+  }
+
+
+  
 }

@@ -1,7 +1,9 @@
 package com.application.demo.controller;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 
 import java.util.Optional;
 
@@ -16,10 +18,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.UserTemp;
 import com.application.demo.repository.CourseRepository;
 import com.application.demo.service.CourseService;
+
 
 @CrossOrigin(origins = "http://localhost:4200")
 
@@ -31,7 +35,9 @@ public class CourseController {
 	@Autowired
 	private CourseService courseService;
 
+	@Autowired
 	private CourseRepository courseRepo;
+	
 
 	@PostMapping("/addCourse")
 	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
@@ -107,7 +113,6 @@ public class CourseController {
 	        }
 	    }
 	
-
 
 
 }
