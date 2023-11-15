@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { Course } from './models/course';
 import { Enrollment } from './models/enroll';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +36,7 @@ export class MyServiceService {
   {
     return this.http.post<any>(`${this.baseUrl}/addCourse`,course);
   }
+
   getCourse() : Observable<any>
   {
     return this.http.get<any>(`${this.baseUrl}/getcourses`);
@@ -67,4 +69,5 @@ export class MyServiceService {
     return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
   }
   
+
 }
