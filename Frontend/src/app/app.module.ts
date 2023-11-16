@@ -30,12 +30,16 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
 
-
 import { timeout } from 'rxjs';
 
 
 
 import { timeout } from 'rxjs';
+
+
+
+import { timeout } from 'rxjs';
+
 
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
@@ -57,6 +61,9 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 
 import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 
+import { InputDialogComponent } from './input-dialog/input-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 
@@ -100,6 +107,7 @@ import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
   
 
 
+
     CourseContentComponent,
     ModuleheaderComponent
   
@@ -124,6 +132,7 @@ import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 
 
 
+
     YouTubePlayerModule,
 
     ToastrModule.forRoot({
@@ -140,6 +149,7 @@ import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

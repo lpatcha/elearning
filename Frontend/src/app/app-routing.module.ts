@@ -18,6 +18,8 @@ import { CourseModulesComponent } from './course-modules/course-modules.componen
 import { CourseContentComponent } from './course-content/course-content.component';
 import { AdduserComponent } from './adduser/adduser.component';
 
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+
 
 
 
@@ -45,12 +47,15 @@ const routes: Routes = [
   { path: 'allcourses', component: AllCoursesComponent },
 
 
+  {path:'allcourses/:coursename',component:CourseModulesComponent},
+  { path: 'course-content', component: CourseContentComponent },
+
+
 
 
   {path:'allcourses/:coursename',component:CourseModulesComponent},
   { path: 'course-content', component: CourseContentComponent }
   { path: 'userenroll/:coursename', component: AdduserComponent },
-
 
 ];
 

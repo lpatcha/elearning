@@ -3,14 +3,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course';
 import { MyServiceService } from '../my-service.service';
-<<<<<<< Updated upstream
-=======
+
 import { Module } from '../models/module';
 import { MatDialog } from '@angular/material/dialog';
 import { InputDialogComponent } from '../input-dialog/input-dialog.component';
->>>>>>> Stashed changes
+
 
 import { Module } from '../models/module';
+
+
+import { Module } from '../models/module';
+import { MatDialog } from '@angular/material/dialog';
+import { InputDialogComponent } from '../input-dialog/input-dialog.component';
 
 
 @Component({
@@ -19,7 +23,7 @@ import { Module } from '../models/module';
   styleUrls: ['./course-modules.component.css']
 })
 export class CourseModulesComponent {
-<<<<<<< Updated upstream
+
 
   moduleNames: Module[]| undefined;
   video = 'jpvZXcGkUMY';
@@ -32,7 +36,7 @@ export class CourseModulesComponent {
   coursedetails : Observable<Course> | undefined;
   createmodule: Module = new Module();
 
-  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService) { }
+  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
@@ -228,10 +232,10 @@ export class CourseModulesComponent {
 
   moduleNames: string[] = ['Home', 'News', 'Contact', 'About'];
 
-=======
+
   moduleNames: Module[]| undefined;
   video = 'jpvZXcGkUMY';
->>>>>>> Stashed changes
+
   courseName = 'springboot';
   // chapterlist : Observable<Chapter[]> | undefined;
   chapter : any | undefined;
@@ -300,16 +304,12 @@ export class CourseModulesComponent {
     chapter8name: 'chapter8',
     chapter8id: 'jpvZXcGkUMY',
  }
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     // this.chapterlist = this._service.getChappterListByCourseName(this.courseName);
     // this.courselist = this._service.getCourseListByName(this.courseName);
 
   }
-<<<<<<< Updated upstream
-=======
+
   addmodule() {
     let moduleName = prompt('Enter a new module name:');
     this.createmodule.coursename=this.courseName;
@@ -360,7 +360,7 @@ export class CourseModulesComponent {
       }
     });
   }
->>>>>>> Stashed changes
+
 
   openOverview()
   {
@@ -467,6 +467,5 @@ export class CourseModulesComponent {
   {
     return document.querySelector('script[src="' + target + '"]') ? true : false
   }
-
 
 }

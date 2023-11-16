@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 
+
 import { Course } from './models/course';
 import { Enrollment } from './models/enroll';
 
@@ -15,6 +16,10 @@ import { Module } from './models/module';
 import { Module } from './models/module';
 
 
+
+import { Course } from './models/course';
+import { Enrollment } from './models/enroll';
+import { Module } from './models/module';
 
 
 @Injectable({
@@ -70,7 +75,6 @@ export class MyServiceService {
   {
     return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
   }
-
 
   addmodule(module:Module){
     return this.http.post<any>(`${this.baseUrl}/modules/add`,module);
