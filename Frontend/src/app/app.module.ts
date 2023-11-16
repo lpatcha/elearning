@@ -29,38 +29,36 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
-<<<<<<< Updated upstream
+
+
+
 import { timeout } from 'rxjs';
-=======
->>>>>>> Stashed changes
+
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
 import { ApprovecourseComponent } from './approvecourse/approvecourse.component';
 import { CourseListComponent } from './course-list/course-list.component';
-
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
-import { InputDialogComponent } from './input-dialog/input-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
 
-
-
->>>>>>> Stashed changes
-=======
 import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
->>>>>>> Stashed changes
+
+
+import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -73,13 +71,13 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
     ActionCellRendererComponent,
     UsernameLinkRendererComponent,
     ButtonRendererComponent,
+    
     UserDetailsComponent,
     TableComponent,
     AdminNavHeaderComponent,
     HeaderComponent,
     CategoryListComponent,
     CategoryCreateComponent,
-    AddcourseComponent,
     TeacherdashboardComponent,
     AdduserComponent,
     AddcourseComponent,
@@ -88,23 +86,12 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
     CourseListComponent,
     AllCoursesComponent,
     CourseModulesComponent,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    CourseContentComponent
-
-=======
     CourseContentComponent,
     ModuleheaderComponent,
     InputDialogComponent
-=======
-    CourseContentComponent,
-    ModuleheaderComponent,
-    InputDialogComponent,
     UpdateProfileComponent,
-    AnnouncementsComponent
->>>>>>> Stashed changes
-  
->>>>>>> Stashed changes
+    AnnouncementsComponent,
+ 
   ],
 
   
@@ -122,17 +109,9 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
     AgGridModule,
     MatCardModule,
     CarouselModule,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
     YouTubePlayerModule,
 
-=======
-    YouTubePlayerModule,
->>>>>>> Stashed changes
-=======
-    YouTubePlayerModule,
->>>>>>> Stashed changes
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,

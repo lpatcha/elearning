@@ -14,22 +14,21 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
 import { CourseContentComponent } from './course-content/course-content.component';
 import { AdduserComponent } from './adduser/adduser.component';
 
-=======
-import { CourseContentComponent } from './course-content/course-content.component';
-import { AdduserComponent } from './adduser/adduser.component';
->>>>>>> Stashed changes
-=======
-import { CourseContentComponent } from './course-content/course-content.component';
-import { AdduserComponent } from './adduser/adduser.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
->>>>>>> Stashed changes
+
+
+
+
+
+
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+
+
 
 
 const routes: Routes = [
@@ -48,14 +47,10 @@ const routes: Routes = [
   { path: 'cousetable', component: CoursestableComponent },
   { path: 'allcourses', component: AllCoursesComponent },
   {path:'allcourses/:coursename',component:CourseModulesComponent},
-  { path: 'course-content', component: CourseContentComponent },
-<<<<<<< Updated upstream
-
-  { path: 'userenroll/:coursename', component: AdduserComponent },
-=======
+  { path: 'course-content', component: CourseContentComponent }
   { path: 'userenroll/:coursename', component: AdduserComponent },
   { path: 'announcements', component: AnnouncementsComponent },
->>>>>>> Stashed changes
+
 ];
 
 @NgModule({

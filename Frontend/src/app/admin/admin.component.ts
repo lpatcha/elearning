@@ -3,27 +3,14 @@ import { Router } from '@angular/router';
 import { LogoutService } from '../logout.service';
 import { HttpClient } from '@angular/common/http';
 import { ColDef } from 'ag-grid-community';
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../notification.service';
+
 import { MatDialog } from '@angular/material/dialog';
 import { ExcelUploadComponent } from '../excel-upload/excel-upload.component';
-<<<<<<< Updated upstream
 
-=======
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.min.js';
-import { ToastrService } from 'ngx-toastr';
-import { NotificationService } from '../notification.service';
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 @Component({
     selector: 'app-admin',
     templateUrl: './admin.component.html',
@@ -114,9 +101,6 @@ export class AdminComponent {
         this.rowDataUsers="teacher";
       }
   ngOnInit(){
-        // console.log("ggh")
-        //  this.loadData();
-        //this.notifyService.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
         this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
         this.loggedUser = this.loggedUser.replace(/"/g, '');
     
