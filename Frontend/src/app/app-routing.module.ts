@@ -12,11 +12,19 @@ import { CategoryCreateComponent } from './category-create/category-create.compo
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
-
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
+
 import { CourseContentComponent } from './course-content/course-content.component';
 import { AdduserComponent } from './adduser/adduser.component';
+
+
+
+
+
+
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
+
 
 
 
@@ -28,6 +36,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'table', component: TableComponent },
   { path: 'user-details/:id', component: UserDetailsComponent ,canActivate: [AuthGuard]},
+  { path: 'update-details/:id', component: UpdateProfileComponent ,canActivate: [AuthGuard]},
   {path:'add-course',component:AddcourseComponent,canActivate:[AuthGuard]},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'createcategory', component: CategoryCreateComponent },
@@ -35,10 +44,11 @@ const routes: Routes = [
   { path: 'cousetable', component: CoursestableComponent },
   { path: 'allcourses', component: AllCoursesComponent },
 
+
+
+
   {path:'allcourses/:coursename',component:CourseModulesComponent},
-  { path: 'course-content', component: CourseContentComponent },
-
-
+  { path: 'course-content', component: CourseContentComponent }
   { path: 'userenroll/:coursename', component: AdduserComponent },
 
 

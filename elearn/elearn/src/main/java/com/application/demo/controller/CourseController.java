@@ -33,7 +33,6 @@ public class CourseController {
 	@Autowired
 	private CourseService courseService;
 
-
 	@Autowired
 	private CourseRepository courseRepo;
 
@@ -113,4 +112,5 @@ public class CourseController {
 	        }
 	    }
 	
+
 }
