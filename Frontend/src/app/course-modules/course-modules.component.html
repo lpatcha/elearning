@@ -6,36 +6,49 @@
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
   </div> -->
-<<<<<<< Updated upstream
 
-  <app-header></app-header>
 
-=======
   <app-header></app-header>
   <app-moduleheader [coursename]="courseName"></app-moduleheader>
->>>>>>> Stashed changes
+
+
+  <app-header></app-header>
+  <app-moduleheader [coursename]="courseName"></app-moduleheader>
+
   <div class="sidebar">
     <h2>Module List</h2>
     <ul>
       <!-- <li *ngFor="let module of moduleNames">
         <a [routerLink]="['/modules', module]">{{ module }}</a>
       </li> -->
+
       <li *ngFor="let module of moduleNames ">
         <label [routerLink]="['/modules', module.modulename]" style="cursor: pointer;">{{ module.modulename }}</label>
        </li>
-<<<<<<< Updated upstream
+
        <li> 
-=======
+
       <li>
        <button (click)="openInputDialog()">Add Module</button>
        </li>
        <!-- <li> 
->>>>>>> Stashed changes
+
+
+      <li *ngFor="let module of moduleNames ">
+        <label [routerLink]="['/modules', module.modulename]" style="cursor: pointer;">{{ module.modulename }}</label>
+       </li>
+      <li>
+       <button (click)="addmodule()">Add Module</button>
+       </li>
+       <!-- <li> 
+
         <label [routerLink]="['/userenroll',courseName]" style="cursor: pointer;"> Enrolled students </label>
       </li> -->
     </ul>
   </div>
   <div class ="content">
+
+
   <div class="continer">
     <div>
     <div style="font-weight: bolder; color: darkgreen; font-size: 35px; margin-bottom: 2%;">Welcome to {{courseName}} course 👋 </div>

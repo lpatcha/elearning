@@ -29,13 +29,14 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
-<<<<<<< Updated upstream
+
 
 import { timeout } from 'rxjs';
 
 
-=======
->>>>>>> Stashed changes
+
+import { timeout } from 'rxjs';
+
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
@@ -46,13 +47,18 @@ import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-<<<<<<< Updated upstream
-=======
+
+
 import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
->>>>>>> Stashed changes
+
+
+import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
+
+
+
 
 
 
@@ -83,16 +89,21 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     CourseListComponent,
     AllCoursesComponent,
     CourseModulesComponent,
-<<<<<<< Updated upstream
+
     CourseContentComponent
 
-=======
+
     CourseContentComponent,
     ModuleheaderComponent,
     InputDialogComponent,
     UpdateProfileComponent
   
->>>>>>> Stashed changes
+
+
+    CourseContentComponent,
+    ModuleheaderComponent
+  
+
   ],
 
   
@@ -110,11 +121,11 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
     AgGridModule,
     MatCardModule,
     CarouselModule,
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+
+
     YouTubePlayerModule,
+
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,

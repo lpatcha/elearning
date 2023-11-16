@@ -179,11 +179,15 @@ body {
   div.content {
     margin-left: 200px;
     padding: 1px 16px;
-<<<<<<< Updated upstream
+
     height: 1000px;
-=======
+
     height: 80%;
->>>>>>> Stashed changes
+
+
+    height: 80%;
+
+
   }
   .sidebar ul {
     list-style-type: none;

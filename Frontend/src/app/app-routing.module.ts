@@ -14,20 +14,18 @@ import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 import { CourseContentComponent } from './course-content/course-content.component';
-
 import { AdduserComponent } from './adduser/adduser.component';
-<<<<<<< Updated upstream
 
 
 
-=======
+
+
+
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
->>>>>>> Stashed changes
+
+
 
 
 const routes: Routes = [
@@ -45,13 +43,14 @@ const routes: Routes = [
   { path: 'teacherdashboard', component: TeacherdashboardComponent },
   { path: 'cousetable', component: CoursestableComponent },
   { path: 'allcourses', component: AllCoursesComponent },
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
+
+
+
   {path:'allcourses/:coursename',component:CourseModulesComponent},
-  { path: 'course-content', component: CourseContentComponent },
+  { path: 'course-content', component: CourseContentComponent }
   { path: 'userenroll/:coursename', component: AdduserComponent },
+
 
 ];
 
