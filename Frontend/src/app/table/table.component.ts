@@ -246,6 +246,29 @@ export class TableComponent {
     console.log('Enable/Disable:', data);
   }
 
+<<<<<<< Updated upstream
+=======
+
+  sentmail(){
+    console.log("hi");
+    this.toastr.success("Registration email sent to all unregister users");
+    this.http.post('http://localhost:8080/api/admin/sentmail',null).subscribe(
+        (response: any) => {
+            console.log("hiiiiii");
+            if (response.message === 'Mails sent successfully.') {
+                console.log('Registration email sent to successful');
+                this.toastr.success("Registration email sent successfully")
+              } else {
+                console.error('Admin creation failed.');
+                this.toastr.error("Mail sent failed")
+              }
+        },
+        (error: any) => {
+            console.error('An error occurred while creating the admin:', error);
+          })
+}
+
+>>>>>>> Stashed changes
   // deleteRow(data: any) {
   //   // Implement row deletion logic based on data
   //   const id=data.id;

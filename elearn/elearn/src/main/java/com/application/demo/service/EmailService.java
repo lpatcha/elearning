@@ -12,6 +12,12 @@ import org.springframework.stereotype.Service;
 public class EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
+<<<<<<< Updated upstream
+=======
+    
+    @Autowired
+    private EnrollmentService enrollmentService;
+>>>>>>> Stashed changes
 
     public void sendRegistrationEmail(String recipientEmail, String registrationToken) {
         SimpleMailMessage message = new SimpleMailMessage();
@@ -22,5 +28,24 @@ public class EmailService {
 
         javaMailSender.send(message);
     }
+<<<<<<< Updated upstream
+=======
+    
+    public void sendAnnouncementEmail(Long courseid,String title, String description) {
+        List<String> userEmails = enrollmentService.findAllEmails(courseid); // Implement this method in your repository
+        
+        for (String email : userEmails) {
+            SimpleMailMessage message = new SimpleMailMessage();
+            message.setTo(email);
+            message.setSubject("Announcement: " + title);
+            message.setText("Dear User,\n\n" + description + "\n\nBest regards,\n Illinois state university");
+            
+
+            
+            javaMailSender.send(message);
+        }
+    }
+    
+>>>>>>> Stashed changes
 }
 
