@@ -13,5 +13,9 @@ public interface ModuleRepository extends JpaRepository<ModuleEntity, Long> {
 
 	List<ModuleEntity> findByCoursenameAndInstructorname(String courseName, String instructorName);
 	List<ModuleEntity> findByInstructornameAndCoursename(String value1, String value2);
+<<<<<<< Updated upstream
+=======
+	 Optional<ModuleEntity> findByModulenameAndCoursenameAndInstructorname(String moduleName, String courseName, String instructorName);
+>>>>>>> Stashed changes
     // You can add custom query methods if needed
 }

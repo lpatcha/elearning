@@ -27,12 +27,55 @@ public class AnnouncementController {
     public AnnouncementController(AnnouncementRepository announcementRepository) {
         this.announcementRepository = announcementRepository;
     }
+<<<<<<< Updated upstream
 
     @PostMapping
     public AnnouncementEntity createAnnouncement(@RequestBody AnnouncementEntity announcement) {
         announcement.setCreatedDate(LocalDateTime.now());
         sendAnnouncement.sendAnnouncementEmail(announcement.getTitle(), announcement.getDescription());
         return announcementRepository.save(announcement);
+=======
+//
+//    @PostMapping
+//    public AnnouncementEntity createAnnouncement(@RequestBody AnnouncementEntity announcement) {
+//        announcement.setCreatedDate(LocalDateTime.now());
+//        sendAnnouncement.sendAnnouncementEmail(announcement.getTitle(), announcement.getDescription());
+//        return announcementRepository.save(announcement);
+//    }
+    
+    
+    
+    @PostMapping("/add")
+    public AnnouncementEntity addAnnouncement(
+            @RequestBody AnnouncementsDto announcementRequest) {
+        // Find the course based on course name and professor name
+        CourseEntity course = courseRepository.findByCourseNameAndProfessorName(
+                announcementRequest.getCourseName(), announcementRequest.getProfessorName());
+
+        if (course == null) {
+            // Handle the case where the course doesn't exist
+            // You can return an error response or throw an exception
+        	return null;
+        } else {
+            AnnouncementEntity announcement = new AnnouncementEntity();
+            announcement.setTitle(announcementRequest.getTitle());
+            announcement.setDescription(announcementRequest.getDescription());
+            announcement.setCreatedDate(LocalDateTime.now());
+            announcement.setCourse(course);
+
+           
+            
+            
+            // Save the announcement
+            AnnouncementEntity savedAnnouncement = announcementRepository.save(announcement);
+            course.getAnnouncements().add(savedAnnouncement);
+            courseRepository.save(course);
+            // Send the announcement email
+            sendAnnouncement.sendAnnouncementEmail(savedAnnouncement.getTitle(), savedAnnouncement.getDescription());
+            return savedAnnouncement;
+        }
+		
+>>>>>>> Stashed changes
     }
 
     @GetMapping

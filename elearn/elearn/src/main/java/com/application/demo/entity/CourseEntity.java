@@ -3,6 +3,11 @@ package com.application.demo.entity;
 import java.util.Date;
 import java.util.List;
 
+<<<<<<< Updated upstream
+=======
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+>>>>>>> Stashed changes
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,10 +36,18 @@ public class CourseEntity {
     private String professorName;
     
     
+<<<<<<< Updated upstream
+=======
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
+    @JsonIgnore
+    public List<AnnouncementEntity> announcements= new ArrayList<>();
+    
+>>>>>>> Stashed changes
 
 	
 
 
+<<<<<<< Updated upstream
 	public CourseEntity(Long id, String courseName, String courseId, String courseDescription, Date startDate,
 			int numberOfWeeks, Long userId, String department, String courseStatus, Date endDate, String category,
 			String modules, String professorName) {
@@ -82,6 +95,65 @@ public class CourseEntity {
 		return id;
 	}
 
+=======
+
+	
+
+
+
+
+	public CourseEntity(Long id, String courseName, String courseId, String courseDescription, Date startDate,
+			int numberOfWeeks, Long userId, String department, String courseStatus, Date endDate, String category,
+			String modules, String professorName, List<AnnouncementEntity> announcements) {
+		super();
+		this.id = id;
+		this.courseName = courseName;
+		this.courseId = courseId;
+		this.courseDescription = courseDescription;
+		this.startDate = startDate;
+		this.numberOfWeeks = numberOfWeeks;
+		this.userId = userId;
+		this.department = department;
+		this.courseStatus = courseStatus;
+		this.endDate = endDate;
+		this.category = category;
+		this.modules = modules;
+		this.professorName = professorName;
+		this.announcements = announcements;
+	}
+
+
+
+
+	public CourseEntity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+>>>>>>> Stashed changes
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -167,7 +239,29 @@ public class CourseEntity {
 		this.professorName = professorName;
 	}
 
+<<<<<<< Updated upstream
     // getters and setters
+=======
+
+
+
+	public List<AnnouncementEntity> getAnnouncements() {
+		return announcements;
+	}
+
+
+
+
+	public void setAnnouncements(List<AnnouncementEntity> announcements) {
+		this.announcements = announcements;
+	}
+
+
+
+
+	
+    
+>>>>>>> Stashed changes
     
     
     
