@@ -1,11 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-<<<<<<< Updated upstream
-=======
 import { ActivatedRoute } from '@angular/router';
 import { data } from 'jquery';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-announcements',
@@ -13,13 +10,12 @@ import { data } from 'jquery';
   styleUrls: ['./announcements.component.css']
 })
 export class AnnouncementsComponent {
-
-
+  @Input() coursename: string="";
+  professorName = '';
+  currRole = '';
+  courseName= '';
   announcement: any = {};
 
-<<<<<<< Updated upstream
-  constructor(private http: HttpClient, private dialogRef:MatDialogRef<AnnouncementsComponent>) {}
-=======
   constructor(private http: HttpClient,  private activatedRoute: ActivatedRoute,private dialogRef:MatDialogRef<AnnouncementsComponent>) {}
 
   ngOnInit(): void {
@@ -35,18 +31,15 @@ export class AnnouncementsComponent {
     
     this.announcement.professorName = this.professorName;
   }
->>>>>>> Stashed changes
   closeDialog(): void {
     this.dialogRef.close();
   }
+
+
   submitForm() {
     console.log(this.announcement);
-<<<<<<< Updated upstream
-    this.http.post('http://localhost:8080/announcements', this.announcement).subscribe(
-=======
     
     this.http.post('http://localhost:8080/announcements/add', this.announcement).subscribe(
->>>>>>> Stashed changes
       (response) => {
         console.log('Announcement submitted:', response);
         // Reset the form

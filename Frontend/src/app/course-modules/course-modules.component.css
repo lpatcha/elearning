@@ -1,5 +1,11 @@
-<<<<<<< Updated upstream
-=======
+.selected-module {
+  background-color: #47baba; /* Your desired highlight color */
+  color: #fff; /* Text color for the highlighted module */
+}
+.selected-video{
+  background-color: #dcd859; /* Your desired highlight color */
+  color: #fff; 
+}
 .custom-video-style{
   color: blue; 
   padding: 10px;
@@ -275,4 +281,3 @@ body {
       float: none;
     }
 } */
->>>>>>> Stashed changes

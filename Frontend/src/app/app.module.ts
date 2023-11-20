@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; 
@@ -130,4 +128,3 @@ import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
->>>>>>> Stashed changes

@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -33,4 +31,3 @@ export class ModuleheaderComponent {
   }
 
 }
->>>>>>> Stashed changes

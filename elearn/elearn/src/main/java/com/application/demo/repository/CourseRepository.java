@@ -10,9 +10,6 @@ import com.application.demo.entity.CourseEntity;
 @Repository
 public interface CourseRepository extends JpaRepository<CourseEntity, Long>{
 	List<CourseEntity> findByProfessorName(String professorName);
-<<<<<<< Updated upstream
-=======
 	CourseEntity findByCourseNameAndProfessorName(String courseName, String professorName);
->>>>>>> Stashed changes
 
 }

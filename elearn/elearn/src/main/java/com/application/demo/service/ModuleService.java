@@ -1,26 +1,24 @@
 package com.application.demo.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.application.demo.entity.ModuleEntity;
-<<<<<<< Updated upstream
-=======
 import com.application.demo.entity.VideoContent;
->>>>>>> Stashed changes
 import com.application.demo.repository.ModuleRepository;
+import com.application.demo.repository.VideoContentRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 @Service
 public class ModuleService {
 	@Autowired
 	ModuleRepository modulerepo;
-<<<<<<< Updated upstream
-=======
 	 @Autowired
 	    private VideoContentRepository videoContentRepository;
 	 
->>>>>>> Stashed changes
 	 public List<ModuleEntity> getModulesByCourseAndInstructor(String courseName, String instructorName) {
 		 System.out.println(modulerepo.findByCoursenameAndInstructorname(courseName, instructorName));
 	        return modulerepo.findByInstructornameAndCoursename(instructorName,courseName);
@@ -32,8 +30,6 @@ public class ModuleService {
 		// TODO Auto-generated method stub
 		return modulerepo.findAll();
 	}
-<<<<<<< Updated upstream
-=======
 	public ModuleEntity findModule(String moduleName, String courseName, String instructorName) {
         Optional<ModuleEntity> moduleOptional = modulerepo.findByModulenameAndCoursenameAndInstructorname(moduleName, courseName, instructorName);
         if(moduleOptional.isPresent())
@@ -70,5 +66,4 @@ public class ModuleService {
 	        // Save the updated module
 	        return modulerepo.save(existingModule);
 	    }
->>>>>>> Stashed changes
 }

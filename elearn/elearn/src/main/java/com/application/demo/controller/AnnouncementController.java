@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.application.demo.Dto.AnnouncementsDto;
 import com.application.demo.entity.AnnouncementEntity;
+import com.application.demo.entity.CourseEntity;
 import com.application.demo.repository.AnnouncementRepository;
+import com.application.demo.repository.CourseRepository;
 import com.application.demo.service.EmailService;
 
 @RestController
@@ -23,18 +26,13 @@ public class AnnouncementController {
     
     @Autowired
     private EmailService sendAnnouncement;
+    
+    @Autowired
+    private  CourseRepository courseRepository;
 
     public AnnouncementController(AnnouncementRepository announcementRepository) {
         this.announcementRepository = announcementRepository;
     }
-<<<<<<< Updated upstream
-
-    @PostMapping
-    public AnnouncementEntity createAnnouncement(@RequestBody AnnouncementEntity announcement) {
-        announcement.setCreatedDate(LocalDateTime.now());
-        sendAnnouncement.sendAnnouncementEmail(announcement.getTitle(), announcement.getDescription());
-        return announcementRepository.save(announcement);
-=======
 //
 //    @PostMapping
 //    public AnnouncementEntity createAnnouncement(@RequestBody AnnouncementEntity announcement) {
@@ -75,7 +73,6 @@ public class AnnouncementController {
             return savedAnnouncement;
         }
 		
->>>>>>> Stashed changes
     }
 
     @GetMapping

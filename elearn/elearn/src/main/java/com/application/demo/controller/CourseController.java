@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 package com.application.demo.controller;
 
 import java.util.ArrayList;
@@ -113,4 +111,3 @@ public class CourseController {
 	
 
 }
->>>>>>> Stashed changes
