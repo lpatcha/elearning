@@ -48,6 +48,7 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
 import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocontent.component';
 import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DeleteenrollComponent } from './deleteenroll/deleteenroll.component';
@@ -115,6 +116,7 @@ import { CourseAttachmentsListComponent } from './course-attachments-list/course
     AssignmentListComponent,
     UpdatevideocontentComponent,
     UpdatemoduleComponent,
+<<<<<<< Updated upstream
     UpdateCourseComponent,
     
    
@@ -134,6 +136,9 @@ import { CourseAttachmentsListComponent } from './course-attachments-list/course
     AssignmentfilesubmissionComponent,
     CourseAttachmentsComponent,
     CourseAttachmentsListComponent
+>>>>>>> Stashed changes
+=======
+    UpdateCourseComponent
 >>>>>>> Stashed changes
   
   ],

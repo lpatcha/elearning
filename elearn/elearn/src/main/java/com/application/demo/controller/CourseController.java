@@ -117,6 +117,9 @@ public class CourseController {
 	
 	
 	
+	
+	
+	
 	 @PutMapping("/enablecourse/{id}")
 	    public ResponseEntity<CourseEntity> updateEntity(@PathVariable Long id) {
 	    	
@@ -143,13 +146,18 @@ public class CourseController {
 	 
 	 @CrossOrigin(origins = "http://localhost:4200")
 	 @PutMapping("updatecourse")
+<<<<<<< Updated upstream
 	 public ResponseEntity<CourseEntity> updateCourse(@RequestBody addcourserequest updatedCourse) {
+=======
+	 public ResponseEntity<CourseEntity> updateCourse(@RequestBody CourseEntity updatedCourse) {
+>>>>>>> Stashed changes
 	     Optional<CourseEntity> courseOptional = courseRepo.findById(updatedCourse.getId());
 
 	     if (courseOptional.isPresent()) {
 	         CourseEntity existingCourse = courseOptional.get();
 	         existingCourse.setCourseName(updatedCourse.getCourseName());
 	         existingCourse.setCourseDescription(updatedCourse.getCourseDescription());
+<<<<<<< Updated upstream
 	         existingCourse.setEndDate(updatedCourse.getEndDate());
 	         existingCourse.setStartDate(updatedCourse.getStartDate());
 	         existingCourse.setCategory(categoryRepo.findById(Long.parseLong(updatedCourse.getCategory())).get());
@@ -163,6 +171,9 @@ public class CourseController {
 	         // Calculate the number of weeks
 	         long weeksDifference = daysDifference / 7;
 	         existingCourse.setNumberOfWeeks((int)(weeksDifference));
+=======
+	         
+>>>>>>> Stashed changes
 	         CourseEntity updatedEntity = courseRepo.save(existingCourse);
 	         return new ResponseEntity<>(updatedEntity, HttpStatus.OK);
 	     } else {

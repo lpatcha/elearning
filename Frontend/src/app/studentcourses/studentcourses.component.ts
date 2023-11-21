@@ -3,7 +3,13 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Observable } from 'rxjs';
 import { AllCourses } from '../models/allcourses';
 import { Course } from '../models/course';
+<<<<<<< Updated upstream:Frontend/src/app/studentcourses/studentcourses.component.ts
 import { Router } from '@angular/router';
+=======
+import { MyServiceService } from '../my-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateCourseComponent } from '../update-course/update-course.component';
+>>>>>>> Stashed changes:Frontend/src/app/all-courses/all-courses.component.ts
 
 import { MatDialog } from '@angular/material/dialog';
 import { CourseService } from '../courses/course-service.service';
@@ -18,8 +24,13 @@ export class StudentcoursesComponent {
   myenrollments : Observable<AllCourses[]> | undefined;
   loggedUser = '';
   currRole = '';
+<<<<<<< Updated upstream:Frontend/src/app/studentcourses/studentcourses.component.ts
   courses : any;
   constructor( private _router : Router,private courseService : CourseService, private dialog : MatDialog) { }
+=======
+  courses : Observable<Course[]> | undefined;
+  constructor( private _router : Router,private courseService : MyServiceService, private dialog : MatDialog) { }
+>>>>>>> Stashed changes:Frontend/src/app/all-courses/all-courses.component.ts
 
   ngOnInit(): void 
   {
@@ -46,11 +57,19 @@ export class StudentcoursesComponent {
 
 
   updateCourse(courseId : any): void {
+<<<<<<< Updated upstream:Frontend/src/app/studentcourses/studentcourses.component.ts
     // this.dialog.open(UpdateCourseComponent, {
     //   data: { courseId: courseId },
     //   width: '500px',
     //   height:'500px'
     // });
+=======
+    this.dialog.open(UpdateCourseComponent, {
+      data: { courseId: courseId },
+      width: '500px',
+      height:'500px'
+    });
+>>>>>>> Stashed changes:Frontend/src/app/all-courses/all-courses.component.ts
   }
 
 
