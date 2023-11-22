@@ -14,7 +14,6 @@ public class VideoContent {
     private Long id;
     private String contentname;
     private String videourl;
-    private String videodescription;
     
     @ManyToOne
     @JoinColumn(name = "module_id")
@@ -44,14 +43,6 @@ public class VideoContent {
 		this.videourl = videourl;
 	}
 
-	public String getVideodescription() {
-		return videodescription;
-	}
-
-	public void setVideodescription(String videodescription) {
-		this.videodescription = videodescription;
-	}
-
 	public ModuleEntity getModule() {
 		return module;
 	}
@@ -60,12 +51,11 @@ public class VideoContent {
 		this.module = module;
 	}
 
-	public VideoContent(Long id, String contentname, String videourl, String videodescription, ModuleEntity module) {
+	public VideoContent(Long id, String contentname, String videourl, ModuleEntity module) {
 		super();
 		this.id = id;
 		this.contentname = contentname;
 		this.videourl = videourl;
-		this.videodescription = videodescription;
 		this.module = module;
 	}
 
@@ -73,8 +63,7 @@ public class VideoContent {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	
+    
 
     // Constructors, getters, and setters
 }

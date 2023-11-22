@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, Input } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user-details',
@@ -9,33 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent {
-  constructor(private http: HttpClient ,
+  constructor(
+    private http: HttpClient,
     private route: ActivatedRoute,
-<<<<<<< Updated upstream
-     private router: Router) {}
-   cardData: any;
-  ngOnInit(){
-    this.route.params.subscribe((data1) => {
-      console.log(data1);
-      const email = data1['id']; // Access the id parameter here
-      
-      console.log(email);
-      this.http.get<any[]>(`http://localhost:8080/table/getuserdetails/${email}`).subscribe((data) => {
-        this.cardData = data;
-      });
-    });
-    
-}
-
-=======
     private router: Router,
-    private toastr: ToastrService,
-    private dialogRef:MatDialogRef<UserDetailsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-  ) {
-    this.email = data.useremail ;
-  }
-  email:any;
+    private toastr: ToastrService
+  ) {}
+
   cardData: any;
   isEditing: boolean = false; // Initially, editing is disabled
   newName: string = '';
@@ -44,25 +24,19 @@ export class UserDetailsComponent {
   newDOB: string = '';
 
   ngOnInit() {
-    // this.route.params.subscribe((data1) => {
-      // console.log(data1);
-      // this.email = data1;
+    this.route.params.subscribe((data1) => {
+      const email = data1['id'];
 
-      this.http.get<any>(`http://localhost:8080/table/getuserdetails/${this.email}`).subscribe((data) => {
+      this.http.get<any>(`http://localhost:8080/table/getuserdetails/${email}`).subscribe((data) => {
         this.cardData = data;
       });
-    // });
+    });
   }
 
   startEditing() {
     this.isEditing = true;
   }
 
-  closeDialog(): void {
-    this.dialogRef.close();
-  }
-
- 
   updateUser() {
     const updatedUserData = {
       name: this.newName,
@@ -71,8 +45,6 @@ export class UserDetailsComponent {
       dob: this.newDOB
       // Add other properties as needed
     };
-
-    
 
     this.http.post(`http://localhost:8080/table/updateuserdetails/${this.cardData.email}`, updatedUserData)
       .subscribe(
@@ -97,5 +69,4 @@ export class UserDetailsComponent {
         }
       );
   }
->>>>>>> Stashed changes
 }

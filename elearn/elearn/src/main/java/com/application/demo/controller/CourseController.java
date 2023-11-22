@@ -1,7 +1,5 @@
 package com.application.demo.controller;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -18,11 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.application.demo.Dto.addcourserequest;
-import com.application.demo.Dto.getcourseresponse;
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.UserTemp;
-import com.application.demo.repository.CategoryRepository;
 import com.application.demo.repository.CourseRepository;
 import com.application.demo.service.CourseService;
 
@@ -38,40 +33,18 @@ public class CourseController {
 	private CourseService courseService;
 	@Autowired
 	private CourseRepository courseRepo;
-	@Autowired
-	private CategoryRepository categoryRepo;
-	
 	
 	
 	@PostMapping("/addCourse")
-	public ResponseEntity<?> addNewCourse(@RequestBody addcourserequest course) {
-	    // Check if a course with the same courseName and professorName already exists
-	    CourseEntity existingCourse = courseService.findCourseByCourseNameAndProfessorNameAndCategoryName(course.getCourseName(), course.getProfessorName(), course.getCategory());
-
-	    if (existingCourse != null) {
-	        // A course with the same name and professor already exists, return an error response
-	        return ResponseEntity.status(HttpStatus.CONFLICT).body("Course already exists.");
-	    }
-
-	    // Generate a new ID and save the course
-	    String newID = getNewID();
-	    course.setCourseId(newID);
-	    LocalDate localEndDate = course.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDate localStartDate = course.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-        // Calculate the difference in days
-        long daysDifference = localEndDate.toEpochDay() - localStartDate.toEpochDay();
-
-        // Calculate the number of weeks
-        long weeksDifference = daysDifference / 7;
-	    course.setNumberOfWeeks((int)(weeksDifference));
-	    CourseEntity courseObj = courseService.addNewCourse(course);
-
-	    return ResponseEntity.ok(courseObj);
+	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
+	{
+		CourseEntity courseObj = null;
+		String newID = getNewID();
+		course.setCourseId(newID);
+		
+		courseObj = courseService.addNewCourse(course);
+		return courseObj;
 	}
-
-	
-	
 	
 	@GetMapping("/getcoursebyemail/{email}")
     public ResponseEntity<List<CourseEntity>> getCoursesByEmail(@PathVariable String email) {
@@ -106,16 +79,9 @@ public class CourseController {
 	}
 	
 	@GetMapping("/getcourses")
-	public List<getcourseresponse> getcourses(){
+	public List<CourseEntity> getcourses(){
 		return courseService.getAllCourses();
 	}
-	@GetMapping("/getcoursebyid/{id}")
-	public CourseEntity getcoursebyid(@PathVariable String id){
-		
-		return courseRepo.findById(Long.parseLong(id)).get();
-	}
-	
-	
 	
 	
 	
@@ -146,34 +112,14 @@ public class CourseController {
 	 
 	 @CrossOrigin(origins = "http://localhost:4200")
 	 @PutMapping("updatecourse")
-<<<<<<< Updated upstream
-	 public ResponseEntity<CourseEntity> updateCourse(@RequestBody addcourserequest updatedCourse) {
-=======
 	 public ResponseEntity<CourseEntity> updateCourse(@RequestBody CourseEntity updatedCourse) {
->>>>>>> Stashed changes
 	     Optional<CourseEntity> courseOptional = courseRepo.findById(updatedCourse.getId());
 
 	     if (courseOptional.isPresent()) {
 	         CourseEntity existingCourse = courseOptional.get();
 	         existingCourse.setCourseName(updatedCourse.getCourseName());
 	         existingCourse.setCourseDescription(updatedCourse.getCourseDescription());
-<<<<<<< Updated upstream
-	         existingCourse.setEndDate(updatedCourse.getEndDate());
-	         existingCourse.setStartDate(updatedCourse.getStartDate());
-	         existingCourse.setCategory(categoryRepo.findById(Long.parseLong(updatedCourse.getCategory())).get());
-	         existingCourse.setDepartment(categoryRepo.findById(Long.parseLong(updatedCourse.getDepartment())).get());
-	         LocalDate localEndDate = updatedCourse.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-	         LocalDate localStartDate = updatedCourse.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
-	         // Calculate the difference in days
-	         long daysDifference = localEndDate.toEpochDay() - localStartDate.toEpochDay();
-
-	         // Calculate the number of weeks
-	         long weeksDifference = daysDifference / 7;
-	         existingCourse.setNumberOfWeeks((int)(weeksDifference));
-=======
 	         
->>>>>>> Stashed changes
 	         CourseEntity updatedEntity = courseRepo.save(existingCourse);
 	         return new ResponseEntity<>(updatedEntity, HttpStatus.OK);
 	     } else {
@@ -182,7 +128,6 @@ public class CourseController {
 	 }
 
 	
-	 
 	
 	
 

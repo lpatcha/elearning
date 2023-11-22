@@ -1,8 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { LogoutService } from '../logout.service';
 import { HttpClient } from '@angular/common/http';
-
-import { CategoryService } from '../category.service';
+import { MyServiceService } from '../my-service.service';
 // import { AllservicesService } from '../allservices.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { CategoryService } from '../category.service';
   styleUrls: ['./category-create.component.css']
 })
 export class CategoryCreateComponent {
-  constructor(private myService: CategoryService,private http: HttpClient,private cdr: ChangeDetectorRef){};
+  constructor(private myService: MyServiceService,private http: HttpClient,private cdr: ChangeDetectorRef){};
   categoriesWithSubcategories: any[] = [];
   showInputBox = false;  // To control the visibility of the input box
   newCategory: string = ''; 
@@ -49,9 +48,9 @@ export class CategoryCreateComponent {
     this.fetchCategoriesWithSubcategories();
     this.cdr.detectChanges();
     if (response.message === 'successfully created.') {
-        console.log('category added  successful');
+        console.log('Registration email sent to successful');
       } else {
-        console.error('category creation failed.');
+        console.error('Admin creation failed.');
       }
 },
 (error: any) => {
@@ -107,19 +106,5 @@ export class CategoryCreateComponent {
     this.newCategory = '';
     this.showInputBox = false;
   }
-
-  updateCategory(categoryupdateData: { categoryid:any,Categoryname:any}){
-    console.log("got");
-    this.myService.updateCategory(categoryupdateData.categoryid,categoryupdateData.Categoryname).subscribe((response)=>
-    {
-         console.log("successfully updated");
-         this.fetchCategoriesWithSubcategories();
-        //  this.fetchCategoriesWithSubcategories();
-    },
-    )
-  
-  }
-
-
 
 }

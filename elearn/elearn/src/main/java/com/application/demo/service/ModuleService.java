@@ -6,10 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.ModuleEntity;
 import com.application.demo.entity.VideoContent;
-import com.application.demo.repository.CourseRepository;
 import com.application.demo.repository.ModuleRepository;
 import com.application.demo.repository.VideoContentRepository;
 
@@ -20,34 +18,25 @@ public class ModuleService {
 	ModuleRepository modulerepo;
 	 @Autowired
 	    private VideoContentRepository videoContentRepository;
-		@Autowired
-		private CourseRepository courseRepo;
 	 
-//	 public List<ModuleEntity> getModulesByCourseAndInstructor(String courseName, String instructorName) {
-//		 System.out.println(modulerepo.findByCoursenameAndInstructorname(courseName, instructorName));
-//	        return modulerepo.findByInstructornameAndCoursename(instructorName,courseName);
-//	    }
+	 public List<ModuleEntity> getModulesByCourseAndInstructor(String courseName, String instructorName) {
+		 System.out.println(modulerepo.findByCoursenameAndInstructorname(courseName, instructorName));
+	        return modulerepo.findByInstructornameAndCoursename(instructorName,courseName);
+	    }
 	public ModuleEntity savemodule(ModuleEntity module) {
-		Optional<CourseEntity> course=courseRepo.findById(module.getId());
-		ModuleEntity modu=new ModuleEntity();
-		modu.setModulename(module.getModulename());
-		modu.setCourse(course.get());
-		modu.setCourse(course.get());
-		ModuleEntity savedmodule=modulerepo.save(modu);
-		course.get().getModuleslist().add(savedmodule);
-		return savedmodule;
+		return modulerepo.save(module);
 	}
 	public List<ModuleEntity> getAllModules() {
 		// TODO Auto-generated method stub
 		return modulerepo.findAll();
 	}
-//	public ModuleEntity findModule(String moduleName, String courseName, String instructorName) {
-//        Optional<ModuleEntity> moduleOptional = modulerepo.findByModulenameAndCoursenameAndInstructorname(moduleName, courseName, instructorName);
-//        if(moduleOptional.isPresent())
-//        	return moduleOptional.get();
-//        else
-//        	return null;
-//    }
+	public ModuleEntity findModule(String moduleName, String courseName, String instructorName) {
+        Optional<ModuleEntity> moduleOptional = modulerepo.findByModulenameAndCoursenameAndInstructorname(moduleName, courseName, instructorName);
+        if(moduleOptional.isPresent())
+        	return moduleOptional.get();
+        else
+        	return null;
+    }
 	 public void deleteModuleAndContents(Long moduleId) {
 	        ModuleEntity module = modulerepo.findById(moduleId)
 	                .orElseThrow(() -> new EntityNotFoundException("Module not found with id: " + moduleId));

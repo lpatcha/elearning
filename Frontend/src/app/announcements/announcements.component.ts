@@ -3,7 +3,6 @@ import { Component, Input } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { data } from 'jquery';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-announcements',
@@ -17,7 +16,7 @@ export class AnnouncementsComponent {
   courseName= '';
   announcement: any = {};
 
-  constructor(private http: HttpClient,  private activatedRoute: ActivatedRoute,private dialogRef:MatDialogRef<AnnouncementsComponent>, private toastr: ToastrService) {}
+  constructor(private http: HttpClient,  private activatedRoute: ActivatedRoute,private dialogRef:MatDialogRef<AnnouncementsComponent>) {}
 
   ngOnInit(): void {
     this.professorName = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
@@ -39,13 +38,11 @@ export class AnnouncementsComponent {
 
   submitForm() {
     console.log(this.announcement);
-    this.dialogRef.close();
+    
     this.http.post('http://localhost:8080/announcements/add', this.announcement).subscribe(
       (response) => {
         console.log('Announcement submitted:', response);
-        this.toastr.success("Announcment Sent successfully");
         // Reset the form
-      
         this.announcement = {};
       },
       (error) => {

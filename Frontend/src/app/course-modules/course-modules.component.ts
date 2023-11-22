@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, distinctUntilChanged, filter, take } from 'rxjs';
 import { Course } from '../models/course';
-
+import { MyServiceService } from '../my-service.service';
 import { Module } from '../models/module';
 import { MatDialog } from '@angular/material/dialog';
 import { InputDialogComponent } from '../input-dialog/input-dialog.component';
@@ -10,9 +10,6 @@ import { VideoContent } from '../models/videocontent';
 import { VideoaddComponent } from '../videoadd/videoadd.component';
 import { UpdatevideocontentComponent } from '../updatevideocontent/updatevideocontent.component';
 import { UpdatemoduleComponent } from '../updatemodule/updatemodule.component';
-import { ToastrService } from 'ngx-toastr';
-import { ModuleService } from '../module.service';
-import { VideoService } from '../video.service';
 
 @Component({
   selector: 'app-course-modules',
@@ -23,7 +20,7 @@ export class CourseModulesComponent {
   selectedModuleId: any | null = null;
   selectedvideoId: any | null = null;
   moduleNames: Module[]=[];
-  video = 'Qqx_wzMmFeA';
+  video = 'jpvZXcGkUMY';
   courseName = 'springboot';
   // chapterlist : Observable<Chapter[]> | undefined;
   chapter : any | undefined;
@@ -31,13 +28,13 @@ export class CourseModulesComponent {
   loggedUser = '';
   currRole = '';
   currentmodule="";
-  coursedetails : any;
+  coursedetails : Observable<Course> | undefined;
   createmodule: Module = new Module();
   videocontent:any;
   createvideo:VideoContent=new VideoContent();
   updatevideoreq:VideoContent=new VideoContent();
 
-  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private moduleService : ModuleService,public dialog: MatDialog,private toastr:ToastrService,private videoService:VideoService) { }
+  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
@@ -45,33 +42,27 @@ export class CourseModulesComponent {
 
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
     this.currRole = this.currRole.replace(/"/g, '');
-    console.log(this.currRole);
     // const coursename = +this.activatedRoute.snapshot.paramMap.get('id');
     // this.activatedRoute.params.subscribe((data1) => {
     //   const coursename = data1['id'];
 
-    //   this.moduleService.getCoursesByEmailandcoursename(this.loggedUser,coursename).subscribe((data) => {
+    //   this.courseService.getCoursesByEmailandcoursename(this.loggedUser,coursename).subscribe((data) => {
     //     this.coursedetails = data;
     //   });
     //   console.log(this.coursedetails);
     // });
   
-    // this.course = this.moduleService.getCourseById(courseId);
+    // this.course = this.courseService.getCourseById(courseId);
 
     $("#overview").show();
     $("#qa, #notes, #announcements, #questions, #notestxt, #downloads").hide();
     $("#downloadalert").css("display","none");
     this.courseName = this.activatedRoute.snapshot.params['coursename'];
     sessionStorage.setItem('course',this.courseName);
-    // this.moduleService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
-    //   this.coursedetails = data;
-    //   console.log(this.coursedetails);
-    // });
-    this.videoService.getCourseDetailsbyid(this.courseName).subscribe((data) => {
+    this.courseService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
       this.coursedetails = data;
       console.log(this.coursedetails);
     });
-
     this.getmodulename();
   
 
@@ -109,18 +100,13 @@ export class CourseModulesComponent {
   }
   selectmodule(moduleid:any){
     this.selectedModuleId =moduleid;
-    this.video = 'Qqx_wzMmFeA';
   }
   selectvideo(videoid:any){
     this.selectedvideoId =videoid;
   }
-  getvideocourse(moduleid:any){
-    this.currentmodule=moduleid;
-    // this.moduleService.getvideocontent(this.loggedUser,this.courseName,module).subscribe((data) => {
-    //   this.videocontent = data;
-    //   console.log(this.videocontent);
-    // });
-    this.videoService.getvideocontentbyid(moduleid).subscribe((data) => {
+  getvideocourse(module:any){
+    this.currentmodule=module;
+    this.courseService.getvideocontent(this.loggedUser,this.courseName,module).subscribe((data) => {
       this.videocontent = data;
       console.log(this.videocontent);
     });
@@ -134,7 +120,7 @@ export class CourseModulesComponent {
     this.createmodule.instructorname=this.loggedUser;
 
     if (moduleName) {
-      this.moduleService.addmodule(this.createmodule).subscribe((data)=>
+      this.courseService.addmodule(this.createmodule).subscribe((data)=>
       {
         this.getmodulename();
         console.log(data);
@@ -143,12 +129,11 @@ export class CourseModulesComponent {
     }
   }
   deletemodule(id:any){
-    this.moduleService.deletemodule(id).subscribe((id)=>
+    this.courseService.deletemodule(id).subscribe((id)=>
     {
       console.log(id+"deleted");
-      this.toastr.error("Module deleted successfully")
       this.getmodulename();
-    });
+    })
   }
   updatemodule(id:any,modulename:any){
     const dialogRef = this.dialog.open(UpdatemoduleComponent, {
@@ -167,10 +152,9 @@ export class CourseModulesComponent {
         // this.createmodule.instructorname=this.loggedUser;
     
         if (moduleName) {
-          this.moduleService.updatemodule(id,moduleName).subscribe((data)=>
+          this.courseService.updatemodule(id,moduleName).subscribe((data)=>
           {
             this.getmodulename();
-            this.toastr.success("Module updated successfully")
             console.log(data);
           });
           // this.users = this.userService.getUsers();
@@ -179,28 +163,8 @@ export class CourseModulesComponent {
     });
 
   }
-  // getmodulename(){
-  //   this.moduleService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName)
-  //   //  .pipe(
-  //   //   filter(data => !!data), // Ensure that data is available
-  //   //   distinctUntilChanged((prev, current) => this.getModuleName(prev) === this.getModuleName(current)), // Prevent redundant calls
-  //   //   take(1), // Ensure the API call is made only once
-  //   // )
-  //   // .subscribe((data) => {
-  //   //   this.moduleNames = data;
-  //   //   console.log(this.moduleNames);
-  //   //   console.log(this.moduleNames);
-  //   //   const moduleName = this.getModuleName(data);
-  //   //   this.getvideocourse(this.moduleNames[0].modulename);
-  //   // });
-  //   .subscribe((data) => {
-  //     this.moduleNames = data;
-  //     this.getvideocourse(this.moduleNames[0].modulename);
-  //     console.log(this.moduleNames);
-  //   });
-  // }
   getmodulename(){
-    this.moduleService.getmoduleById(this.courseName)
+    this.courseService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName)
     //  .pipe(
     //   filter(data => !!data), // Ensure that data is available
     //   distinctUntilChanged((prev, current) => this.getModuleName(prev) === this.getModuleName(current)), // Prevent redundant calls
@@ -215,18 +179,10 @@ export class CourseModulesComponent {
     // });
     .subscribe((data) => {
       this.moduleNames = data;
-      if(this.selectedModuleId==null){
-      this.getvideocourse(this.moduleNames[0].id);
-      this.selectmodule(this.moduleNames[0].id);
-      }
-      else{
-        this.getvideocourse(this.selectedModuleId);
-      this.selectmodule(this.selectedModuleId);
-      }
+      this.getvideocourse(this.moduleNames[0].modulename);
       console.log(this.moduleNames);
     });
   }
-
   private getModuleName(data: any): string {
     return data ? data.map((module:any) => module.modulename).join('') : '';
   }
@@ -240,16 +196,15 @@ export class CourseModulesComponent {
       if (moduleName) {
         // Do something with the result (input value) received from the dialog
         console.log('You entered: ' + moduleName);
-        this.createmodule.id=this.courseName;
+        this.createmodule.coursename=this.courseName;
         if(moduleName!==null){
              this.createmodule.modulename=moduleName;
         }
         this.createmodule.instructorname=this.loggedUser;
     
         if (moduleName) {
-          this.moduleService.addmodule(this.createmodule).subscribe((data)=>
+          this.courseService.addmodule(this.createmodule).subscribe((data)=>
           {
-            this.toastr.success("Module created successfully")
             this.getmodulename();
             console.log(data);
           });
@@ -265,33 +220,21 @@ export class CourseModulesComponent {
     });
 
     dialogRef.afterClosed().subscribe((videoName) => {
-      if (videoName.videoname) {
+      if (videoName) {
   
         // Do something with the result (input value) received from the dialog
         console.log('You entered: ' + videoName);
         this.createvideo.contentName=videoName.videoname;
         this.createvideo.videoUrl=videoName.videourl;
-        this.createvideo.videodescription=videoName.videodescription;
         this.createvideo.courseName=this.courseName;
              this.createvideo.moduleName=this.currentmodule;
         this.createvideo.instructorName=this.loggedUser;
     
         if (videoName) {
-          this.videoService.addvideo(this.createvideo).subscribe((data)=>
+          this.courseService.addvideo(this.createvideo).subscribe((data)=>
           {
-            this.toastr.success("Video added successfully")
             this.getmodulename();
             console.log(data);
-          },
-          (error)=>{
-            if(error.status===406){
-              if (error.error) {
-                const errorBody = error.error;
-                this.toastr.error(errorBody);
-              } else {
-                this.toastr.error('Conflict occurred.'); 
-              }
-            }
           });
           // this.users = this.userService.getUsers();
         }
@@ -299,17 +242,16 @@ export class CourseModulesComponent {
     });
   }
   deletevideo(id:any){
-    this.videoService.deletevideo(id).subscribe((id)=>
+    this.courseService.deletevideo(id).subscribe((id)=>
     {
       console.log(id+"deleted");
       this.getmodulename();
     })
   }
-  updatevideo(videoname:any,url:any,id:any,videodescription:any){
+  updatevideo(videoname:any,url:any,id:any){
     let content={
       videoname:videoname,
-      videourl:url,
-      videodescription:videodescription
+      videourl:url
     }
     const dialogRef = this.dialog.open(UpdatevideocontentComponent, {
       width: '400px',
@@ -321,15 +263,14 @@ export class CourseModulesComponent {
         // Handle the updated data here
         this.updatevideoreq.contentName=updatedData.videoname;
         this.updatevideoreq.videoUrl=updatedData.videourl;
-        this.updatevideoreq.videodescription=updatedData.videodescription;
+
         console.log('Updated Video Name:', updatedData.videoname);
         console.log('Updated Video URL:', updatedData.videourl);
         // You can update your main component's data with the updatedData
         if (updatedData) {
-          this.videoService.updatevideo(id,this.updatevideoreq).subscribe((data)=>
+          this.courseService.updatevideo(id,this.updatevideoreq).subscribe((data)=>
           {
             this.getmodulename();
-            this.selectvideo(id);
             console.log(data);
           });
           // this.users = this.userService.getUsers();

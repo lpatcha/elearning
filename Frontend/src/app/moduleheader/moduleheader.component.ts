@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { AnnouncementsComponent } from '../announcements/announcements.component';
 import { AssignmentsComponent } from '../assignments/assignments.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-moduleheader',
@@ -11,17 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./moduleheader.component.css']
 })
 export class ModuleheaderComponent {
-  loggedUser = '';
-  currRole = '';
-  constructor(public dialog: MatDialog, private route: Router){}
-  ngOnInit(): void {
-    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
-    this.loggedUser = this.loggedUser.replace(/"/g, '');
 
-    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
-    this.currRole = this.currRole.replace(/"/g, '');
-    console.log(this.currRole);
-  }
+  constructor(public dialog: MatDialog){}
   @Input() coursename: string="";
 
   openAnnouncements(): void {
@@ -40,18 +30,4 @@ export class ModuleheaderComponent {
     });
   }
 
-  openAssignmentsList() : void {
-    this.route.navigate(["assignments-list"]);
-  }
-
-
-  
-  openCourseAttachmentsList() : void {
-    this.route.navigate(["attachments-list"]);
-  }
-
-  openassignmentsolution():void{
-    this.route.navigate(["assignments-solution"]);
-  }
-  
 }

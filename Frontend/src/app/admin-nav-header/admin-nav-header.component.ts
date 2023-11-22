@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LogoutService } from '../logout.service';
 import { HttpClient } from '@angular/common/http';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-nav-header',
@@ -10,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./admin-nav-header.component.css']
 })
 export class AdminNavHeaderComponent {
-  constructor(private router: Router,private logoutService: LogoutService,private http: HttpClient,private toastr: ToastrService) {}
+  constructor(private router: Router,private logoutService: LogoutService,private http: HttpClient) {}
 
   showCreateUserForm() {
       this.router.navigate(['/create']);
@@ -36,7 +35,6 @@ export class AdminNavHeaderComponent {
   }
 
   logout() {
-      this.toastr.success("Logout Successfull")
       this.logoutService.logout();
     }
 }

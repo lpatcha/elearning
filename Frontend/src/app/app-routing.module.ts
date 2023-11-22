@@ -8,30 +8,18 @@ import { AdminComponent } from './admin/admin.component';
 import { TableComponent } from './table/table.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { AuthGuard } from './auth.guard';
-<<<<<<< Updated upstream
-=======
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
-
+import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
-
+import { CourseContentComponent } from './course-content/course-content.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
-import { StudentdashboardComponent } from './studentdashboard/studentdashboard.component';
-import { StudentcoursesComponent } from './studentcourses/studentcourses.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { AssignmentSolutionComponent } from './assignment-solution/assignment-solution.component';
-import { AssignmentsubmissionsComponent } from './assignmentsubmissions/assignmentsubmissions.component';
-import { AllCoursesComponent } from './courses/all-courses/all-courses.component';
-import { CourseContentComponent } from './courses/course-content/course-content.component';
-import { CourseAttachmentsComponent } from './course-attachments/course-attachments.component';
-import { CourseAttachmentsListComponent } from './course-attachments-list/course-attachments-list.component';
->>>>>>> Stashed changes
 
 
 const routes: Routes = [
@@ -42,14 +30,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'table', component: TableComponent },
   { path: 'user-details/:id', component: UserDetailsComponent ,canActivate: [AuthGuard]},
-<<<<<<< Updated upstream
-  {path: '', redirectTo: '/login', pathMatch: 'full'}
-=======
   { path: 'update-details/:id', component: UpdateProfileComponent ,canActivate: [AuthGuard]},
   {path:'add-course',component:AddcourseComponent,canActivate:[AuthGuard]},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'createcategory', component: CategoryCreateComponent },
-  { path: 'teacherdashboard', component: AllCoursesComponent },
+  { path: 'teacherdashboard', component: TeacherdashboardComponent },
   { path: 'cousetable', component: CoursestableComponent },
   { path: 'allcourses', component: AllCoursesComponent },
   {path:'allcourses/:coursename',component:CourseModulesComponent},
@@ -58,14 +43,6 @@ const routes: Routes = [
   { path: 'announcements', component: AnnouncementsComponent },
   { path: 'assignments', component: AssignmentsComponent },
   { path: 'assignments-list', component: AssignmentListComponent },
-  { path: 'attachments-list', component: CourseAttachmentsListComponent  },
- 
-  { path: 'assignments-solution', component: AssignmentSolutionComponent },
-  { path: 'student', component: StudentcoursesComponent,canActivate: [AuthGuard] },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'allenrollcourses', component: StudentcoursesComponent },
-  { path: 'submissions/:assignid', component: AssignmentsubmissionsComponent },
->>>>>>> Stashed changes
 ];
 
 @NgModule({

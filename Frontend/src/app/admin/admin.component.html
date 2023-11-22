@@ -1,7 +1,6 @@
 
 <app-header></app-header>
 <!-- <app-admin-nav-header></app-admin-nav-header> -->
-<div class="wholescreen">
 <div class="sidebar-container">
     <ul class="sidebar-navigation">
       
@@ -18,26 +17,22 @@
          <i class="fa fa-plus" aria-hidden="true"></i> <label [routerLink]="['/create']" style="cursor: pointer;">Add User</label>
       </li>
       <li>
-        <i class="fa fa-plus" aria-hidden="true"></i> <label [routerLink]="['/upload-excel']" style="cursor: pointer;">Add Users</label>
+        <i class="fa fa-plus" aria-hidden="true"></i> <label (click)="openExcelDialog()" style="cursor: pointer;">Add Users</label>
      </li>
      <li>
-<<<<<<< Updated upstream
-      <i class="fa fa-book" aria-hidden="true"></i> <label [routerLink]="['/addchapter']" style="cursor: pointer;">Add Category</label>
-=======
-      <i class="fa fa-book" aria-hidden="true"></i> <label [routerLink]="['/createcategory']" style="cursor: pointer;">Add Department</label>
->>>>>>> Stashed changes
+      <i class="fa fa-book" aria-hidden="true"></i> <label [routerLink]="['/createcategory']" style="cursor: pointer;">Add Category</label>
      </li>
-      <li>
+      <!-- <li>
         <i class="fa fa-check-square" aria-hidden="true"></i> <label [routerLink]="['/approveprofessor']" style="cursor: pointer;">Approve Courses</label>
-      </li>
+      </li> -->
       <li>
-        <i class="fa fa-list" aria-hidden="true"></i> <label [routerLink]="['/courselist']" style="cursor: pointer;">Course List</label>
+        <i class="fa fa-list" aria-hidden="true"></i> <label [routerLink]="['/cousetable']" style="cursor: pointer;">Course List</label>
       </li>
       <li>
         <i class="fa fa-user" aria-hidden="true"></i> <label (click)="studentTable()" style="cursor: pointer;">Students</label>
       </li>
       <li>
-        <i class="fa fa-user-o" aria-hidden="true"></i> <label (click)="teacherTable()" style="cursor: pointer;">Professors</label> 
+        <i class="fa fa-user-o" aria-hidden="true"></i> <label (click)="teacherTable()" style="cursor: pointer;">Teachers</label> 
       </li>
       <li>
         <i class="fa fa-user" aria-hidden="true"></i> <label (click)="UsesTable()" style="cursor: pointer;">Users</label>
@@ -45,8 +40,15 @@
     </ul>
   </div>
   <div class="container">
+    <div class="row">
+        <div class="container">
+            <div class="text-right"> <!-- Align content to the right -->
+              <button class="btn btn-sm btn-primary"(click)="sentmail()">Sent Mail</button>
+            </div>
+          </div>
+        <!-- <div class>  <button (click)="sentmail()">Sent Mail</button> </div> -->
          <app-table [RowDataUser]="rowDataUsers"></app-table>
+    </div>
    </div>
-  </div>
 
 

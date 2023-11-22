@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { ColDef } from 'ag-grid-community';
-
-
+import { ApprovecourseComponent } from '../approvecourse/approvecourse.component';
+import { MyServiceService } from '../my-service.service';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { ApprovecourseComponent } from '../courses/approvecourse/approvecourse.component';
-import { CourseService } from '../courses/course-service.service';
 
 @Component({
   selector: 'app-coursestable',
@@ -16,7 +14,7 @@ export class CoursestableComponent {
   pageSize = 10;
   gridApi: any;
   courseData!: any[];
-  constructor(private courseService : CourseService, private _router : Router, private http : HttpClient) { }
+  constructor(private courseService : MyServiceService, private _router : Router, private http : HttpClient) { }
   public columncouseDefs: ColDef[]= [
     {
       headerName: 'Coursename',
@@ -37,9 +35,8 @@ export class CoursestableComponent {
       // }as IGroupCellRendererParams,
     },
     { headerName: 'CourseDescription', field: 'courseDescription', cellStyle: { textAlign: 'left' },filter:true, },
-    { headerName: 'Category', field: 'category', cellStyle: { textAlign: 'left' },filter:true, },
+    { headerName: 'Category', field: 'department', cellStyle: { textAlign: 'left' },filter:true, },
     { headerName: 'StartDate', field: 'startDate', cellStyle: { textAlign: 'left' },filter:true,  cellRenderer: this.dateRenderer},
-    { headerName: 'EndDate', field: 'endDate', cellStyle: { textAlign: 'left' },filter:true,  cellRenderer: this.dateRenderer},
     { headerName: 'NumberOfWeeks', field: 'numberOfWeeks', cellStyle: { textAlign: 'left' },filter:true, },
     { headerName: 'ProfessorName', field: 'professorName' , cellStyle: { textAlign: 'left' },
     // cellRenderer: ActionCellRendererComponent,
@@ -100,7 +97,7 @@ export class CoursestableComponent {
     return formattedDate;
   }
   enableDisableCallback(data: any) {
-    console.log(data)
+    
     const id=data.id;
     this.courseService.enablecourse(id).subscribe((response)=>{
       console.log('Update:',response);

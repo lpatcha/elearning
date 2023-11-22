@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ExcelUploadComponent } from './excel-upload/excel-upload.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { ActionCellRendererComponent } from './action-cell-renderer/action-cell-renderer.component';
@@ -25,8 +26,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AdminNavHeaderComponent } from './admin-nav-header/admin-nav-header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
-<<<<<<< Updated upstream
-=======
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
@@ -34,9 +33,11 @@ import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.c
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
-
+import { ApprovecourseComponent } from './approvecourse/approvecourse.component';
+import { CourseListComponent } from './course-list/course-list.component';
+import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
-
+import { CourseContentComponent } from './course-content/course-content.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
@@ -49,31 +50,6 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
 import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocontent.component';
 import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
-
-import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { DeleteenrollComponent } from './deleteenroll/deleteenroll.component';
-import { EnrollexcelComponent } from './enrollexcel/enrollexcel.component';
-import { AddsingleenrollComponent } from './addsingleenroll/addsingleenroll.component';
-import { StudentdashboardComponent } from './studentdashboard/studentdashboard.component';
-import { StudentcoursesComponent } from './studentcourses/studentcourses.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { AssignmentSolutionComponent } from './assignment-solution/assignment-solution.component';
-import { AssignmentsubmissionsComponent } from './assignmentsubmissions/assignmentsubmissions.component';
-import { AssignmarksComponent } from './assignmarks/assignmarks.component';
-import { MarkssubmitComponent } from './markssubmit/markssubmit.component';
-import { SubmissiondownloadComponent } from './submissiondownload/submissiondownload.component';
-import { DeadlinedatevalueComponent } from './deadlinedatevalue/deadlinedatevalue.component';
-import { ApprovecourseComponent } from './courses/approvecourse/approvecourse.component';
-import { CourseListComponent } from './courses/course-list/course-list.component';
-import { AllCoursesComponent } from './courses/all-courses/all-courses.component';
-import { CourseContentComponent } from './courses/course-content/course-content.component';
-import { UpdateCourseComponent } from './courses/update-course/update-course.component';
-import { AssignmentfilesubmissionComponent } from './assignmentfilesubmission/assignmentfilesubmission.component';
-import { CourseAttachmentsComponent } from './course-attachments/course-attachments.component';
-import { CourseAttachmentsListComponent } from './course-attachments-list/course-attachments-list.component';
-
->>>>>>> Stashed changes
 
 
 
@@ -89,12 +65,10 @@ import { CourseAttachmentsListComponent } from './course-attachments-list/course
     ActionCellRendererComponent,
     UsernameLinkRendererComponent,
     ButtonRendererComponent,
+    
     UserDetailsComponent,
     TableComponent,
     AdminNavHeaderComponent,
-<<<<<<< Updated upstream
-    HeaderComponent
-=======
     HeaderComponent,
     CategoryListComponent,
     CategoryCreateComponent,
@@ -116,30 +90,7 @@ import { CourseAttachmentsListComponent } from './course-attachments-list/course
     AssignmentListComponent,
     UpdatevideocontentComponent,
     UpdatemoduleComponent,
-<<<<<<< Updated upstream
-    UpdateCourseComponent,
-    
-   
-    DeleteenrollComponent,
-    EnrollexcelComponent,
-    AddsingleenrollComponent,
-    StudentdashboardComponent,
-    StudentcoursesComponent,
-    ChangePasswordComponent,
-    ForgotPasswordComponent,
-    AssignmentSolutionComponent,
-    AssignmentsubmissionsComponent,
-    AssignmarksComponent,
-    MarkssubmitComponent,
-    SubmissiondownloadComponent,
-    DeadlinedatevalueComponent,
-    AssignmentfilesubmissionComponent,
-    CourseAttachmentsComponent,
-    CourseAttachmentsListComponent
->>>>>>> Stashed changes
-=======
     UpdateCourseComponent
->>>>>>> Stashed changes
   
   ],
 
@@ -150,7 +101,6 @@ import { CourseAttachmentsListComponent } from './course-attachments-list/course
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    PdfViewerModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -158,11 +108,6 @@ import { CourseAttachmentsListComponent } from './course-attachments-list/course
     MatFormFieldModule,
     AgGridModule,
     MatCardModule,
-<<<<<<< Updated upstream
-    MatDatepickerModule,
-    MatNativeDateModule,
-    NgbModule,
-=======
     CarouselModule,
     YouTubePlayerModule,
     ToastrModule.forRoot({
@@ -173,9 +118,6 @@ import { CourseAttachmentsListComponent } from './course-attachments-list/course
       progressAnimation : 'decreasing',
       closeButton: true,
 
-
-
-
     }
 
     ),  
@@ -183,13 +125,8 @@ import { CourseAttachmentsListComponent } from './course-attachments-list/course
     MatNativeDateModule,
     NgbModule,
     MatDialogModule,
-
-    
->>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-
-
 export class AppModule { }

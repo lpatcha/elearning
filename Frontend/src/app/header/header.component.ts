@@ -1,8 +1,15 @@
+// import { Component } from '@angular/core';
+
+// @Component({
+//   selector: 'app-header',
+//   templateUrl: './header.component.html',
+//   styleUrls: ['./header.component.css']
+// })
+// export class HeaderComponent {
+
+// }
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { ChangePasswordComponent } from '../change-password/change-password.component';
-import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -10,17 +17,16 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
+
+
 export class HeaderComponent implements OnInit {
 
   loggedUser = '';
   currRole = '';
   title = '';
 
-<<<<<<< Updated upstream
-  constructor(private activatedRoute: ActivatedRoute, private _router : Router) { }
-=======
-  constructor(private activatedRoute: ActivatedRoute, private router: Router,private toastr: ToastrService,public dialog: MatDialog) { }
->>>>>>> Stashed changes
+  constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void 
   {
@@ -33,46 +39,46 @@ export class HeaderComponent implements OnInit {
     if(this.currRole === "admin"){
       this.title = "Admin Dashboard";
     }
-    else if(this.currRole === "teacher"){
-      this.title = "Teacher Dashboard";
+    else if(this.currRole === "professor"){
+      this.title = "";
     }
-    else if(this.currRole === "student"){
-      this.title = "Student Dashboard";
+    else if(this.currRole === "user"){
+      this.title = "";
     }
   }
 
+  // params: any;
+
+  // agInit(params: any): void {
+  //   this.params = params;
+  // }
+  onClick(): void {
+    // if (this.params.onClick) {
+      console.log("hii");
+      this.router.navigate(['update-details', this.loggedUser]);
+     // this.params.onClick(this.params.data);
+    // }
+  }
   logout()
   {
-<<<<<<< Updated upstream
-    sessionStorage.clear();
-    this._router.navigate(['/login']);
-=======
     // sessionStorage.clear();
     // this._router.navigate(['/login']);
-    this.toastr.success("Logout Successfull")
     localStorage.removeItem('isAuthenticated');
     // Redirect to the login page after logout
     this.router.navigate(['/login']);
->>>>>>> Stashed changes
   }
 
   navigateHome()
   {
     if(this.currRole === "admin"){
-      this._router.navigate(['/admin']);
+      console.log("admin")
+      this.router.navigate(['/admin']);
     }
-    else if(this.currRole === "professor"){
-      this._router.navigate(['/professordashboard']);
+    else if(this.currRole === "teacher"){
+      this.router.navigate(['/teacherdashboard']);
     }
-<<<<<<< Updated upstream
-    else if(this.currRole === "user"){
-      this._router.navigate(['/userdashboard']);
-    }
-  }
-
-=======
     else if(this.currRole === "student"){
-      this.router.navigate(['/student']);
+      this.router.navigate(['/studentdashboard']);
     }
   }
 
@@ -81,18 +87,5 @@ export class HeaderComponent implements OnInit {
 
   }
 
-  changePassword(): void {
-    this.dialog.open(ChangePasswordComponent, {
-      
-      width: '400px',
-      height:'400px',
-      data:{
-        userId: this.loggedUser
-      }
-    });
-    
-  }
-
->>>>>>> Stashed changes
 
 }

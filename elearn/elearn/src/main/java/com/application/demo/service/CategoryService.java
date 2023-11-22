@@ -2,11 +2,16 @@ package com.application.demo.service;
 
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.application.demo.entity.CategoryEntity;
 import com.application.demo.repository.CategoryRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 
 
 @Service
@@ -19,16 +24,15 @@ public class CategoryService {
     // Create a new category
     public CategoryEntity createCategory(CategoryEntity category) {
         return categoryRepository.save(category);
+        
     }
-<<<<<<< Updated upstream
-=======
     
     public List<CategoryEntity> getCategoriesWithSubcategories() {
         List<CategoryEntity> topCategories = categoryRepository.findByParentCategoryIsNull();
         return fetchSubcategories(topCategories);
     }
 
-    public List<CategoryEntity> fetchSubcategories(List<CategoryEntity> categories) {
+    private List<CategoryEntity> fetchSubcategories(List<CategoryEntity> categories) {
         for (CategoryEntity category : categories) {
             List<CategoryEntity> subcategories = category.getSubcategories();
             if (subcategories != null && !subcategories.isEmpty()) {
@@ -68,7 +72,7 @@ public class CategoryService {
         return leafCategories;
     }
     
-    public void collectLeafCategories(List<CategoryEntity> categories, List<CategoryEntity> leafCategories) {
+    private void collectLeafCategories(List<CategoryEntity> categories, List<CategoryEntity> leafCategories) {
         for (CategoryEntity category : categories) {
             List<CategoryEntity> subcategories = category.getSubcategories();
             if (subcategories == null || subcategories.isEmpty()) {
@@ -81,5 +85,4 @@ public class CategoryService {
 
     
     
->>>>>>> Stashed changes
 }

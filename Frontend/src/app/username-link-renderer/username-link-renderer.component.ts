@@ -13,15 +13,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
-import { UserDetailsComponent } from '../user-details/user-details.component';
-import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-username-link-renderer',
-  templateUrl: './username-link-renderer.component.html',
-  styleUrls: ['./username-link-renderer.component.css']
   // <a [routerLink]="['/user-details', params.data.email]">{{ params.value }}</a>
- 
+  template: `
+      <button (click)="onClick()" class="btn btn-primary">View Details</button>
+  `,
 })
 export class UsernameLinkRendererComponent implements ICellRendererAngularComp {
   // router: any;
@@ -33,7 +31,7 @@ export class UsernameLinkRendererComponent implements ICellRendererAngularComp {
   agInit(params: any): void {
     this.params = params;
   }
-  constructor(private http: HttpClient,private router: Router,public dialog: MatDialog) {}
+  constructor(private http: HttpClient,private router: Router) {}
 
 
   onClick(): void {
@@ -45,13 +43,14 @@ export class UsernameLinkRendererComponent implements ICellRendererAngularComp {
   }
 
 
-  
-  openUserDetails(): void {
-    this.dialog.open(UserDetailsComponent, {
-      
-      width: '400px',
-      height:'300px',
-      data: { useremail: this.params.data.email },
-    });
-  }
+  // public params!: ICellRendererParams;
+  // public color!: string;
+  // agInit(params: ICellRendererParams): void {
+  //   this.params = params;
+  //   this.color = this.params.node.group ? 'coral' : 'lightgreen';
+  // }
+
+  // refresh(params: ICellRendererParams) {
+  //   return false;
+  // }
 }

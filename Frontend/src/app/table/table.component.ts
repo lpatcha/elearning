@@ -7,6 +7,7 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { ButtonRendererComponent } from '../button-renderer/button-renderer.component';
 import { ActionCellRendererComponent } from '../action-cell-renderer/action-cell-renderer.component';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -23,7 +24,8 @@ export class TableComponent {
     {
       headerName: 'Username',
       field: 'email',
-      cellStyle: { textAlign: 'left' }
+      cellStyle: { textAlign: 'left' },
+      filter:true,
       // cellRenderer: UsernameLinkRendererComponent,
       // cellRendererParams: {
       //   innerRenderer: (params: { value: any; }) => {
@@ -37,7 +39,7 @@ export class TableComponent {
       //   suppressCount: true,
       // }as IGroupCellRendererParams,
     },
-    { headerName: 'Role', field: 'role', cellStyle: { textAlign: 'left' } },
+    { headerName: 'Role', field: 'role', cellStyle: { textAlign: 'left' },filter:true, },
     { headerName: 'Status', field: 'status' , cellStyle: { textAlign: 'left' },
     cellRenderer: ActionCellRendererComponent,
     cellRendererParams: {
@@ -184,7 +186,7 @@ export class TableComponent {
   contentId: any;
   
 
-  constructor(private http: HttpClient,private route: ActivatedRoute) {
+  constructor(private http: HttpClient,private route: ActivatedRoute,private toastr:ToastrService ) {
     // this.route.params.subscribe(params => {
     //   this.contentId = params['contentId'];
     // });
@@ -246,21 +248,23 @@ export class TableComponent {
     console.log('Enable/Disable:', data);
   }
 
-<<<<<<< Updated upstream
-=======
 
   sentmail(){
     console.log("hi");
-    this.toastr.success("Registration email sent to all unregister users");
+    this.toastr.success('User Creation SuccessFul', '', {
+      timeOut: 3000, // Adjust the duration as needed
+      progressBar: false,
+      closeButton: false,
+      positionClass: 'toastr-success', // Apply the custom CSS class
+      tapToDismiss: false, // Disable click to dismiss
+    });
     this.http.post('http://localhost:8080/api/admin/sentmail',null).subscribe(
         (response: any) => {
             console.log("hiiiiii");
             if (response.message === 'Mails sent successfully.') {
                 console.log('Registration email sent to successful');
-                this.toastr.success("Registration email sent successfully")
               } else {
                 console.error('Admin creation failed.');
-                this.toastr.error("Mail sent failed")
               }
         },
         (error: any) => {
@@ -268,7 +272,6 @@ export class TableComponent {
           })
 }
 
->>>>>>> Stashed changes
   // deleteRow(data: any) {
   //   // Implement row deletion logic based on data
   //   const id=data.id;

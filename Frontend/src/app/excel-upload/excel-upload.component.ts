@@ -1,11 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-<<<<<<< Updated upstream
-=======
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
->>>>>>> Stashed changes
 import * as XLSX from 'xlsx';
 
 @Component({
@@ -17,11 +12,7 @@ export class ExcelUploadComponent {
   data: any[] = [];
   email: any;
   role: any;
-<<<<<<< Updated upstream
-  constructor(private http: HttpClient) {}
-=======
-  constructor(private http: HttpClient, public dialog: MatDialog, private toastr: ToastrService,private router: Router) {}
->>>>>>> Stashed changes
+  constructor(private http: HttpClient, public dialog: MatDialog) {}
   onFileChange(event: any): void {
     const file = event.target.files[0];
     if (file) {
@@ -36,6 +27,7 @@ export class ExcelUploadComponent {
       reader.readAsArrayBuffer(file);
     }
   }
+  
 
   uploadData(): void {
     
@@ -60,11 +52,7 @@ export class ExcelUploadComponent {
     }
   );
         
-      }
-      );
-      this.router.navigate(['/Admin']);
-      this.toastr.success("Users added successfully");
-      
+      });
     }
   }
 }
