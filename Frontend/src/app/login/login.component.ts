@@ -69,6 +69,7 @@ export class LoginComponent {
 
           
 
+<<<<<<< Updated upstream
           this.router.navigate(['/upload-excel']); // Redirect to student page
           //this.toastr.success('User details updated successfully', 'Success');
 
@@ -83,6 +84,15 @@ export class LoginComponent {
 
 
         } else {
+=======
+        }
+        else if (role === 'teacher') {
+          this.router.navigate(['/teacherdashboard']);
+
+        }
+
+         else {
+>>>>>>> Stashed changes
           window.alert('Wrong username or password! Please try again!');
           console.error('Invalid role:', role);
         }
