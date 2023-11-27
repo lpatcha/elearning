@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -39,8 +40,14 @@ public class CourseEntity {
     @JsonIgnore
     public List<AnnouncementEntity> announcements= new ArrayList<>();
     
+<<<<<<< Updated upstream
 
 	
+=======
+    
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<AssignmentEntity> assignments;
+>>>>>>> Stashed changes
 
 
 

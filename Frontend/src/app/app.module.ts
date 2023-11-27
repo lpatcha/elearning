@@ -75,6 +75,12 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { VideoaddComponent } from './videoadd/videoadd.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocontent.component';
+import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
 >>>>>>> Stashed changes
 
 
@@ -126,7 +132,15 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
     AnnouncementsComponent,
     VideoaddComponent,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     AssignmentsComponent
+>>>>>>> Stashed changes
+=======
+    AssignmentsComponent,
+    AssignmentListComponent,
+    UpdatevideocontentComponent,
+    UpdatemoduleComponent,
+    UpdateCourseComponent
 >>>>>>> Stashed changes
   
 
