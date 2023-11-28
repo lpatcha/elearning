@@ -29,7 +29,7 @@ import com.application.demo.service.VideoContentService;
 @RestController
 @RequestMapping("/video-content")
 public class VideoContentController {
-
+	
     @Autowired
     private VideoContentService videoContentService;
     
@@ -73,6 +73,7 @@ public class VideoContentController {
 		         return ResponseEntity.ok(videoContentService.updateVideoContent(id, videoContentDto));
 		         
 		         
+<<<<<<< Updated upstream
 //        Optional<VideoContent> exist1=videoContentRepository.findById(id);
 //        VideoContentDto sample=new VideoContentDto();
 //        sample.setCourseName(exist1.get().getModule().getCoursename());
@@ -84,12 +85,18 @@ public class VideoContentController {
 //    	}
 //    	
 //         return ResponseEntity.ok( videoContentService.updateVideoContent(id, videoContentDto));
+=======
+
+>>>>>>> Stashed changes
     }
 
+    
+    
     @DeleteMapping("/delete/{id}")
     public void deleteVideoContent(@PathVariable Long id) {
         videoContentService.deleteVideoContent(id);
     }
+<<<<<<< Updated upstream
 //    @GetMapping("/getcoursecontent")
 //    public List<VideoContent> getVideoContentsByInstructorCourseModule(
 //            @RequestParam("instructorName") String instructorName,
@@ -97,6 +104,9 @@ public class VideoContentController {
 //            @RequestParam("moduleName") String moduleName) {
 //        return videoContentService.getVideoContentsByInstructorCourseModule(instructorName, courseName, moduleName);
 //    }
+=======
+
+>>>>>>> Stashed changes
     @GetMapping("/getcoursecontentbyid/{moduleid}")
     public List<VideoContent> getVideoContentsByInstructorCourseModule(
     		@PathVariable String moduleid) {

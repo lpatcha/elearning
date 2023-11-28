@@ -49,7 +49,12 @@ import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
 import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocontent.component';
 import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
+<<<<<<< Updated upstream
 
+=======
+import { UpdateCourseComponent } from './update-course/update-course.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+>>>>>>> Stashed changes
 
 
 
@@ -88,7 +93,13 @@ import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
     AssignmentsComponent,
     AssignmentListComponent,
     UpdatevideocontentComponent,
+<<<<<<< Updated upstream
     UpdatemoduleComponent
+=======
+    UpdatemoduleComponent,
+    UpdateCourseComponent,
+   
+>>>>>>> Stashed changes
   
   ],
 
@@ -99,6 +110,7 @@ import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    PdfViewerModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -123,6 +135,7 @@ import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
     MatNativeDateModule,
     NgbModule,
     MatDialogModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

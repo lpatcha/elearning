@@ -34,6 +34,7 @@ public class Modulescontroller {
 	@Autowired
 	private CourseRepository courseRepo;
 	
+<<<<<<< Updated upstream
 //	 @PostMapping("/add")
 //    public ResponseEntity<?> addModule(@RequestBody ModuleEntity module) {
 //		 ModuleEntity exist=moduleService.findModule(module.getModulename(),module.getCoursename(),module.getInstructorname());
@@ -43,6 +44,9 @@ public class Modulescontroller {
 //	    	
 //	         return ResponseEntity.ok(moduleService.savemodule(module));
 //    }
+=======
+
+>>>>>>> Stashed changes
 	 @PostMapping("/add")
 	    public ResponseEntity<?> addModule(@RequestBody ModuleEntity module) {
 		 Optional<CourseEntity> course=courseRepo.findById(module.getId());
@@ -63,6 +67,7 @@ public class Modulescontroller {
         return moduleService.getAllModules();
     }
 
+<<<<<<< Updated upstream
 //    @GetMapping("/getmodules/{instructor}/{course}")
 //    public List<ModuleEntity> getModulesByCourseAndInstructor(
 //            @PathVariable String course,
@@ -70,6 +75,9 @@ public class Modulescontroller {
 //    ) {
 //        return moduleService.getModulesByCourseAndInstructor(course, instructor);
 //    }
+=======
+
+>>>>>>> Stashed changes
     @GetMapping("/getmodulesbyid/{id}")
     public List<ModuleEntity> getModulesById(
             @PathVariable Long id
@@ -83,6 +91,7 @@ public class Modulescontroller {
     }
     @PutMapping("/{moduleId}/{updatedModule}")
     public ResponseEntity<?> updateModule(@PathVariable Long moduleId, @PathVariable String  updatedModule) {
+<<<<<<< Updated upstream
 //        ModuleEntity updated = moduleService.updateModule(moduleId, updatedModule);
 //        return new ResponseEntity<>(updated, HttpStatus.OK);
 //    	Optional<ModuleEntity> existingModule = modulerepo.findById(moduleId);
@@ -92,6 +101,9 @@ public class Modulescontroller {
 //    	}
 //    	
 //         return ResponseEntity.ok(moduleService.updateModule(moduleId, updatedModule));
+=======
+
+>>>>>>> Stashed changes
     	CourseEntity modi=modulerepo.findById(moduleId).get().getCourse();
 //         Optional<CourseEntity> course=courseRepo.findById(moduleId);
 		 List<ModuleEntity> moduleslist=modi.getModuleslist();
