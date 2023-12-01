@@ -29,6 +29,7 @@ public class AssignmentController {
 
     // Create a new assignment with a file upload
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @PostMapping("/upload")
     public AssignmentEntity createAssignmentWithFileUpload(@RequestParam("title") String title,
                                                     @RequestParam("description") String description,
@@ -53,6 +54,8 @@ public class AssignmentController {
         //return ResponseEntity.ok(assignments);
     }
 =======
+=======
+>>>>>>> Stashed changes
 //    @PostMapping("/upload")
 //    public AssignmentEntity createAssignmentWithFileUpload(@RequestParam("title") String title,
 //                                                    @RequestParam("description") String description,
@@ -75,7 +78,6 @@ public class AssignmentController {
 //                .contentType(MediaType.APPLICATION_JSON)
 //                .body(assignments);
 //    }
->>>>>>> Stashed changes
 
     
     

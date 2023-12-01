@@ -23,6 +23,15 @@ import com.application.demo.service.ModuleService;
 public class Modulescontroller {
 	@Autowired
 	ModuleService moduleService;
+<<<<<<< Updated upstream
+=======
+	@Autowired
+	ModuleRepository modulerepo;
+	@Autowired
+	private CourseRepository courseRepo;
+	
+
+>>>>>>> Stashed changes
 	 @PostMapping("/add")
     public ModuleEntity addModule(@RequestBody ModuleEntity module) {
         return moduleService.savemodule(module);
@@ -33,10 +42,17 @@ public class Modulescontroller {
         return moduleService.getAllModules();
     }
 
+<<<<<<< Updated upstream
     @GetMapping("/getmodules/{instructor}/{course}")
     public List<ModuleEntity> getModulesByCourseAndInstructor(
             @PathVariable String course,
             @PathVariable String instructor
+=======
+
+    @GetMapping("/getmodulesbyid/{id}")
+    public List<ModuleEntity> getModulesById(
+            @PathVariable Long id
+>>>>>>> Stashed changes
     ) {
         return moduleService.getModulesByCourseAndInstructor(course, instructor);
     }
@@ -46,8 +62,25 @@ public class Modulescontroller {
         return new ResponseEntity<>("Module and associated video contents deleted successfully", HttpStatus.OK);
     }
     @PutMapping("/{moduleId}/{updatedModule}")
+<<<<<<< Updated upstream
     public ResponseEntity<ModuleEntity> updateModule(@PathVariable Long moduleId, @PathVariable String  updatedModule) {
         ModuleEntity updated = moduleService.updateModule(moduleId, updatedModule);
         return new ResponseEntity<>(updated, HttpStatus.OK);
+=======
+    public ResponseEntity<?> updateModule(@PathVariable Long moduleId, @PathVariable String  updatedModule) {
+
+    	CourseEntity modi=modulerepo.findById(moduleId).get().getCourse();
+//         Optional<CourseEntity> course=courseRepo.findById(moduleId);
+		 List<ModuleEntity> moduleslist=modi.getModuleslist();
+		 List<ModuleEntity> singlemodule = moduleslist.stream()
+	                .filter(modu -> modu.getModulename().equals(updatedModule))
+	                .collect(Collectors.toList());
+//			 ModuleEntity exist=moduleService.findModule(module.getModulename(),module.getCoursename(),module.getInstructorname());
+		    	if(singlemodule.size()>0) {
+		    		return ResponseEntity.status(HttpStatus.CONFLICT).body("module already exists");
+		    	}
+		    	
+		         return ResponseEntity.ok(moduleService.updateModule(moduleId, updatedModule));
+>>>>>>> Stashed changes
     }
 }

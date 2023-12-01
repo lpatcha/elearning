@@ -119,5 +119,15 @@ export class MyServiceService {
 createAssignmentWithFileUpload(formData: FormData): Observable<any> {
   return this.http.post(`${this.baseUrl}/assignments/upload`, formData);
 }
+<<<<<<< Updated upstream
+=======
+
+// assignment.service.ts
+
+getAllAssignments(fileName : string): Observable<Assignment[]> {
+  return this.http.get<Assignment[]>(`${this.baseUrl}/files/download-pdf?fileName=${fileName}`);
+}
+
+>>>>>>> Stashed changes
   
 }

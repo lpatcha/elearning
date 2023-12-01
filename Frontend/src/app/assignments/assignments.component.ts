@@ -22,8 +22,19 @@ export class AssignmentsComponent {
       formData.append('pdfFile', this.selectedFile);
 
       this.assignmentService.createAssignmentWithFileUpload(formData)
+<<<<<<< Updated upstream
         .subscribe((result) => {
           // Handle the result, e.g., show a success message
+=======
+        .subscribe((result: any) => {
+          if (result && result.message === 'success') {
+            this.successMessage = 'Assignment created successfully';
+            this.resetForm();
+          } else {
+            this.resetForm();
+            this.successMessage = 'Assignment creation failed';
+          }
+>>>>>>> Stashed changes
         });
     }
   }

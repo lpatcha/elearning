@@ -12,7 +12,9 @@ public class Enrollment {
 	private Long enrollid;
 	private String coursename;
 
-	private String enrolledusername;
+	 @ManyToOne
+	 @JoinColumn(name = "user_id")
+	 private UserFullDetails user;
 
 	private String instructorname;
 
@@ -28,6 +30,7 @@ public class Enrollment {
 	public void setCoursename(String coursename) {
 		this.coursename = coursename;
 	}
+<<<<<<< Updated upstream
 	public String getEnrolledusername() {
 		return enrolledusername;
 	}
@@ -46,9 +49,32 @@ public class Enrollment {
 		this.coursename = coursename;
 		this.enrolledusername = enrolledusername;
 		this.instructorname = instructorname;
+=======
+
+	public UserFullDetails getUser() {
+		return user;
+	}
+
+	public void setUser(UserFullDetails user) {
+		this.user = user;
+	}
+
+	public Enrollment(Long enrollid, CourseEntity course, UserFullDetails user) {
+		super();
+		this.enrollid = enrollid;
+		this.course = course;
+		this.user = user;
+>>>>>>> Stashed changes
 	}
 	public Enrollment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+<<<<<<< Updated upstream
+=======
+
+	
+	
+	
+>>>>>>> Stashed changes
 }

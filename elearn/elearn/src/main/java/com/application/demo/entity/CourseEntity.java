@@ -39,15 +39,17 @@ public class CourseEntity {
     @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
     @JsonIgnore
     public List<AnnouncementEntity> announcements= new ArrayList<>();
+<<<<<<< Updated upstream
     
 <<<<<<< Updated upstream
 
 	
 =======
+=======
+>>>>>>> Stashed changes
     
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<AssignmentEntity> assignments;
->>>>>>> Stashed changes
 
 
 

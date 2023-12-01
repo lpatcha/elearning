@@ -81,6 +81,10 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
 import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocontent.component';
 import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 >>>>>>> Stashed changes
 
 
@@ -140,7 +144,12 @@ import { UpdateCourseComponent } from './update-course/update-course.component';
     AssignmentListComponent,
     UpdatevideocontentComponent,
     UpdatemoduleComponent,
+<<<<<<< Updated upstream
     UpdateCourseComponent
+>>>>>>> Stashed changes
+=======
+    UpdateCourseComponent,
+   
 >>>>>>> Stashed changes
   
 
