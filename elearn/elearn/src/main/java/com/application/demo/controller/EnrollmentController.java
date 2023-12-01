@@ -38,7 +38,11 @@ public class EnrollmentController {
 		private CourseRepository courseRepo;
 	
 	@PostMapping("/addenrollment/{courseid}")
+<<<<<<< Updated upstream
 	public ResponseEntity<?> addNewCourse(@RequestBody Enrollment enrollment,@PathVariable String courseid) throws Exception
+=======
+	public ResponseEntity<?> addNewCourse(@RequestBody enrollrequest enroll,@PathVariable String courseid) throws Exception
+>>>>>>> Stashed changes
 	{
 		Enrollment courseObj = null;
 //		String newID = getNewID();
@@ -76,6 +80,13 @@ public class EnrollmentController {
 	@GetMapping("/getenrolledusers/{id}")
 	public List<Enrollment> getusers(@PathVariable String id){
 		return enrollService.getAllEnrollUsers(id);
+<<<<<<< Updated upstream
+=======
+		}
+		catch(Exception e){
+			return null;
+		}
+>>>>>>> Stashed changes
 	}
 	 @DeleteMapping("/deleteenroll/{id}")
 	    public void deleteVideoContent(@PathVariable Long id) {

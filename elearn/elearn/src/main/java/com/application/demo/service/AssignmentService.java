@@ -67,6 +67,9 @@ public class AssignmentService {
 //    public List<AssignmentEntity> getAllAssignments() {
 //        return assignmentRepository.findAll();
 //    }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     
 

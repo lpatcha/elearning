@@ -50,11 +50,16 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
 import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocontent.component';
 import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 =======
+=======
+>>>>>>> Stashed changes
 import { UpdateCourseComponent } from './update-course/update-course.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
->>>>>>> Stashed changes
+import { DeleteenrollComponent } from './deleteenroll/deleteenroll.component';
+import { EnrollexcelComponent } from './enrollexcel/enrollexcel.component';
+import { AddsingleenrollComponent } from './addsingleenroll/addsingleenroll.component';
 
 
 
@@ -94,12 +99,17 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     AssignmentListComponent,
     UpdatevideocontentComponent,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     UpdatemoduleComponent
 =======
+=======
+>>>>>>> Stashed changes
     UpdatemoduleComponent,
     UpdateCourseComponent,
    
->>>>>>> Stashed changes
+    DeleteenrollComponent,
+    EnrollexcelComponent,
+    AddsingleenrollComponent
   
   ],
 

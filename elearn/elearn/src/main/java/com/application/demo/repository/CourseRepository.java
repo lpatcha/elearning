@@ -13,8 +13,11 @@ public interface CourseRepository extends JpaRepository<CourseEntity, Long>{
 	CourseEntity findByCourseNameAndProfessorName(String courseName, String professorName);
 	CourseEntity findByCourseNameAndProfessorNameAndCategory(String courseName, String professorName, String Category);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 =======
+=======
+>>>>>>> Stashed changes
 //	Optional<CourseEntity> findById(Long id);
 >>>>>>> Stashed changes
 }

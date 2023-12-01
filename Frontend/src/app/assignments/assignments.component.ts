@@ -26,11 +26,14 @@ export class AssignmentsComponent {
       
       this.assignmentService.createAssignmentWithFileUpload(formData)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         .subscribe((result) => {
           // Handle the result, e.g., show a success message
           if(!result){
             console.log("success")
 =======
+=======
+>>>>>>> Stashed changes
         .subscribe((result: any) => {
           if (result && result.message === 'success') {
             this.successMessage = 'Assignment created successfully';
@@ -38,6 +41,9 @@ export class AssignmentsComponent {
           } else {
             this.resetForm();
             this.successMessage = 'Assignment creation failed';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
           }
         });

@@ -46,7 +46,6 @@ public class Modulescontroller {
 //    }
 =======
 
->>>>>>> Stashed changes
 	 @PostMapping("/add")
 	    public ResponseEntity<?> addModule(@RequestBody ModuleEntity module) {
 		 Optional<CourseEntity> course=courseRepo.findById(module.getId());
@@ -68,6 +67,7 @@ public class Modulescontroller {
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //    @GetMapping("/getmodules/{instructor}/{course}")
 //    public List<ModuleEntity> getModulesByCourseAndInstructor(
 //            @PathVariable String course,
@@ -76,6 +76,8 @@ public class Modulescontroller {
 //        return moduleService.getModulesByCourseAndInstructor(course, instructor);
 //    }
 =======
+=======
+>>>>>>> Stashed changes
 
 >>>>>>> Stashed changes
     @GetMapping("/getmodulesbyid/{id}")

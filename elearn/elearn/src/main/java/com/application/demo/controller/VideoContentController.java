@@ -87,7 +87,6 @@ public class VideoContentController {
 //         return ResponseEntity.ok( videoContentService.updateVideoContent(id, videoContentDto));
 =======
 
->>>>>>> Stashed changes
     }
 
     
@@ -97,6 +96,7 @@ public class VideoContentController {
         videoContentService.deleteVideoContent(id);
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //    @GetMapping("/getcoursecontent")
 //    public List<VideoContent> getVideoContentsByInstructorCourseModule(
 //            @RequestParam("instructorName") String instructorName,
@@ -104,6 +104,9 @@ public class VideoContentController {
 //            @RequestParam("moduleName") String moduleName) {
 //        return videoContentService.getVideoContentsByInstructorCourseModule(instructorName, courseName, moduleName);
 //    }
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes

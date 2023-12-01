@@ -133,9 +133,12 @@ public class CourseController {
 	        }
 	    }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	
 	 
 =======
+=======
+>>>>>>> Stashed changes
 	 
 	 @CrossOrigin(origins = "http://localhost:4200")
 	 @PutMapping("updatecourse")
@@ -156,8 +159,13 @@ public class CourseController {
 
 	
 	 
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 	
 	
+=======
+	
+	
+>>>>>>> Stashed changes
 
 }
