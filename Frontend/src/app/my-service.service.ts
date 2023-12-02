@@ -70,6 +70,9 @@ export class MyServiceService {
   addcategory(category:any):Observable<any>{
       return this.http.post<any>(`${this.baseUrl}/category/addcategory`,category);
   }
+  updateCategory(id:any,name:any){
+    return this.http.put((`${this.baseUrl}/category/updatecategory/${id}/${name}`),null);
+  }
 
 <<<<<<< Updated upstream
 
@@ -83,12 +86,29 @@ export class MyServiceService {
   {
     return this.http.get<any>(`${this.baseUrl}/getcoursebycousename/${loggedUser}/${cousename}`);
   }
-  addenrollment(enroll:Enrollment){
-     return this.http.post<any>(`${this.baseUrl}/addenrollment`,enroll);
+  getCourseDetailsbyid(id:any){
+    return this.http.get<any>(`${this.baseUrl}/getcoursebyid/${id}`);
   }
+  // addenrollment(enroll:Enrollment){
+  //    return this.http.post<any>(`${this.baseUrl}/addenrollment`,enroll);
+  // }
+  addenrollment(enroll:Enrollment,id:any){
+     return this.http.post<any>(`${this.baseUrl}/addenrollment/${id}`,enroll);
+  }
+<<<<<<< Updated upstream
   getUsersByEmailandcoursename(loggedUser : string,cousename:string) : Observable<any>
+=======
+  deleteenrollment(id:any){
+    return this.http.delete<any>(`${this.baseUrl}/deleteenroll/${id}`);
+  }
+  // getUsersByEmailandcoursename(loggedUser : string,cousename:string) : Observable<any>
+  // {
+  //   return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
+  // }
+  getUsersBycourseid(id:any) : Observable<any>
+>>>>>>> Stashed changes
   {
-    return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
+    return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${id}`);
   }
 <<<<<<< Updated upstream
 
@@ -102,6 +122,7 @@ export class MyServiceService {
    return this.http.get<any>(`${this.baseUrl}/modules/getmodules/${loggedUser}/${cousename}`);
  }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
   addmodule(module:Module){
@@ -114,14 +135,22 @@ export class MyServiceService {
   
 
 =======
+=======
+ getmoduleById(id:any){
+  return this.http.get<any>(`${this.baseUrl}/modules/getmodulesbyid/${id}`);
+ }
+>>>>>>> Stashed changes
  
- getvideocontent(loggedUser : string,cousename:string,modulename:string) : Observable<any>
- {
-  const params = new HttpParams()
-  .set('instructorName', loggedUser)
-  .set('courseName', cousename)
-  .set('moduleName',modulename);
-  return this.http.get<any>(`${this.baseUrl}/video-content/getcoursecontent`,{params:params});
+//  getvideocontent(loggedUser : string,cousename:string,modulename:string) : Observable<any>
+//  {
+//   const params = new HttpParams()
+//   .set('instructorName', loggedUser)
+//   .set('courseName', cousename)
+//   .set('moduleName',modulename);
+//   return this.http.get<any>(`${this.baseUrl}/video-content/getcoursecontent`,{params:params});
+//  }
+ getvideocontentbyid(moduleid:any){
+  return this.http.get<any>(`${this.baseUrl}/video-content/getcoursecontentbyid/${moduleid}`);
  }
  addvideo(video:VideoContent){
   return this.http.post<any>(`${this.baseUrl}/video-content/add`,video);
@@ -129,13 +158,18 @@ export class MyServiceService {
 
 
 createAssignmentWithFileUpload(formData: FormData): Observable<any> {
-  return this.http.post(`${this.baseUrl}/assignments/upload`, formData);
+  return this.http.post(`${this.baseUrl}/files/upload`, formData);
 }
 
 // assignment.service.ts
 
+<<<<<<< Updated upstream
 getAllAssignments(): Observable<Assignment[]> {
   return this.http.get<Assignment[]>(`${this.baseUrl}/assignments/assignments`);
+=======
+getAllAssignments(fileName : string): Observable<Assignment[]> {
+  return this.http.get<Assignment[]>(`${this.baseUrl}/files/download-pdf?fileName=${fileName}`);
+>>>>>>> Stashed changes
 }
 
   

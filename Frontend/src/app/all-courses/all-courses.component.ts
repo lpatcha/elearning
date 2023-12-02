@@ -17,8 +17,15 @@ export class AllCoursesComponent {
   myenrollments : Observable<AllCourses[]> | undefined;
   loggedUser = '';
   currRole = '';
+<<<<<<< Updated upstream
   courses : Observable<Course[]> | undefined;
   constructor( private _router : Router,private courseService : MyServiceService) { }
+=======
+  courses : any;
+  approvedcourses:any;
+  unapprovedcourses:any;
+  constructor( private _router : Router,private courseService : MyServiceService, private dialog : MatDialog) { }
+>>>>>>> Stashed changes
 
   ngOnInit(): void 
   {

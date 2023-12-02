@@ -99,6 +99,16 @@ public class CourseController {
 	public List<CourseEntity> getcourses(){
 		return courseService.getAllCourses();
 	}
+<<<<<<< Updated upstream
+=======
+	@GetMapping("/getcoursebyid/{id}")
+	public CourseEntity getcoursebyid(@PathVariable String id){
+		
+		return courseRepo.findById(Long.parseLong(id)).get();
+	}
+	
+	
+>>>>>>> Stashed changes
 	
 	 @PutMapping("/enablecourse/{id}")
 	    public ResponseEntity<CourseEntity> updateEntity(@PathVariable Long id) {

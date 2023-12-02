@@ -15,6 +15,7 @@ import com.application.demo.entity.Enrollment;
 @Repository
 public interface EnrollmentRepository extends JpaRepository<Enrollment, Long>{
 //	List<CourseEntity> findByProfessorName(String professorName);
+<<<<<<< Updated upstream
 	List<Enrollment> findByInstructornameAndCoursename(String value1, String value2);
 <<<<<<< Updated upstream
 }
@@ -22,6 +23,15 @@ public interface EnrollmentRepository extends JpaRepository<Enrollment, Long>{
 	
 	@Query("SELECT e.enrolledusername FROM Enrollment e")
     List<String> findAllEmails();
+=======
+//	List<Enrollment> findByInstructornameAndCoursename(String value1, String value2);
+//	
+//	@Query("SELECT e.enrolledusername FROM Enrollment e")
+//    List<String> findAllEmails();
+
+//	List<Enrollment> findByEnrolledusernameAndCoursenameAndInstructorname(String enrolledusername, String coursename,
+//			String instructorname);
+>>>>>>> Stashed changes
 }
 
 

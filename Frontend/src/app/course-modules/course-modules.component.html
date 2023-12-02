@@ -15,6 +15,7 @@
         <a [routerLink]="['/modules', module]">{{ module }}</a>
       </li> -->
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
       <li *ngFor="let module of moduleNames ">
         <label [routerLink]="['/modules', module.modulename]" style="cursor: pointer;">{{ module.modulename }}</label>
@@ -26,6 +27,24 @@
       <li *ngFor="let module of moduleNames ">
         <label [routerLink]="['/modules', module.modulename]" (click)="getvideocourse(module.modulename)" style="cursor: pointer;">{{ module.modulename }}</label>
        </li>
+>>>>>>> Stashed changes
+=======
+      <!-- <li *ngFor="let module of moduleNames ">
+        <label [routerLink]="['/modules', module.modulename]" (click)="getvideocourse(module.modulename)" (click)="selectmodule(module.id)" style="cursor: pointer;"
+        [ngClass]="{ 'selected-module': module.id === selectedModuleId }">{{ module.modulename }}</label>
+        <i class="fa fa-edit" (click)="updatemodule(module.id,module.modulename)" style="font-size:24px; cursor: pointer;"></i>
+        <i class="material-icons" (click)="deletemodule(module.id)" style="font-size:24px; cursor: pointer;">delete</i>
+       </li> -->
+       <li *ngFor="let module of moduleNames" [ngClass]="{ 'selected-module': module.id === selectedModuleId }">
+        <div class="navbar-item" >
+          <label [routerLink]="['/modules', module.id]" (click)="getvideocourse(module.id)" (click)="selectmodule(module.id)" style="cursor: pointer;">{{ module.modulename }}</label>
+          <div *ngIf="this.currRole==='teacher'"  style="display: inline-block;">
+          <i class="fa fa-edit" (click)="updatemodule(module.id, module.modulename)" style="font-size: 24px; cursor: pointer;"></i>
+          <i class="material-icons" (click)="deletemodule(module.id)" style="font-size: 24px; cursor: pointer;">delete</i>
+          </div>
+        </div>
+      </li>
+      <div *ngIf="this.currRole==='teacher'">
 >>>>>>> Stashed changes
       <li>
        <button (click)="openInputDialog()">Add Module</button>

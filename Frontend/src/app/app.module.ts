@@ -78,6 +78,19 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { VideoaddComponent } from './videoadd/videoadd.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocontent.component';
+import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { DeleteenrollComponent } from './deleteenroll/deleteenroll.component';
+import { EnrollexcelComponent } from './enrollexcel/enrollexcel.component';
+import { AddsingleenrollComponent } from './addsingleenroll/addsingleenroll.component';
+import { StudentdashboardComponent } from './studentdashboard/studentdashboard.component';
+import { StudentcoursesComponent } from './studentcourses/studentcourses.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 >>>>>>> Stashed changes
 
 
@@ -134,7 +147,20 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
     AnnouncementsComponent,
     VideoaddComponent,
     AssignmentsComponent,
+<<<<<<< Updated upstream
     AssignmentListComponent
+=======
+    AssignmentListComponent,
+    UpdatevideocontentComponent,
+    UpdatemoduleComponent,
+    UpdateCourseComponent,
+   
+    DeleteenrollComponent,
+    EnrollexcelComponent,
+    AddsingleenrollComponent,
+    StudentdashboardComponent,
+    StudentcoursesComponent
+>>>>>>> Stashed changes
   
 >>>>>>> Stashed changes
   ],
@@ -146,6 +172,7 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    PdfViewerModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatInputModule,
@@ -179,6 +206,11 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
     MatNativeDateModule,
     NgbModule,
     MatDialogModule,
+<<<<<<< Updated upstream
+=======
+    NgSelectModule,
+    
+>>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent]
