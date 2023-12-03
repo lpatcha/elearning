@@ -5,6 +5,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MyServiceService } from '../my-service.service';
 import { Enrollment } from '../models/enroll';
 import * as XLSX from 'xlsx';
+<<<<<<< Updated upstream
+=======
+import { ColDef } from 'ag-grid-community';
+import { DeleteenrollComponent } from '../deleteenroll/deleteenroll.component';
+import { EnrollexcelComponent } from '../enrollexcel/enrollexcel.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AddsingleenrollComponent } from '../addsingleenroll/addsingleenroll.component';
+import { ToastrService } from 'ngx-toastr';
+import { EnrollmentService } from '../enrollment.service';
+import { CourseService } from '../courses/course-service.service';
+
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-adduser',
@@ -21,7 +33,37 @@ export class AdduserComponent {
   // enroll : Enrollment | undefined;
    enroll: Enrollment = new Enrollment();
    data: any[] = [];
+<<<<<<< Updated upstream
    
+=======
+   public columnDefs: ColDef[]= [
+    {
+      headerName: 'Username',
+      field: 'email',
+      cellStyle: { textAlign: 'left' },
+      filter:true,
+    },
+    { headerName: 'Name', field: 'name', cellStyle: { textAlign: 'left' },filter:true, },
+    { headerName: 'Dept', field: 'dept' , cellStyle: { textAlign: 'left' },
+   },
+    {
+      headerName: 'Action', cellStyle: { textAlign: 'left' },
+      cellRenderer: DeleteenrollComponent,
+      cellRendererParams: {
+        deleteCallback: this.deleteuser.bind(this),
+        label: 'Delete',
+      },
+    }
+  ];
+  onGridReady(params: any) {
+    this.gridApi = params.api;
+  }
+
+  pageSize = 10;
+  gridApi: any;
+
+  constructor(public dialog: MatDialog,private _router : Router, private activatedRoute: ActivatedRoute,private courseService : EnrollmentService,private toastr: ToastrService,private courseServicee : CourseService) { }
+>>>>>>> Stashed changes
 
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService) { }
   addUser() {

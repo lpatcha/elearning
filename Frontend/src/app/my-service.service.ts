@@ -43,10 +43,8 @@ export class MyServiceService {
   constructor(private router: Router,private http: HttpClient) { }
 
   private baseUrl = 'http://localhost:8080';
-  addCategory(category: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/category`, category);
-  }
 
+<<<<<<< Updated upstream
   addSubcategory(parentCategoryId: any, subcategory: any): Observable<any> {
     const url = `${this.baseUrl}/category/${parentCategoryId}/subcategories`;
     return this.http.post<any>(url, subcategory);
@@ -56,6 +54,8 @@ export class MyServiceService {
     const url = `${this.baseUrl}/category/getcategories`;
     return this.http.get<any[]>(url);
   }
+=======
+>>>>>>> Stashed changes
 
   addCourse(course : Course) : Observable<any>
   {
@@ -68,9 +68,12 @@ export class MyServiceService {
   enablecourse(id:any):Observable<any>{
     return this.http.put((`${this.baseUrl}/enablecourse/${id}`),null);
   }
+<<<<<<< Updated upstream
   addcategory(category:any):Observable<any>{
       return this.http.post<any>(`${this.baseUrl}/category/addcategory`,category);
   }
+=======
+>>>>>>> Stashed changes
 
   getCoursesByEmail(loggedUser : string) : Observable<any>
   {
@@ -83,10 +86,23 @@ export class MyServiceService {
   addenrollment(enroll:Enrollment){
      return this.http.post<any>(`${this.baseUrl}/addenrollment`,enroll);
   }
+<<<<<<< Updated upstream
   getUsersByEmailandcoursename(loggedUser : string,cousename:string) : Observable<any>
+=======
+  // addenrollment(enroll:Enrollment){
+  //    return this.http.post<any>(`${this.baseUrl}/addenrollment`,enroll);
+  // }
+  
+  // getUsersByEmailandcoursename(loggedUser : string,cousename:string) : Observable<any>
+  // {
+  //   return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
+  // }
+  getUsersBycourseid(id:any) : Observable<any>
+>>>>>>> Stashed changes
   {
     return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
   }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
@@ -131,3 +147,17 @@ getAllAssignments(fileName : string): Observable<Assignment[]> {
 >>>>>>> Stashed changes
   
 }
+=======
+//  getvideocontent(loggedUser : string,cousename:string,modulename:string) : Observable<any>
+//  {
+//   const params = new HttpParams()
+//   .set('instructorName', loggedUser)
+//   .set('courseName', cousename)
+//   .set('moduleName',modulename);
+//   return this.http.get<any>(`${this.baseUrl}/video-content/getcoursecontent`,{params:params});
+//  }
+ 
+
+
+}
+>>>>>>> Stashed changes

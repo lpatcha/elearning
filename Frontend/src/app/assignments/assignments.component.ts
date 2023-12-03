@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { MyServiceService } from '../my-service.service';
 import { Assignment } from '../models/assignment';
+<<<<<<< Updated upstream
+=======
+import { MatDialogRef } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AssignmentService } from '../assignment.service';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-assignments',
@@ -12,7 +19,19 @@ export class AssignmentsComponent {
   assignment: Assignment = new Assignment();
   selectedFile: File | undefined;
 
+<<<<<<< Updated upstream
   constructor(private assignmentService: MyServiceService) {}
+=======
+  constructor(private assignmentService: AssignmentService, private dialogRef: MatDialogRef<AssignmentsComponent>,private route: ActivatedRoute,private toastr:ToastrService) {}
+  ngOnInit() {
+    // Subscribe to route params to get courseId from the URL
+    this.route.params.subscribe(params => {
+      this.courseId = params['coursename'];
+    });
+    const courseIdString = sessionStorage.getItem('course');
+    this.courseId = courseIdString ? +courseIdString : null;
+  }
+>>>>>>> Stashed changes
 
   onSubmit() {
     if (this.selectedFile) {

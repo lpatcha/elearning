@@ -15,6 +15,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+<<<<<<< Updated upstream
+=======
+import { MyServiceService } from '../my-service.service';
+import { ToastrService } from 'ngx-toastr';
+import { CategoryService } from '../category.service';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-registration',
@@ -28,7 +34,11 @@ export class RegistrationComponent implements OnInit {
   // password:any;
   myForm:FormGroup;
 
+<<<<<<< Updated upstream
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder) { 
+=======
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder,private toastr: ToastrService,private myService:CategoryService) { 
+>>>>>>> Stashed changes
     this.myForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       dept: ['', [Validators.required]],

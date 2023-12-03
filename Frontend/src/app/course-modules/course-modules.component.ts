@@ -25,6 +25,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { InputDialogComponent } from '../input-dialog/input-dialog.component';
 import { VideoContent } from '../models/videocontent';
 import { VideoaddComponent } from '../videoadd/videoadd.component';
+<<<<<<< Updated upstream
+=======
+import { UpdatevideocontentComponent } from '../updatevideocontent/updatevideocontent.component';
+import { UpdatemoduleComponent } from '../updatemodule/updatemodule.component';
+import { ToastrService } from 'ngx-toastr';
+import { ModuleService } from '../module.service';
+import { VideoService } from '../video.service';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-course-modules',
@@ -63,7 +71,11 @@ export class CourseModulesComponent {
   videocontent:any;
   createvideo:VideoContent=new VideoContent();
 
+<<<<<<< Updated upstream
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService,public dialog: MatDialog) { }
+>>>>>>> Stashed changes
+=======
+  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private moduleService : ModuleService,public dialog: MatDialog,private toastr:ToastrService,private videoService:VideoService) { }
 >>>>>>> Stashed changes
 
   ngOnInit(): void {
@@ -76,20 +88,28 @@ export class CourseModulesComponent {
     // this.activatedRoute.params.subscribe((data1) => {
     //   const coursename = data1['id'];
 
-    //   this.courseService.getCoursesByEmailandcoursename(this.loggedUser,coursename).subscribe((data) => {
+    //   this.moduleService.getCoursesByEmailandcoursename(this.loggedUser,coursename).subscribe((data) => {
     //     this.coursedetails = data;
     //   });
     //   console.log(this.coursedetails);
     // });
   
-    // this.course = this.courseService.getCourseById(courseId);
+    // this.course = this.moduleService.getCourseById(courseId);
 
     $("#overview").show();
     $("#qa, #notes, #announcements, #questions, #notestxt, #downloads").hide();
     $("#downloadalert").css("display","none");
     this.courseName = this.activatedRoute.snapshot.params['coursename'];
     sessionStorage.setItem('course',this.courseName);
+<<<<<<< Updated upstream
     this.courseService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
+=======
+    // this.moduleService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
+    //   this.coursedetails = data;
+    //   console.log(this.coursedetails);
+    // });
+    this.videoService.getCourseDetailsbyid(this.courseName).subscribe((data) => {
+>>>>>>> Stashed changes
       this.coursedetails = data;
       console.log(this.coursedetails);
     });
@@ -128,9 +148,25 @@ export class CourseModulesComponent {
     // this.courselist = this._service.getCourseListByName(this.courseName);
 
   }
+<<<<<<< Updated upstream
   getvideocourse(module:any){
     this.currentmodule=module;
     this.courseService.getvideocontent(this.loggedUser,this.courseName,module).subscribe((data) => {
+=======
+  selectmodule(moduleid:any){
+    this.selectedModuleId =moduleid;
+  }
+  selectvideo(videoid:any){
+    this.selectedvideoId =videoid;
+  }
+  getvideocourse(moduleid:any){
+    this.currentmodule=moduleid;
+    // this.moduleService.getvideocontent(this.loggedUser,this.courseName,module).subscribe((data) => {
+    //   this.videocontent = data;
+    //   console.log(this.videocontent);
+    // });
+    this.videoService.getvideocontentbyid(moduleid).subscribe((data) => {
+>>>>>>> Stashed changes
       this.videocontent = data;
       console.log(this.videocontent);
     });
@@ -144,7 +180,7 @@ export class CourseModulesComponent {
     this.createmodule.instructorname=this.loggedUser;
 
     if (moduleName) {
-      this.courseService.addmodule(this.createmodule).subscribe((data)=>
+      this.moduleService.addmodule(this.createmodule).subscribe((data)=>
       {
         this.getmodulename();
         console.log(data);
@@ -152,15 +188,195 @@ export class CourseModulesComponent {
       // this.users = this.userService.getUsers();
     }
   }
+<<<<<<< Updated upstream
   getmodulename(){
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     this.courseService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
+=======
+  deletemodule(id:any){
+    this.moduleService.deletemodule(id).subscribe((id)=>
+    {
+      console.log(id+"deleted");
+      this.toastr.error("Module deleted successfully")
+      this.getmodulename();
+    });
+  }
+  updatemodule(id:any,modulename:any){
+    const dialogRef = this.dialog.open(UpdatemoduleComponent, {
+      width: '400px', // Set the width as per your design
+      data: { content: modulename },
+    });
+
+    dialogRef.afterClosed().subscribe((moduleName) => {
+      if (moduleName) {
+        // Do something with the result (input value) received from the dialog
+        console.log('You entered: ' + moduleName);
+        // this.createmodule.coursename=this.courseName;
+        // if(moduleName!==null){
+        //      this.createmodule.modulename=moduleName;
+        // }
+        // this.createmodule.instructorname=this.loggedUser;
+    
+        if (moduleName) {
+          this.moduleService.updatemodule(id,moduleName).subscribe((data)=>
+          {
+            this.getmodulename();
+            this.toastr.success("Module updated successfully")
+            console.log(data);
+          });
+          // this.users = this.userService.getUsers();
+        }
+      }
+    });
+
+  }
+  // getmodulename(){
+  //   this.moduleService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName)
+  //   //  .pipe(
+  //   //   filter(data => !!data), // Ensure that data is available
+  //   //   distinctUntilChanged((prev, current) => this.getModuleName(prev) === this.getModuleName(current)), // Prevent redundant calls
+  //   //   take(1), // Ensure the API call is made only once
+  //   // )
+  //   // .subscribe((data) => {
+  //   //   this.moduleNames = data;
+  //   //   console.log(this.moduleNames);
+  //   //   console.log(this.moduleNames);
+  //   //   const moduleName = this.getModuleName(data);
+  //   //   this.getvideocourse(this.moduleNames[0].modulename);
+  //   // });
+  //   .subscribe((data) => {
+  //     this.moduleNames = data;
+  //     this.getvideocourse(this.moduleNames[0].modulename);
+  //     console.log(this.moduleNames);
+  //   });
+  // }
+  getmodulename(){
+    this.moduleService.getmoduleById(this.courseName)
+    //  .pipe(
+    //   filter(data => !!data), // Ensure that data is available
+    //   distinctUntilChanged((prev, current) => this.getModuleName(prev) === this.getModuleName(current)), // Prevent redundant calls
+    //   take(1), // Ensure the API call is made only once
+    // )
+    // .subscribe((data) => {
+    //   this.moduleNames = data;
+    //   console.log(this.moduleNames);
+    //   console.log(this.moduleNames);
+    //   const moduleName = this.getModuleName(data);
+    //   this.getvideocourse(this.moduleNames[0].modulename);
+    // });
+    .subscribe((data) => {
+>>>>>>> Stashed changes
       this.moduleNames = data;
       console.log(this.moduleNames);
     });
   }
 
+<<<<<<< Updated upstream
+=======
+  private getModuleName(data: any): string {
+    return data ? data.map((module:any) => module.modulename).join('') : '';
+  }
+  openInputDialog(): void {
+    const dialogRef = this.dialog.open(InputDialogComponent, {
+      width: '400px', // Set the width as per your design
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((moduleName) => {
+      if (moduleName) {
+        // Do something with the result (input value) received from the dialog
+        console.log('You entered: ' + moduleName);
+        this.createmodule.id=this.courseName;
+        if(moduleName!==null){
+             this.createmodule.modulename=moduleName;
+        }
+        this.createmodule.instructorname=this.loggedUser;
+    
+        if (moduleName) {
+          this.moduleService.addmodule(this.createmodule).subscribe((data)=>
+          {
+            this.toastr.success("Module created successfully")
+            this.getmodulename();
+            console.log(data);
+          });
+          // this.users = this.userService.getUsers();
+        }
+      }
+    });
+  }
+  videoadd(){
+    const dialogRef = this.dialog.open(VideoaddComponent, {
+      width: '400px', // Set the width as per your design
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((videoName) => {
+      if (videoName.videoname) {
+  
+        // Do something with the result (input value) received from the dialog
+        console.log('You entered: ' + videoName);
+        this.createvideo.contentName=videoName.videoname;
+        this.createvideo.videoUrl=videoName.videourl;
+        this.createvideo.videodescription=videoName.videodescription;
+        this.createvideo.courseName=this.courseName;
+             this.createvideo.moduleName=this.currentmodule;
+        this.createvideo.instructorName=this.loggedUser;
+    
+        if (videoName) {
+          this.videoService.addvideo(this.createvideo).subscribe((data)=>
+          {
+            this.toastr.success("Video added successfully")
+            this.getmodulename();
+            console.log(data);
+          });
+          // this.users = this.userService.getUsers();
+        }
+      }
+    });
+  }
+  deletevideo(id:any){
+    this.videoService.deletevideo(id).subscribe((id)=>
+    {
+      console.log(id+"deleted");
+      this.getmodulename();
+    })
+  }
+  updatevideo(videoname:any,url:any,id:any,videodescription:any){
+    let content={
+      videoname:videoname,
+      videourl:url,
+      videodescription:videodescription
+    }
+    const dialogRef = this.dialog.open(UpdatevideocontentComponent, {
+      width: '400px',
+      data: { content: { ...content } }, // Pass a copy of the data to the dialog
+    });
+  
+    dialogRef.afterClosed().subscribe((updatedData) => {
+      if (updatedData) {
+        // Handle the updated data here
+        this.updatevideoreq.contentName=updatedData.videoname;
+        this.updatevideoreq.videoUrl=updatedData.videourl;
+        this.updatevideoreq.videodescription=updatedData.videodescription;
+        console.log('Updated Video Name:', updatedData.videoname);
+        console.log('Updated Video URL:', updatedData.videourl);
+        // You can update your main component's data with the updatedData
+        if (updatedData) {
+          this.videoService.updatevideo(id,this.updatevideoreq).subscribe((data)=>
+          {
+            this.getmodulename();
+            this.selectvideo(id);
+            console.log(data);
+          });
+          // this.users = this.userService.getUsers();
+        }
+      }
+    });
+      
+  }
+
+>>>>>>> Stashed changes
   openOverview()
   {
     $("#overview").show();

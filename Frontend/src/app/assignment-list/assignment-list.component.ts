@@ -2,14 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { MyServiceService } from '../my-service.service';
 import { Assignment } from '../models/assignment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+<<<<<<< Updated upstream
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
+=======
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
+import { AssignmentsComponent } from '../assignments/assignments.component';
+import { AssignmentService } from '../assignment.service';
+>>>>>>> Stashed changes
 @Component({
   selector: 'app-assignment-list',
   templateUrl: './assignment-list.component.html',
   styleUrls: ['./assignment-list.component.css']
 })
 export class AssignmentListComponent implements OnInit {
+<<<<<<< Updated upstream
   assignments: Assignment[] = [];
   pdfUrl: SafeResourceUrl = "";
   pdf: string = "";
@@ -18,6 +27,44 @@ export class AssignmentListComponent implements OnInit {
   constructor(private assignmentService: MyServiceService, private http: HttpClient, private sanitizer: DomSanitizer) {
     this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
       `http://localhost:8080/files/download-pdf?fileName=${this.fileName}`
+=======
+  pdfUrls: SafeResourceUrl[] = [];
+  fileNames: any; // Dynamically set from the API
+  courseId: any | null = null;
+  constructor(private assignmentService: AssignmentService, private sanitizer: DomSanitizer, private http: HttpClient,private route: ActivatedRoute,private myServiceService : MyServiceService,public dialog: MatDialog,private toastr:ToastrService) {}
+  ngOnInit() {
+    //const courseId = '20'; // Replace with the actual course ID
+    this.route.params.subscribe(params => {
+      this.courseId = params['coursename'];
+    });
+    const courseIdString = sessionStorage.getItem('course');
+    this.courseId = courseIdString ? +courseIdString : null;
+    // Fetch the file names from the API
+    // this.assignmentService.getFileNamesByCourseId(this.courseId).subscribe(
+    //   (fileNames: string[]) => {
+    //     // Set the file names
+    //     this.fileNames = fileNames;
+    //     // Load PDFs based on the file names
+    //     this.loadPdfs();
+    //   },
+    //   (error) => {
+    //     console.error('API error:', error);
+    //   }
+    // );
+    this.assignmentService.getFileNamesByCourseId(this.courseId).subscribe(
+      (fileNames) => {
+        // Set the file names
+        this.fileNames = fileNames;
+        for (let obj of this.fileNames) {
+          obj.deadlinedate=this.dateRenderer(obj.deadlinedate);
+        }
+        // Load PDFs based on the file names
+        // this.loadPdfs();
+      },
+      (error) => {
+        console.error('API error:', error);
+      }
+>>>>>>> Stashed changes
     );
   }
 
