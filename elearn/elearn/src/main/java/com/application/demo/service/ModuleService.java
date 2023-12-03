@@ -1,32 +1,23 @@
 package com.application.demo.service;
 
 import java.util.List;
-<<<<<<< Updated upstream
-=======
 import java.util.Optional;
->>>>>>> Stashed changes
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.ModuleEntity;
-<<<<<<< Updated upstream
-=======
 import com.application.demo.entity.VideoContent;
 import com.application.demo.repository.CourseRepository;
->>>>>>> Stashed changes
 import com.application.demo.repository.ModuleRepository;
+import com.application.demo.repository.VideoContentRepository;
+
+import jakarta.persistence.EntityNotFoundException;
 @Service
 public class ModuleService {
 	@Autowired
 	ModuleRepository modulerepo;
-<<<<<<< Updated upstream
-	 public List<ModuleEntity> getModulesByCourseAndInstructor(String courseName, String instructorName) {
-		 System.out.println(modulerepo.findByCoursenameAndInstructorname(courseName, instructorName));
-	        return modulerepo.findByInstructornameAndCoursename(instructorName,courseName);
-	    }
-=======
 	 @Autowired
 	    private VideoContentRepository videoContentRepository;
 		@Autowired
@@ -36,7 +27,6 @@ public class ModuleService {
 //		 System.out.println(modulerepo.findByCoursenameAndInstructorname(courseName, instructorName));
 //	        return modulerepo.findByInstructornameAndCoursename(instructorName,courseName);
 //	    }
->>>>>>> Stashed changes
 	public ModuleEntity savemodule(ModuleEntity module) {
 		Optional<CourseEntity> course=courseRepo.findById(module.getId());
 		ModuleEntity modu=new ModuleEntity();
@@ -51,15 +41,6 @@ public class ModuleService {
 		// TODO Auto-generated method stub
 		return modulerepo.findAll();
 	}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-	public ModuleEntity findModule(String moduleName, String courseName, String instructorName) {
-        Optional<ModuleEntity> moduleOptional = modulerepo.findByModulenameAndCoursenameAndInstructorname(moduleName, courseName, instructorName);
-        return moduleOptional.get();
-    }
->>>>>>> Stashed changes
-=======
 //	public ModuleEntity findModule(String moduleName, String courseName, String instructorName) {
 //        Optional<ModuleEntity> moduleOptional = modulerepo.findByModulenameAndCoursenameAndInstructorname(moduleName, courseName, instructorName);
 //        if(moduleOptional.isPresent())
@@ -96,5 +77,4 @@ public class ModuleService {
 	        // Save the updated module
 	        return modulerepo.save(existingModule);
 	    }
->>>>>>> Stashed changes
 }

@@ -1,3 +1,15 @@
+.selected-module {
+  background-color: #47baba; /* Your desired highlight color */
+  color: #fff; /* Text color for the highlighted module */
+}
+.selected-video{
+  background-color: #dcd859; /* Your desired highlight color */
+  color: #fff; 
+}
+.custom-video-style{
+  color: blue; 
+  padding: 10px;
+}
 .app-container {
   display: flex;
   height: 100vh; /* Ensure the container takes the full viewport height */
@@ -183,28 +195,9 @@ body {
   div.content {
     margin-left: 0px;
     padding: 1px 16px;
-<<<<<<< Updated upstream
-
-
-    height: 1000px;
-
-    height: 80%;
-
-
-    height: 80%;
-
-
     height: 80%;
     margin-bottom:200px;
     flex: 1;
-
-
-
-=======
-    height: 80%;
-    margin-bottom:200px;
-    flex: 1;
->>>>>>> Stashed changes
   }
   .sidebar ul {
     list-style-type: none;

@@ -1,5 +1,7 @@
 package com.application.demo.controller;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.application.demo.Dto.addcourserequest;
+import com.application.demo.Dto.getcourseresponse;
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.UserTemp;
 import com.application.demo.repository.CourseRepository;
@@ -31,29 +35,55 @@ public class CourseController {
 	
 	@Autowired
 	private CourseService courseService;
-<<<<<<< Updated upstream
-
-	@Autowired
-	private CourseRepository courseRepo;
-
-
-
-=======
 	@Autowired
 	private CourseRepository courseRepo;
 	
 	
->>>>>>> Stashed changes
+//	@PostMapping("/addCourse")
+//	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
+//	{
+//		
+//		
+//		
+//		
+//		CourseEntity courseObj = null;
+//		String newID = getNewID();
+//		course.setCourseId(newID);
+//		
+//		courseObj = courseService.addNewCourse(course);
+//		return courseObj;
+//	}
+	
+	
 	@PostMapping("/addCourse")
-	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
-	{
-		CourseEntity courseObj = null;
-		String newID = getNewID();
-		course.setCourseId(newID);
-		
-		courseObj = courseService.addNewCourse(course);
-		return courseObj;
+	public ResponseEntity<?> addNewCourse(@RequestBody addcourserequest course) {
+	    // Check if a course with the same courseName and professorName already exists
+	    CourseEntity existingCourse = courseService.findCourseByCourseNameAndProfessorNameAndCategoryName(course.getCourseName(), course.getProfessorName(), course.getCategory());
+
+	    if (existingCourse != null) {
+	        // A course with the same name and professor already exists, return an error response
+	        return ResponseEntity.status(HttpStatus.CONFLICT).body("Course already exists.");
+	    }
+
+	    // Generate a new ID and save the course
+	    String newID = getNewID();
+	    course.setCourseId(newID);
+	    LocalDate localEndDate = course.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate localStartDate = course.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        // Calculate the difference in days
+        long daysDifference = localEndDate.toEpochDay() - localStartDate.toEpochDay();
+
+        // Calculate the number of weeks
+        long weeksDifference = daysDifference / 7;
+	    course.setNumberOfWeeks((int)(weeksDifference));
+	    CourseEntity courseObj = courseService.addNewCourse(course);
+
+	    return ResponseEntity.ok(courseObj);
 	}
+
+	
+	
 	
 	@GetMapping("/getcoursebyemail/{email}")
     public ResponseEntity<List<CourseEntity>> getCoursesByEmail(@PathVariable String email) {
@@ -63,10 +93,6 @@ public class CourseController {
         }
         return new ResponseEntity<>(courses, HttpStatus.OK);
     }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 	@GetMapping("/getcoursebycousename/{email}/{coursename}")
     public ResponseEntity<CourseEntity> getCoursesByEmailandcoursename(@PathVariable String email,@PathVariable String coursename) {
         List<CourseEntity> courses = courseService.getCoursesByProfessorName(email);
@@ -79,10 +105,6 @@ public class CourseController {
         }
         return new ResponseEntity<>(course, HttpStatus.OK);
     }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 	public String getNewID()
 	{
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"0123456789"+"abcdefghijklmnopqrstuvxyz";
@@ -96,11 +118,9 @@ public class CourseController {
 	}
 	
 	@GetMapping("/getcourses")
-	public List<CourseEntity> getcourses(){
+	public List<getcourseresponse> getcourses(){
 		return courseService.getAllCourses();
 	}
-<<<<<<< Updated upstream
-=======
 	@GetMapping("/getcoursebyid/{id}")
 	public CourseEntity getcoursebyid(@PathVariable String id){
 		
@@ -108,7 +128,6 @@ public class CourseController {
 	}
 	
 	
->>>>>>> Stashed changes
 	
 	 @PutMapping("/enablecourse/{id}")
 	    public ResponseEntity<CourseEntity> updateEntity(@PathVariable Long id) {
@@ -133,11 +152,27 @@ public class CourseController {
 	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	        }
 	    }
-<<<<<<< Updated upstream
-=======
+	 
+	 @CrossOrigin(origins = "http://localhost:4200")
+	 @PutMapping("updatecourse")
+	 public ResponseEntity<CourseEntity> updateCourse(@RequestBody CourseEntity updatedCourse) {
+	     Optional<CourseEntity> courseOptional = courseRepo.findById(updatedCourse.getId());
+
+	     if (courseOptional.isPresent()) {
+	         CourseEntity existingCourse = courseOptional.get();
+	         existingCourse.setCourseName(updatedCourse.getCourseName());
+	         existingCourse.setCourseDescription(updatedCourse.getCourseDescription());
+	         
+	         CourseEntity updatedEntity = courseRepo.save(existingCourse);
+	         return new ResponseEntity<>(updatedEntity, HttpStatus.OK);
+	     } else {
+	         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	     }
+	 }
+
+	
+	 
 	
 	
-	
->>>>>>> Stashed changes
 
 }

@@ -29,69 +29,45 @@ import { HeaderComponent } from './header/header.component';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
-<<<<<<< Updated upstream
-
-import { timeout } from 'rxjs';
-
-
-
-import { timeout } from 'rxjs';
-
-
-
-import { timeout } from 'rxjs';
-
-
-=======
->>>>>>> Stashed changes
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
-import { ApprovecourseComponent } from './approvecourse/approvecourse.component';
-import { CourseListComponent } from './course-list/course-list.component';
-import { AllCoursesComponent } from './all-courses/all-courses.component';
+
 import { CourseModulesComponent } from './course-modules/course-modules.component';
-import { CourseContentComponent } from './course-content/course-content.component';
+
 import { YouTubePlayerModule } from '@angular/youtube-player';
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
 import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
-<<<<<<< Updated upstream
-
-
-import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
-
-import { InputDialogComponent } from './input-dialog/input-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { UpdateProfileComponent } from './update-profile/update-profile.component';
-
-
-=======
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { VideoaddComponent } from './videoadd/videoadd.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocontent.component';
 import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
-import { UpdateCourseComponent } from './update-course/update-course.component';
+
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DeleteenrollComponent } from './deleteenroll/deleteenroll.component';
 import { EnrollexcelComponent } from './enrollexcel/enrollexcel.component';
 import { AddsingleenrollComponent } from './addsingleenroll/addsingleenroll.component';
 import { StudentdashboardComponent } from './studentdashboard/studentdashboard.component';
 import { StudentcoursesComponent } from './studentcourses/studentcourses.component';
-import { NgSelectModule } from '@ng-select/ng-select';
->>>>>>> Stashed changes
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AssignmentSolutionComponent } from './assignment-solution/assignment-solution.component';
+import { AssignmentsubmissionsComponent } from './assignmentsubmissions/assignmentsubmissions.component';
+import { AssignmarksComponent } from './assignmarks/assignmarks.component';
+import { MarkssubmitComponent } from './markssubmit/markssubmit.component';
+import { SubmissiondownloadComponent } from './submissiondownload/submissiondownload.component';
+import { DeadlinedatevalueComponent } from './deadlinedatevalue/deadlinedatevalue.component';
+import { ApprovecourseComponent } from './courses/approvecourse/approvecourse.component';
+import { CourseListComponent } from './courses/course-list/course-list.component';
+import { AllCoursesComponent } from './courses/all-courses/all-courses.component';
+import { CourseContentComponent } from './courses/course-content/course-content.component';
+import { UpdateCourseComponent } from './courses/update-course/update-course.component';
+
 
 
 
@@ -122,24 +98,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CourseListComponent,
     AllCoursesComponent,
     CourseModulesComponent,
-<<<<<<< Updated upstream
-
-    CourseContentComponent
-
-
-    CourseContentComponent,
-    ModuleheaderComponent,
-    InputDialogComponent,
-    UpdateProfileComponent
-  
-
-
-
-    CourseContentComponent,
-    ModuleheaderComponent
-  
-
-=======
     CourseContentComponent,
     ModuleheaderComponent,
     InputDialogComponent,
@@ -147,22 +105,26 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AnnouncementsComponent,
     VideoaddComponent,
     AssignmentsComponent,
-<<<<<<< Updated upstream
-    AssignmentListComponent
-=======
     AssignmentListComponent,
     UpdatevideocontentComponent,
     UpdatemoduleComponent,
     UpdateCourseComponent,
+    
    
     DeleteenrollComponent,
     EnrollexcelComponent,
     AddsingleenrollComponent,
     StudentdashboardComponent,
-    StudentcoursesComponent
->>>>>>> Stashed changes
+    StudentcoursesComponent,
+    ChangePasswordComponent,
+    ForgotPasswordComponent,
+    AssignmentSolutionComponent,
+    AssignmentsubmissionsComponent,
+    AssignmarksComponent,
+    MarkssubmitComponent,
+    SubmissiondownloadComponent,
+    DeadlinedatevalueComponent
   
->>>>>>> Stashed changes
   ],
 
   
@@ -181,16 +143,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AgGridModule,
     MatCardModule,
     CarouselModule,
-<<<<<<< Updated upstream
-
-
-
-
     YouTubePlayerModule,
-
-=======
-    YouTubePlayerModule,
->>>>>>> Stashed changes
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,
@@ -199,6 +152,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
       progressAnimation : 'decreasing',
       closeButton: true,
 
+
+
+
     }
 
     ),  
@@ -206,13 +162,12 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatNativeDateModule,
     NgbModule,
     MatDialogModule,
-<<<<<<< Updated upstream
-=======
-    NgSelectModule,
+
     
->>>>>>> Stashed changes
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }

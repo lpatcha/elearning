@@ -1,19 +1,24 @@
 package com.application.demo.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //public class UserFullDetails {
 //
 //}
 //import javax.persistence.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-<<<<<<< Updated upstream
-=======
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
->>>>>>> Stashed changes
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,10 +34,16 @@ public class UserFullDetails {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private String dept;
+//    @Column(nullable = false)
+//    private String dept;
+    @ManyToOne( fetch = FetchType.EAGER)
+    @JoinColumn(name = "deptreference_id")
+    @JsonIgnore
+    private CategoryEntity department;
     
     private String password;
+    
+    private String otp;
     
     
     @Column(nullable = false)
@@ -40,8 +51,6 @@ public class UserFullDetails {
 
     @Column(nullable = false)
     private String dob;
-<<<<<<< Updated upstream
-=======
     
     @OneToOne(mappedBy = "userfulldetails")
     @JsonIgnore
@@ -54,27 +63,6 @@ public class UserFullDetails {
     @OneToMany(mappedBy = "subuser", fetch = FetchType.EAGER)
     @JsonIgnore
     public List<assignmentsubmEntity> submissionlist= new ArrayList<>();
-
-	public UserFullDetails(Long id, String email, String name, String dept, String password, String phoneno, String dob,
-			UserTemp usertemp, List<Enrollment> enrollcourseslist, List<assignmentsubmEntity> submissionlist) {
-		super();
-		this.id = id;
-		this.email = email;
-		this.name = name;
-		this.dept = dept;
-		this.password = password;
-		this.phoneno = phoneno;
-		this.dob = dob;
-		this.usertemp = usertemp;
-		this.enrollcourseslist = enrollcourseslist;
-		this.submissionlist = submissionlist;
-	}
-
-	public UserFullDetails() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
->>>>>>> Stashed changes
 
 	public Long getId() {
 		return id;
@@ -100,12 +88,12 @@ public class UserFullDetails {
 		this.name = name;
 	}
 
-	public String getDept() {
-		return dept;
+	public CategoryEntity getDepartment() {
+		return department;
 	}
 
-	public void setDept(String dept) {
-		this.dept = dept;
+	public void setDepartment(CategoryEntity department) {
+		this.department = department;
 	}
 
 	public String getPassword() {
@@ -114,6 +102,14 @@ public class UserFullDetails {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getOtp() {
+		return otp;
+	}
+
+	public void setOtp(String otp) {
+		this.otp = otp;
 	}
 
 	public String getPhoneno() {
@@ -132,10 +128,6 @@ public class UserFullDetails {
 		this.dob = dob;
 	}
 
-<<<<<<< Updated upstream
-	
-   
-=======
 	public UserTemp getUsertemp() {
 		return usertemp;
 	}
@@ -160,9 +152,31 @@ public class UserFullDetails {
 		this.submissionlist = submissionlist;
 	}
 
+	public UserFullDetails(Long id, String email, String name, CategoryEntity department, String password, String otp,
+			String phoneno, String dob, UserTemp usertemp, List<Enrollment> enrollcourseslist,
+			List<assignmentsubmEntity> submissionlist) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.name = name;
+		this.department = department;
+		this.password = password;
+		this.otp = otp;
+		this.phoneno = phoneno;
+		this.dob = dob;
+		this.usertemp = usertemp;
+		this.enrollcourseslist = enrollcourseslist;
+		this.submissionlist = submissionlist;
+	}
+
+	public UserFullDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	
 	
 
->>>>>>> Stashed changes
 }
 
