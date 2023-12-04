@@ -1,15 +1,8 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-header',
-//   templateUrl: './header.component.html',
-//   styleUrls: ['./header.component.css']
-// })
-// export class HeaderComponent {
-
-// }
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -26,7 +19,7 @@ export class HeaderComponent implements OnInit {
   currRole = '';
   title = '';
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router,private toastr: ToastrService,public dialog: MatDialog) { }
 
   ngOnInit(): void 
   {
@@ -39,11 +32,11 @@ export class HeaderComponent implements OnInit {
     if(this.currRole === "admin"){
       this.title = "Admin Dashboard";
     }
-    else if(this.currRole === "professor"){
-      this.title = "";
+    else if(this.currRole === "teacher"){
+      this.title = "Teacher Dashboard";
     }
-    else if(this.currRole === "user"){
-      this.title = "";
+    else if(this.currRole === "student"){
+      this.title = "Student Dashboard";
     }
   }
 
@@ -63,6 +56,7 @@ export class HeaderComponent implements OnInit {
   {
     // sessionStorage.clear();
     // this._router.navigate(['/login']);
+    this.toastr.success("Logout Successfull")
     localStorage.removeItem('isAuthenticated');
     // Redirect to the login page after logout
     this.router.navigate(['/login']);
@@ -78,13 +72,25 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/teacherdashboard']);
     }
     else if(this.currRole === "student"){
-      this.router.navigate(['/studentdashboard']);
+      this.router.navigate(['/student']);
     }
   }
 
   viewDetails()
   {
 
+  }
+
+  changePassword(): void {
+    this.dialog.open(ChangePasswordComponent, {
+      
+      width: '400px',
+      height:'400px',
+      data:{
+        userId: this.loggedUser
+      }
+    });
+    
   }
 
 

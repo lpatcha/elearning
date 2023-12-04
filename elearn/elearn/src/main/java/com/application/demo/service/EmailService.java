@@ -30,9 +30,15 @@ public class EmailService {
         javaMailSender.send(message);
     }
     
+<<<<<<< Updated upstream
     public void sendAnnouncementEmail(String title, String description) {
         List<String> userEmails = enrollmentRepository.findAllEmails(); // Implement this method in your repository
 
+=======
+    public void sendAnnouncementEmail(Long courseid,String title, String description) {
+        List<String> userEmails = enrollmentService.findAllEmails(courseid); // Implement this method in your repository
+        
+>>>>>>> Stashed changes
         for (String email : userEmails) {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setTo(email);

@@ -33,11 +33,9 @@ import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.c
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddcourseComponent } from './addcourse/addcourse.component';
 import { CoursestableComponent } from './coursestable/coursestable.component';
-import { ApprovecourseComponent } from './approvecourse/approvecourse.component';
-import { CourseListComponent } from './course-list/course-list.component';
-import { AllCoursesComponent } from './all-courses/all-courses.component';
+
 import { CourseModulesComponent } from './course-modules/course-modules.component';
-import { CourseContentComponent } from './course-content/course-content.component';
+
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
@@ -51,6 +49,30 @@ import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocon
 import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { DeleteenrollComponent } from './deleteenroll/deleteenroll.component';
+import { EnrollexcelComponent } from './enrollexcel/enrollexcel.component';
+import { AddsingleenrollComponent } from './addsingleenroll/addsingleenroll.component';
+import { StudentdashboardComponent } from './studentdashboard/studentdashboard.component';
+import { StudentcoursesComponent } from './studentcourses/studentcourses.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AssignmentSolutionComponent } from './assignment-solution/assignment-solution.component';
+import { AssignmentsubmissionsComponent } from './assignmentsubmissions/assignmentsubmissions.component';
+import { AssignmarksComponent } from './assignmarks/assignmarks.component';
+import { MarkssubmitComponent } from './markssubmit/markssubmit.component';
+import { SubmissiondownloadComponent } from './submissiondownload/submissiondownload.component';
+import { DeadlinedatevalueComponent } from './deadlinedatevalue/deadlinedatevalue.component';
+import { ApprovecourseComponent } from './courses/approvecourse/approvecourse.component';
+import { CourseListComponent } from './courses/course-list/course-list.component';
+import { AllCoursesComponent } from './courses/all-courses/all-courses.component';
+import { CourseContentComponent } from './courses/course-content/course-content.component';
+import { UpdateCourseComponent } from './courses/update-course/update-course.component';
+
+>>>>>>> Stashed changes
 
 =======
 =======
@@ -100,16 +122,34 @@ import { AddsingleenrollComponent } from './addsingleenroll/addsingleenroll.comp
     UpdatevideocontentComponent,
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     UpdatemoduleComponent
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     UpdatemoduleComponent,
     UpdateCourseComponent,
+    
    
     DeleteenrollComponent,
     EnrollexcelComponent,
+<<<<<<< Updated upstream
     AddsingleenrollComponent
+=======
+    AddsingleenrollComponent,
+    StudentdashboardComponent,
+    StudentcoursesComponent,
+    ChangePasswordComponent,
+    ForgotPasswordComponent,
+    AssignmentSolutionComponent,
+    AssignmentsubmissionsComponent,
+    AssignmarksComponent,
+    MarkssubmitComponent,
+    SubmissiondownloadComponent,
+    DeadlinedatevalueComponent
+>>>>>>> Stashed changes
   
   ],
 
@@ -138,6 +178,9 @@ import { AddsingleenrollComponent } from './addsingleenroll/addsingleenroll.comp
       progressAnimation : 'decreasing',
       closeButton: true,
 
+
+
+
     }
 
     ),  
@@ -145,9 +188,15 @@ import { AddsingleenrollComponent } from './addsingleenroll/addsingleenroll.comp
     MatNativeDateModule,
     NgbModule,
     MatDialogModule,
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }

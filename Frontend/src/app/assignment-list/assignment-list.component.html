@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <div class="container mt-4">
 <<<<<<< Updated upstream
     <div  class="card-body mt-4">
@@ -27,70 +28,55 @@
         <h2 class="card-title">ASE Assignment</h2>
         <embed [src]="pdfUrl" type="application/pdf" width="100%" height="250">
       </div>
+=======
+<!-- <div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+  <h2>Assignment List</h2>
+  <div class="card mt-4" *ngFor="let pdfUrl of pdfUrls; let i = index">
+    <div class="card-body">
+      <h2 class="card-title">ASE Assignment {{ i + 1 }}</h2>
+      <h4 class="card-title">Python</h4>
+      <h4 class="card-title">Python Assignment {{ i + 1 }}</h4>
+      <a [href]="pdfUrl" download="{{ fileNames[i] }}">
+        Download Assignment
+      </a>
+>>>>>>> Stashed changes
     </div>
   </div>
-  <div class="card-body mt-4">
-    <h2>Assignment List</h2>
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">ASE Assignment</h2>
-        <embed [src]="pdfUrl" type="application/pdf" width="100%" height="250">
-      </div>
-    </div>
-  </div>
-  <div class="card-body mt-4">
-    <h2>Assignment List</h2>
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">ASE Assignment</h2>
-        <embed [src]="pdfUrl" type="application/pdf" width="100%" height="250">
-      </div>
-    </div>
-  </div>
-  <div class="card-body mt-4">
-    <h2>Assignment List</h2>
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">ASE Assignment</h2>
-        <embed [src]="pdfUrl" type="application/pdf" width="100%" height="250">
-      </div>
-    </div>
-  </div>
-  <div class="card-body mt-4">
-    <h2>Assignment List</h2>
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">ASE Assignment</h2>
-        <embed [src]="pdfUrl" type="application/pdf" width="100%" height="250">
-      </div>
-    </div>
-  </div>
-  <div class="card-body mt-4">
-    <h2>Assignment List</h2>
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">ASE Assignment</h2>
-        <embed [src]="pdfUrl" type="application/pdf" width="100%" height="250">
-      </div>
-    </div>
-  </div>
-  <div class="card-body mt-4">
-    <h2>Assignment List</h2>
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">ASE Assignment</h2>
-        <embed [src]="pdfUrl" type="application/pdf" width="100%" height="250">
-      </div>
-    </div>
-  </div>
-  <div class="card-body mt-4">
-    <h2>Assignment List</h2>
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title">ASE Assignment</h2>
-        <embed [src]="pdfUrl" type="application/pdf" width="100%" height="250">
+</div>
+</div>
+</div>
+
+ -->
+ <app-header></app-header>
+<app-moduleheader [coursename]="courseId"></app-moduleheader>
+<button class="center-vertically custom-button" (click)="openAssignments()">Add Assignments</button>
+
+ <div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h2>Assignment List</h2>
+      <div class="card mt-4" *ngFor="let pdfUrl of fileNames; let i = index">
+        <div class="card-body">
+          <h2 class="card-title">Assignment {{ i + 1 }}</h2>
+          <h4 class="card-title">Title:{{pdfUrl.title}}</h4>
+          <h4 class="card-title">Description:{{pdfUrl.description}}</h4>
+          <h4 class="card-title">Marks:{{pdfUrl.submitMarks}}</h4>
+          <h4 class="card-title">EndDate:{{pdfUrl.deadlinedate}}</h4>
+          <!-- Use an anchor tag for the download link -->
+          <a href="javascript:void(0)" (click)="download(pdfUrl.fileName)">
+            Download Assignment
+          </a>
+          <br>
+          <button class="center-vertically custom-button mt-4" [routerLink]="['/submissions', pdfUrl.id]">Submitions</button>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+
 >>>>>>> Stashed changes

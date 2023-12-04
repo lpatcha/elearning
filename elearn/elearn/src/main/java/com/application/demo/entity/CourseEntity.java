@@ -11,7 +11,10 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 
 @Entity
@@ -25,11 +28,17 @@ public class CourseEntity {
     private Date startDate;
     private int numberOfWeeks;
     private Long userId;
-    private String department;
+    @ManyToOne( fetch = FetchType.EAGER)
+    @JoinColumn(name = "deptreference_id")
+    @JsonIgnore
+    private CategoryEntity department;
     private String courseStatus;
 
     private Date endDate;
-    private String category;
+    @ManyToOne( fetch = FetchType.EAGER)
+    @JoinColumn(name = "categoryreference_id")
+    @JsonIgnore
+    private CategoryEntity category;
 	private String modules;
     
     private String professorName;
@@ -47,6 +56,7 @@ public class CourseEntity {
     public List<AnnouncementEntity> announcements= new ArrayList<>();
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 =======
 =======
@@ -58,6 +68,14 @@ public class CourseEntity {
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
+>>>>>>> Stashed changes
+=======
+    
+    
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<AssignmentEntity> assignments= new ArrayList<>();
+
 >>>>>>> Stashed changes
 
 	public Long getId() {
@@ -130,12 +148,20 @@ public class CourseEntity {
 	}
 
 
+<<<<<<< Updated upstream
 	public String getDepartment() {
+=======
+	public CategoryEntity getDepartment() {
+>>>>>>> Stashed changes
 		return department;
 	}
 
 
+<<<<<<< Updated upstream
 	public void setDepartment(String department) {
+=======
+	public void setDepartment(CategoryEntity department) {
+>>>>>>> Stashed changes
 		this.department = department;
 	}
 
@@ -160,12 +186,20 @@ public class CourseEntity {
 	}
 
 
+<<<<<<< Updated upstream
 	public String getCategory() {
+=======
+	public CategoryEntity getCategory() {
+>>>>>>> Stashed changes
 		return category;
 	}
 
 
+<<<<<<< Updated upstream
 	public void setCategory(String category) {
+=======
+	public void setCategory(CategoryEntity category) {
+>>>>>>> Stashed changes
 		this.category = category;
 	}
 
@@ -220,10 +254,27 @@ public class CourseEntity {
 	}
 
 
+<<<<<<< Updated upstream
 	public CourseEntity(Long id, String courseName, String courseId, String courseDescription, Date startDate,
 			int numberOfWeeks, Long userId, String department, String courseStatus, Date endDate, String category,
 			String modules, String professorName, List<ModuleEntity> moduleslist, List<Enrollment> enrolllist,
 			List<AnnouncementEntity> announcements) {
+=======
+	public List<AssignmentEntity> getAssignments() {
+		return assignments;
+	}
+
+
+	public void setAssignments(List<AssignmentEntity> assignments) {
+		this.assignments = assignments;
+	}
+
+
+	public CourseEntity(Long id, String courseName, String courseId, String courseDescription, Date startDate,
+			int numberOfWeeks, Long userId, CategoryEntity department, String courseStatus, Date endDate,
+			CategoryEntity category, String modules, String professorName, List<ModuleEntity> moduleslist,
+			List<Enrollment> enrolllist, List<AnnouncementEntity> announcements, List<AssignmentEntity> assignments) {
+>>>>>>> Stashed changes
 		super();
 		this.id = id;
 		this.courseName = courseName;
@@ -241,6 +292,10 @@ public class CourseEntity {
 		this.moduleslist = moduleslist;
 		this.enrolllist = enrolllist;
 		this.announcements = announcements;
+<<<<<<< Updated upstream
+=======
+		this.assignments = assignments;
+>>>>>>> Stashed changes
 	}
 
 
@@ -252,9 +307,12 @@ public class CourseEntity {
 
 	
 
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
     
     
 }

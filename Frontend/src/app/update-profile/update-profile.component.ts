@@ -2,7 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+<<<<<<< Updated upstream
 import { MyServiceService } from '../my-service.service';
+=======
+
+import { CategoryService } from '../category.service';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-update-profile',
@@ -16,7 +21,11 @@ export class UpdateProfileComponent {
     private route: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService,
+<<<<<<< Updated upstream
     private myService: MyServiceService,
+=======
+    private myService: CategoryService,
+>>>>>>> Stashed changes
   ) {}
 
   cardData: any;

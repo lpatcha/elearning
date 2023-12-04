@@ -1,21 +1,14 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-registration',
-//   templateUrl: './registration.component.html',
-//   styleUrls: ['./registration.component.css']
-// })
-// export class RegistrationComponent {
-
-// }
-
-
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+<<<<<<< Updated upstream
 import { MyServiceService } from '../my-service.service';
+=======
+
+import { ToastrService } from 'ngx-toastr';
+import { CategoryService } from '../category.service';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-registration',
@@ -31,7 +24,11 @@ export class RegistrationComponent implements OnInit {
   presentemail='';
   departmentList : any | undefined;
 
+<<<<<<< Updated upstream
   constructor(private myService: MyServiceService,private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder) { 
+=======
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder,private toastr: ToastrService,private myService:CategoryService) { 
+>>>>>>> Stashed changes
     this.myForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       dept: ['', [Validators.required]],
@@ -81,37 +78,64 @@ export class RegistrationComponent implements OnInit {
        this.myForm.get('email')?.disable();
      
     });
+<<<<<<< Updated upstream
 
 this.myService.getAllCategoriesWithSubcategories().subscribe(data=>{
      this.departmentList=data;
      console.log(this.departmentList);
 })
   }
+=======
+>>>>>>> Stashed changes
 
+this.myService.getAllCategoriesWithSubcategories().subscribe(data=>{
+     this.departmentList=data;
+     console.log(this.departmentList);
+})
+  }
   submitRegistrationForm(): void {
-    // const adminData = { email: this.email, name: this.name, deptName:this.deptName ,password:this.password};
     if (this.myForm.valid) {
       const formData = this.myForm.value;
-      const formData1={email:this.myForm.get('email')?.value,name:this.myForm.get('name')?.value,
-      password:this.myForm.get('password')?.value,dept:this.myForm.get('dept')?.value,
-      phoneno:this.myForm.get('phoneno')?.value,dob:this.myForm.get('dob')?.value}
-      console.log( formData1);
-    
-    this.http.post('http://localhost:8080/api/student/registration', formData1).subscribe(
-      (response: any) => {
-        if (response.message === 'Student registration initiated successfully.') {
-          // Send an email to the admin with the registration link
-          // this.sendRegistrationEmail(this.email);
-          this.router.navigate(['/admin']);
-          console.log('Registration email sent to successful');
-        } else {
-          console.error('Admin creation failed.');
+      const formData1 = {
+        email: this.myForm.get('email')?.value,
+        name: this.myForm.get('name')?.value,
+        password: this.myForm.get('password')?.value,
+        dept: this.myForm.get('dept')?.value,
+        phoneno: this.myForm.get('phoneno')?.value,
+        dob: this.myForm.get('dob')?.value
+      };
+  
+      console.log(formData1);
+  
+      this.http.post('http://localhost:8080/api/student/registration', formData1,{ responseType: 'text' }).subscribe(
+        (response: any) => {
+          if (response === 'Registration completed successfully.' ) {
+            this.toastr.success("User Registration successful");
+            // Send an email to the admin with the registration link
+            // this.sendRegistrationEmail(this.email);
+            this.router.navigate(['/login']);
+            console.log('Registration successful');
+          } else {
+            console.error('Unexpected response status:', response.status);
+            // Handle other status codes as needed
+          }
+        },
+        (error: any) => {
+          console.error('An error occurred while creating the user:', error);
+          // Handle error cases
+          if (error.status === 404) {
+            // User not found
+            this.toastr.error("User not found.");
+          } else if (error.status === 500) {
+            // Internal server error
+            this.toastr.error("User Registered already Please Login");
+            this.router.navigate(['/login']);
+          } else {
+            // Handle other status codes as needed
+          }
         }
-      },
-      (error: any) => {
-        console.error('An error occurred while creating the admin:', error);
-      }
-    );
+      );
     }
   }
+  
 }

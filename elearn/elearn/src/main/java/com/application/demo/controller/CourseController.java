@@ -1,5 +1,7 @@
 package com.application.demo.controller;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.application.demo.Dto.addcourserequest;
+import com.application.demo.Dto.getcourseresponse;
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.UserTemp;
 import com.application.demo.repository.CourseRepository;
@@ -52,7 +56,11 @@ public class CourseController {
 	
 	
 	@PostMapping("/addCourse")
+<<<<<<< Updated upstream
 	public ResponseEntity<?> addNewCourse(@RequestBody CourseEntity course) {
+=======
+	public ResponseEntity<?> addNewCourse(@RequestBody addcourserequest course) {
+>>>>>>> Stashed changes
 	    // Check if a course with the same courseName and professorName already exists
 	    CourseEntity existingCourse = courseService.findCourseByCourseNameAndProfessorNameAndCategoryName(course.getCourseName(), course.getProfessorName(), course.getCategory());
 
@@ -64,6 +72,18 @@ public class CourseController {
 	    // Generate a new ID and save the course
 	    String newID = getNewID();
 	    course.setCourseId(newID);
+<<<<<<< Updated upstream
+=======
+	    LocalDate localEndDate = course.getEndDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate localStartDate = course.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+        // Calculate the difference in days
+        long daysDifference = localEndDate.toEpochDay() - localStartDate.toEpochDay();
+
+        // Calculate the number of weeks
+        long weeksDifference = daysDifference / 7;
+	    course.setNumberOfWeeks((int)(weeksDifference));
+>>>>>>> Stashed changes
 	    CourseEntity courseObj = courseService.addNewCourse(course);
 
 	    return ResponseEntity.ok(courseObj);
@@ -105,9 +125,19 @@ public class CourseController {
 	}
 	
 	@GetMapping("/getcourses")
-	public List<CourseEntity> getcourses(){
+	public List<getcourseresponse> getcourses(){
 		return courseService.getAllCourses();
 	}
+<<<<<<< Updated upstream
+=======
+	@GetMapping("/getcoursebyid/{id}")
+	public CourseEntity getcoursebyid(@PathVariable String id){
+		
+		return courseRepo.findById(Long.parseLong(id)).get();
+	}
+	
+	
+>>>>>>> Stashed changes
 	
 	 @PutMapping("/enablecourse/{id}")
 	    public ResponseEntity<CourseEntity> updateEntity(@PathVariable Long id) {
@@ -134,9 +164,12 @@ public class CourseController {
 	    }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	
 	 
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 	 
@@ -160,9 +193,14 @@ public class CourseController {
 	
 	 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 	
 	
+=======
+	
+	
+>>>>>>> Stashed changes
 =======
 	
 	

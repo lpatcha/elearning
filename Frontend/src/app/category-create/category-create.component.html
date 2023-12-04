@@ -1,5 +1,6 @@
 <app-header></app-header>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <div>
 =======
 <div class="category">
@@ -8,6 +9,13 @@
     <app-category-list [categories]="categoriesWithSubcategories" (addCategory)="onAddCategory($event)"  (updateCategory)="updateCategory($event)" ></app-category-list>
     <div class="centered-container">
     <button (click)="showInputBox = true" class="btn btn-primary">Add Category</button>
+=======
+<div class="category">
+    <h2>Categories</h2>
+    <app-category-list [categories]="categoriesWithSubcategories" (addCategory)="onAddCategory($event)"  (updateCategory)="updateCategory($event)" ></app-category-list>
+    <div class="centered-container">
+    <button (click)="showInputBox = true" class="btn btn-primary">Add Department</button>
+>>>>>>> Stashed changes
 
     <div *ngIf="showInputBox">
       <input type="text" [(ngModel)]="newCategory" placeholder="Enter a new category">

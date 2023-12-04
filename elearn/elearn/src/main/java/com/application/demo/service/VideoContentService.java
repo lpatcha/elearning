@@ -39,6 +39,7 @@ public class VideoContentService {
         VideoContent videoContent = new VideoContent();
         videoContent.setContentname(videoContentDto.getContentName());
         videoContent.setVideourl(videoContentDto.getVideoUrl());
+        videoContent.setVideodescription(videoContentDto.getVideodescription());
         videoContent.setModule(module);
         videoContent = videoContentRepository.save(videoContent);
         module.getVideoContents().add(videoContent);
@@ -67,6 +68,7 @@ public class VideoContentService {
         }
         videoContent.setContentname(videoContentDto.getContentName());
         videoContent.setVideourl(videoContentDto.getVideoUrl());
+        videoContent.setVideodescription(videoContentDto.getVideodescription());
         videoContent.setModule(module);
         return videoContentRepository.save(videoContent);
     }
@@ -78,6 +80,7 @@ public class VideoContentService {
     	modulerepo.save(mm);
         videoContentRepository.deleteById(id);
     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 //    public List<VideoContent> getVideoContentsByInstructorCourseModule(String instructorName, String courseName, String moduleName) {
@@ -107,4 +110,7 @@ public class VideoContentService {
 =======
 >>>>>>> Stashed changes
 
+=======
+
+>>>>>>> Stashed changes
 }

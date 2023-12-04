@@ -1,24 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Observable } from 'rxjs';
-import { AllCourses } from 'src/app/models/allcourses';
+import { AllCourses } from '../models/allcourses';
 import { Course } from '../models/course';
-import { MyServiceService } from '../my-service.service';
+import { Router } from '@angular/router';
 
+import { MatDialog } from '@angular/material/dialog';
+import { CourseService } from '../courses/course-service.service';
 
 @Component({
-  selector: 'app-all-courses',
-  templateUrl: './all-courses.component.html',
-  styleUrls: ['./all-courses.component.css']
+  selector: 'app-studentcourses',
+  templateUrl: './studentcourses.component.html',
+  styleUrls: ['./studentcourses.component.css']
 })
-export class AllCoursesComponent {
-
+export class StudentcoursesComponent {
+  
   myenrollments : Observable<AllCourses[]> | undefined;
   loggedUser = '';
   currRole = '';
   courses : Observable<Course[]> | undefined;
-  constructor( private _router : Router,private courseService : MyServiceService) { }
+  constructor( private _router : Router,private courseService : CourseService, private dialog : MatDialog) { }
 
   ngOnInit(): void 
   {
@@ -28,7 +29,7 @@ export class AllCoursesComponent {
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
     this.currRole = this.currRole.replace(/"/g, '');
 
-    this.courses = this.courseService.getCoursesByEmail(this.loggedUser);
+    this.courses = this.courseService.getstudentCoursesByEmail(this.loggedUser);
 
     const target = 'https://www.youtube.com/iframe_api'
 
@@ -39,6 +40,17 @@ export class AllCoursesComponent {
   }
   }
 
+
+  updateCourse(courseId : any): void {
+    // this.dialog.open(UpdateCourseComponent, {
+    //   data: { courseId: courseId },
+    //   width: '500px',
+    //   height:'500px'
+    // });
+  }
+
+
+
   isScriptLoaded(target: string): boolean
   {
     return document.querySelector('script[src="' + target + '"]') ? true : false
@@ -48,6 +60,8 @@ export class AllCoursesComponent {
   {
     this._router.navigate(['/allcourses', coursename]);
   }
+
+  
 
   owlDragging(e: any){
     console.log(e);
@@ -80,5 +94,6 @@ export class AllCoursesComponent {
      },
      nav: true
    }
+
 
 }

@@ -1,7 +1,12 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { LogoutService } from '../logout.service';
 import { HttpClient } from '@angular/common/http';
+<<<<<<< Updated upstream
 import { MyServiceService } from '../my-service.service';
+=======
+
+import { CategoryService } from '../category.service';
+>>>>>>> Stashed changes
 // import { AllservicesService } from '../allservices.service';
 
 @Component({

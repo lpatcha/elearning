@@ -47,6 +47,7 @@ public class VideoContentController {
 //         return ResponseEntity.ok(videoContentService.addVideoContent(videoContentDto));
     	 Optional<ModuleEntity> module=modulerepo.findById(Long.parseLong(videoContentDto.getModuleName()));
 		 List<VideoContent> contentlist=module.get().getVideoContents();
+<<<<<<< Updated upstream
 		 List<VideoContent> singlecontent = contentlist.stream()
 	                .filter(modu -> modu.getContentname().equals(videoContentDto.getContentName()))
 	                .collect(Collectors.toList());
@@ -62,11 +63,30 @@ public class VideoContentController {
     public ResponseEntity<?> updateVideoContent(@PathVariable Long id, @RequestBody VideoContentDto videoContentDto) {
     	Optional<VideoContent> video=videoContentRepository.findById(id);
 		 List<VideoContent> contentlist=video.get().getModule().getVideoContents();
+=======
+>>>>>>> Stashed changes
 		 List<VideoContent> singlecontent = contentlist.stream()
 	                .filter(modu -> modu.getContentname().equals(videoContentDto.getContentName()))
 	                .collect(Collectors.toList());
 //			 ModuleEntity exist=moduleService.findModule(module.getModulename(),module.getCoursename(),module.getInstructorname());
 		    	if(singlecontent.size()>0) {
+		    		return ResponseEntity.status(HttpStatus.CONFLICT).body("video content already exists");
+		    	}
+		    	
+		         return ResponseEntity.ok(videoContentService.addVideoContent(videoContentDto));
+    }
+
+    
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateVideoContent(@PathVariable Long id, @RequestBody VideoContentDto videoContentDto) {
+    	Optional<VideoContent> video=videoContentRepository.findById(id);
+		 List<VideoContent> contentlist=video.get().getModule().getVideoContents();
+		 List<VideoContent> singlecontent = contentlist.stream()
+	                .filter(modu -> modu.getContentname().equals(videoContentDto.getContentName()))
+	                .collect(Collectors.toList());
+		 
+//			 ModuleEntity exist=moduleService.findModule(module.getModulename(),module.getCoursename(),module.getInstructorname());
+		    	if(singlecontent.size()>0 && !(singlecontent.get(0).getId().equals(id))) {
 		    		return ResponseEntity.status(HttpStatus.CONFLICT).body("video content already exists");
 		    	}
 		    	
@@ -97,6 +117,7 @@ public class VideoContentController {
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //    @GetMapping("/getcoursecontent")
 //    public List<VideoContent> getVideoContentsByInstructorCourseModule(
 //            @RequestParam("instructorName") String instructorName,
@@ -104,6 +125,9 @@ public class VideoContentController {
 //            @RequestParam("moduleName") String moduleName) {
 //        return videoContentService.getVideoContentsByInstructorCourseModule(instructorName, courseName, moduleName);
 //    }
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes

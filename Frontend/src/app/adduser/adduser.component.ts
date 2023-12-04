@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MyServiceService } from '../my-service.service';
+
 import { Enrollment } from '../models/enroll';
 import * as XLSX from 'xlsx';
 import { ColDef } from 'ag-grid-community';
@@ -10,6 +10,13 @@ import { DeleteenrollComponent } from '../deleteenroll/deleteenroll.component';
 import { EnrollexcelComponent } from '../enrollexcel/enrollexcel.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AddsingleenrollComponent } from '../addsingleenroll/addsingleenroll.component';
+<<<<<<< Updated upstream
+=======
+import { ToastrService } from 'ngx-toastr';
+import { EnrollmentService } from '../enrollment.service';
+import { CourseService } from '../courses/course-service.service';
+
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-adduser',
@@ -52,7 +59,12 @@ export class AdduserComponent {
   pageSize = 10;
   gridApi: any;
 
+<<<<<<< Updated upstream
   constructor(public dialog: MatDialog,private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService) { }
+=======
+  constructor(public dialog: MatDialog,private _router : Router, private activatedRoute: ActivatedRoute,private courseService : EnrollmentService,private toastr: ToastrService,private courseServicee : CourseService) { }
+
+>>>>>>> Stashed changes
   addUser() {
     const dialogRef = this.dialog.open(AddsingleenrollComponent, {
       width: '400px', // Set the width as per your design
@@ -70,6 +82,7 @@ export class AdduserComponent {
       this.courseService.addenrollment(this.enroll,this.courseName).subscribe((data)=>
       {
         this.getusers();
+        this.toastr.success("user added to course successfully")
         console.log(data);
       });
       // this.users = this.userService.getUsers();
@@ -79,6 +92,7 @@ export class AdduserComponent {
   deleteuser(id:any){
     this.courseService.deleteenrollment(id.enrollid).subscribe((data)=>
     {
+<<<<<<< Updated upstream
       this.getusers();
       console.log(data);
     });
@@ -86,6 +100,9 @@ export class AdduserComponent {
   deleteuser(id:any){
     this.courseService.deleteenrollment(id).subscribe((data)=>
     {
+=======
+      this.toastr.success("User deleted from course successfully")
+>>>>>>> Stashed changes
       this.getusers();
       console.log(data);
     });

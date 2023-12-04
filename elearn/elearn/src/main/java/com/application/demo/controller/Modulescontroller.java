@@ -68,6 +68,7 @@ public class Modulescontroller {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 //    @GetMapping("/getmodules/{instructor}/{course}")
 //    public List<ModuleEntity> getModulesByCourseAndInstructor(
 //            @PathVariable String course,
@@ -76,6 +77,8 @@ public class Modulescontroller {
 //        return moduleService.getModulesByCourseAndInstructor(course, instructor);
 //    }
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 

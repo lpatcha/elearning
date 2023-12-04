@@ -47,8 +47,9 @@ public class AnnouncementController {
     public AnnouncementEntity addAnnouncement(
             @RequestBody AnnouncementsDto announcementRequest) {
         // Find the course based on course name and professor name
-        CourseEntity course = courseRepository.findByCourseNameAndProfessorName(
-                announcementRequest.getCourseName(), announcementRequest.getProfessorName());
+    	CourseEntity course=courseRepository.findById(Long.parseLong( announcementRequest.getCourseName())).get();
+//        CourseEntity course = courseRepository.findByCourseNameAndProfessorName(
+//                announcementRequest.getCourseName(), announcementRequest.getProfessorName());
 
         if (course == null) {
             // Handle the case where the course doesn't exist
@@ -69,7 +70,11 @@ public class AnnouncementController {
             course.getAnnouncements().add(savedAnnouncement);
             courseRepository.save(course);
             // Send the announcement email
+<<<<<<< Updated upstream
             sendAnnouncement.sendAnnouncementEmail(savedAnnouncement.getTitle(), savedAnnouncement.getDescription());
+=======
+            sendAnnouncement.sendAnnouncementEmail(course.getId(),savedAnnouncement.getTitle(), savedAnnouncement.getDescription());
+>>>>>>> Stashed changes
             return savedAnnouncement;
         }
 		
@@ -79,5 +84,6 @@ public class AnnouncementController {
     public List<AnnouncementEntity> getAllAnnouncements() {
         return announcementRepository.findAll();
     }
+    
 }
 

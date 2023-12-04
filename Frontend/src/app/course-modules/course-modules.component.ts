@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, distinctUntilChanged, filter, take } from 'rxjs';
 import { Course } from '../models/course';
-import { MyServiceService } from '../my-service.service';
+
 import { Module } from '../models/module';
 import { MatDialog } from '@angular/material/dialog';
 import { InputDialogComponent } from '../input-dialog/input-dialog.component';
@@ -10,6 +10,12 @@ import { VideoContent } from '../models/videocontent';
 import { VideoaddComponent } from '../videoadd/videoadd.component';
 import { UpdatevideocontentComponent } from '../updatevideocontent/updatevideocontent.component';
 import { UpdatemoduleComponent } from '../updatemodule/updatemodule.component';
+<<<<<<< Updated upstream
+=======
+import { ToastrService } from 'ngx-toastr';
+import { ModuleService } from '../module.service';
+import { VideoService } from '../video.service';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-course-modules',
@@ -28,13 +34,17 @@ export class CourseModulesComponent {
   loggedUser = '';
   currRole = '';
   currentmodule="";
-  coursedetails : Observable<Course> | undefined;
+  coursedetails : any;
   createmodule: Module = new Module();
   videocontent:any;
   createvideo:VideoContent=new VideoContent();
   updatevideoreq:VideoContent=new VideoContent();
 
+<<<<<<< Updated upstream
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService,public dialog: MatDialog) { }
+=======
+  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private moduleService : ModuleService,public dialog: MatDialog,private toastr:ToastrService,private videoService:VideoService) { }
+>>>>>>> Stashed changes
 
   ngOnInit(): void {
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
@@ -42,28 +52,48 @@ export class CourseModulesComponent {
 
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
     this.currRole = this.currRole.replace(/"/g, '');
+<<<<<<< Updated upstream
+=======
+    console.log(this.currRole);
+>>>>>>> Stashed changes
     // const coursename = +this.activatedRoute.snapshot.paramMap.get('id');
     // this.activatedRoute.params.subscribe((data1) => {
     //   const coursename = data1['id'];
 
+<<<<<<< Updated upstream
     //   this.courseService.getCoursesByEmailandcoursename(this.loggedUser,coursename).subscribe((data) => {
+=======
+    //   this.moduleService.getCoursesByEmailandcoursename(this.loggedUser,coursename).subscribe((data) => {
+>>>>>>> Stashed changes
     //     this.coursedetails = data;
     //   });
     //   console.log(this.coursedetails);
     // });
   
+<<<<<<< Updated upstream
     // this.course = this.courseService.getCourseById(courseId);
+=======
+    // this.course = this.moduleService.getCourseById(courseId);
+>>>>>>> Stashed changes
 
     $("#overview").show();
     $("#qa, #notes, #announcements, #questions, #notestxt, #downloads").hide();
     $("#downloadalert").css("display","none");
     this.courseName = this.activatedRoute.snapshot.params['coursename'];
     sessionStorage.setItem('course',this.courseName);
+<<<<<<< Updated upstream
     // this.courseService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
     //   this.coursedetails = data;
     //   console.log(this.coursedetails);
     // });
     this.courseService.getCourseDetailsbyid(this.courseName).subscribe((data) => {
+=======
+    // this.moduleService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
+    //   this.coursedetails = data;
+    //   console.log(this.coursedetails);
+    // });
+    this.videoService.getCourseDetailsbyid(this.courseName).subscribe((data) => {
+>>>>>>> Stashed changes
       this.coursedetails = data;
       console.log(this.coursedetails);
     });
@@ -111,11 +141,19 @@ export class CourseModulesComponent {
   }
   getvideocourse(moduleid:any){
     this.currentmodule=moduleid;
+<<<<<<< Updated upstream
     // this.courseService.getvideocontent(this.loggedUser,this.courseName,module).subscribe((data) => {
     //   this.videocontent = data;
     //   console.log(this.videocontent);
     // });
     this.courseService.getvideocontentbyid(moduleid).subscribe((data) => {
+=======
+    // this.moduleService.getvideocontent(this.loggedUser,this.courseName,module).subscribe((data) => {
+    //   this.videocontent = data;
+    //   console.log(this.videocontent);
+    // });
+    this.videoService.getvideocontentbyid(moduleid).subscribe((data) => {
+>>>>>>> Stashed changes
       this.videocontent = data;
       console.log(this.videocontent);
     });
@@ -129,7 +167,11 @@ export class CourseModulesComponent {
     this.createmodule.instructorname=this.loggedUser;
 
     if (moduleName) {
+<<<<<<< Updated upstream
       this.courseService.addmodule(this.createmodule).subscribe((data)=>
+=======
+      this.moduleService.addmodule(this.createmodule).subscribe((data)=>
+>>>>>>> Stashed changes
       {
         this.getmodulename();
         console.log(data);
@@ -138,9 +180,16 @@ export class CourseModulesComponent {
     }
   }
   deletemodule(id:any){
+<<<<<<< Updated upstream
     this.courseService.deletemodule(id).subscribe((id)=>
     {
       console.log(id+"deleted");
+=======
+    this.moduleService.deletemodule(id).subscribe((id)=>
+    {
+      console.log(id+"deleted");
+      this.toastr.error("Module deleted successfully")
+>>>>>>> Stashed changes
       this.getmodulename();
     });
   }
@@ -161,9 +210,16 @@ export class CourseModulesComponent {
         // this.createmodule.instructorname=this.loggedUser;
     
         if (moduleName) {
+<<<<<<< Updated upstream
           this.courseService.updatemodule(id,moduleName).subscribe((data)=>
           {
             this.getmodulename();
+=======
+          this.moduleService.updatemodule(id,moduleName).subscribe((data)=>
+          {
+            this.getmodulename();
+            this.toastr.success("Module updated successfully")
+>>>>>>> Stashed changes
             console.log(data);
           });
           // this.users = this.userService.getUsers();
@@ -173,7 +229,11 @@ export class CourseModulesComponent {
 
   }
   // getmodulename(){
+<<<<<<< Updated upstream
   //   this.courseService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName)
+=======
+  //   this.moduleService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName)
+>>>>>>> Stashed changes
   //   //  .pipe(
   //   //   filter(data => !!data), // Ensure that data is available
   //   //   distinctUntilChanged((prev, current) => this.getModuleName(prev) === this.getModuleName(current)), // Prevent redundant calls
@@ -193,7 +253,11 @@ export class CourseModulesComponent {
   //   });
   // }
   getmodulename(){
+<<<<<<< Updated upstream
     this.courseService.getmoduleById(this.courseName)
+=======
+    this.moduleService.getmoduleById(this.courseName)
+>>>>>>> Stashed changes
     //  .pipe(
     //   filter(data => !!data), // Ensure that data is available
     //   distinctUntilChanged((prev, current) => this.getModuleName(prev) === this.getModuleName(current)), // Prevent redundant calls
@@ -208,8 +272,19 @@ export class CourseModulesComponent {
     // });
     .subscribe((data) => {
       this.moduleNames = data;
+<<<<<<< Updated upstream
       this.getvideocourse(this.moduleNames[0].id);
       this.selectmodule(this.moduleNames[0].id)
+=======
+      if(this.selectedModuleId==null){
+      this.getvideocourse(this.moduleNames[0].id);
+      this.selectmodule(this.moduleNames[0].id);
+      }
+      else{
+        this.getvideocourse(this.selectedModuleId);
+      this.selectmodule(this.selectedModuleId);
+      }
+>>>>>>> Stashed changes
       console.log(this.moduleNames);
     });
   }
@@ -234,8 +309,14 @@ export class CourseModulesComponent {
         this.createmodule.instructorname=this.loggedUser;
     
         if (moduleName) {
+<<<<<<< Updated upstream
           this.courseService.addmodule(this.createmodule).subscribe((data)=>
           {
+=======
+          this.moduleService.addmodule(this.createmodule).subscribe((data)=>
+          {
+            this.toastr.success("Module created successfully")
+>>>>>>> Stashed changes
             this.getmodulename();
             console.log(data);
           });
@@ -257,13 +338,23 @@ export class CourseModulesComponent {
         console.log('You entered: ' + videoName);
         this.createvideo.contentName=videoName.videoname;
         this.createvideo.videoUrl=videoName.videourl;
+<<<<<<< Updated upstream
+=======
+        this.createvideo.videodescription=videoName.videodescription;
+>>>>>>> Stashed changes
         this.createvideo.courseName=this.courseName;
              this.createvideo.moduleName=this.currentmodule;
         this.createvideo.instructorName=this.loggedUser;
     
         if (videoName) {
+<<<<<<< Updated upstream
           this.courseService.addvideo(this.createvideo).subscribe((data)=>
           {
+=======
+          this.videoService.addvideo(this.createvideo).subscribe((data)=>
+          {
+            this.toastr.success("Video added successfully")
+>>>>>>> Stashed changes
             this.getmodulename();
             console.log(data);
           });
@@ -273,16 +364,28 @@ export class CourseModulesComponent {
     });
   }
   deletevideo(id:any){
+<<<<<<< Updated upstream
     this.courseService.deletevideo(id).subscribe((id)=>
+=======
+    this.videoService.deletevideo(id).subscribe((id)=>
+>>>>>>> Stashed changes
     {
       console.log(id+"deleted");
       this.getmodulename();
     })
   }
+<<<<<<< Updated upstream
   updatevideo(videoname:any,url:any,id:any){
     let content={
       videoname:videoname,
       videourl:url
+=======
+  updatevideo(videoname:any,url:any,id:any,videodescription:any){
+    let content={
+      videoname:videoname,
+      videourl:url,
+      videodescription:videodescription
+>>>>>>> Stashed changes
     }
     const dialogRef = this.dialog.open(UpdatevideocontentComponent, {
       width: '400px',
@@ -294,14 +397,25 @@ export class CourseModulesComponent {
         // Handle the updated data here
         this.updatevideoreq.contentName=updatedData.videoname;
         this.updatevideoreq.videoUrl=updatedData.videourl;
+<<<<<<< Updated upstream
 
+=======
+        this.updatevideoreq.videodescription=updatedData.videodescription;
+>>>>>>> Stashed changes
         console.log('Updated Video Name:', updatedData.videoname);
         console.log('Updated Video URL:', updatedData.videourl);
         // You can update your main component's data with the updatedData
         if (updatedData) {
+<<<<<<< Updated upstream
           this.courseService.updatevideo(id,this.updatevideoreq).subscribe((data)=>
           {
             this.getmodulename();
+=======
+          this.videoService.updatevideo(id,this.updatevideoreq).subscribe((data)=>
+          {
+            this.getmodulename();
+            this.selectvideo(id);
+>>>>>>> Stashed changes
             console.log(data);
           });
           // this.users = this.userService.getUsers();

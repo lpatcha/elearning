@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.Enrollment;
-<<<<<<< Updated upstream
-=======
 import com.application.demo.entity.UserFullDetails;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 import com.application.demo.repository.CourseRepository;
 import com.application.demo.repository.EnrollmentRepository;
@@ -33,13 +34,15 @@ public class EnrollmentService {
 		return enrollers;
 =======
 	public List<enrollresponse> getAllEnrollUsers(String id) {
+		 CourseEntity course=courseRepo.findById(Long.parseLong(id)).get();
+		 List<Enrollment> enr=course.getEnrolllist();
 		List<UserFullDetails> enrollers= courseRepo.findById(Long.parseLong(id)).get().getEnrolllist().stream().map(enroll->enroll.getUser()).toList();
 		List<Enrollment> enrollment=courseRepo.findById(Long.parseLong(id)).get().getEnrolllist();
 		 List<enrollresponse> enrollerresponse= new ArrayList<>();
 		 for(UserFullDetails i:enrollers) {
 			 enrollresponse enroll=new enrollresponse();
 			 enroll.setId(i.getId());
-			 enroll.setDept(i.getDept());
+			 enroll.setDept(i.getDepartment().getName());
 			 enroll.setEmail(i.getEmail());
 			 enroll.setName(i.getName());
 			 for(Enrollment j:enrollment) {
@@ -53,6 +56,9 @@ public class EnrollmentService {
 	public void deleteenroll(Long id) {
 		
 		enrollRepo.deleteById(id);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	}
 	public void deleteenroll(Long id) {
