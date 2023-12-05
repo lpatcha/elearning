@@ -16,7 +16,6 @@ import { ToastrService } from 'ngx-toastr';
 import { EnrollmentService } from '../enrollment.service';
 import { CourseService } from '../courses/course-service.service';
 
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-adduser',
@@ -63,6 +62,14 @@ export class AdduserComponent {
   gridApi: any;
 
   constructor(public dialog: MatDialog,private _router : Router, private activatedRoute: ActivatedRoute,private courseService : EnrollmentService,private toastr: ToastrService,private courseServicee : CourseService) { }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+
+  addUser() {
+    const dialogRef = this.dialog.open(AddsingleenrollComponent, {
+      width: '400px', // Set the width as per your design
+    });
 >>>>>>> Stashed changes
 
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService) { }
@@ -82,6 +89,18 @@ export class AdduserComponent {
       });
       // this.users = this.userService.getUsers();
     }
+<<<<<<< Updated upstream
+=======
+  });
+  }
+  deleteuser(id:any){
+    this.courseService.deleteenrollment(id.enrollid).subscribe((data)=>
+    {
+      this.toastr.success("User deleted from course successfully")
+      this.getusers();
+      console.log(data);
+    });
+>>>>>>> Stashed changes
   }
   ngOnInit(): void {
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');

@@ -2,8 +2,13 @@
 
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+<<<<<<< Updated upstream
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MyServiceService } from '../my-service.service';
+=======
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+
+>>>>>>> Stashed changes
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from '../authentication.service';
 
@@ -16,7 +21,7 @@ export class ChangePasswordComponent {
   changePasswordForm: FormGroup;
   loggedUser : any;  
 
-  constructor(private formBuilder: FormBuilder, private userService: AuthenticationService,@Inject(MAT_DIALOG_DATA) public data: any,private toastr: ToastrService) {
+  constructor(private ChangePasswordComponent: MatDialogRef<ChangePasswordComponent>,private formBuilder: FormBuilder, private userService: AuthenticationService,@Inject(MAT_DIALOG_DATA) public data: any,private toastr: ToastrService) {
     this.changePasswordForm = this.formBuilder.group({
       currentPassword: ['', Validators.required],
       newPassword: ['', [Validators.required, Validators.minLength(8)]]
@@ -29,18 +34,15 @@ export class ChangePasswordComponent {
     
   }
 
-  
+  Cancel(){
+    this.ChangePasswordComponent.close();
+  }
 
-
-  // ngOnit() : void{
-  //   const user = sessionStorage.getItem('loggedUser');
-  //   this.loggedUser = user ? +user : null;
-  // }
   
 
   onSubmit() {
 
-    
+    this.ChangePasswordComponent.close();
     if (this.changePasswordForm.valid) {
       const userId = this.loggedUser; 
       const currentPassword = this.changePasswordForm.value.currentPassword;

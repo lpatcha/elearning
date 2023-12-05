@@ -28,7 +28,13 @@ getAllAssignments(fileName : string): Observable<Assignment[]> {
 getFileNamesByCourseId(courseId: string) {
   return this.http.get<string[]>(`${this.baseUrl}/files/find-assignment/${courseId}`);
 }
+<<<<<<< Updated upstream
 
+=======
+getstudentresult(courseId: string,user:string) {
+  return this.http.get<string[]>(`${this.baseUrl}/assignmentsubmissions/find-results/${courseId}/${user}`);
+}
+>>>>>>> Stashed changes
 
 addassignsubmission(data: FormData) {
 

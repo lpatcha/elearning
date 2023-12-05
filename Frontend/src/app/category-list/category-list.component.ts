@@ -1,6 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+<<<<<<< Updated upstream
+=======
+
+import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-category-list',
@@ -34,6 +40,10 @@ export class CategoryListComponent {
   // onAddCategory(categoryName: string) {
   //   this.toggleInputBox(); // Call toggleInputBox when clicking the "+" button
   // }
+<<<<<<< Updated upstream
+=======
+  constructor(private http: HttpClient,private cdr: ChangeDetectorRef,private toastr:ToastrService){};
+>>>>>>> Stashed changes
   @Input() categories!: any[];
 @Output() addCategory = new EventEmitter<{ categoryName: string, parentCategory: string }>();
 

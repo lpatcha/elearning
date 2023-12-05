@@ -15,7 +15,14 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+<<<<<<< Updated upstream
 import jakarta.persistence.OneToMany;
+=======
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+>>>>>>> Stashed changes
 import jakarta.persistence.Table;
 
 @Entity
@@ -42,10 +49,24 @@ public class UserFullDetails {
 
     @Column(nullable = false)
     private String dob;
+<<<<<<< Updated upstream
+=======
+    
+    @OneToOne(mappedBy = "userfulldetails")
+    @JsonIgnore
+    private UserTemp usertemp;
+>>>>>>> Stashed changes
     
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     @JsonIgnore
     public List<Enrollment> enrollcourseslist= new ArrayList<>();
+<<<<<<< Updated upstream
+=======
+    
+    @OneToMany(mappedBy = "subuser", fetch = FetchType.EAGER)
+    @JsonIgnore
+    public List<assignmentsubmEntity> submissionlist= new ArrayList<>();
+>>>>>>> Stashed changes
 
 	public Long getId() {
 		return id;
@@ -103,6 +124,17 @@ public class UserFullDetails {
 		this.dob = dob;
 	}
 
+<<<<<<< Updated upstream
+=======
+	public UserTemp getUsertemp() {
+		return usertemp;
+	}
+
+	public void setUsertemp(UserTemp usertemp) {
+		this.usertemp = usertemp;
+	}
+
+>>>>>>> Stashed changes
 	public List<Enrollment> getEnrollcourseslist() {
 		return enrollcourseslist;
 	}
@@ -129,5 +161,12 @@ public class UserFullDetails {
 		// TODO Auto-generated constructor stub
 	}
 
+<<<<<<< Updated upstream
+=======
+
+	
+	
+
+>>>>>>> Stashed changes
 }
 

@@ -1,5 +1,11 @@
 package com.application.demo.entity;
 
+<<<<<<< Updated upstream
+=======
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+>>>>>>> Stashed changes
 import java.util.Optional;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -10,6 +16,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+<<<<<<< Updated upstream
+=======
+import jakarta.persistence.OneToMany;
+>>>>>>> Stashed changes
 import jakarta.persistence.Transient;
 
 @Entity
@@ -24,10 +34,17 @@ public class AssignmentEntity {
     private String fileUrl;
     
     private String fileName;
+<<<<<<< Updated upstream
+=======
+    private String totalmarks;
+    private String weightage;
+    private String deadlinedate;
+>>>>>>> Stashed changes
     
     @ManyToOne
     @JoinColumn(name = "course_id")
     private CourseEntity course;
+<<<<<<< Updated upstream
 
     
     
@@ -52,6 +69,12 @@ public class AssignmentEntity {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+=======
+    
+    @OneToMany(mappedBy = "assignment",fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<assignmentsubmEntity> assignmentsubmissions= new ArrayList<>();
+>>>>>>> Stashed changes
 
 	public Long getId() {
 		return id;
@@ -83,6 +106,41 @@ public class AssignmentEntity {
 
 	public void setFileUrl(String fileUrl) {
 		this.fileUrl = fileUrl;
+<<<<<<< Updated upstream
+=======
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getTotalmarks() {
+		return totalmarks;
+	}
+
+	public void setTotalmarks(String totalmarks) {
+		this.totalmarks = totalmarks;
+	}
+
+	public String getWeightage() {
+		return weightage;
+	}
+
+	public void setWeightage(String weightage) {
+		this.weightage = weightage;
+	}
+
+	public String getDeadlinedate() {
+		return deadlinedate;
+	}
+
+	public void setDeadlinedate(String deadlinedate) {
+		this.deadlinedate = deadlinedate;
+>>>>>>> Stashed changes
 	}
 
 	public CourseEntity getCourse() {

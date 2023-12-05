@@ -10,13 +10,22 @@ public class Enrollment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long enrollid;
+<<<<<<< Updated upstream
 	private String coursename;
 
+=======
+>>>>>>> Stashed changes
 	 @ManyToOne
 	 @JoinColumn(name = "user_id")
 	 private UserFullDetails user;
 
+<<<<<<< Updated upstream
 	private String instructorname;
+=======
+	 @ManyToOne
+	 @JoinColumn(name = "user_id")
+	 private UserFullDetails user;
+>>>>>>> Stashed changes
 
 	public Long getEnrollid() {
 		return enrollid;
@@ -30,6 +39,7 @@ public class Enrollment {
 	public void setCoursename(String coursename) {
 		this.coursename = coursename;
 	}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 	public String getEnrolledusername() {
 		return enrolledusername;
@@ -56,6 +66,21 @@ public class Enrollment {
 	}
 
 	public void setUser(UserFullDetails user) {
+=======
+
+	public UserFullDetails getUser() {
+		return user;
+	}
+
+	public void setUser(UserFullDetails user) {
+		this.user = user;
+	}
+
+	public Enrollment(Long enrollid, CourseEntity course, UserFullDetails user) {
+		super();
+		this.enrollid = enrollid;
+		this.course = course;
+>>>>>>> Stashed changes
 		this.user = user;
 	}
 

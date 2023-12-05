@@ -26,6 +26,7 @@ public class VideoContentController {
     private VideoContentService videoContentService;
 
     @PostMapping("/add")
+<<<<<<< Updated upstream
     public VideoContent addVideoContent(@RequestBody VideoContentDto videoContentDto) {
         return videoContentService.addVideoContent(videoContentDto);
     }
@@ -35,6 +36,34 @@ public class VideoContentController {
     public VideoContent updateVideoContent(@PathVariable Long id, @RequestBody VideoContentDto videoContentDto) {
         return videoContentService.updateVideoContent(id, videoContentDto);
 =======
+=======
+    public ResponseEntity<?> addVideoContent(@RequestBody VideoContentDto videoContentDto) {
+//    	VideoContent exist =videoContentService.findByContentname(videoContentDto);
+//    	if(exist!=null && exist.getModule().getModulename().equals(videoContentDto.getModuleName())&& exist.getModule().getCoursename().equals(videoContentDto.getCourseName())) {
+//    		return ResponseEntity.status(HttpStatus.CONFLICT).body("Video content already exists");
+//    	}
+//         return ResponseEntity.ok(videoContentService.addVideoContent(videoContentDto));
+    	try {
+    	 Optional<ModuleEntity> module=modulerepo.findById(Long.parseLong(videoContentDto.getModuleName()));
+    	 List<VideoContent> contentlist=module.get().getVideoContents();
+		 List<VideoContent> singlecontent = contentlist.stream()
+	                .filter(modu -> modu.getContentname().equals(videoContentDto.getContentName()))
+	                .collect(Collectors.toList());
+//			 ModuleEntity exist=moduleService.findModule(module.getModulename(),module.getCoursename(),module.getInstructorname());
+		    	if(singlecontent.size()>0) {
+		    		return ResponseEntity.status(HttpStatus.CONFLICT).body("video content already exists");
+		    	}
+		    	
+		         return ResponseEntity.ok(videoContentService.addVideoContent(videoContentDto));
+    	}
+    	catch(Exception e) {
+    		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body("create a module first and then create a video");
+    	}
+    }
+
+    
+    @PutMapping("/update/{id}")
+>>>>>>> Stashed changes
     public ResponseEntity<?> updateVideoContent(@PathVariable Long id, @RequestBody VideoContentDto videoContentDto) {
     	Optional<VideoContent> video=videoContentRepository.findById(id);
 		 List<VideoContent> contentlist=video.get().getModule().getVideoContents();
@@ -58,8 +87,11 @@ public class VideoContentController {
         videoContentService.deleteVideoContent(id);
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @GetMapping("/getcoursecontent")
 =======
+=======
+>>>>>>> Stashed changes
 
     @GetMapping("/getcoursecontentbyid/{moduleid}")
 >>>>>>> Stashed changes

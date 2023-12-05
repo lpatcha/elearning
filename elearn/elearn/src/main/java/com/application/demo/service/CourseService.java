@@ -28,7 +28,15 @@ public class CourseService {
 	{
 		return (List<CourseEntity>)courseRepo.findAll();
 	}
+<<<<<<< Updated upstream
 	
+=======
+	public CourseEntity findCourseByCourseNameAndProfessorNameAndCategoryName(String courseName, String professorName, String categoryName) {
+		CategoryEntity category=categoryRepo.findById(Long.parseLong(categoryName)).get();
+	    return courseRepo.findByCourseNameAndProfessorNameAndCategoryId(courseName, professorName, Long.parseLong(categoryName));
+	}
+
+>>>>>>> Stashed changes
 	
 	
 

@@ -14,13 +14,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+<<<<<<< Updated upstream
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 <<<<<<< Updated upstream
 =======
 import { MyServiceService } from '../my-service.service';
+=======
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+
+>>>>>>> Stashed changes
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../category.service';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-registration',
@@ -35,18 +39,33 @@ export class RegistrationComponent implements OnInit {
   myForm:FormGroup;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder) { 
 =======
-  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder,private toastr: ToastrService,private myService:CategoryService) { 
+=======
 >>>>>>> Stashed changes
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder,private toastr: ToastrService,private myService:CategoryService) { 
     this.myForm = this.formBuilder.group({
       name: ['', [Validators.required]],
       dept: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       phoneno: ['', [Validators.required, Validators.pattern(/^\d{3}-\d{3}-\d{4}$/)]],
-      dob: [null, [Validators.required]]
+      dob: [null, [Validators.required,this.dateNotInFutureValidator()]]
     });
+  }
+  dateNotInFutureValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      if (control.value) {
+        const selectedDate = new Date(control.value);
+        const currentDate = new Date();
+  
+        if (selectedDate > currentDate) {
+          return { 'futureDate': true }; // Return an error object if the date is in the future
+        }
+      }
+      return null; // Return null if the date is valid
+    };
   }
   get email() {
     return this.myForm.get('email');
@@ -81,7 +100,10 @@ export class RegistrationComponent implements OnInit {
        this.myForm.get('email')?.disable();
      
     });
+<<<<<<< Updated upstream
   }
+=======
+>>>>>>> Stashed changes
 
   submitRegistrationForm(): void {
     // const adminData = { email: this.email, name: this.name, deptName:this.deptName ,password:this.password};

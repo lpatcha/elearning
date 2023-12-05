@@ -26,13 +26,15 @@ import { InputDialogComponent } from '../input-dialog/input-dialog.component';
 import { VideoContent } from '../models/videocontent';
 import { VideoaddComponent } from '../videoadd/videoadd.component';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 import { UpdatevideocontentComponent } from '../updatevideocontent/updatevideocontent.component';
 import { UpdatemoduleComponent } from '../updatemodule/updatemodule.component';
 import { ToastrService } from 'ngx-toastr';
 import { ModuleService } from '../module.service';
 import { VideoService } from '../video.service';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-course-modules',
@@ -49,7 +51,7 @@ export class CourseModulesComponent {
 =======
 >>>>>>> Stashed changes
   moduleNames: Module[]=[];
-  video = 'jpvZXcGkUMY';
+  video = 'Qqx_wzMmFeA';
   courseName = 'springboot';
   // chapterlist : Observable<Chapter[]> | undefined;
   chapter : any | undefined;
@@ -72,11 +74,13 @@ export class CourseModulesComponent {
   createvideo:VideoContent=new VideoContent();
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService,public dialog: MatDialog) { }
 >>>>>>> Stashed changes
 =======
-  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private moduleService : ModuleService,public dialog: MatDialog,private toastr:ToastrService,private videoService:VideoService) { }
+=======
 >>>>>>> Stashed changes
+  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private moduleService : ModuleService,public dialog: MatDialog,private toastr:ToastrService,private videoService:VideoService) { }
 
   ngOnInit(): void {
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
@@ -84,6 +88,10 @@ export class CourseModulesComponent {
 
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
     this.currRole = this.currRole.replace(/"/g, '');
+<<<<<<< Updated upstream
+=======
+    console.log(this.currRole);
+>>>>>>> Stashed changes
     // const coursename = +this.activatedRoute.snapshot.paramMap.get('id');
     // this.activatedRoute.params.subscribe((data1) => {
     //   const coursename = data1['id'];
@@ -102,14 +110,16 @@ export class CourseModulesComponent {
     this.courseName = this.activatedRoute.snapshot.params['coursename'];
     sessionStorage.setItem('course',this.courseName);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     this.courseService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
 =======
+=======
+>>>>>>> Stashed changes
     // this.moduleService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
     //   this.coursedetails = data;
     //   console.log(this.coursedetails);
     // });
     this.videoService.getCourseDetailsbyid(this.courseName).subscribe((data) => {
->>>>>>> Stashed changes
       this.coursedetails = data;
       console.log(this.coursedetails);
     });
@@ -155,6 +165,7 @@ export class CourseModulesComponent {
 =======
   selectmodule(moduleid:any){
     this.selectedModuleId =moduleid;
+    this.video = 'Qqx_wzMmFeA';
   }
   selectvideo(videoid:any){
     this.selectedvideoId =videoid;
@@ -166,7 +177,6 @@ export class CourseModulesComponent {
     //   console.log(this.videocontent);
     // });
     this.videoService.getvideocontentbyid(moduleid).subscribe((data) => {
->>>>>>> Stashed changes
       this.videocontent = data;
       console.log(this.videocontent);
     });
@@ -189,11 +199,14 @@ export class CourseModulesComponent {
     }
   }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   getmodulename(){
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     this.courseService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
 =======
+=======
+>>>>>>> Stashed changes
   deletemodule(id:any){
     this.moduleService.deletemodule(id).subscribe((id)=>
     {
@@ -266,8 +279,20 @@ export class CourseModulesComponent {
     //   this.getvideocourse(this.moduleNames[0].modulename);
     // });
     .subscribe((data) => {
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
       this.moduleNames = data;
+=======
+      this.moduleNames = data;
+      if(this.selectedModuleId==null){
+      this.getvideocourse(this.moduleNames[0].id);
+      this.selectmodule(this.moduleNames[0].id);
+      }
+      else{
+        this.getvideocourse(this.selectedModuleId);
+      this.selectmodule(this.selectedModuleId);
+      }
+>>>>>>> Stashed changes
       console.log(this.moduleNames);
     });
   }
@@ -329,6 +354,16 @@ export class CourseModulesComponent {
             this.toastr.success("Video added successfully")
             this.getmodulename();
             console.log(data);
+          },
+          (error)=>{
+            if(error.status===406){
+              if (error.error) {
+                const errorBody = error.error;
+                this.toastr.error(errorBody);
+              } else {
+                this.toastr.error('Conflict occurred.'); 
+              }
+            }
           });
           // this.users = this.userService.getUsers();
         }

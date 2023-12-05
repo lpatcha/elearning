@@ -5,13 +5,14 @@ import { Course } from 'src/app/models/course';
 import * as $ from 'jquery';
 import { MyServiceService } from '../my-service.service';
 import { HttpClient } from '@angular/common/http';
-<<<<<<< Updated upstream
-=======
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../category.service';
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
+=======
+>>>>>>> Stashed changes
 @Component({
   selector: 'app-addcourse',
   templateUrl: './addcourse.component.html',
@@ -21,15 +22,10 @@ export class AddcourseComponent implements OnInit {
 
   course = new Course();
   msg = ' ';
-<<<<<<< Updated upstream
-  categories: any;
-
-  constructor(private courseService : MyServiceService, private _router : Router, private http : HttpClient) { }
-=======
   subcategories: any;
   categories:any;
+  startdatemsg:any;
   constructor(private courseService : CategoryService, private _router : Router, private http : HttpClient, private toastr: ToastrService) { }
->>>>>>> Stashed changes
 
   ngOnInit(): void 
   {
@@ -40,6 +36,7 @@ export class AddcourseComponent implements OnInit {
     $("#websitelink").hide();
     const p=sessionStorage.getItem('loggedUser');
     this.course.professorName=p;
+<<<<<<< Updated upstream
     $("select").on('change', function() {
       $(this).find("option:selected").each(function() {
           var option = $(this).attr("value");
@@ -54,6 +51,8 @@ export class AddcourseComponent implements OnInit {
           }
       });
     }).change();
+=======
+>>>>>>> Stashed changes
   }
 
   checkDateValidity() {
@@ -63,8 +62,22 @@ export class AddcourseComponent implements OnInit {
     if (endDate < startDate) {
       this.msg = 'End date should be greater than or equal to start date';
     } else {
+<<<<<<< Updated upstream
       this.msg = ''; // Reset the message if the dates are valid
     }
+=======
+      this.msg = ''; 
+    }
+  }
+  checkstartDateValidity(){
+    const selectedDate = new Date(this.course.startDate);
+    const currentDate = new Date();
+        if (selectedDate < currentDate) {
+          this.startdatemsg = 'Start date should be greater than current date';
+        } else {
+          this.startdatemsg = ''; 
+        }
+>>>>>>> Stashed changes
   }
 
   addCourse()
@@ -72,7 +85,13 @@ export class AddcourseComponent implements OnInit {
     this.courseService.addCourse(this.course).subscribe(
       data => {
         console.log("Course added Successfully !!!");
+<<<<<<< Updated upstream
         this._router.navigate(['/addchapter']);
+=======
+        this._router.navigate(['/teacherdashboard']);
+        this.toastr.success("Course approve request sent to admin")
+        this.course.department='';
+>>>>>>> Stashed changes
       },
       error => {
         console.log("Process Failed");

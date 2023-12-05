@@ -12,7 +12,10 @@ import com.application.demo.Dto.enrollresponse;
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.Enrollment;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 import com.application.demo.entity.UserFullDetails;
 import com.application.demo.repository.CourseRepository;
 >>>>>>> Stashed changes
@@ -64,9 +67,14 @@ public class EnrollmentService {
 		return enrollerresponse;
 	}
 	public void deleteenroll(Long id) {
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 		
 		return enrollers;
+=======
+		
+		enrollRepo.deleteById(id);
+>>>>>>> Stashed changes
 	}
    public List<String>findAllEmails(Long courseid) {
 	   List<String> allmails= courseRepo.findById(courseid).get().getEnrolllist().stream()

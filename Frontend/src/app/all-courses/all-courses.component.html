@@ -1,5 +1,15 @@
 <app-header></app-header>
 <br>
+<<<<<<< Updated upstream:Frontend/src/app/all-courses/all-courses.component.html
+=======
+<div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="line-container">
+          <button class="custom-button" [routerLink]="['/add-course']">Add Course</button>
+        </div>
+        
+>>>>>>> Stashed changes:Frontend/src/app/courses/all-courses/all-courses.component.html
 <div class="row">
     <div  *ngFor="let course of courses | async" class="col-3 card card-item" id="bloodCards">
         <br>
@@ -17,14 +27,17 @@
             <a  (click)="visitCourse(course.id)" style="margin-top: 5%; border: none;" id="enrollsuccessbtn" class="btn btn-primary custom-btn ">Visit Course</a>
             <a  (click)="updateCourse(course.id)" style="margin-top: 5%; border: none;" id="enrollsuccessbtn" class="btn btn-primary custom-btn">Update Course</a>
 <<<<<<< Updated upstream:Frontend/src/app/all-courses/all-courses.component.html
+<<<<<<< Updated upstream:Frontend/src/app/all-courses/all-courses.component.html
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes:Frontend/src/app/courses/all-courses/all-courses.component.html
             
         </div>
     </div>
      
       <!-- Check if unapprovedcourses array is empty -->
-     <div *ngIf="approvedcourses === undefined && unapprovedcourses === undefined" class="col-12 text-center">
+     <div *ngIf="approvedcourses === undefined  && unapprovedcourses === undefined" class="col-12 text-center">
         <h1 class="empty-course-message">Please create a course.</h1>
       </div>
       
@@ -39,13 +52,21 @@
     
 
             <a  (click)="updateCourse(course.id)" style="margin-top: 5%; border: none;" id="enrollsuccessbtn" class="btn btn-primary custom-btn">Update Course</a>
->>>>>>> Stashed changes:Frontend/src/app/courses/all-courses/all-courses.component.html
             
         </div>
     </div>
   </div>
+<<<<<<< Updated upstream:Frontend/src/app/all-courses/all-courses.component.html
 
 
 
 
 
+=======
+
+</div>
+</div>
+
+
+
+>>>>>>> Stashed changes:Frontend/src/app/courses/all-courses/all-courses.component.html

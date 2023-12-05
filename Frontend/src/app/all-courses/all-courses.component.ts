@@ -19,8 +19,13 @@ export class AllCoursesComponent {
   myenrollments : Observable<AllCourses[]> | undefined;
   loggedUser = '';
   currRole = '';
+<<<<<<< Updated upstream:Frontend/src/app/all-courses/all-courses.component.ts
   courses : Observable<Course[]> | undefined;
   constructor( private _router : Router,private courseService : MyServiceService, private dialog : MatDialog) { }
+=======
+  courses : any;
+  constructor( private _router : Router,private courseService : CourseService, private dialog : MatDialog) { }
+>>>>>>> Stashed changes:Frontend/src/app/studentcourses/studentcourses.component.ts
 
   ngOnInit(): void 
   {
@@ -30,8 +35,17 @@ export class AllCoursesComponent {
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
     this.currRole = this.currRole.replace(/"/g, '');
 
+<<<<<<< Updated upstream:Frontend/src/app/all-courses/all-courses.component.ts
     this.courses = this.courseService.getCoursesByEmail(this.loggedUser);
 
+=======
+    this.courseService.getstudentCoursesByEmail(this.loggedUser).subscribe((data)=>
+    {
+      this.courses =data;
+      console.log(this.courses);
+    });
+   console.log(this.courses);
+>>>>>>> Stashed changes:Frontend/src/app/studentcourses/studentcourses.component.ts
     const target = 'https://www.youtube.com/iframe_api'
 
   if (!this.isScriptLoaded(target)) {

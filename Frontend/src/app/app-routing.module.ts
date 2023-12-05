@@ -16,6 +16,7 @@ import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 import { CourseContentComponent } from './course-content/course-content.component';
 import { AdduserComponent } from './adduser/adduser.component';
@@ -32,14 +33,30 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 =======
 >>>>>>> Stashed changes
 import { CourseContentComponent } from './course-content/course-content.component';
+=======
+
+>>>>>>> Stashed changes
 import { AdduserComponent } from './adduser/adduser.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
+>>>>>>> Stashed changes
+=======
+import { AssignmentListComponent } from './assignment-list/assignment-list.component';
+import { StudentdashboardComponent } from './studentdashboard/studentdashboard.component';
+import { StudentcoursesComponent } from './studentcourses/studentcourses.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AssignmentSolutionComponent } from './assignment-solution/assignment-solution.component';
+import { AssignmentsubmissionsComponent } from './assignmentsubmissions/assignmentsubmissions.component';
+import { AllCoursesComponent } from './courses/all-courses/all-courses.component';
+import { CourseContentComponent } from './courses/course-content/course-content.component';
+import { CourseAttachmentsComponent } from './course-attachments/course-attachments.component';
+import { CourseAttachmentsListComponent } from './course-attachments-list/course-attachments-list.component';
 >>>>>>> Stashed changes
 
 
@@ -55,7 +72,7 @@ const routes: Routes = [
   {path:'add-course',component:AddcourseComponent,canActivate:[AuthGuard]},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'createcategory', component: CategoryCreateComponent },
-  { path: 'teacherdashboard', component: TeacherdashboardComponent },
+  { path: 'teacherdashboard', component: AllCoursesComponent },
   { path: 'cousetable', component: CoursestableComponent },
   { path: 'allcourses', component: AllCoursesComponent },
 <<<<<<< Updated upstream
@@ -78,9 +95,20 @@ const routes: Routes = [
   { path: 'announcements', component: AnnouncementsComponent },
   { path: 'assignments', component: AssignmentsComponent },
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
   { path: 'assignments-list', component: AssignmentListComponent },
+>>>>>>> Stashed changes
+=======
+  { path: 'assignments-list', component: AssignmentListComponent },
+  { path: 'attachments-list', component: CourseAttachmentsListComponent  },
+ 
+  { path: 'assignments-solution', component: AssignmentSolutionComponent },
+  { path: 'student', component: StudentcoursesComponent,canActivate: [AuthGuard] },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'allenrollcourses', component: StudentcoursesComponent },
+  { path: 'submissions/:assignid', component: AssignmentsubmissionsComponent },
 >>>>>>> Stashed changes
 ];
 

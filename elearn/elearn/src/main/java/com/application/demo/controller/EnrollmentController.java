@@ -24,14 +24,18 @@ public class EnrollmentController {
 	private EnrollmentService enrollService;
 	
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	@PostMapping("/addenrollment")
 	public Enrollment addNewCourse(@RequestBody Enrollment enrollment) throws Exception
 =======
+=======
+>>>>>>> Stashed changes
 	@PostMapping("/addenrollment/{courseid}")
 	public ResponseEntity<?> addNewCourse(@RequestBody enrollrequest enroll,@PathVariable String courseid) throws Exception
 >>>>>>> Stashed changes
 	{
 		Enrollment courseObj = null;
+<<<<<<< Updated upstream
 //		String newID = getNewID();
 //		enrollment.setEnrollid(newID);
 <<<<<<< Updated upstream
@@ -44,6 +48,9 @@ public class EnrollmentController {
 //                .filter(modu -> modu.getEnrolledusername().equals(enrollment.getEnrolledusername()))
 //                .collect(Collectors.toList());
 //		Optional<UserFullDetails> existingusers= userfull.findByEmail(enrollment.getEnrolledusername());
+=======
+
+>>>>>>> Stashed changes
 		Optional<UserFullDetails> existingusers=userfull.findByEmail(enroll.getEnrolledusername());
 		if(!(existingusers.isEmpty())) {
 		List<Enrollment> existenroll= courseRepo.findById(Long.parseLong(courseid)).get().getEnrolllist().stream()
@@ -73,6 +80,7 @@ public class EnrollmentController {
         return sb.toString();
 	}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	@GetMapping("/getenrolledusers/{email}/{coursename}")
 	public List<Enrollment> getusers(@PathVariable String email,@PathVariable String coursename){
 		return enrollService.getAllEnrollUsers(email,coursename);
@@ -81,6 +89,9 @@ public class EnrollmentController {
 //	public List<Enrollment> getusers(@PathVariable String email,@PathVariable String coursename){
 //		return enrollService.getAllEnrollUsers(email,coursename);
 //	}
+=======
+
+>>>>>>> Stashed changes
 	@GetMapping("/getenrolledusers/{id}")
 	public List<enrollresponse> getusers(@PathVariable String id){
 		try{

@@ -30,4 +30,21 @@ export class ModuleheaderComponent {
     });
   }
 
+<<<<<<< Updated upstream
+=======
+  openAssignmentsList() : void {
+    this.route.navigate(["assignments-list"]);
+  }
+
+
+  
+  openCourseAttachmentsList() : void {
+    this.route.navigate(["attachments-list"]);
+  }
+
+  openassignmentsolution():void{
+    this.route.navigate(["assignments-solution"]);
+  }
+  
+>>>>>>> Stashed changes
 }

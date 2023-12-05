@@ -13,11 +13,14 @@ import com.application.demo.entity.Enrollment;
 public interface EnrollmentRepository extends JpaRepository<Enrollment, Long>{
 //	List<CourseEntity> findByProfessorName(String professorName);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	List<Enrollment> findByInstructornameAndCoursename(String value1, String value2);
 	
 	@Query("SELECT e.enrolledusername FROM Enrollment e")
     List<String> findAllEmails();
 =======
+=======
+>>>>>>> Stashed changes
 //	List<Enrollment> findByInstructornameAndCoursename(String value1, String value2);
 //	
 //	@Query("SELECT e.enrolledusername FROM Enrollment e")
