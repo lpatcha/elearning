@@ -10,12 +10,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
->>>>>>> Stashed changes
 import jakarta.persistence.Table;
 
 @Entity
@@ -48,8 +50,6 @@ public class UserFullDetails {
 
     @Column(nullable = false)
     private String dob;
-<<<<<<< Updated upstream
-=======
     
     @OneToOne(mappedBy = "userfulldetails")
     @JsonIgnore
@@ -62,7 +62,6 @@ public class UserFullDetails {
     @OneToMany(mappedBy = "subuser", fetch = FetchType.EAGER)
     @JsonIgnore
     public List<assignmentsubmEntity> submissionlist= new ArrayList<>();
->>>>>>> Stashed changes
 
 	public Long getId() {
 		return id;
@@ -129,9 +128,12 @@ public class UserFullDetails {
 	}
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	
    
 =======
+=======
+>>>>>>> Stashed changes
 	public UserTemp getUsertemp() {
 		return usertemp;
 	}
@@ -182,6 +184,5 @@ public class UserFullDetails {
 	
 	
 
->>>>>>> Stashed changes
 }
 

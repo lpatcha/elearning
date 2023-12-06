@@ -71,10 +71,12 @@ public class AnnouncementController {
             courseRepository.save(course);
             // Send the announcement email
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             sendAnnouncement.sendAnnouncementEmail(savedAnnouncement.getTitle(), savedAnnouncement.getDescription());
 =======
-            sendAnnouncement.sendAnnouncementEmail(course.getId(),savedAnnouncement.getTitle(), savedAnnouncement.getDescription());
+=======
 >>>>>>> Stashed changes
+            sendAnnouncement.sendAnnouncementEmail(course.getId(),savedAnnouncement.getTitle(), savedAnnouncement.getDescription());
             return savedAnnouncement;
         }
 		

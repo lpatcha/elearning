@@ -22,6 +22,10 @@ export class Assignment {
     this.marks='';
     this.weightage='';
     this.deadlinedate='';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+  }
 >>>>>>> Stashed changes
   }
   }

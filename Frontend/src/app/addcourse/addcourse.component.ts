@@ -10,12 +10,15 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../category.service';
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
 // @NgModule({
 //   declarations: [AddcourseComponent],
 //   imports: [FormsModule, NgSelectModule], // Add FormsModule or ReactiveFormsModule and NgSelectModule here
 // })
+=======
+>>>>>>> Stashed changes
 @Component({
   selector: 'app-addcourse',
   templateUrl: './addcourse.component.html',
@@ -45,6 +48,7 @@ export class AddcourseComponent implements OnInit {
     })
     const p=sessionStorage.getItem('loggedUser');
     this.course.professorName=p;
+<<<<<<< Updated upstream
     // $("#websitelink, #youtubelink").css("display","none");
     // $("#websitelink").hide();
     // $("select").on('change', function() {
@@ -61,6 +65,28 @@ export class AddcourseComponent implements OnInit {
     //       }
     //   });
     // }).change();
+=======
+  }
+
+  checkDateValidity() {
+    const startDate = new Date(this.course.startDate);
+    const endDate = new Date(this.course.endDate);
+
+    if (endDate < startDate) {
+      this.msg = 'End date should be greater than or equal to start date';
+    } else {
+      this.msg = ''; 
+    }
+  }
+  checkstartDateValidity(){
+    const selectedDate = new Date(this.course.startDate);
+    const currentDate = new Date();
+        if (selectedDate < currentDate) {
+          this.startdatemsg = 'Start date should be greater than current date';
+        } else {
+          this.startdatemsg = ''; 
+        }
+>>>>>>> Stashed changes
   }
 
   addCourse()
@@ -69,12 +95,14 @@ export class AddcourseComponent implements OnInit {
       data => {
         console.log("Course added Successfully !!!");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         this._router.navigate(['/addcourse']);
 =======
+=======
+>>>>>>> Stashed changes
         this._router.navigate(['/teacherdashboard']);
         this.toastr.success("Course approve request sent to admin")
         this.course.department='';
->>>>>>> Stashed changes
       },
       error => {
         console.log("Process Failed");

@@ -50,7 +50,10 @@ import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DeleteenrollComponent } from './deleteenroll/deleteenroll.component';
@@ -72,7 +75,6 @@ import { AllCoursesComponent } from './courses/all-courses/all-courses.component
 import { CourseContentComponent } from './courses/course-content/course-content.component';
 import { UpdateCourseComponent } from './courses/update-course/update-course.component';
 
->>>>>>> Stashed changes
 
 =======
 =======
@@ -148,7 +150,14 @@ import { AddsingleenrollComponent } from './addsingleenroll/addsingleenroll.comp
     AssignmarksComponent,
     MarkssubmitComponent,
     SubmissiondownloadComponent,
+<<<<<<< Updated upstream
     DeadlinedatevalueComponent
+>>>>>>> Stashed changes
+=======
+    DeadlinedatevalueComponent,
+    AssignmentfilesubmissionComponent,
+    CourseAttachmentsComponent,
+    CourseAttachmentsListComponent
 >>>>>>> Stashed changes
   
   ],
@@ -188,9 +197,10 @@ import { AddsingleenrollComponent } from './addsingleenroll/addsingleenroll.comp
     MatNativeDateModule,
     NgbModule,
     MatDialogModule,
-<<<<<<< Updated upstream
-=======
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     
   ],

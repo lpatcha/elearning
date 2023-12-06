@@ -12,10 +12,11 @@ import com.application.demo.entity.UserFullDetails;
 //}
 public interface UserFullDetailsRepository extends JpaRepository<UserFullDetails, Long> {
 	Optional<UserFullDetails> findByEmail(String email);
-<<<<<<< Updated upstream
-=======
 
 	Optional<UserFullDetails> findByEmailAndOtp(String email, String otp);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	
 }

@@ -44,9 +44,15 @@ public class EnrollmentController {
 	public ResponseEntity<?> addNewCourse(@RequestBody enrollrequest enroll,@PathVariable String courseid) throws Exception
 	{
 		Enrollment courseObj = null;
+<<<<<<< Updated upstream
 //		String newID = getNewID();
 //		enrollment.setEnrollid(newID);
 //		List<Enrollment> existenroll=enrollRepo.findByEnrolledusernameAndCoursenameAndInstructorname(enrollment.getEnrolledusername(),enrollment.getCoursename(),enrollment.getInstructorname());
+=======
+
+		Optional<UserFullDetails> existingusers=userfull.findByEmail(enroll.getEnrolledusername());
+		if(!(existingusers.isEmpty())) {
+>>>>>>> Stashed changes
 		List<Enrollment> existenroll= courseRepo.findById(Long.parseLong(courseid)).get().getEnrolllist().stream()
                 .filter(modu -> modu.getEnrolledusername().equals(enrollment.getEnrolledusername()))
                 .collect(Collectors.toList());
@@ -72,10 +78,14 @@ public class EnrollmentController {
         }
         return sb.toString();
 	}
+<<<<<<< Updated upstream
 //	@GetMapping("/getenrolledusers/{email}/{coursename}")
 //	public List<Enrollment> getusers(@PathVariable String email,@PathVariable String coursename){
 //		return enrollService.getAllEnrollUsers(email,coursename);
 //	}
+=======
+
+>>>>>>> Stashed changes
 	@GetMapping("/getenrolledusers/{id}")
 	public List<Enrollment> getusers(@PathVariable String id){
 		return enrollService.getAllEnrollUsers(id);

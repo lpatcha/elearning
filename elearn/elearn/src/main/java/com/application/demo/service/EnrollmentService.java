@@ -9,6 +9,9 @@ import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.Enrollment;
 import com.application.demo.entity.UserFullDetails;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -57,6 +60,9 @@ public class EnrollmentService {
 		
 		enrollRepo.deleteById(id);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

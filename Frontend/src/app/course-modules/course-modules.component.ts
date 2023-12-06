@@ -41,8 +41,11 @@ export class CourseModulesComponent {
   updatevideoreq:VideoContent=new VideoContent();
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService,public dialog: MatDialog) { }
 =======
+=======
+>>>>>>> Stashed changes
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private moduleService : ModuleService,public dialog: MatDialog,private toastr:ToastrService,private videoService:VideoService) { }
 >>>>>>> Stashed changes
 
@@ -52,10 +55,7 @@ export class CourseModulesComponent {
 
     this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
     this.currRole = this.currRole.replace(/"/g, '');
-<<<<<<< Updated upstream
-=======
     console.log(this.currRole);
->>>>>>> Stashed changes
     // const coursename = +this.activatedRoute.snapshot.paramMap.get('id');
     // this.activatedRoute.params.subscribe((data1) => {
     //   const coursename = data1['id'];
@@ -82,12 +82,15 @@ export class CourseModulesComponent {
     this.courseName = this.activatedRoute.snapshot.params['coursename'];
     sessionStorage.setItem('course',this.courseName);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // this.courseService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
     //   this.coursedetails = data;
     //   console.log(this.coursedetails);
     // });
     this.courseService.getCourseDetailsbyid(this.courseName).subscribe((data) => {
 =======
+=======
+>>>>>>> Stashed changes
     // this.moduleService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
     //   this.coursedetails = data;
     //   console.log(this.coursedetails);
@@ -273,9 +276,12 @@ export class CourseModulesComponent {
     .subscribe((data) => {
       this.moduleNames = data;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       this.getvideocourse(this.moduleNames[0].id);
       this.selectmodule(this.moduleNames[0].id)
 =======
+=======
+>>>>>>> Stashed changes
       if(this.selectedModuleId==null){
       this.getvideocourse(this.moduleNames[0].id);
       this.selectmodule(this.moduleNames[0].id);
@@ -284,7 +290,6 @@ export class CourseModulesComponent {
         this.getvideocourse(this.selectedModuleId);
       this.selectmodule(this.selectedModuleId);
       }
->>>>>>> Stashed changes
       console.log(this.moduleNames);
     });
   }

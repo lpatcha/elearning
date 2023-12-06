@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+<<<<<<< Updated upstream
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 <<<<<<< Updated upstream
 import { MyServiceService } from '../my-service.service';
 =======
+=======
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+>>>>>>> Stashed changes
 
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../category.service';
@@ -25,8 +29,11 @@ export class RegistrationComponent implements OnInit {
   departmentList : any | undefined;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   constructor(private myService: MyServiceService,private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder) { 
 =======
+=======
+>>>>>>> Stashed changes
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder,private toastr: ToastrService,private myService:CategoryService) { 
 >>>>>>> Stashed changes
     this.myForm = this.formBuilder.group({
@@ -43,6 +50,22 @@ export class RegistrationComponent implements OnInit {
     //   this.myForm?.get('dept')?.setValue(this.myForm?.get('dept'));
     //   console.log('Selected department:', deptValue);
     // });
+<<<<<<< Updated upstream
+=======
+  }
+  dateNotInFutureValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      if (control.value) {
+        const selectedDate = new Date(control.value);
+        const currentDate = new Date();
+  
+        if (selectedDate > currentDate) {
+          return { 'futureDate': true }; // Return an error object if the date is in the future
+        }
+      }
+      return null; // Return null if the date is valid
+    };
+>>>>>>> Stashed changes
   }
   get email() {
     return this.myForm.get('email');
@@ -79,12 +102,15 @@ export class RegistrationComponent implements OnInit {
      
     });
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 this.myService.getAllCategoriesWithSubcategories().subscribe(data=>{
      this.departmentList=data;
      console.log(this.departmentList);
 })
   }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 

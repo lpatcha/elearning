@@ -50,6 +50,7 @@ export class UsernameLinkRendererComponent implements ICellRendererAngularComp {
     this.dialog.open(UserDetailsComponent, {
       
       width: '400px',
+<<<<<<< Updated upstream
       height:'300px'
     });
   }
@@ -66,4 +67,10 @@ export class UsernameLinkRendererComponent implements ICellRendererAngularComp {
   // refresh(params: ICellRendererParams) {
   //   return false;
   // }
+=======
+      height:'300px',
+      data: { useremail: this.params.data.email },
+    });
+  }
+>>>>>>> Stashed changes
 }

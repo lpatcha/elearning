@@ -1,7 +1,5 @@
 package com.application.demo.entity;
 
-<<<<<<< Updated upstream
-=======
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,17 +10,23 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+<<<<<<< Updated upstream
+=======
+import jakarta.persistence.Column;
+>>>>>>> Stashed changes
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
->>>>>>> Stashed changes
 import jakarta.persistence.Transient;
 
 @Entity
@@ -32,7 +36,10 @@ public class AssignmentEntity {
     private Long id;
 
     private String title;
+    
+    @Column(length = 10000)
     private String description;
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
     @Transient 
@@ -54,6 +61,19 @@ public class AssignmentEntity {
 		// TODO Auto-generated constructor stub
 	}
 =======
+=======
+    
+    private String fileUrl;
+    
+    private String fileName;
+    private String totalmarks;
+    private String weightage;
+    private String deadlinedate;
+    
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private CourseEntity course;
+>>>>>>> Stashed changes
     
     private String fileUrl;
     
@@ -69,7 +89,6 @@ public class AssignmentEntity {
     @OneToMany(mappedBy = "assignment",fetch = FetchType.EAGER)
     @JsonIgnore
     private List<assignmentsubmEntity> assignmentsubmissions= new ArrayList<>();
->>>>>>> Stashed changes
 
 	public Long getId() {
 		return id;
@@ -104,8 +123,13 @@ public class AssignmentEntity {
 	}
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	public String getPdfFilePath() {
 		return pdfFilePath;
+=======
+	public void setFileUrl(String fileUrl) {
+		this.fileUrl = fileUrl;
+>>>>>>> Stashed changes
 	}
 
 	public void setPdfFilePath(String pdfFilePath) {

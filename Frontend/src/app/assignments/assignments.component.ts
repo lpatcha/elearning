@@ -20,9 +20,12 @@ export class AssignmentsComponent {
   selectedFile: File | undefined;
   successMessage: string | null = null;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   constructor(private assignmentService: MyServiceService, private dialogRef: MatDialogRef<AssignmentsComponent>) {}
 =======
+=======
+>>>>>>> Stashed changes
   courseId: any | null = null;
 
   constructor(private assignmentService: AssignmentService, private dialogRef: MatDialogRef<AssignmentsComponent>,private route: ActivatedRoute,private toastr:ToastrService) {}
@@ -41,6 +44,7 @@ export class AssignmentsComponent {
       const formData = new FormData();
       formData.append('title', this.assignment.title);
       formData.append('description', this.assignment.description);
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
       formData.append('id', '7'); // Replace '123' with the actual courseId
       formData.append('multipartfile', this.selectedFile); // Ensure that 'multipartfile' matches the parameter name on the backend
@@ -69,6 +73,8 @@ export class AssignmentsComponent {
           }
         });
 =======
+=======
+>>>>>>> Stashed changes
       formData.append('id',  this.courseId );
       formData.append('multipartfile', this.selectedFile);
       formData.append('marks', this.assignment.marks);
@@ -101,7 +107,6 @@ export class AssignmentsComponent {
          }
        );
      
->>>>>>> Stashed changes
     }
   }
 

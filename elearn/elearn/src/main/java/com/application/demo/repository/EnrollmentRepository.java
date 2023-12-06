@@ -15,10 +15,13 @@ public interface EnrollmentRepository extends JpaRepository<Enrollment, Long>{
 //	List<Enrollment> findByInstructornameAndCoursename(String value1, String value2);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	
 	@Query("SELECT e.enrolledusername FROM Enrollment e")
     List<String> findAllEmails();
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 //	

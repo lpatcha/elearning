@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
+<<<<<<< Updated upstream
 import { Component, Input } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+=======
+import { Component, Inject, Input } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+>>>>>>> Stashed changes
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -15,9 +20,18 @@ export class UserDetailsComponent {
     private route: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService,
+<<<<<<< Updated upstream
     private dialogRef:MatDialogRef<UserDetailsComponent>
   ) {}
 
+=======
+    private dialogRef:MatDialogRef<UserDetailsComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  ) {
+    this.email = data.useremail ;
+  }
+  email:any;
+>>>>>>> Stashed changes
   cardData: any;
   isEditing: boolean = false; // Initially, editing is disabled
   newName: string = '';
@@ -26,9 +40,15 @@ export class UserDetailsComponent {
   newDOB: string = '';
 
   ngOnInit() {
+<<<<<<< Updated upstream
     this.route.params.subscribe((data1) => {
       const p=sessionStorage.getItem('loggedUser');
       const email = p;
+=======
+    // this.route.params.subscribe((data1) => {
+      // console.log(data1);
+      // this.email = data1;
+>>>>>>> Stashed changes
 
       this.http.get<any>(`http://localhost:8080/table/getuserdetails/${email}`).subscribe((data) => {
         this.cardData = data;

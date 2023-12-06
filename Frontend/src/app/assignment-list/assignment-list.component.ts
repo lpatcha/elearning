@@ -7,6 +7,7 @@ import { Assignment } from '../models/assignment';
 =======
 import { Component, OnInit } from '@angular/core';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { MyServiceService } from '../my-service.service';
 import { Assignment } from '../models/assignment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,6 +15,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -29,6 +32,7 @@ import { AssignmentService } from '../assignment.service';
   styleUrls: ['./assignment-list.component.css']
 })
 export class AssignmentListComponent implements OnInit {
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   assignments: Assignment[] = [];
 <<<<<<< Updated upstream
@@ -65,6 +69,8 @@ export class AssignmentListComponent implements OnInit {
     this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
       `http://localhost:8080/files/download-pdf?fileName=${this.fileName}`
 =======
+=======
+>>>>>>> Stashed changes
   pdfUrls: SafeResourceUrl[] = [];
   fileNames: any; // Dynamically set from the API
   courseId: any | null = null;
@@ -167,5 +173,4 @@ export class AssignmentListComponent implements OnInit {
     const formattedDate = `${day}/${month}/${year}`;
     return formattedDate;
   }
->>>>>>> Stashed changes
 }

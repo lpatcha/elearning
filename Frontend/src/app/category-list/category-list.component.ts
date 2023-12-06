@@ -1,8 +1,11 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+<<<<<<< Updated upstream
 import { MyServiceService } from '../my-service.service';
 import { HttpClient } from '@angular/common/http';
+=======
+>>>>>>> Stashed changes
 
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
@@ -41,10 +44,12 @@ export class CategoryListComponent {
   //   this.toggleInputBox(); // Call toggleInputBox when clicking the "+" button
   // }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   constructor(private myService: MyServiceService,private http: HttpClient,private cdr: ChangeDetectorRef){};
 =======
-  constructor(private http: HttpClient,private cdr: ChangeDetectorRef,private toastr:ToastrService){};
+=======
 >>>>>>> Stashed changes
+  constructor(private http: HttpClient,private cdr: ChangeDetectorRef,private toastr:ToastrService){};
   @Input() categories!: any[];
 @Output() addCategory = new EventEmitter<{ categoryName: string, parentCategory: string }>();
 @Output() updateCategory = new EventEmitter<{ categoryid: string, Categoryname: string }>();

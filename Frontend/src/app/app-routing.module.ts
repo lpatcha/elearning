@@ -15,7 +15,11 @@ import { CoursestableComponent } from './coursestable/coursestable.component';
 
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { CourseContentComponent } from './course-content/course-content.component';
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -25,7 +29,10 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { AssignmentsComponent } from './assignments/assignments.component';
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 import { StudentdashboardComponent } from './studentdashboard/studentdashboard.component';
 import { StudentcoursesComponent } from './studentcourses/studentcourses.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -33,6 +40,11 @@ import { AssignmentSolutionComponent } from './assignment-solution/assignment-so
 import { AssignmentsubmissionsComponent } from './assignmentsubmissions/assignmentsubmissions.component';
 import { AllCoursesComponent } from './courses/all-courses/all-courses.component';
 import { CourseContentComponent } from './courses/course-content/course-content.component';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+import { CourseAttachmentsComponent } from './course-attachments/course-attachments.component';
+import { CourseAttachmentsListComponent } from './course-attachments-list/course-attachments-list.component';
 >>>>>>> Stashed changes
 
 
@@ -58,13 +70,17 @@ const routes: Routes = [
   { path: 'assignments', component: AssignmentsComponent },
   { path: 'assignments-list', component: AssignmentListComponent },
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+  { path: 'attachments-list', component: CourseAttachmentsListComponent  },
+ 
+>>>>>>> Stashed changes
   { path: 'assignments-solution', component: AssignmentSolutionComponent },
   { path: 'student', component: StudentdashboardComponent,canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'allenrollcourses', component: StudentcoursesComponent },
   { path: 'submissions/:assignid', component: AssignmentsubmissionsComponent },
->>>>>>> Stashed changes
 ];
 
 @NgModule({

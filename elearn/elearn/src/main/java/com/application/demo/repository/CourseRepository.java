@@ -12,6 +12,7 @@ public interface CourseRepository extends JpaRepository<CourseEntity, Long>{
 	List<CourseEntity> findByProfessorName(String professorName);
 	CourseEntity findByCourseNameAndProfessorName(String courseName, String professorName);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	CourseEntity findByCourseNameAndProfessorNameAndCategory(String courseName, String professorName, String Category);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
@@ -22,7 +23,8 @@ public interface CourseRepository extends JpaRepository<CourseEntity, Long>{
 //	Optional<CourseEntity> findById(Long id);
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 	CourseEntity findByCourseNameAndProfessorNameAndCategoryId(String courseName, String professorName, Long Category);
 	Optional<CourseEntity> findById(Long id);
->>>>>>> Stashed changes
 }

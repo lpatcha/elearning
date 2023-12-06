@@ -39,12 +39,15 @@ import com.application.demo.service.S3FileUploadService;
 
 @RestController
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @RequestMapping("assignments")
 @CrossOrigin("*")
 =======
-@RequestMapping(path = "/files")
+=======
 >>>>>>> Stashed changes
+@RequestMapping(path = "/files")
 public class AssignmentController {
+<<<<<<< Updated upstream
 
   @Autowired
   private S3FileUploadService s3FileUploadService;
@@ -105,6 +108,22 @@ public class AssignmentController {
     
     
 =======
+=======
+
+  @Autowired
+  private S3FileUploadService s3FileUploadService;
+  
+  @Autowired
+  private AmazonS3 s3Client;
+  @Autowired
+  private AssignmentRepository assignmentRepository;
+  @Autowired
+  private CourseRepository courseRepo;
+  
+  
+  private String bucketName = "elearningsystem";
+
+>>>>>>> Stashed changes
   private String folderName = "/lms/";
 
   @PostMapping(value = "/upload")

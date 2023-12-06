@@ -60,8 +60,11 @@ export class AdduserComponent {
   gridApi: any;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   constructor(public dialog: MatDialog,private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService) { }
 =======
+=======
+>>>>>>> Stashed changes
   constructor(public dialog: MatDialog,private _router : Router, private activatedRoute: ActivatedRoute,private courseService : EnrollmentService,private toastr: ToastrService,private courseServicee : CourseService) { }
 
 >>>>>>> Stashed changes
@@ -96,6 +99,7 @@ export class AdduserComponent {
       this.getusers();
       console.log(data);
     });
+<<<<<<< Updated upstream
   }
   deleteuser(id:any){
     this.courseService.deleteenrollment(id).subscribe((data)=>
@@ -106,6 +110,8 @@ export class AdduserComponent {
       this.getusers();
       console.log(data);
     });
+=======
+>>>>>>> Stashed changes
   }
   ngOnInit(): void {
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
