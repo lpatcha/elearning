@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { MyServiceService } from '../my-service.service';
 import { Assignment } from '../models/assignment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -8,6 +9,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 =======
 =======
+=======
+>>>>>>> Stashed changes
 
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -25,6 +28,7 @@ import { AssignmentService } from '../assignment.service';
 export class AssignmentListComponent implements OnInit {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   assignments: Assignment[] = [];
   pdfUrl: SafeResourceUrl = "";
   pdf: string = "";
@@ -34,6 +38,8 @@ export class AssignmentListComponent implements OnInit {
     this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
       `http://localhost:8080/files/download-pdf?fileName=${this.fileName}`
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   pdfUrls: SafeResourceUrl[] = [];
@@ -154,6 +160,27 @@ export class AssignmentListComponent implements OnInit {
     // Format the date as "dd/mm/yyyy"
     const formattedDate = `${day}/${month}/${year}`;
     return formattedDate;
+  }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+  deleteassignment(id:any){
+    this.assignmentService.deleteassignment(id).subscribe((response)=>{
+      console.log("deleted successfully");
+      if(response.status=='200'){
+        this.toastr.success("courseattachment deleted successful");
+        console.log("deleted successfully");
+        location.reload();
+        }
+      },
+      (error)=>{
+        if(error.status=='200'){
+          this.toastr.success("courseattachment deleted successful");
+          console.log("deleted successfully");
+          location.reload();
+          }
+      }
+    )
   }
 >>>>>>> Stashed changes
 }

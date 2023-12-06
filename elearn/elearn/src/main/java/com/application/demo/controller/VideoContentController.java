@@ -88,8 +88,11 @@ public class VideoContentController {
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @GetMapping("/getcoursecontent")
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 

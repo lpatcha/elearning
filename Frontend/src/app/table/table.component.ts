@@ -252,6 +252,7 @@ export class TableComponent {
   sentmail(){
     console.log("hi");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     this.toastr.success('User Creation SuccessFul', '', {
       timeOut: 3000, // Adjust the duration as needed
       progressBar: false,
@@ -260,8 +261,9 @@ export class TableComponent {
       tapToDismiss: false, // Disable click to dismiss
     });
 =======
-    this.toastr.success("Registration email sent to all unregister users");
+=======
 >>>>>>> Stashed changes
+    this.toastr.success("Registration email sent to all unregister users");
     this.http.post('http://localhost:8080/api/admin/sentmail',null).subscribe(
         (response: any) => {
             console.log("hiiiiii");

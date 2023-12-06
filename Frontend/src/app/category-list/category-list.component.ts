@@ -2,7 +2,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
@@ -41,7 +44,10 @@ export class CategoryListComponent {
   //   this.toggleInputBox(); // Call toggleInputBox when clicking the "+" button
   // }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
   constructor(private http: HttpClient,private cdr: ChangeDetectorRef,private toastr:ToastrService){};
 >>>>>>> Stashed changes
   @Input() categories!: any[];

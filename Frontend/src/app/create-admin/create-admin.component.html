@@ -1,5 +1,6 @@
 <app-header></app-header>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <div class="container">
     <h2>Create Admin</h2>
     <form (ngSubmit)="submitAdminCreationForm()">
@@ -21,6 +22,8 @@
       <button type="submit" class="btn btn-primary">Create Admin</button>
     </form>
 =======
+=======
+>>>>>>> Stashed changes
 
 <div class="container mt-4">
   <div class="card">
@@ -29,7 +32,8 @@
       <form (ngSubmit)="submitAdminCreationForm()">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" [(ngModel)]="email" class="form-control" required>
+          <input type="email" id="email" name="email" [(ngModel)]="email" class="form-control" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+          <div *ngIf="!isEmailValid() && email" class="text-danger">Invalid email format</div>
         </div>
 
         <div class="form-group">

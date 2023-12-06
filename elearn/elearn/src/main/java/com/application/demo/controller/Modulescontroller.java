@@ -44,11 +44,14 @@ public class Modulescontroller {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     @GetMapping("/getmodules/{instructor}/{course}")
     public List<ModuleEntity> getModulesByCourseAndInstructor(
             @PathVariable String course,
             @PathVariable String instructor
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -67,10 +70,13 @@ public class Modulescontroller {
     @PutMapping("/{moduleId}/{updatedModule}")
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public ResponseEntity<ModuleEntity> updateModule(@PathVariable Long moduleId, @PathVariable String  updatedModule) {
         ModuleEntity updated = moduleService.updateModule(moduleId, updatedModule);
         return new ResponseEntity<>(updated, HttpStatus.OK);
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     public ResponseEntity<?> updateModule(@PathVariable Long moduleId, @PathVariable String  updatedModule) {

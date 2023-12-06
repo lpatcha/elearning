@@ -4,8 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 import { MyServiceService } from '../my-service.service';
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -24,14 +28,17 @@ export class UpdateProfileComponent {
     private router: Router,
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private toastr: ToastrService
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     private toastr: ToastrService,
     private myService: CategoryService,
   ) {}
-
+  datemsg:any;
   cardData: any;
   isEditing: boolean = false; // Initially, editing is disabled
   newName: string = '';
@@ -85,4 +92,17 @@ export class UpdateProfileComponent {
         }
       );
   }
+<<<<<<< Updated upstream
 }
+=======
+  checkstartDateValidity(){
+    const selectedDate = new Date(this.newDOB);
+    const currentDate = new Date();
+        if (selectedDate > currentDate) {
+          this.datemsg = 'Date of birth cannot be in the future';
+        } else {
+          this.datemsg = ''; 
+        }
+  }
+}
+>>>>>>> Stashed changes

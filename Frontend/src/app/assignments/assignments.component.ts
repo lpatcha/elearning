@@ -3,7 +3,10 @@ import { MyServiceService } from '../my-service.service';
 import { Assignment } from '../models/assignment';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 import { MatDialogRef } from '@angular/material/dialog';
@@ -21,11 +24,14 @@ export class AssignmentsComponent {
   assignment: Assignment = new Assignment();
   selectedFile: File | undefined;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 <<<<<<< Updated upstream
   constructor(private assignmentService: MyServiceService) {}
 =======
 =======
+=======
+>>>>>>> Stashed changes
   successMessage: string | null = null;
   courseId: any | null = null;
 
@@ -49,6 +55,7 @@ export class AssignmentsComponent {
       formData.append('title', this.assignment.title);
       formData.append('description', this.assignment.description);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       formData.append('pdfFile', this.selectedFile);
 
       this.assignmentService.createAssignmentWithFileUpload(formData)
@@ -67,6 +74,8 @@ export class AssignmentsComponent {
 >>>>>>> Stashed changes
         });
 =======
+=======
+>>>>>>> Stashed changes
       formData.append('id',  this.courseId );
       formData.append('multipartfile', this.selectedFile);
       formData.append('marks', this.assignment.marks);
@@ -83,6 +92,10 @@ export class AssignmentsComponent {
              this.resetForm();
              console.log('Successful:', result);
              this.toastr.success(this.successMessage);
+<<<<<<< Updated upstream
+=======
+             location.reload();
+>>>>>>> Stashed changes
            } 
            else {
              this.resetForm();

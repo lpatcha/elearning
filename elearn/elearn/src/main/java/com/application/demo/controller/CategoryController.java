@@ -65,4 +65,21 @@ public class CategoryController {
 //        return new ResponseEntity<>(a, HttpStatus.CREATED);
     	return "successfully added";
     }
+<<<<<<< Updated upstream
+=======
+    
+    
+    @GetMapping("/maincategories")
+    public List<CategoryEntity> mainCategories() {
+        return categoryRepository.findByParentCategoryIsNull();
+    }
+    @GetMapping("/categories/{id}")
+    public List<CategoryEntity> subofmainCategories(@PathVariable String id) {
+    	 List<CategoryEntity> cc = new ArrayList<CategoryEntity>();
+    	 List<CategoryEntity> result = new ArrayList<CategoryEntity>();
+    		cc.add(categoryRepository.findById(Long.parseLong(id)).get());
+        	categoryService.collectLeafCategories(cc,result);
+        		return result;
+    }
+>>>>>>> Stashed changes
 }

@@ -17,6 +17,7 @@ import { CourseModulesComponent } from './course-modules/course-modules.componen
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 import { CourseContentComponent } from './course-content/course-content.component';
 import { AdduserComponent } from './adduser/adduser.component';
@@ -33,6 +34,9 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 =======
 >>>>>>> Stashed changes
 import { CourseContentComponent } from './course-content/course-content.component';
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
@@ -42,11 +46,14 @@ import { AnnouncementsComponent } from './announcements/announcements.component'
 import { AssignmentsComponent } from './assignments/assignments.component';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 import { AssignmentListComponent } from './assignment-list/assignment-list.component';
 import { StudentdashboardComponent } from './studentdashboard/studentdashboard.component';
 import { StudentcoursesComponent } from './studentcourses/studentcourses.component';
@@ -57,7 +64,6 @@ import { AllCoursesComponent } from './courses/all-courses/all-courses.component
 import { CourseContentComponent } from './courses/course-content/course-content.component';
 import { CourseAttachmentsComponent } from './course-attachments/course-attachments.component';
 import { CourseAttachmentsListComponent } from './course-attachments-list/course-attachments-list.component';
->>>>>>> Stashed changes
 
 
 const routes: Routes = [
@@ -99,9 +105,12 @@ const routes: Routes = [
 >>>>>>> Stashed changes
 =======
   { path: 'assignments-list', component: AssignmentListComponent },
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
   { path: 'assignments-list', component: AssignmentListComponent },
+=======
+>>>>>>> Stashed changes
   { path: 'attachments-list', component: CourseAttachmentsListComponent  },
  
   { path: 'assignments-solution', component: AssignmentSolutionComponent },

@@ -63,8 +63,11 @@ export class AdduserComponent {
 
   constructor(public dialog: MatDialog,private _router : Router, private activatedRoute: ActivatedRoute,private courseService : EnrollmentService,private toastr: ToastrService,private courseServicee : CourseService) { }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 
   addUser() {
     const dialogRef = this.dialog.open(AddsingleenrollComponent, {
@@ -86,7 +89,14 @@ export class AdduserComponent {
       {
         this.getusers();
         console.log(data);
-      });
+      },
+      (error)=>{
+        if (error.error) {
+          const errorBody = error.error;
+          this.toastr.error(errorBody);
+        }
+      }
+      );
       // this.users = this.userService.getUsers();
     }
 <<<<<<< Updated upstream
@@ -100,6 +110,9 @@ export class AdduserComponent {
       this.getusers();
       console.log(data);
     });
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   }
   ngOnInit(): void {

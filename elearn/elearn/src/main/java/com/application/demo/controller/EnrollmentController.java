@@ -25,6 +25,7 @@ public class EnrollmentController {
 	
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	@PostMapping("/addenrollment")
 	public Enrollment addNewCourse(@RequestBody Enrollment enrollment) throws Exception
 =======
@@ -49,6 +50,12 @@ public class EnrollmentController {
 //                .collect(Collectors.toList());
 //		Optional<UserFullDetails> existingusers= userfull.findByEmail(enrollment.getEnrolledusername());
 =======
+=======
+	@PostMapping("/addenrollment/{courseid}")
+	public ResponseEntity<?> addNewEnroll(@RequestBody enrollrequest enroll,@PathVariable String courseid) throws Exception
+	{
+		Enrollment courseObj = null;
+>>>>>>> Stashed changes
 
 >>>>>>> Stashed changes
 		Optional<UserFullDetails> existingusers=userfull.findByEmail(enroll.getEnrolledusername());
@@ -59,6 +66,12 @@ public class EnrollmentController {
 		if(existenroll.size()>0) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body("User already exists");
 		}
+<<<<<<< Updated upstream
+=======
+		if(existingusers.get().getUsertemp().getRole().equals("admin")) {
+			return ResponseEntity.status(HttpStatus.CONFLICT).body("Admin cannot be added");
+		}
+>>>>>>> Stashed changes
 		};
 		if(existingusers.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not exists");
@@ -81,6 +94,7 @@ public class EnrollmentController {
 	}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	@GetMapping("/getenrolledusers/{email}/{coursename}")
 	public List<Enrollment> getusers(@PathVariable String email,@PathVariable String coursename){
 		return enrollService.getAllEnrollUsers(email,coursename);
@@ -90,8 +104,9 @@ public class EnrollmentController {
 //		return enrollService.getAllEnrollUsers(email,coursename);
 //	}
 =======
-
+=======
 >>>>>>> Stashed changes
+
 	@GetMapping("/getenrolledusers/{id}")
 	public List<enrollresponse> getusers(@PathVariable String id){
 		try{

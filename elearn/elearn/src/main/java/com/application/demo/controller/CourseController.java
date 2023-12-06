@@ -43,6 +43,7 @@ public class CourseController {
 	
 	
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	@PostMapping("/addCourse")
 	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
 	{
@@ -55,6 +56,10 @@ public class CourseController {
 =======
 	
 	@PostMapping("/addCourse")
+=======
+	
+	@PostMapping("/addCourse")
+>>>>>>> Stashed changes
 	public ResponseEntity<?> addNewCourse(@RequestBody addcourserequest course) {
 	    // Check if a course with the same courseName and professorName already exists
 	    CourseEntity existingCourse = courseService.findCourseByCourseNameAndProfessorNameAndCategoryName(course.getCourseName(), course.getProfessorName(), course.getCategory());
@@ -119,10 +124,13 @@ public class CourseController {
 		return courseService.getAllCourses();
 	}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	
 	
 	
 =======
+=======
+>>>>>>> Stashed changes
 	@GetMapping("/getcoursebyid/{id}")
 	public CourseEntity getcoursebyid(@PathVariable String id){
 		
@@ -159,7 +167,10 @@ public class CourseController {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -200,6 +211,7 @@ public class CourseController {
 	
 	 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 	
 <<<<<<< Updated upstream
@@ -209,6 +221,10 @@ public class CourseController {
 >>>>>>> Stashed changes
 =======
 	
+	
+	
+>>>>>>> Stashed changes
+=======
 	
 	
 >>>>>>> Stashed changes

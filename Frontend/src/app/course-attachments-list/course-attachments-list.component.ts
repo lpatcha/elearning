@@ -9,6 +9,10 @@ import { AssignmentsComponent } from '../assignments/assignments.component';
 import { AssignmentService } from '../assignment.service';
 import { CourseAttachmentsComponent } from '../course-attachments/course-attachments.component';
 import { CourseAttachmentService } from '../course-attachment.service';
+<<<<<<< Updated upstream
+=======
+import { error } from 'jquery';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-course-attachments-list',
@@ -19,6 +23,11 @@ export class CourseAttachmentsListComponent implements OnInit {
   pdfUrls: SafeResourceUrl[] = [];
   fileNames: any; // Dynamically set from the API
   courseId: any | null = null;
+<<<<<<< Updated upstream
+=======
+  loggedUser:any;
+  currRole:any;
+>>>>>>> Stashed changes
   constructor(private assignmentService: CourseAttachmentService, private sanitizer: DomSanitizer, private http: HttpClient,private route: ActivatedRoute,public dialog: MatDialog,private toastr:ToastrService) {}
   ngOnInit() {
     //const courseId = '20'; // Replace with the actual course ID
@@ -42,6 +51,15 @@ export class CourseAttachmentsListComponent implements OnInit {
         console.error('API error:', error);
       }
     );
+<<<<<<< Updated upstream
+=======
+    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
+    this.loggedUser = this.loggedUser.replace(/"/g, '');
+
+    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
+    this.currRole = this.currRole.replace(/"/g, '');
+    console.log(this.currRole);
+>>>>>>> Stashed changes
   }
 
   
@@ -90,4 +108,23 @@ export class CourseAttachmentsListComponent implements OnInit {
     const formattedDate = `${day}/${month}/${year}`;
     return formattedDate;
   }
+<<<<<<< Updated upstream
+=======
+  deleteattachment(id:any){
+    this.assignmentService.deleteattachment(id).subscribe((response)=>{
+      if(response.status=='200'){
+      this.toastr.success("courseattachment deleted successful");
+      console.log("deleted successfully");
+      location.reload();
+      }
+    },
+    (error)=>{
+      if(error.status=='200'){
+        this.toastr.success("courseattachment deleted successful");
+        console.log("deleted successfully");
+        location.reload();
+        }
+    })
+  }
+>>>>>>> Stashed changes
 }

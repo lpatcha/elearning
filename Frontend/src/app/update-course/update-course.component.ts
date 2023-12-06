@@ -3,8 +3,11 @@ import { Component , Inject} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 <<<<<<< Updated upstream:Frontend/src/app/update-course/update-course.component.ts
+<<<<<<< Updated upstream:Frontend/src/app/update-course/update-course.component.ts
 import { Course } from '../models/course';
 =======
+=======
+>>>>>>> Stashed changes:Frontend/src/app/courses/update-course/update-course.component.ts
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from 'src/app/category.service';
 import { Course } from 'src/app/models/course';

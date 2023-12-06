@@ -1,7 +1,13 @@
 <app-header></app-header>
 <app-moduleheader [coursename]="courseId"></app-moduleheader>
+<<<<<<< Updated upstream
 <button class="center-vertically custom-button" (click)="openAssignments()">Add Course Attachment</button>
 
+=======
+<div *ngIf="this.currRole=='teacher'">
+<button class="center-vertically custom-button" (click)="openAssignments()">Add Course Attachment</button>
+</div>
+>>>>>>> Stashed changes
 <div class="container mt-4">
   <div class="card">
     <div class="card-body">
@@ -15,6 +21,15 @@
           <a href="javascript:void(0)" class="btn btn-sm btn-primary" (click)="download(pdfUrl.fileName)">
             Download Course Attachment
           </a>
+<<<<<<< Updated upstream
+=======
+          <br>
+          <br>
+          <div *ngIf="this.currRole=='teacher'">  <a href="javascript:void(0)" class="btn btn-sm btn-primary" (click)="deleteattachment(pdfUrl.id)">
+            Delete Attachment
+          </a></div>
+
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>

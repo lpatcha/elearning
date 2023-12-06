@@ -2,12 +2,15 @@
 =======
 <app-header></app-header>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 <div>
     <h2>Categories</h2>
     <app-category-list [categories]="categoriesWithSubcategories" (addCategory)="onAddCategory($event)"></app-category-list>
     <button (click)="showInputBox = true" class="btn btn-primary">Add Category</button>
 =======
+=======
+>>>>>>> Stashed changes
 <div class="category">
     <h2>Categories</h2>
     <app-category-list [categories]="categoriesWithSubcategories" (addCategory)="onAddCategory($event)"  (updateCategory)="updateCategory($event)" ></app-category-list>

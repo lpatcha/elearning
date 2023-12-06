@@ -9,8 +9,11 @@ import { FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../category.service';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 @Component({
@@ -37,6 +40,7 @@ export class AddcourseComponent implements OnInit {
     const p=sessionStorage.getItem('loggedUser');
     this.course.professorName=p;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     $("select").on('change', function() {
       $(this).find("option:selected").each(function() {
           var option = $(this).attr("value");
@@ -51,6 +55,8 @@ export class AddcourseComponent implements OnInit {
           }
       });
     }).change();
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   }
@@ -77,7 +83,6 @@ export class AddcourseComponent implements OnInit {
         } else {
           this.startdatemsg = ''; 
         }
->>>>>>> Stashed changes
   }
 
   addCourse()
@@ -86,8 +91,11 @@ export class AddcourseComponent implements OnInit {
       data => {
         console.log("Course added Successfully !!!");
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         this._router.navigate(['/addchapter']);
 =======
+=======
+>>>>>>> Stashed changes
         this._router.navigate(['/teacherdashboard']);
         this.toastr.success("Course approve request sent to admin")
         this.course.department='';

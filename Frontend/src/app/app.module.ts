@@ -81,6 +81,7 @@ import { AssignmentListComponent } from './assignment-list/assignment-list.compo
 import { UpdatevideocontentComponent } from './updatevideocontent/updatevideocontent.component';
 import { UpdatemoduleComponent } from './updatemodule/updatemodule.component';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { UpdateCourseComponent } from './update-course/update-course.component';
 <<<<<<< Updated upstream
 >>>>>>> Stashed changes
@@ -88,6 +89,8 @@ import { UpdateCourseComponent } from './update-course/update-course.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { DeleteenrollComponent } from './deleteenroll/deleteenroll.component';
@@ -112,6 +115,9 @@ import { AssignmentfilesubmissionComponent } from './assignmentfilesubmission/as
 import { CourseAttachmentsComponent } from './course-attachments/course-attachments.component';
 import { CourseAttachmentsListComponent } from './course-attachments-list/course-attachments-list.component';
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 
@@ -199,7 +205,6 @@ import { CourseAttachmentsListComponent } from './course-attachments-list/course
     AssignmentfilesubmissionComponent,
     CourseAttachmentsComponent,
     CourseAttachmentsListComponent
->>>>>>> Stashed changes
   
 
 
@@ -253,7 +258,10 @@ import { CourseAttachmentsListComponent } from './course-attachments-list/course
     NgbModule,
     MatDialogModule,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 
     
 >>>>>>> Stashed changes

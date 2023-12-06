@@ -16,8 +16,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import jakarta.persistence.OneToMany;
 =======
+=======
+>>>>>>> Stashed changes
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -125,7 +128,10 @@ public class UserFullDetails {
 	}
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 	public UserTemp getUsertemp() {
 		return usertemp;
 	}

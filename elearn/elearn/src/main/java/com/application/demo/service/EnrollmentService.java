@@ -68,9 +68,14 @@ public class EnrollmentService {
 	}
 	public void deleteenroll(Long id) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 		
 		return enrollers;
+=======
+		
+		enrollRepo.deleteById(id);
+>>>>>>> Stashed changes
 =======
 		
 		enrollRepo.deleteById(id);

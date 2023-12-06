@@ -27,7 +27,10 @@ import { VideoContent } from '../models/videocontent';
 import { VideoaddComponent } from '../videoadd/videoadd.component';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 import { UpdatevideocontentComponent } from '../updatevideocontent/updatevideocontent.component';
@@ -75,9 +78,12 @@ export class CourseModulesComponent {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService,public dialog: MatDialog) { }
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private moduleService : ModuleService,public dialog: MatDialog,private toastr:ToastrService,private videoService:VideoService) { }
@@ -111,8 +117,11 @@ export class CourseModulesComponent {
     sessionStorage.setItem('course',this.courseName);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     this.courseService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     // this.moduleService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
@@ -200,11 +209,14 @@ export class CourseModulesComponent {
   }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   getmodulename(){
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     this.courseService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   deletemodule(id:any){
@@ -280,9 +292,12 @@ export class CourseModulesComponent {
     // });
     .subscribe((data) => {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
       this.moduleNames = data;
 =======
+=======
+>>>>>>> Stashed changes
       this.moduleNames = data;
       if(this.selectedModuleId==null){
       this.getvideocourse(this.moduleNames[0].id);

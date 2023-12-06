@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { MyServiceService } from '../my-service.service';
 =======
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 import { CategoryService } from '../category.service';
 // import { AllservicesService } from '../allservices.service';

@@ -31,8 +31,13 @@ public class EmailService {
     }
     
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public void sendAnnouncementEmail(String courseid,String title, String description) {
         List<String> userEmails = enrollmentService.findAllEmails(Long.parseLong(courseid)); // Implement this method in your repository
+=======
+    public void sendAnnouncementEmail(Long courseid,String title, String description) {
+        List<String> userEmails = enrollmentService.findAllEmails(courseid); // Implement this method in your repository
+>>>>>>> Stashed changes
 =======
     public void sendAnnouncementEmail(Long courseid,String title, String description) {
         List<String> userEmails = enrollmentService.findAllEmails(courseid); // Implement this method in your repository

@@ -40,10 +40,58 @@ public class CourseAttachmentsEntity {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private CourseEntity course;
+<<<<<<< Updated upstream
 
 
 	public CourseAttachmentsEntity(Long id, String title, String description, String fileUrl, String fileName,
 			CourseEntity course) {
+=======
+    private boolean isDeleted=false;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getFileUrl() {
+		return fileUrl;
+	}
+	public void setFileUrl(String fileUrl) {
+		this.fileUrl = fileUrl;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public CourseEntity getCourse() {
+		return course;
+	}
+	public void setCourse(CourseEntity course) {
+		this.course = course;
+	}
+	public boolean isDeleted() {
+		return isDeleted;
+	}
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+	public CourseAttachmentsEntity(Long id, String title, String description, String fileUrl, String fileName,
+			CourseEntity course, boolean isDeleted) {
+>>>>>>> Stashed changes
 		super();
 		this.id = id;
 		this.title = title;
@@ -51,14 +99,20 @@ public class CourseAttachmentsEntity {
 		this.fileUrl = fileUrl;
 		this.fileName = fileName;
 		this.course = course;
+<<<<<<< Updated upstream
 	}
 
 
+=======
+		this.isDeleted = isDeleted;
+	}
+>>>>>>> Stashed changes
 	public CourseAttachmentsEntity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+<<<<<<< Updated upstream
 
 	public String getFileUrl() {
 		return fileUrl;
@@ -127,4 +181,6 @@ public class CourseAttachmentsEntity {
 	
 	
     
+=======
+>>>>>>> Stashed changes
 }

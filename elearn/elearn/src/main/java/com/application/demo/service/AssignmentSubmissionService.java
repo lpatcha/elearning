@@ -166,6 +166,10 @@ public class AssignmentSubmissionService {
 		List<assignmentsubmEntity>assignmentsubmissionsbystudent=userdetails.getSubmissionlist();
 		List<resultresponse> studentresult=new ArrayList<>();
 		for(AssignmentEntity i:asssignments) {
+<<<<<<< Updated upstream
+=======
+			if(!i.isDeleted()) {
+>>>>>>> Stashed changes
 			resultresponse res=new resultresponse();
 			res.setStatus("assignment not submitted");
 			for(assignmentsubmEntity j:assignmentsubmissionsbystudent) {
@@ -196,6 +200,10 @@ public class AssignmentSubmissionService {
 			studentresult.add(res);
 			
 		}
+<<<<<<< Updated upstream
+=======
+		}
+>>>>>>> Stashed changes
 		return studentresult;
 	}
 

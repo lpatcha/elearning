@@ -44,6 +44,7 @@ export class UsernameLinkRendererComponent implements ICellRendererAngularComp {
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   // public params!: ICellRendererParams;
   // public color!: string;
   // agInit(params: ICellRendererParams): void {
@@ -55,6 +56,8 @@ export class UsernameLinkRendererComponent implements ICellRendererAngularComp {
   //   return false;
   // }
 =======
+=======
+>>>>>>> Stashed changes
   
   openUserDetails(): void {
     this.dialog.open(UserDetailsComponent, {
@@ -64,5 +67,4 @@ export class UsernameLinkRendererComponent implements ICellRendererAngularComp {
       data: { useremail: this.params.data.email },
     });
   }
->>>>>>> Stashed changes
 }

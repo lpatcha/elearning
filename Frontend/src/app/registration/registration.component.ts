@@ -15,11 +15,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 <<<<<<< Updated upstream
 =======
 import { MyServiceService } from '../my-service.service';
 =======
+=======
+>>>>>>> Stashed changes
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 >>>>>>> Stashed changes
@@ -40,8 +43,11 @@ export class RegistrationComponent implements OnInit {
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder) { 
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient,private formBuilder: FormBuilder,private toastr: ToastrService,private myService:CategoryService) { 
@@ -53,6 +59,15 @@ export class RegistrationComponent implements OnInit {
       phoneno: ['', [Validators.required, Validators.pattern(/^\d{3}-\d{3}-\d{4}$/)]],
       dob: [null, [Validators.required,this.dateNotInFutureValidator()]]
     });
+<<<<<<< Updated upstream
+=======
+
+    // this.myForm.get('dept')?.valueChanges.subscribe(deptValue => {
+    //   // Do something with the selected department, e.g., log it
+    //   this.myForm?.get('dept')?.setValue(this.myForm?.get('dept'));
+    //   console.log('Selected department:', deptValue);
+    // });
+>>>>>>> Stashed changes
   }
   dateNotInFutureValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {
@@ -101,7 +116,10 @@ export class RegistrationComponent implements OnInit {
      
     });
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 

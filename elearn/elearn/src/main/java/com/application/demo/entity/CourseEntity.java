@@ -7,6 +7,10 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
+<<<<<<< Updated upstream
+=======
+import jakarta.persistence.Column;
+>>>>>>> Stashed changes
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -41,6 +45,7 @@ public class CourseEntity {
     public List<AnnouncementEntity> announcements= new ArrayList<>();
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     
 <<<<<<< Updated upstream
 
@@ -52,6 +57,8 @@ public class CourseEntity {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<AssignmentEntity> assignments;
 =======
+=======
+>>>>>>> Stashed changes
     
     
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -62,6 +69,7 @@ public class CourseEntity {
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
     private List<CourseAttachmentsEntity> courseAttachments= new ArrayList<>();
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 
 
@@ -72,6 +80,20 @@ public class CourseEntity {
 
 <<<<<<< Updated upstream
 =======
+=======
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+>>>>>>> Stashed changes
 	public String getCourseName() {
 		return courseName;
 	}
@@ -231,6 +253,10 @@ public class CourseEntity {
 		this.assignments = assignments;
 	}
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+
 >>>>>>> Stashed changes
 
 
@@ -243,7 +269,6 @@ public class CourseEntity {
 			CategoryEntity category, String modules, String professorName, List<ModuleEntity> moduleslist,
 			List<Enrollment> enrolllist, List<AnnouncementEntity> announcements, List<AssignmentEntity> assignments,
 			List<CourseAttachmentsEntity> courseAttachments) {
->>>>>>> Stashed changes
 		super();
 		this.id = id;
 		this.courseName = courseName;
@@ -260,10 +285,12 @@ public class CourseEntity {
 		this.professorName = professorName;
 		this.announcements = announcements;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 		this.assignments = assignments;
 		this.courseAttachments = courseAttachments;
->>>>>>> Stashed changes
 	}
 
 
@@ -274,6 +301,7 @@ public class CourseEntity {
 		// TODO Auto-generated constructor stub
 	}
 
+<<<<<<< Updated upstream
 	
 	
 	
@@ -348,6 +376,8 @@ public class CourseEntity {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
+=======
+>>>>>>> Stashed changes
 
 	public List<CourseAttachmentsEntity> getCourseAttachments() {
 		return courseAttachments;
@@ -397,6 +427,7 @@ public class CourseEntity {
 	
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
 	public List<AnnouncementEntity> getAnnouncements() {
@@ -416,6 +447,8 @@ public class CourseEntity {
 	
     
     
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     

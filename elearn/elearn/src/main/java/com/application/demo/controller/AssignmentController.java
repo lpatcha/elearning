@@ -1,12 +1,24 @@
 package com.application.demo.controller;
 
+<<<<<<< Updated upstream
 import java.nio.file.Paths;
 import java.util.List;
+=======
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+>>>>>>> Stashed changes
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+<<<<<<< Updated upstream
+=======
+import org.springframework.web.bind.annotation.DeleteMapping;
+>>>>>>> Stashed changes
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,17 +27,30 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.application.demo.entity.AssignmentEntity;
+<<<<<<< Updated upstream
 import com.application.demo.service.AssignmentService;
+=======
+import com.application.demo.entity.CourseAttachmentsEntity;
+import com.application.demo.entity.CourseEntity;
+import com.application.demo.entity.UserFullDetails;
+import com.application.demo.repository.AssignmentRepository;
+import com.application.demo.repository.CourseRepository;
+import com.application.demo.service.S3FileUploadService;
+>>>>>>> Stashed changes
 
 import jakarta.persistence.criteria.Path;
 
 @RestController
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 @RequestMapping("assignments")
 =======
+=======
+>>>>>>> Stashed changes
 @RequestMapping(path = "/files")
 >>>>>>> Stashed changes
 public class AssignmentController {
+<<<<<<< Updated upstream
     @Autowired
     private AssignmentService assignmentService;
     
@@ -87,6 +112,8 @@ public class AssignmentController {
     
     
     
+=======
+>>>>>>> Stashed changes
 
 =======
   @Autowired
@@ -185,7 +212,35 @@ public class AssignmentController {
 public List<AssignmentEntity> getFileNamesByCourseId(@PathVariable String courseId) {
 //    return s3FileUploadService.getFileNamesByCourseId(courseId);
 	CourseEntity c=courseRepo.findById(Long.parseLong(courseId)).get();
+<<<<<<< Updated upstream
     return courseRepo.findById(Long.parseLong(courseId)).get().getAssignments();
 >>>>>>> Stashed changes
     
 }
+=======
+//    return courseRepo.findById(Long.parseLong(courseId)).get().getAssignments();
+    
+    List<AssignmentEntity> filteredAssignments = courseRepo.findById(Long.parseLong(courseId))
+            .map(course -> course.getAssignments().stream()
+                    .filter(attachment -> !attachment.isDeleted())
+                    .collect(Collectors.toList())
+            )
+            .orElse(Collections.emptyList());
+    return filteredAssignments;
+    
+}
+@DeleteMapping("/deleteassignment/{assignmentId}")
+public ResponseEntity<?> deleteattachment(@PathVariable String assignmentId) {
+	try {
+		s3FileUploadService.deleteassignment(Long.parseLong(assignmentId));
+	 return ResponseEntity.status(HttpStatus.OK).body("Successfully deleted");
+	}
+	catch(Exception e) {
+		 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+	}
+}
+
+
+  
+}
+>>>>>>> Stashed changes

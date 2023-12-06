@@ -96,6 +96,7 @@ public class VideoContentService {
     }
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public List<VideoContent> getVideoContentsByInstructorCourseModule(String instructorName, String courseName, String moduleName) {
         ModuleEntity module = moduleService.findModule(moduleName,courseName,instructorName);
           if (module != null) {
@@ -107,6 +108,9 @@ public class VideoContentService {
     	
 //        return videoContentRepository.findVideoContentsByInstructorCourseModule(instructorName, courseName, moduleName);
     }
+=======
+
+>>>>>>> Stashed changes
 =======
 
 >>>>>>> Stashed changes
