@@ -1,5 +1,6 @@
 package com.application.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,8 +66,6 @@ public class CategoryController {
 //        return new ResponseEntity<>(a, HttpStatus.CREATED);
     	return "successfully added";
     }
-<<<<<<< Updated upstream
-=======
     
     
     @GetMapping("/maincategories")
@@ -81,5 +80,4 @@ public class CategoryController {
         	categoryService.collectLeafCategories(cc,result);
         		return result;
     }
->>>>>>> Stashed changes
 }

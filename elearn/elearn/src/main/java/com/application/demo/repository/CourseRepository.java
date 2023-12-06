@@ -12,22 +12,8 @@ import com.application.demo.entity.CourseEntity;
 public interface CourseRepository extends JpaRepository<CourseEntity, Long>{
 	List<CourseEntity> findByProfessorName(String professorName);
 	CourseEntity findByCourseNameAndProfessorName(String courseName, String professorName);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-
-=======
-=======
->>>>>>> Stashed changes
-	CourseEntity findByCourseNameAndProfessorNameAndCategory(String courseName, String professorName, String Category);
-//	Optional<CourseEntity> findById(Long id);
-=======
-=======
->>>>>>> Stashed changes
 	CourseEntity findByCourseNameAndProfessorNameAndCategoryId(String courseName, String professorName, Long Category);
 	Optional<CourseEntity> findById(Long id);
->>>>>>> Stashed changes
 }
 
 

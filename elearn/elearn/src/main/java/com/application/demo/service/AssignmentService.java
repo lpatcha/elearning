@@ -44,7 +44,6 @@ public class AssignmentService {
 //        return assignmentRepository.findAll();
 //    }
     
->>>>>>> Stashed changes
 
     
 }

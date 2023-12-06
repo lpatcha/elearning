@@ -1,13 +1,11 @@
 package com.application.demo.controller;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.application.demo.Dto.addcourserequest;
+import com.application.demo.Dto.getcourseresponse;
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.UserTemp;
 import com.application.demo.repository.CategoryRepository;
@@ -42,24 +42,8 @@ public class CourseController {
 	private CategoryRepository categoryRepo;
 	
 	
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	@PostMapping("/addCourse")
-	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
-	{
-		CourseEntity courseObj = null;
-		String newID = getNewID();
-		course.setCourseId(newID);
-		
-		courseObj = courseService.addNewCourse(course);
-		return courseObj;
-=======
 	
 	@PostMapping("/addCourse")
-=======
-	
-	@PostMapping("/addCourse")
->>>>>>> Stashed changes
 	public ResponseEntity<?> addNewCourse(@RequestBody addcourserequest course) {
 	    // Check if a course with the same courseName and professorName already exists
 	    CourseEntity existingCourse = courseService.findCourseByCourseNameAndProfessorNameAndCategoryName(course.getCourseName(), course.getProfessorName(), course.getCategory());
@@ -84,8 +68,10 @@ public class CourseController {
 	    CourseEntity courseObj = courseService.addNewCourse(course);
 
 	    return ResponseEntity.ok(courseObj);
->>>>>>> Stashed changes
 	}
+
+	
+	
 	
 	@GetMapping("/getcoursebyemail/{email}")
     public ResponseEntity<List<CourseEntity>> getCoursesByEmail(@PathVariable String email) {
@@ -120,17 +106,9 @@ public class CourseController {
 	}
 	
 	@GetMapping("/getcourses")
-	public List<CourseEntity> getcourses(){
+	public List<getcourseresponse> getcourses(){
 		return courseService.getAllCourses();
 	}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-	
-	
-	
-=======
-=======
->>>>>>> Stashed changes
 	@GetMapping("/getcoursebyid/{id}")
 	public CourseEntity getcoursebyid(@PathVariable String id){
 		
@@ -138,7 +116,6 @@ public class CourseController {
 	}
 	
 	
->>>>>>> Stashed changes
 	
 	 @PutMapping("/enablecourse/{id}")
 	    public ResponseEntity<CourseEntity> updateEntity(@PathVariable Long id) {
@@ -163,18 +140,6 @@ public class CourseController {
 	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	        }
 	    }
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 	 
 	 @CrossOrigin(origins = "http://localhost:4200")
 	 @PutMapping("updatecourse")
@@ -205,32 +170,9 @@ public class CourseController {
 	     }
 	 }
 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
 	
 	 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-	
-<<<<<<< Updated upstream
-=======
 	
 	
->>>>>>> Stashed changes
-=======
-	
-	
-	
->>>>>>> Stashed changes
-=======
-	
-	
->>>>>>> Stashed changes
-=======
-	
-	
->>>>>>> Stashed changes
 
 }

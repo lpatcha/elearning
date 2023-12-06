@@ -17,7 +17,7 @@ export class CreateAdminComponent {
   dropdownOptions = [
     { value: 'admin', label: 'Admin' },
     { value: 'student', label: 'Student' },
-    { value: 'teacher', label: 'teacher' },
+    { value: 'teacher', label: 'Teacher' },
   ];
 
   submitAdminCreationForm(): void {
@@ -30,17 +30,12 @@ export class CreateAdminComponent {
         if (response.status === 201) {
           // Send an email to the admin with the registration link
           // this.sendRegistrationEmail(this.email);
+          this.toastr.success("User Added Successfully")
           console.log('Registration email sent to successful');
           this.router.navigate(['/admin']); // Redirect to student page
           //this.toastr.success('User details updated successfully', 'Success');
 
-          this.toastr.success('User Creation SuccessFul', '', {
-            timeOut: 3000, // Adjust the duration as needed
-            progressBar: false,
-            closeButton: false,
-            positionClass: 'toastr-success', // Apply the custom CSS class
-            tapToDismiss: false, // Disable click to dismiss
-          });
+          
         } else {
           console.error('User creation failed.');
           this.toastr.error('User creation failed.');
@@ -72,13 +67,10 @@ export class CreateAdminComponent {
     }
     );
   }
-<<<<<<< Updated upstream
-=======
   isEmailValid(): boolean {
     // Use regex to validate email format
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(this.email);
   }
->>>>>>> Stashed changes
 }
 

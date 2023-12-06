@@ -4,11 +4,8 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { AssignmentService } from '../assignment.service';
-<<<<<<< Updated upstream
-=======
 import { AssignmentfilesubmissionComponent } from '../assignmentfilesubmission/assignmentfilesubmission.component';
 import { MatDialog } from '@angular/material/dialog';
->>>>>>> Stashed changes
 @Component({
   selector: 'app-assignment-solution',
   templateUrl: './assignment-solution.component.html',
@@ -19,14 +16,12 @@ export class AssignmentSolutionComponent implements OnInit {
   fileNames: any; // Dynamically set from the API
   courseId: any | null = null;
   loggedUser="";
+  totalscore:number=0;
+  totalweightage:number=0;
+  totalMarksOutOf100:any=0;
   selectedFile: File | undefined;
   presenttime:any;
-<<<<<<< Updated upstream
-  constructor(private assignmentService: AssignmentService, private sanitizer: DomSanitizer, private http: HttpClient,private route: ActivatedRoute) {}
-=======
   constructor(public dialog: MatDialog,private assignmentService: AssignmentService, private sanitizer: DomSanitizer, private http: HttpClient,private route: ActivatedRoute) {}
->>>>>>> Stashed changes
-
   ngOnInit() {
     //const courseId = '20'; // Replace with the actual course ID
     this.route.params.subscribe(params => {
@@ -40,21 +35,22 @@ export class AssignmentSolutionComponent implements OnInit {
     const courseIdString = sessionStorage.getItem('course');
     this.courseId = courseIdString ? +courseIdString : null;
     // Fetch the file names from the API
-<<<<<<< Updated upstream
-    this.assignmentService.getFileNamesByCourseId(this.courseId).subscribe(
-=======
     this.assignmentService.getstudentresult(this.courseId,this.loggedUser).subscribe(
->>>>>>> Stashed changes
       (fileNames) => {
         // Set the file names
         this.fileNames = fileNames;
+        this.totalscore=0;
+        this.totalweightage=0;
         for (let obj of this.fileNames) {
+          if(obj.status=='assignment evaluated'){
+          this.totalscore=this.totalscore+((obj.assignedmarks/obj.totalmarks)*obj.weightage);
+          this.totalweightage=this.totalweightage+Number(obj.weightage);
+          }
           obj.deadlinedate=this.dateRenderer(obj.deadlinedate);
-<<<<<<< Updated upstream
-=======
           obj.submitteddate=this.dateRenderer(obj.submitteddate);
->>>>>>> Stashed changes
         } 
+         const totalMarksOutOf = ((this.totalscore / this.totalweightage) * 100).toFixed(2);
+         this.totalMarksOutOf100=totalMarksOutOf;
         // Load PDFs based on the file names
         // this.loadPdfs();
       },
@@ -142,15 +138,12 @@ export class AssignmentSolutionComponent implements OnInit {
       }
     );
   }
-<<<<<<< Updated upstream
-=======
   updatesubmission(id:any){
     const dialogRef = this.dialog.open(AssignmentfilesubmissionComponent, {
       width: '400px', // Set the width as per your design
       data: { assignmentid: id },
     });
   }
->>>>>>> Stashed changes
   getCurrentTimestamp(): number {
     return new Date().getTime();
   }

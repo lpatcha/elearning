@@ -2,16 +2,8 @@
 
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MyServiceService } from '../my-service.service';
-=======
-=======
->>>>>>> Stashed changes
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
->>>>>>> Stashed changes
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from '../authentication.service';
 

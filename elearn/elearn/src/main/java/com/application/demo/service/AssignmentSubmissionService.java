@@ -166,10 +166,7 @@ public class AssignmentSubmissionService {
 		List<assignmentsubmEntity>assignmentsubmissionsbystudent=userdetails.getSubmissionlist();
 		List<resultresponse> studentresult=new ArrayList<>();
 		for(AssignmentEntity i:asssignments) {
-<<<<<<< Updated upstream
-=======
 			if(!i.isDeleted()) {
->>>>>>> Stashed changes
 			resultresponse res=new resultresponse();
 			res.setStatus("assignment not submitted");
 			for(assignmentsubmEntity j:assignmentsubmissionsbystudent) {
@@ -187,6 +184,7 @@ public class AssignmentSubmissionService {
 					}
 					res.setSubmitteddate(j.getSubmitteddate());
 				}
+			}
 				res.setTitle(i.getTitle());
 				res.setTotalmarks(i.getTotalmarks());
 				res.setWeightage(i.getWeightage());
@@ -195,15 +193,12 @@ public class AssignmentSubmissionService {
 				res.setDescription(i.getDescription());
 				res.setDeadlinedate(i.getDeadlinedate());
 				res.setId(i.getId());
-			}
+			
 			
 			studentresult.add(res);
 			
 		}
-<<<<<<< Updated upstream
-=======
 		}
->>>>>>> Stashed changes
 		return studentresult;
 	}
 

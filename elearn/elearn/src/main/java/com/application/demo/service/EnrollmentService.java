@@ -11,28 +11,14 @@ import org.springframework.stereotype.Service;
 import com.application.demo.Dto.enrollresponse;
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.Enrollment;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 import com.application.demo.entity.UserFullDetails;
 import com.application.demo.repository.CourseRepository;
->>>>>>> Stashed changes
 import com.application.demo.repository.EnrollmentRepository;
 import com.application.demo.repository.UserFullDetailsRepository;
 @Service
 public class EnrollmentService {
    @Autowired
    EnrollmentRepository enrollRepo;
-<<<<<<< Updated upstream
-	public Enrollment addNewCourse(Enrollment enrollment) {
-	  return  enrollRepo.save(enrollment);
-	}
-	public List<Enrollment> getAllEnrollUsers(String email,String coursename) {
-		// TODO Auto-generated method stub
-		List<Enrollment> enrollers=enrollRepo.findByInstructornameAndCoursename(email, coursename);
-=======
    @Autowired
 	private CourseRepository courseRepo;
    @Autowired
@@ -49,13 +35,15 @@ public class EnrollmentService {
 	  return  enrollRepo.save(enroll);
 	}
 	public List<enrollresponse> getAllEnrollUsers(String id) {
+		 CourseEntity course=courseRepo.findById(Long.parseLong(id)).get();
+		 List<Enrollment> enr=course.getEnrolllist();
 		List<UserFullDetails> enrollers= courseRepo.findById(Long.parseLong(id)).get().getEnrolllist().stream().map(enroll->enroll.getUser()).toList();
 		List<Enrollment> enrollment=courseRepo.findById(Long.parseLong(id)).get().getEnrolllist();
 		 List<enrollresponse> enrollerresponse= new ArrayList<>();
 		 for(UserFullDetails i:enrollers) {
 			 enrollresponse enroll=new enrollresponse();
 			 enroll.setId(i.getId());
-			 enroll.setDept(i.getDept());
+			 enroll.setDept(i.getDepartment().getName());
 			 enroll.setEmail(i.getEmail());
 			 enroll.setName(i.getName());
 			 for(Enrollment j:enrollment) {
@@ -67,19 +55,8 @@ public class EnrollmentService {
 		return enrollerresponse;
 	}
 	public void deleteenroll(Long id) {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-		
-		return enrollers;
-=======
 		
 		enrollRepo.deleteById(id);
->>>>>>> Stashed changes
-=======
-		
-		enrollRepo.deleteById(id);
->>>>>>> Stashed changes
 	}
    public List<String>findAllEmails(Long courseid) {
 	   List<String> allmails= courseRepo.findById(courseid).get().getEnrolllist().stream()

@@ -1,40 +1,19 @@
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 <!-- <div class="sidebar">
     <a class="active" href="#home">Home</a>
     <a href="#news">News</a>
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
   </div> -->
-<<<<<<< Updated upstream
-
-
-  <app-header></app-header>
-  <app-moduleheader [coursename]="courseName"></app-moduleheader>
-
-
-  <app-header></app-header>
-  <app-moduleheader [coursename]="courseName"></app-moduleheader>
-
-=======
   <app-header></app-header>
   <app-moduleheader [coursename]="courseName"></app-moduleheader>
   <div class="app-container">
->>>>>>> Stashed changes
   <div class="sidebar">
     <h2>Module List</h2>
     <ul>
       <!-- <li *ngFor="let module of moduleNames">
         <a [routerLink]="['/modules', module]">{{ module }}</a>
       </li> -->
-<<<<<<< Updated upstream
-      <li *ngFor="let module of moduleNames ">
-        <label [routerLink]="['/modules', module.modulename]" (click)="getvideocourse(module.modulename)" style="cursor: pointer;">{{ module.modulename }}</label>
-       </li>
-=======
       <!-- <li *ngFor="let module of moduleNames ">
         <label [routerLink]="['/modules', module.modulename]" (click)="getvideocourse(module.modulename)" (click)="selectmodule(module.id)" style="cursor: pointer;"
         [ngClass]="{ 'selected-module': module.id === selectedModuleId }">{{ module.modulename }}</label>
@@ -51,10 +30,10 @@
         </div>
       </li>
       <div *ngIf="this.currRole==='teacher'">
->>>>>>> Stashed changes
       <li>
        <button (click)="openInputDialog()">Add Module</button>
        </li>
+      </div>
        <!-- <li> 
         <label [routerLink]="['/userenroll',courseName]" style="cursor: pointer;"> Enrolled students </label>
       </li> -->
@@ -63,24 +42,16 @@
   <div class ="content">
   <div class="continer">
     <div>
-    <div style="font-weight: bolder; color: darkgreen; font-size: 35px; margin-bottom: 2%;">Welcome to {{courseName}} course 👋 </div>
+    <div style="font-weight: bolder; color: darkgreen; font-size: 35px; margin-bottom: 2%;">Welcome to {{this.coursedetails.courseName}} course 👋 </div>
     <youtube-player style="margin-right: 5%;" id="player" [videoId]="video" suggestedQuality="highres" [height]="380" [width]="640"></youtube-player>
-<<<<<<< Updated upstream
-=======
   </div>
->>>>>>> Stashed changes
     <div class="chapter-list" >
         <div style="font-weight: bold; font-size: large; align-items: center; color: darkred;"><i class="fa fa-list"></i> Course Contents</div>
         <div style="color: gray; font-weight: 400; font-size: small; margin-bottom: 5%;">(click on chapter name to get into the videos)</div>
         <div style="color: red; font-size: medium; font-weight: bolder; margin-top: 30%; margin-left: 5%; margin-right: 5%;" *ngIf="chapter.chapter1name === ''">Currently No Chapters available for this Course. Please wait, the Instructor will be adding the chapters soon here</div>
         <div *ngFor="let video of videocontent ">
-        <div style="cursor: pointer;" (click)="set1()" class="chapter1" *ngIf="video.contentname !== ''">
+        <!-- <div style="cursor: pointer;" (click)="set1()" class="chapter1" *ngIf="video.contentname !== ''"> -->
             <!-- <div class="box1" id="select-box"><i class="fa fa-check"></i></div> -->
-<<<<<<< Updated upstream
-            <div class="name" (click)="openChapter(video.videourl)"> 1) {{video.contentname}}</div>
-            <div style="color: gray; font-weight: 600; font-size: small; margin-left: 12%;">subcontents (1/1)</div>
-        </div>
-=======
             <div class="custom-video-style" [ngClass]="{ 'selected-video': video.id === selectedvideoId }">
              <span class="name" (click)="openChapter(video.videourl)"(click)="selectvideo(video.id)">  {{video.contentname}}</span>
              <!-- <span class="description" >  {{video.videodescription}}</span> -->
@@ -92,9 +63,10 @@
             </div>
             <!-- <div style="color: gray; font-weight: 600; font-size: small; margin-left: 12%;">subcontents (1/1)</div> -->
         <!-- </div> -->
->>>>>>> Stashed changes
         </div>
+        <div *ngIf="this.currRole==='teacher'">
         <button (click)="videoadd()">Add Video</button>
+        </div>
         <!-- <hr *ngIf="chapter.chapter1name !== ''">
 
         <div style="cursor: pointer;" (click)="set2()" class="chapter2" *ngIf="chapter.chapter2name !== ''">
@@ -144,16 +116,8 @@
             <div class="name" (click)="openChapter(chapter.chapter8id)"> 8) {{chapter.chapter8name}}</div>
             <div style="color: gray; font-weight: 600; font-size: small; margin-left: 12%;">subcontents (1/1)</div>
         </div>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        <hr *ngIf="chapter.chapter8name !== ''">
-    </div>
-=======
-=======
->>>>>>> Stashed changes
         <hr *ngIf="chapter.chapter8name !== ''"> -->
 </div>
->>>>>>> Stashed changes
 </div>
 </div>
   <!-- <div class="content">
@@ -162,8 +126,4 @@
     <p>We have also added a media query for screens that are 400px or less, which will vertically stack and center the navigation links.</p>
     <h3>Resize the browser window to see the effect.</h3>
   </div> -->
-<<<<<<< Updated upstream
-
-=======
   
->>>>>>> Stashed changes

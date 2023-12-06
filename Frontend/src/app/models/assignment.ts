@@ -1,15 +1,4 @@
 export class Assignment {
-<<<<<<< Updated upstream
-    title: string;
-    description: string;
-    
-  
-    constructor() {
-      this.title = '';
-      this.description = '';
-     
-    }
-=======
   id: number; // You may have an ID property if assignments have unique identifiers
   title: string;
   description: string;
@@ -27,10 +16,6 @@ export class Assignment {
     this.marks='';
     this.weightage='';
     this.deadlinedate='';
-<<<<<<< Updated upstream
   }
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   }
   

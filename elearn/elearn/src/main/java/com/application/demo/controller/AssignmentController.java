@@ -1,121 +1,50 @@
 package com.application.demo.controller;
 
-<<<<<<< Updated upstream
-import java.nio.file.Paths;
-import java.util.List;
-=======
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
->>>>>>> Stashed changes
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-<<<<<<< Updated upstream
-=======
 import org.springframework.web.bind.annotation.DeleteMapping;
->>>>>>> Stashed changes
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.amazonaws.HttpMethod;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.AmazonS3Exception;
+import com.amazonaws.services.s3.model.GeneratePresignedUrlRequest;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.amazonaws.util.IOUtils;
+import com.application.demo.Dto.assignsubmissions;
+import com.application.demo.Dto.assignsubrequest;
 import com.application.demo.entity.AssignmentEntity;
-<<<<<<< Updated upstream
-import com.application.demo.service.AssignmentService;
-=======
 import com.application.demo.entity.CourseAttachmentsEntity;
 import com.application.demo.entity.CourseEntity;
 import com.application.demo.entity.UserFullDetails;
 import com.application.demo.repository.AssignmentRepository;
 import com.application.demo.repository.CourseRepository;
 import com.application.demo.service.S3FileUploadService;
->>>>>>> Stashed changes
 
-import jakarta.persistence.criteria.Path;
 
 @RestController
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-@RequestMapping("assignments")
-=======
-=======
->>>>>>> Stashed changes
 @RequestMapping(path = "/files")
->>>>>>> Stashed changes
 public class AssignmentController {
-<<<<<<< Updated upstream
-    @Autowired
-    private AssignmentService assignmentService;
-    
-   
 
-<<<<<<< Updated upstream
-    // Create a new assignment with a file upload
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    @PostMapping("/upload")
-    public AssignmentEntity createAssignmentWithFileUpload(@RequestParam("title") String title,
-                                                    @RequestParam("description") String description,
-                                                    @RequestParam("pdfFile") MultipartFile pdfFile) {
-        AssignmentEntity assignment = new AssignmentEntity();
-        assignment.setTitle(title);
-        assignment.setDescription(description);
-        assignment.setPdfFile(pdfFile);
-        
-        
-
-        return assignmentService.saveAssignment(assignment);
-    }
-    
-    @GetMapping("/assignments")
-    public ResponseEntity<List<AssignmentEntity>> getAllAssignments() {
-        List<AssignmentEntity> assignments = assignmentService.getAllAssignments();
-        
-        return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_PDF)
-                .body(assignments);
-        //return ResponseEntity.ok(assignments);
-    }
-=======
-=======
->>>>>>> Stashed changes
-//    @PostMapping("/upload")
-//    public AssignmentEntity createAssignmentWithFileUpload(@RequestParam("title") String title,
-//                                                    @RequestParam("description") String description,
-//                                                    @RequestParam("pdfFile") MultipartFile pdfFile) {
-//        AssignmentEntity assignment = new AssignmentEntity();
-//        assignment.setTitle(title);
-//        assignment.setDescription(description);
-//        assignment.setPdfFile(pdfFile);
-//        
-//        
-//
-//        return assignmentService.saveAssignment(assignment);
-//    }
-//    
-//    @GetMapping("/assignments")
-//    public ResponseEntity<List<AssignmentEntity>> getAllAssignments() {
-//        List<AssignmentEntity> assignments = assignmentService.getAllAssignments();
-//        
-//        return ResponseEntity.ok()
-//                .contentType(MediaType.APPLICATION_JSON)
-//                .body(assignments);
-//    }
-
-    
-    
-    
-=======
->>>>>>> Stashed changes
-
-=======
   @Autowired
   private S3FileUploadService s3FileUploadService;
   
@@ -212,12 +141,6 @@ public class AssignmentController {
 public List<AssignmentEntity> getFileNamesByCourseId(@PathVariable String courseId) {
 //    return s3FileUploadService.getFileNamesByCourseId(courseId);
 	CourseEntity c=courseRepo.findById(Long.parseLong(courseId)).get();
-<<<<<<< Updated upstream
-    return courseRepo.findById(Long.parseLong(courseId)).get().getAssignments();
->>>>>>> Stashed changes
-    
-}
-=======
 //    return courseRepo.findById(Long.parseLong(courseId)).get().getAssignments();
     
     List<AssignmentEntity> filteredAssignments = courseRepo.findById(Long.parseLong(courseId))
@@ -243,4 +166,3 @@ public ResponseEntity<?> deleteattachment(@PathVariable String assignmentId) {
 
   
 }
->>>>>>> Stashed changes

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import { AnnouncementsComponent } from '../announcements/announcements.component';
 import { AssignmentsComponent } from '../assignments/assignments.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-moduleheader',
@@ -10,8 +11,17 @@ import { AssignmentsComponent } from '../assignments/assignments.component';
   styleUrls: ['./moduleheader.component.css']
 })
 export class ModuleheaderComponent {
+  loggedUser = '';
+  currRole = '';
+  constructor(public dialog: MatDialog, private route: Router){}
+  ngOnInit(): void {
+    this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
+    this.loggedUser = this.loggedUser.replace(/"/g, '');
 
-  constructor(public dialog: MatDialog){}
+    this.currRole = JSON.stringify(sessionStorage.getItem('ROLE')|| '{}'); 
+    this.currRole = this.currRole.replace(/"/g, '');
+    console.log(this.currRole);
+  }
   @Input() coursename: string="";
 
   openAnnouncements(): void {
@@ -30,8 +40,6 @@ export class ModuleheaderComponent {
     });
   }
 
-<<<<<<< Updated upstream
-=======
   openAssignmentsList() : void {
     this.route.navigate(["assignments-list"]);
   }
@@ -46,5 +54,4 @@ export class ModuleheaderComponent {
     this.route.navigate(["assignments-solution"]);
   }
   
->>>>>>> Stashed changes
 }

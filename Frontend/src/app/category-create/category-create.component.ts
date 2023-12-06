@@ -1,14 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { LogoutService } from '../logout.service';
 import { HttpClient } from '@angular/common/http';
-<<<<<<< Updated upstream
-import { MyServiceService } from '../my-service.service';
-=======
 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 import { CategoryService } from '../category.service';
 // import { AllservicesService } from '../allservices.service';
 
@@ -56,9 +49,9 @@ export class CategoryCreateComponent {
     this.fetchCategoriesWithSubcategories();
     this.cdr.detectChanges();
     if (response.message === 'successfully created.') {
-        console.log('Registration email sent to successful');
+        console.log('category added  successful');
       } else {
-        console.error('Admin creation failed.');
+        console.error('category creation failed.');
       }
 },
 (error: any) => {
@@ -114,5 +107,19 @@ export class CategoryCreateComponent {
     this.newCategory = '';
     this.showInputBox = false;
   }
+
+  updateCategory(categoryupdateData: { categoryid:any,Categoryname:any}){
+    console.log("got");
+    this.myService.updateCategory(categoryupdateData.categoryid,categoryupdateData.Categoryname).subscribe((response)=>
+    {
+         console.log("successfully updated");
+         this.fetchCategoriesWithSubcategories();
+        //  this.fetchCategoriesWithSubcategories();
+    },
+    )
+  
+  }
+
+
 
 }

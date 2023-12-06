@@ -2,17 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-import { MyServiceService } from '../my-service.service';
-=======
 
->>>>>>> Stashed changes
-=======
-
->>>>>>> Stashed changes
 import { CategoryService } from '../category.service';
 
 @Component({
@@ -26,15 +16,6 @@ export class UpdateProfileComponent {
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    private toastr: ToastrService
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     private toastr: ToastrService,
     private myService: CategoryService,
   ) {}
@@ -45,15 +26,25 @@ export class UpdateProfileComponent {
   newDept: string = '';
   newPhone: string = '';
   newDOB: string = '';
-
+  departmentList : any | undefined;
+  defaultSelectedDepartment:any;
   ngOnInit() {
     this.route.params.subscribe((data1) => {
       const email = data1['id'];
 
       this.http.get<any>(`http://localhost:8080/table/getuserdetails/${email}`).subscribe((data) => {
         this.cardData = data;
+        this.newName=this.cardData.name;
+        this.newDept=this.cardData.dept;
+        this.defaultSelectedDepartment= this.cardData.dept;
+        this.newPhone= this.cardData.phoneno;
+        this.newDOB= this.cardData.dob;
       });
     });
+    this.myService.getAllCategoriesWithSubcategories().subscribe(data=>{
+      this.departmentList=data;
+      console.log(this.departmentList);
+ })
   }
 
   startEditing() {
@@ -80,6 +71,7 @@ export class UpdateProfileComponent {
 
           // Disable editing mode after successful update
           this.isEditing = false;
+          this.ngOnInit();
 
           // You can also update the cardData object with the updated values here
         },
@@ -92,9 +84,6 @@ export class UpdateProfileComponent {
         }
       );
   }
-<<<<<<< Updated upstream
-}
-=======
   checkstartDateValidity(){
     const selectedDate = new Date(this.newDOB);
     const currentDate = new Date();
@@ -105,4 +94,3 @@ export class UpdateProfileComponent {
         }
   }
 }
->>>>>>> Stashed changes

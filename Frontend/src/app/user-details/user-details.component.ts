@@ -1,10 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-import { Component, Input } from '@angular/core';
-=======
-=======
->>>>>>> Stashed changes
 import { Component, Inject, Input } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -20,14 +14,6 @@ export class UserDetailsComponent {
     private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    private toastr: ToastrService
-  ) {}
-
-=======
-=======
->>>>>>> Stashed changes
     private toastr: ToastrService,
     private dialogRef:MatDialogRef<UserDetailsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -43,13 +29,6 @@ export class UserDetailsComponent {
   newDOB: string = '';
 
   ngOnInit() {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    this.route.params.subscribe((data1) => {
-      const email = data1['id'];
-=======
-=======
->>>>>>> Stashed changes
     // this.route.params.subscribe((data1) => {
       // console.log(data1);
       // this.email = data1;
@@ -64,6 +43,11 @@ export class UserDetailsComponent {
     this.isEditing = true;
   }
 
+  closeDialog(): void {
+    this.dialogRef.close();
+  }
+
+ 
   updateUser() {
     const updatedUserData = {
       name: this.newName,
@@ -72,6 +56,8 @@ export class UserDetailsComponent {
       dob: this.newDOB
       // Add other properties as needed
     };
+
+    
 
     this.http.post(`http://localhost:8080/table/updateuserdetails/${this.cardData.email}`, updatedUserData)
       .subscribe(

@@ -1,20 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-import { MyServiceService } from '../my-service.service';
-import { Assignment } from '../models/assignment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-<<<<<<< Updated upstream
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-
-=======
-=======
-=======
->>>>>>> Stashed changes
 
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
->>>>>>> Stashed changes
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
@@ -26,26 +13,10 @@ import { AssignmentService } from '../assignment.service';
   styleUrls: ['./assignment-list.component.css']
 })
 export class AssignmentListComponent implements OnInit {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  assignments: Assignment[] = [];
-  pdfUrl: SafeResourceUrl = "";
-  pdf: string = "";
-  fileName: string = 'c91e8344-fd96-49db-a3c0-794416346bb3_Lab1 - part2-Fall2023.pdf';
-
-  constructor(private assignmentService: MyServiceService, private http: HttpClient, private sanitizer: DomSanitizer) {
-    this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      `http://localhost:8080/files/download-pdf?fileName=${this.fileName}`
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   pdfUrls: SafeResourceUrl[] = [];
   fileNames: any; // Dynamically set from the API
   courseId: any | null = null;
-  constructor(private assignmentService: AssignmentService, private sanitizer: DomSanitizer, private http: HttpClient,private route: ActivatedRoute,private myServiceService : MyServiceService,public dialog: MatDialog,private toastr:ToastrService) {}
+  constructor(private assignmentService: AssignmentService, private sanitizer: DomSanitizer, private http: HttpClient,private route: ActivatedRoute,public dialog: MatDialog,private toastr:ToastrService) {}
   ngOnInit() {
     //const courseId = '20'; // Replace with the actual course ID
     this.route.params.subscribe(params => {
@@ -81,16 +52,6 @@ export class AssignmentListComponent implements OnInit {
     );
   }
 
-<<<<<<< Updated upstream
-  ngOnInit() {
-    // Send the HTTP request in the ngOnInit lifecycle hook
-    this.http
-      .get(`http://localhost:8080/files/download-pdf?fileName=${this.fileName}` , { responseType: 'arraybuffer' }) // Specify 'arraybuffer' as the response type
-      .subscribe(
-        (response: ArrayBuffer) => {
-          // Create a Blob from the array buffer
-          const blob = new Blob([response], { type: 'application/pdf' });
-=======
   // loadPdfs() {
   //   // Iterate through the file names and load the corresponding PDFs
   //   this.fileNames.forEach((fileName) => {
@@ -117,22 +78,14 @@ export class AssignmentListComponent implements OnInit {
       height:'630px'
     });
   }
->>>>>>> Stashed changes
 
-          // Create a URL for the blob data
-          const blobUrl = window.URL.createObjectURL(blob);
-          
-          // Sanitize the URL to make it safe for use in the template
-          this.pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(blobUrl);
-        },
-        (error) => {
-          // Handle any errors here
-          console.error('API error:', error);
-        }
-      );
+  download(filename:string){
+    this.assignmentService.getdownload(filename).subscribe((response:ArrayBuffer)=>
+    {
+      this.handleFileDownload(response,filename);
+       console.log("successfullydownloaded")
+    })
   }
-<<<<<<< Updated upstream
-=======
  handleFileDownload(data: ArrayBuffer,filename:string) {
     const blob = new Blob([data], { type: 'application/octet-stream' });
 
@@ -161,9 +114,6 @@ export class AssignmentListComponent implements OnInit {
     const formattedDate = `${day}/${month}/${year}`;
     return formattedDate;
   }
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
   deleteassignment(id:any){
     this.assignmentService.deleteassignment(id).subscribe((response)=>{
       console.log("deleted successfully");
@@ -182,5 +132,4 @@ export class AssignmentListComponent implements OnInit {
       }
     )
   }
->>>>>>> Stashed changes
 }

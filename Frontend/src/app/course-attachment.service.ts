@@ -38,13 +38,7 @@ getdownload(fileName: String):Observable<ArrayBuffer> {
     responseType: 'arraybuffer'
   });
 }
-<<<<<<< Updated upstream
-
-
-
-=======
 deleteattachment(id:any){
   return this.http.delete<any>(`${this.baseUrl}/courseattach/deleteattachment/${id}`);
 }
->>>>>>> Stashed changes
 }

@@ -4,21 +4,32 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.application.demo.Dto.assignsubmissions;
 import com.application.demo.entity.AssignmentEntity;
 import com.application.demo.entity.CourseEntity;
+import com.application.demo.entity.UserFullDetails;
+import com.application.demo.entity.assignmentsubmEntity;
 import com.application.demo.repository.AssignmentRepository;
+import com.application.demo.repository.AssignmentSubmissionRepository;
 import com.application.demo.repository.CourseRepository;
+import com.application.demo.repository.UserFullDetailsRepository;
 
 
 @Service
@@ -35,12 +46,17 @@ public class S3FileUploadServiceImpl implements S3FileUploadService {
   
   @Autowired
   private AssignmentRepository assignmentRepository;
+  @Autowired
+  private UserFullDetailsRepository userFullDetailsRepository;
+  @Autowired
+  private AssignmentSubmissionRepository assignmentSubmission;
+  
   
   
   @Autowired
   private CourseRepository courseRepository;
 
-  public Map<String, String> uploadFileToS3(MultipartFile multipartfile, String title, String description, Long courseId) {
+  public ResponseEntity<Map<String, String>> uploadFileToS3(MultipartFile multipartfile, String title, String description, String courseId,String marks,String weightage,String deadlinedate) {
 	    Map<String, String> response = new HashMap<>();
 
 	    if (multipartfile != null && !multipartfile.isEmpty()) {
@@ -68,13 +84,15 @@ public class S3FileUploadServiceImpl implements S3FileUploadService {
 	            response.put("fileUrl", s3FileAccessUrl);
 
 	            // Create an AssignmentEntity and set the title, description, and file URL
-	            Optional<CourseEntity> course = courseRepository.findById(courseId);
+	            Optional<CourseEntity> course = courseRepository.findById((long) Integer.parseInt(courseId));
 	            AssignmentEntity assignment = new AssignmentEntity();
 	            assignment.setTitle(title);
 	            assignment.setDescription(description);
 	            assignment.setFileUrl(s3FileAccessUrl);
 	            assignment.setFileName(uniqueFileName);
-	            
+	            assignment.setTotalmarks(marks);
+	            assignment.setWeightage(weightage);
+	            assignment.setDeadlinedate(deadlinedate);
 //	            course.ifPresent(courseOp -> {
 //	            	CourseEntity courseOp = course.get();
 //	                assignment.setCourse(courseOp);
@@ -86,23 +104,23 @@ public class S3FileUploadServiceImpl implements S3FileUploadService {
 	            }
 	            //assignment.setCourse(course);
 	            // Save the AssignmentEntity to the database
-	            assignmentRepository.save(assignment);
+	            AssignmentEntity savedassign=assignmentRepository.save(assignment);
+	            
 	            response.put("fileName", uniqueFileName);
 	            //courseRepository.save(course);
-<<<<<<< Updated upstream
-
-=======
 	            course.get().getAssignments().add(savedassign);
 	            courseRepository.save(course.get());
->>>>>>> Stashed changes
 	            file.delete();
+	            response.put("message", "success");
+	            
 	        } catch (FileNotFoundException e) {
 	            e.printStackTrace();
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
 	    }
-	    return response;
+	    return ResponseEntity.status(HttpStatus.SC_CREATED).body(response);
+
 	}
   
   public void deleteFile(Long fileId) {
@@ -117,8 +135,6 @@ public class S3FileUploadServiceImpl implements S3FileUploadService {
 	  }
   
   
-<<<<<<< Updated upstream
-=======
   public List<String> getFileNamesByCourseId(String courseId) {
       return assignmentRepository.findFileNamesByCourseId(courseId);
       
@@ -238,6 +254,5 @@ public class S3FileUploadServiceImpl implements S3FileUploadService {
       });
   }
   
->>>>>>> Stashed changes
 
 }

@@ -127,8 +127,6 @@ public class CourseAttachmentService {
 //		    s3Client.deleteObject(bucketName, keyName);
 //		    assignmentRepository.delete(a);
 //		  }
-<<<<<<< Updated upstream
-=======
 
 	public void deleteattachment(Long attachmentId) {
 		 Optional<CourseAttachmentsEntity> attachmentOptional = courseAttachmentRepository.findById(attachmentId);
@@ -149,7 +147,6 @@ public class CourseAttachmentService {
 		
 	}
 	}
->>>>>>> Stashed changes
 	
 	  
 	
