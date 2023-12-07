@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./course-content.component.css']
 })
 export class CourseContentComponent {
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   
   content: any = {}; // Store form data here
   selectedFile: File | null = null;
@@ -25,6 +28,7 @@ export class CourseContentComponent {
     this.selectedFile = event.target.files[0];
   }
 
+<<<<<<< Updated upstream
 
 
   content: any = {}; // Store form data here
@@ -45,4 +49,6 @@ export class CourseContentComponent {
   }
 
 
+=======
+>>>>>>> Stashed changes
 }

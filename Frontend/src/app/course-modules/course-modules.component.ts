@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+<<<<<<< Updated upstream
 import { Observable } from 'rxjs';
 import { Course } from '../models/course';
 import { MyServiceService } from '../my-service.service';
@@ -12,6 +13,16 @@ import { InputDialogComponent } from '../input-dialog/input-dialog.component';
 
 import { Module } from '../models/module';
 
+=======
+import { Observable, distinctUntilChanged, filter, take } from 'rxjs';
+import { Course } from '../models/course';
+import { MyServiceService } from '../my-service.service';
+import { Module } from '../models/module';
+import { MatDialog } from '@angular/material/dialog';
+import { InputDialogComponent } from '../input-dialog/input-dialog.component';
+import { VideoContent } from '../models/videocontent';
+import { VideoaddComponent } from '../videoadd/videoadd.component';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-course-modules',
@@ -20,8 +31,12 @@ import { Module } from '../models/module';
 })
 export class CourseModulesComponent {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   moduleNames: Module[]| undefined;
+=======
+  moduleNames: Module[]=[];
+>>>>>>> Stashed changes
   video = 'jpvZXcGkUMY';
   courseName = 'springboot';
   // chapterlist : Observable<Chapter[]> | undefined;
@@ -29,10 +44,20 @@ export class CourseModulesComponent {
   // chapter = new Chapter();
   loggedUser = '';
   currRole = '';
+<<<<<<< Updated upstream
   coursedetails : Observable<Course> | undefined;
   createmodule: Module = new Module();
 
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService) { }
+=======
+  currentmodule="";
+  coursedetails : Observable<Course> | undefined;
+  createmodule: Module = new Module();
+  videocontent:any;
+  createvideo:VideoContent=new VideoContent();
+
+  constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService,public dialog: MatDialog) { }
+>>>>>>> Stashed changes
 
   ngOnInit(): void {
     this.loggedUser = JSON.stringify(sessionStorage.getItem('loggedUser')|| '{}');
@@ -56,6 +81,10 @@ export class CourseModulesComponent {
     $("#qa, #notes, #announcements, #questions, #notestxt, #downloads").hide();
     $("#downloadalert").css("display","none");
     this.courseName = this.activatedRoute.snapshot.params['coursename'];
+<<<<<<< Updated upstream
+=======
+    sessionStorage.setItem('course',this.courseName);
+>>>>>>> Stashed changes
     this.courseService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
       this.coursedetails = data;
       console.log(this.coursedetails);
@@ -95,6 +124,16 @@ export class CourseModulesComponent {
     // this.courselist = this._service.getCourseListByName(this.courseName);
 
   }
+<<<<<<< Updated upstream
+=======
+  getvideocourse(module:any){
+    this.currentmodule=module;
+    this.courseService.getvideocontent(this.loggedUser,this.courseName,module).subscribe((data) => {
+      this.videocontent = data;
+      console.log(this.videocontent);
+    });
+  }
+>>>>>>> Stashed changes
   addmodule() {
     let moduleName = prompt('Enter a new module name:');
     this.createmodule.coursename=this.courseName;
@@ -113,6 +152,7 @@ export class CourseModulesComponent {
     }
   }
   getmodulename(){
+<<<<<<< Updated upstream
     this.courseService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
       this.moduleNames = data;
       console.log(this.moduleNames);
@@ -333,6 +373,30 @@ export class CourseModulesComponent {
       console.log(this.moduleNames);
     });
   }
+=======
+    this.courseService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName)
+    //  .pipe(
+    //   filter(data => !!data), // Ensure that data is available
+    //   distinctUntilChanged((prev, current) => this.getModuleName(prev) === this.getModuleName(current)), // Prevent redundant calls
+    //   take(1), // Ensure the API call is made only once
+    // )
+    // .subscribe((data) => {
+    //   this.moduleNames = data;
+    //   console.log(this.moduleNames);
+    //   console.log(this.moduleNames);
+    //   const moduleName = this.getModuleName(data);
+    //   this.getvideocourse(this.moduleNames[0].modulename);
+    // });
+    .subscribe((data) => {
+      this.moduleNames = data;
+      this.getvideocourse(this.moduleNames[0].modulename);
+      console.log(this.moduleNames);
+    });
+  }
+  private getModuleName(data: any): string {
+    return data ? data.map((module:any) => module.modulename).join('') : '';
+  }
+>>>>>>> Stashed changes
   openInputDialog(): void {
     const dialogRef = this.dialog.open(InputDialogComponent, {
       width: '400px', // Set the width as per your design
@@ -351,6 +415,37 @@ export class CourseModulesComponent {
     
         if (moduleName) {
           this.courseService.addmodule(this.createmodule).subscribe((data)=>
+          {
+            this.getmodulename();
+            console.log(data);
+          });
+          // this.users = this.userService.getUsers();
+        }
+      }
+    });
+  }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+  videoadd(){
+    const dialogRef = this.dialog.open(VideoaddComponent, {
+      width: '400px', // Set the width as per your design
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((videoName) => {
+      if (videoName) {
+  
+        // Do something with the result (input value) received from the dialog
+        console.log('You entered: ' + videoName);
+        this.createvideo.contentName=videoName.videoname;
+        this.createvideo.videoUrl=videoName.videourl;
+        this.createvideo.courseName=this.courseName;
+             this.createvideo.moduleName=this.currentmodule;
+        this.createvideo.instructorName=this.loggedUser;
+    
+        if (videoName) {
+          this.courseService.addvideo(this.createvideo).subscribe((data)=>
           {
             this.getmodulename();
             console.log(data);
@@ -468,5 +563,8 @@ export class CourseModulesComponent {
     return document.querySelector('script[src="' + target + '"]') ? true : false
   }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 }

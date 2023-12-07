@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,12 +35,19 @@ public class CourseController {
 	
 	@Autowired
 	private CourseService courseService;
+<<<<<<< Updated upstream
 
 	@Autowired
 	private CourseRepository courseRepo;
 
 
 
+=======
+	@Autowired
+	private CourseRepository courseRepo;
+	
+	
+>>>>>>> Stashed changes
 	@PostMapping("/addCourse")
 	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
 	{
@@ -57,7 +67,10 @@ public class CourseController {
         }
         return new ResponseEntity<>(courses, HttpStatus.OK);
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 	@GetMapping("/getcoursebycousename/{email}/{coursename}")
     public ResponseEntity<CourseEntity> getCoursesByEmailandcoursename(@PathVariable String email,@PathVariable String coursename) {
         List<CourseEntity> courses = courseService.getCoursesByProfessorName(email);
@@ -70,7 +83,10 @@ public class CourseController {
         }
         return new ResponseEntity<>(course, HttpStatus.OK);
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 	public String getNewID()
 	{
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"0123456789"+"abcdefghijklmnopqrstuvxyz";
@@ -112,5 +128,10 @@ public class CourseController {
 	        }
 	    }
 	
+<<<<<<< Updated upstream
+=======
+	
+	
+>>>>>>> Stashed changes
 
 }

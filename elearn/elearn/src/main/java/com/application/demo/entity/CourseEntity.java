@@ -1,9 +1,20 @@
 package com.application.demo.entity;
 
+<<<<<<< Updated upstream
 import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+=======
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+>>>>>>> Stashed changes
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,13 +42,32 @@ public class CourseEntity {
     private String professorName;
     
     
+<<<<<<< Updated upstream
+=======
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
+    @JsonIgnore
+    public List<AnnouncementEntity> announcements= new ArrayList<>();
+    
+>>>>>>> Stashed changes
 
 	
 
 
+<<<<<<< Updated upstream
 	public CourseEntity(Long id, String courseName, String courseId, String courseDescription, Date startDate,
 			int numberOfWeeks, Long userId, String department, String courseStatus, Date endDate, String category,
 			String modules, String professorName) {
+=======
+
+	
+
+
+
+
+	public CourseEntity(Long id, String courseName, String courseId, String courseDescription, Date startDate,
+			int numberOfWeeks, Long userId, String department, String courseStatus, Date endDate, String category,
+			String modules, String professorName, List<AnnouncementEntity> announcements) {
+>>>>>>> Stashed changes
 		super();
 		this.id = id;
 		this.courseName = courseName;
@@ -52,8 +82,17 @@ public class CourseEntity {
 		this.category = category;
 		this.modules = modules;
 		this.professorName = professorName;
+<<<<<<< Updated upstream
 	}
 
+=======
+		this.announcements = announcements;
+	}
+
+
+
+
+>>>>>>> Stashed changes
 	public CourseEntity() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -167,7 +206,29 @@ public class CourseEntity {
 		this.professorName = professorName;
 	}
 
+<<<<<<< Updated upstream
     // getters and setters
+=======
+
+
+
+	public List<AnnouncementEntity> getAnnouncements() {
+		return announcements;
+	}
+
+
+
+
+	public void setAnnouncements(List<AnnouncementEntity> announcements) {
+		this.announcements = announcements;
+	}
+
+
+
+
+	
+    
+>>>>>>> Stashed changes
     
     
     

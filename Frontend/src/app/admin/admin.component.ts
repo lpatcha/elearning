@@ -4,6 +4,7 @@ import { LogoutService } from '../logout.service';
 import { HttpClient } from '@angular/common/http';
 import { ColDef } from 'ag-grid-community';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
 import { MatDialog } from '@angular/material/dialog';
@@ -18,6 +19,12 @@ import { NotificationService } from '../notification.service';
 import { ToastrService } from 'ngx-toastr';
 import { NotificationService } from '../notification.service';
 >>>>>>> Stashed changes
+=======
+import { ToastrService } from 'ngx-toastr';
+import { NotificationService } from '../notification.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ExcelUploadComponent } from '../excel-upload/excel-upload.component';
+>>>>>>> Stashed changes
 @Component({
     selector: 'app-admin',
     templateUrl: './admin.component.html',
@@ -26,7 +33,11 @@ import { NotificationService } from '../notification.service';
 export class AdminComponent {
     gridApi: any;
   rowDataUsers: string="";
+<<<<<<< Updated upstream
     constructor(private router: Router,private logoutService: LogoutService,private http: HttpClient,private toastr:ToastrService,private notifyService : NotificationService) {}
+=======
+    constructor(public dialog: MatDialog,private router: Router,private logoutService: LogoutService,private http: HttpClient,private toastr:ToastrService,private notifyService : NotificationService) {}
+>>>>>>> Stashed changes
     loggedUser = '';
   currRole = '';
   title = '';
@@ -57,7 +68,12 @@ export class AdminComponent {
       //   console.log("hiiihihih");
       // }
       
-    
+      openExcelDialog(): void {
+        this.dialog.open(ExcelUploadComponent, {
+          width: '400px', // Set the width as per your design
+          height:'400px'
+        });
+      }
 
     showCreateUserForm() {
         this.router.navigate(['/create']);

@@ -1,3 +1,10 @@
+<<<<<<< Updated upstream
+=======
+.app-container {
+  display: flex;
+  height: 100vh; /* Ensure the container takes the full viewport height */
+}
+>>>>>>> Stashed changes
 .continer
 {
     background-color: white;
@@ -5,10 +12,18 @@
     box-shadow: 4px 4px 35px 8px darkgray;
     margin: 3% 5% 3% 5%;
     padding: 3%;
+<<<<<<< Updated upstream
 }
 .chapter-list
 {
     margin-top: -0%;
+=======
+    display: flex;
+}
+.chapter-list
+{
+    margin-top: 25px;
+>>>>>>> Stashed changes
     float: right;
     overflow-y: scroll;
     padding: 2%;
@@ -16,6 +31,10 @@
     background-color: white;
     width: 36%;
     height: 380px;
+<<<<<<< Updated upstream
+=======
+    flex: 1;
+>>>>>>> Stashed changes
 }
 .chapter-list::-webkit-scrollbar {
     width: 8px;
@@ -150,8 +169,11 @@ body {
     padding: 0;
     width: 200px;
     background-color: #f1f1f1;
+<<<<<<< Updated upstream
     position: fixed;
     height: 100%;
+=======
+>>>>>>> Stashed changes
     overflow: auto;
   }
   .sidebar li:hover::before {
@@ -177,6 +199,7 @@ body {
   }
   
   div.content {
+<<<<<<< Updated upstream
     margin-left: 200px;
     padding: 1px 16px;
 
@@ -188,6 +211,13 @@ body {
     height: 80%;
 
 
+=======
+    margin-left: 0px;
+    padding: 1px 16px;
+    height: 80%;
+    margin-bottom:200px;
+    flex: 1;
+>>>>>>> Stashed changes
   }
   .sidebar ul {
     list-style-type: none;
