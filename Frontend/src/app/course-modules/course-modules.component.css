@@ -183,6 +183,7 @@ body {
   div.content {
     margin-left: 0px;
     padding: 1px 16px;
+<<<<<<< Updated upstream
 
 
     height: 1000px;
@@ -199,6 +200,11 @@ body {
 
 
 
+=======
+    height: 80%;
+    margin-bottom:200px;
+    flex: 1;
+>>>>>>> Stashed changes
   }
   .sidebar ul {
     list-style-type: none;

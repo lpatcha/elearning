@@ -24,6 +24,7 @@ export class CourseContentComponent {
     this.selectedFile = event.target.files[0];
   }
 
+<<<<<<< Updated upstream
 
 
   content: any = {}; // Store form data here
@@ -44,4 +45,6 @@ export class CourseContentComponent {
   }
 
 
+=======
+>>>>>>> Stashed changes
 }

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -21,6 +22,17 @@ import { Course } from './models/course';
 import { Enrollment } from './models/enroll';
 import { Module } from './models/module';
 
+=======
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Course } from './models/course';
+import { Enrollment } from './models/enroll';
+import { Module } from './models/module';
+import { VideoContent } from './models/videocontent';
+import { Assignment } from './models/assignment';
+>>>>>>> Stashed changes
 
 @Injectable({
   providedIn: 'root'
@@ -59,7 +71,10 @@ export class MyServiceService {
       return this.http.post<any>(`${this.baseUrl}/category/addcategory`,category);
   }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   getCoursesByEmail(loggedUser : string) : Observable<any>
   {
     return this.http.get<any>(`${this.baseUrl}/getcoursebyemail/`+loggedUser);
@@ -75,7 +90,10 @@ export class MyServiceService {
   {
     return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
   }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   addmodule(module:Module){
     return this.http.post<any>(`${this.baseUrl}/modules/add`,module);
  }
@@ -83,6 +101,7 @@ export class MyServiceService {
  {
    return this.http.get<any>(`${this.baseUrl}/modules/getmodules/${loggedUser}/${cousename}`);
  }
+<<<<<<< Updated upstream
 
 
   addmodule(module:Module){
@@ -94,4 +113,31 @@ export class MyServiceService {
  }
   
 
+=======
+ 
+ getvideocontent(loggedUser : string,cousename:string,modulename:string) : Observable<any>
+ {
+  const params = new HttpParams()
+  .set('instructorName', loggedUser)
+  .set('courseName', cousename)
+  .set('moduleName',modulename);
+  return this.http.get<any>(`${this.baseUrl}/video-content/getcoursecontent`,{params:params});
+ }
+ addvideo(video:VideoContent){
+  return this.http.post<any>(`${this.baseUrl}/video-content/add`,video);
+}
+
+
+createAssignmentWithFileUpload(formData: FormData): Observable<any> {
+  return this.http.post(`${this.baseUrl}/assignments/upload`, formData);
+}
+
+// assignment.service.ts
+
+getAllAssignments(): Observable<Assignment[]> {
+  return this.http.get<Assignment[]>(`${this.baseUrl}/assignments/assignments`);
+}
+
+  
+>>>>>>> Stashed changes
 }

@@ -5,27 +5,16 @@
     <a href="#contact">Contact</a>
     <a href="#about">About</a>
   </div> -->
-<<<<<<< Updated upstream
-
-
-  <app-header></app-header>
-  <app-moduleheader [coursename]="courseName"></app-moduleheader>
-
-
-  <app-header></app-header>
-  <app-moduleheader [coursename]="courseName"></app-moduleheader>
-
-=======
   <app-header></app-header>
   <app-moduleheader [coursename]="courseName"></app-moduleheader>
   <div class="app-container">
->>>>>>> Stashed changes
   <div class="sidebar">
     <h2>Module List</h2>
     <ul>
       <!-- <li *ngFor="let module of moduleNames">
         <a [routerLink]="['/modules', module]">{{ module }}</a>
       </li> -->
+<<<<<<< Updated upstream
 
       <li *ngFor="let module of moduleNames ">
         <label [routerLink]="['/modules', module.modulename]" style="cursor: pointer;">{{ module.modulename }}</label>
@@ -33,10 +22,16 @@
 
        <li> 
 
+=======
+      <li *ngFor="let module of moduleNames ">
+        <label [routerLink]="['/modules', module.modulename]" (click)="getvideocourse(module.modulename)" style="cursor: pointer;">{{ module.modulename }}</label>
+       </li>
+>>>>>>> Stashed changes
       <li>
        <button (click)="openInputDialog()">Add Module</button>
        </li>
        <!-- <li> 
+<<<<<<< Updated upstream
 
 
       <li *ngFor="let module of moduleNames ">
@@ -47,13 +42,18 @@
        </li>
        <!-- <li> 
 
+=======
+>>>>>>> Stashed changes
         <label [routerLink]="['/userenroll',courseName]" style="cursor: pointer;"> Enrolled students </label>
       </li> -->
     </ul>
   </div>
   <div class ="content">
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
   <div class="continer">
     <div>
     <div style="font-weight: bolder; color: darkgreen; font-size: 35px; margin-bottom: 2%;">Welcome to {{courseName}} course 👋 </div>
@@ -63,6 +63,7 @@
         <div style="font-weight: bold; font-size: large; align-items: center; color: darkred;"><i class="fa fa-list"></i> Course Contents</div>
         <div style="color: gray; font-weight: 400; font-size: small; margin-bottom: 5%;">(click on chapter name to get into the videos)</div>
         <div style="color: red; font-size: medium; font-weight: bolder; margin-top: 30%; margin-left: 5%; margin-right: 5%;" *ngIf="chapter.chapter1name === ''">Currently No Chapters available for this Course. Please wait, the Instructor will be adding the chapters soon here</div>
+<<<<<<< Updated upstream
 
         <div style="cursor: pointer;" (click)="set1()" class="chapter1" *ngIf="chapter.chapter1name !== ''">
             <div class="box1" id="select-box"><i class="fa fa-check"></i></div>
@@ -70,6 +71,17 @@
             <div style="color: gray; font-weight: 600; font-size: small; margin-left: 12%;">subcontents (1/1)</div>
         </div>
         <hr *ngIf="chapter.chapter1name !== ''">
+=======
+        <div *ngFor="let video of videocontent ">
+        <div style="cursor: pointer;" (click)="set1()" class="chapter1" *ngIf="video.contentname !== ''">
+            <!-- <div class="box1" id="select-box"><i class="fa fa-check"></i></div> -->
+            <div class="name" (click)="openChapter(video.videourl)"> 1) {{video.contentname}}</div>
+            <div style="color: gray; font-weight: 600; font-size: small; margin-left: 12%;">subcontents (1/1)</div>
+        </div>
+        </div>
+        <button (click)="videoadd()">Add Video</button>
+        <!-- <hr *ngIf="chapter.chapter1name !== ''">
+>>>>>>> Stashed changes
 
         <div style="cursor: pointer;" (click)="set2()" class="chapter2" *ngIf="chapter.chapter2name !== ''">
             <div class="box2" id="select-box"><i class="fa fa-check"></i></div>
@@ -118,7 +130,11 @@
             <div class="name" (click)="openChapter(chapter.chapter8id)"> 8) {{chapter.chapter8name}}</div>
             <div style="color: gray; font-weight: 600; font-size: small; margin-left: 12%;">subcontents (1/1)</div>
         </div>
+<<<<<<< Updated upstream
         <hr *ngIf="chapter.chapter8name !== ''">
+=======
+        <hr *ngIf="chapter.chapter8name !== ''"> -->
+>>>>>>> Stashed changes
 </div>
 </div>
 </div>
