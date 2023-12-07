@@ -1,11 +1,8 @@
 import { Component, Input } from '@angular/core';
-<<<<<<< Updated upstream
-=======
 import { MatDialog } from '@angular/material/dialog';
 
 import { AnnouncementsComponent } from '../announcements/announcements.component';
 import { AssignmentsComponent } from '../assignments/assignments.component';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-moduleheader',
@@ -13,10 +10,6 @@ import { AssignmentsComponent } from '../assignments/assignments.component';
   styleUrls: ['./moduleheader.component.css']
 })
 export class ModuleheaderComponent {
-<<<<<<< Updated upstream
-  @Input() coursename: string="";
-
-=======
 
   constructor(public dialog: MatDialog){}
   @Input() coursename: string="";
@@ -37,5 +30,4 @@ export class ModuleheaderComponent {
     });
   }
 
->>>>>>> Stashed changes
 }

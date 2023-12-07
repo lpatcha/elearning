@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -18,6 +19,8 @@ import { Module } from './models/module';
 
 
 =======
+=======
+>>>>>>> Stashed changes
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -26,6 +29,10 @@ import { Course } from './models/course';
 import { Enrollment } from './models/enroll';
 import { Module } from './models/module';
 import { VideoContent } from './models/videocontent';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+import { Assignment } from './models/assignment';
 >>>>>>> Stashed changes
 
 @Injectable({
@@ -65,10 +72,6 @@ export class MyServiceService {
       return this.http.post<any>(`${this.baseUrl}/category/addcategory`,category);
   }
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
   getCoursesByEmail(loggedUser : string) : Observable<any>
   {
     return this.http.get<any>(`${this.baseUrl}/getcoursebyemail/`+loggedUser);
@@ -85,8 +88,11 @@ export class MyServiceService {
     return this.http.get<any>(`${this.baseUrl}/getenrolledusers/${loggedUser}/${cousename}`);
   }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   addmodule(module:Module){
@@ -96,19 +102,6 @@ export class MyServiceService {
  {
    return this.http.get<any>(`${this.baseUrl}/modules/getmodules/${loggedUser}/${cousename}`);
  }
-<<<<<<< Updated upstream
-
-
-  addmodule(module:Module){
-    return this.http.post<any>(`${this.baseUrl}/modules/add`,module);
- }
- getmoduleByEmailandcoursename(loggedUser : string,cousename:string) : Observable<any>
- {
-   return this.http.get<any>(`${this.baseUrl}/modules/getmodules/${loggedUser}/${cousename}`);
- }
-  
-
-=======
  
  getvideocontent(loggedUser : string,cousename:string,modulename:string) : Observable<any>
  {
@@ -127,5 +120,4 @@ createAssignmentWithFileUpload(formData: FormData): Observable<any> {
   return this.http.post(`${this.baseUrl}/assignments/upload`, formData);
 }
   
->>>>>>> Stashed changes
 }

@@ -35,19 +35,10 @@ public class CourseController {
 	
 	@Autowired
 	private CourseService courseService;
-<<<<<<< Updated upstream
-
-	@Autowired
-	private CourseRepository courseRepo;
-
-
-
-=======
 	@Autowired
 	private CourseRepository courseRepo;
 	
 	
->>>>>>> Stashed changes
 	@PostMapping("/addCourse")
 	public CourseEntity addNewCourse(@RequestBody CourseEntity course) throws Exception
 	{
@@ -67,10 +58,6 @@ public class CourseController {
         }
         return new ResponseEntity<>(courses, HttpStatus.OK);
     }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 	@GetMapping("/getcoursebycousename/{email}/{coursename}")
     public ResponseEntity<CourseEntity> getCoursesByEmailandcoursename(@PathVariable String email,@PathVariable String coursename) {
         List<CourseEntity> courses = courseService.getCoursesByProfessorName(email);
@@ -83,10 +70,6 @@ public class CourseController {
         }
         return new ResponseEntity<>(course, HttpStatus.OK);
     }
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 	public String getNewID()
 	{
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"+"0123456789"+"abcdefghijklmnopqrstuvxyz";
@@ -127,9 +110,15 @@ public class CourseController {
 	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	        }
 	    }
+<<<<<<< Updated upstream
 	
 <<<<<<< Updated upstream
 =======
+	
+	
+>>>>>>> Stashed changes
+=======
+	
 	
 	
 >>>>>>> Stashed changes

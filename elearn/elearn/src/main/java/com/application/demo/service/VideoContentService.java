@@ -56,22 +56,42 @@ public class VideoContentService {
         }
 
         VideoContent videoContent = optionalVideoContent.get();
+<<<<<<< Updated upstream
         ModuleEntity module = moduleService.findModule(videoContentDto.getModuleName(), videoContentDto.getCourseName(), videoContentDto.getInstructorName());
 
+=======
+        
+//        ModuleEntity module = moduleService.findModule(videoContentDto.getModuleName(), videoContentDto.getCourseName(), videoContentDto.getInstructorName());
+        ModuleEntity module= videoContent.getModule();
+        
+>>>>>>> Stashed changes
         if (module == null) {
             // Handle the case when the module doesn't exist
             // You can return an error or handle it as needed
             return null;
         }
+<<<<<<< Updated upstream
 
         videoContent.setContentname(videoContentDto.getContentName());
         videoContent.setVideourl(videoContentDto.getVideoUrl());
         videoContent.setModule(module);
 
+=======
+        videoContent.setContentname(videoContentDto.getContentName());
+        videoContent.setVideourl(videoContentDto.getVideoUrl());
+        videoContent.setModule(module);
+>>>>>>> Stashed changes
         return videoContentRepository.save(videoContent);
     }
 
     public void deleteVideoContent(Long id) {
+<<<<<<< Updated upstream
+=======
+        Optional<VideoContent> deletecontent = videoContentRepository.findById(id);
+    	ModuleEntity mm= deletecontent.get().getModule();
+    	mm.getVideoContents().remove(deletecontent.get());
+    	modulerepo.save(mm);
+>>>>>>> Stashed changes
         videoContentRepository.deleteById(id);
     }
     public List<VideoContent> getVideoContentsByInstructorCourseModule(String instructorName, String courseName, String moduleName) {

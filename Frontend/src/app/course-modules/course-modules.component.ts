@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { Observable } from 'rxjs';
 import { Course } from '../models/course';
 import { MyServiceService } from '../my-service.service';
@@ -14,6 +15,8 @@ import { InputDialogComponent } from '../input-dialog/input-dialog.component';
 import { Module } from '../models/module';
 
 =======
+=======
+>>>>>>> Stashed changes
 import { Observable, distinctUntilChanged, filter, take } from 'rxjs';
 import { Course } from '../models/course';
 import { MyServiceService } from '../my-service.service';
@@ -22,7 +25,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { InputDialogComponent } from '../input-dialog/input-dialog.component';
 import { VideoContent } from '../models/videocontent';
 import { VideoaddComponent } from '../videoadd/videoadd.component';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-course-modules',
@@ -32,11 +34,13 @@ import { VideoaddComponent } from '../videoadd/videoadd.component';
 export class CourseModulesComponent {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   moduleNames: Module[]| undefined;
 =======
-  moduleNames: Module[]=[];
+=======
 >>>>>>> Stashed changes
+  moduleNames: Module[]=[];
   video = 'jpvZXcGkUMY';
   courseName = 'springboot';
   // chapterlist : Observable<Chapter[]> | undefined;
@@ -45,11 +49,14 @@ export class CourseModulesComponent {
   loggedUser = '';
   currRole = '';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   coursedetails : Observable<Course> | undefined;
   createmodule: Module = new Module();
 
   constructor(private _router : Router, private activatedRoute: ActivatedRoute,private courseService : MyServiceService) { }
 =======
+=======
+>>>>>>> Stashed changes
   currentmodule="";
   coursedetails : Observable<Course> | undefined;
   createmodule: Module = new Module();
@@ -81,10 +88,7 @@ export class CourseModulesComponent {
     $("#qa, #notes, #announcements, #questions, #notestxt, #downloads").hide();
     $("#downloadalert").css("display","none");
     this.courseName = this.activatedRoute.snapshot.params['coursename'];
-<<<<<<< Updated upstream
-=======
     sessionStorage.setItem('course',this.courseName);
->>>>>>> Stashed changes
     this.courseService.getCoursesByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
       this.coursedetails = data;
       console.log(this.coursedetails);
@@ -124,8 +128,6 @@ export class CourseModulesComponent {
     // this.courselist = this._service.getCourseListByName(this.courseName);
 
   }
-<<<<<<< Updated upstream
-=======
   getvideocourse(module:any){
     this.currentmodule=module;
     this.courseService.getvideocontent(this.loggedUser,this.courseName,module).subscribe((data) => {
@@ -133,7 +135,6 @@ export class CourseModulesComponent {
       console.log(this.videocontent);
     });
   }
->>>>>>> Stashed changes
   addmodule() {
     let moduleName = prompt('Enter a new module name:');
     this.createmodule.coursename=this.courseName;
@@ -152,6 +153,7 @@ export class CourseModulesComponent {
     }
   }
   getmodulename(){
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     this.courseService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName).subscribe((data) => {
       this.moduleNames = data;
@@ -374,6 +376,8 @@ export class CourseModulesComponent {
     });
   }
 =======
+=======
+>>>>>>> Stashed changes
     this.courseService.getmoduleByEmailandcoursename(this.loggedUser,this.courseName)
     //  .pipe(
     //   filter(data => !!data), // Ensure that data is available
@@ -396,7 +400,6 @@ export class CourseModulesComponent {
   private getModuleName(data: any): string {
     return data ? data.map((module:any) => module.modulename).join('') : '';
   }
->>>>>>> Stashed changes
   openInputDialog(): void {
     const dialogRef = this.dialog.open(InputDialogComponent, {
       width: '400px', // Set the width as per your design
@@ -425,8 +428,11 @@ export class CourseModulesComponent {
     });
   }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
   videoadd(){
     const dialogRef = this.dialog.open(VideoaddComponent, {
       width: '400px', // Set the width as per your design
@@ -455,7 +461,6 @@ export class CourseModulesComponent {
       }
     });
   }
->>>>>>> Stashed changes
 
   openOverview()
   {

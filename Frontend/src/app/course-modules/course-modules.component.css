@@ -200,6 +200,7 @@ body {
   
   div.content {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     margin-left: 200px;
     padding: 1px 16px;
 
@@ -212,11 +213,16 @@ body {
 
 
 =======
+=======
+>>>>>>> Stashed changes
     margin-left: 0px;
     padding: 1px 16px;
     height: 80%;
     margin-bottom:200px;
     flex: 1;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   }
   .sidebar ul {

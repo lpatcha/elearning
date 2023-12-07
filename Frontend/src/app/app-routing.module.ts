@@ -15,6 +15,7 @@ import { CoursestableComponent } from './coursestable/coursestable.component';
 import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 import { CourseContentComponent } from './course-content/course-content.component';
 import { AdduserComponent } from './adduser/adduser.component';
@@ -28,11 +29,17 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 
 
 =======
+=======
+>>>>>>> Stashed changes
 import { CourseContentComponent } from './course-content/course-content.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+import { AssignmentListComponent } from './assignment-list/assignment-list.component';
 >>>>>>> Stashed changes
 
 
@@ -52,6 +59,7 @@ const routes: Routes = [
   { path: 'cousetable', component: CoursestableComponent },
   { path: 'allcourses', component: AllCoursesComponent },
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
 
@@ -62,11 +70,17 @@ const routes: Routes = [
 
 
 =======
+=======
+>>>>>>> Stashed changes
   {path:'allcourses/:coursename',component:CourseModulesComponent},
   { path: 'course-content', component: CourseContentComponent },
   { path: 'userenroll/:coursename', component: AdduserComponent },
   { path: 'announcements', component: AnnouncementsComponent },
   { path: 'assignments', component: AssignmentsComponent },
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+  { path: 'assignments-list', component: AssignmentListComponent },
 >>>>>>> Stashed changes
 ];
 

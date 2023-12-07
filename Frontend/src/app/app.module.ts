@@ -30,6 +30,7 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { ToastrModule } from 'ngx-toastr';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
 import { timeout } from 'rxjs';
@@ -38,6 +39,8 @@ import { timeout } from 'rxjs';
 
 import { timeout } from 'rxjs';
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 import { TeacherdashboardComponent } from './teacherdashboard/teacherdashboard.component';
@@ -50,15 +53,11 @@ import { AllCoursesComponent } from './all-courses/all-courses.component';
 import { CourseModulesComponent } from './course-modules/course-modules.component';
 import { CourseContentComponent } from './course-content/course-content.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
 import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 import { InputDialogComponent } from './input-dialog/input-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 
 
@@ -70,6 +69,12 @@ import { ModuleheaderComponent } from './moduleheader/moduleheader.component';
 import { AnnouncementsComponent } from './announcements/announcements.component';
 import { VideoaddComponent } from './videoadd/videoadd.component';
 import { AssignmentsComponent } from './assignments/assignments.component';
+>>>>>>> Stashed changes
+=======
+import { AnnouncementsComponent } from './announcements/announcements.component';
+import { VideoaddComponent } from './videoadd/videoadd.component';
+import { AssignmentsComponent } from './assignments/assignments.component';
+import { AssignmentListComponent } from './assignment-list/assignment-list.component';
 >>>>>>> Stashed changes
 
 
@@ -102,6 +107,7 @@ import { AssignmentsComponent } from './assignments/assignments.component';
     AllCoursesComponent,
     CourseModulesComponent,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     CourseContentComponent
 
@@ -111,12 +117,15 @@ import { AssignmentsComponent } from './assignments/assignments.component';
     InputDialogComponent,
     UpdateProfileComponent
 =======
+=======
+>>>>>>> Stashed changes
     CourseContentComponent,
     ModuleheaderComponent,
     InputDialogComponent,
     UpdateProfileComponent,
     AnnouncementsComponent,
     VideoaddComponent,
+<<<<<<< Updated upstream
     AssignmentsComponent
 >>>>>>> Stashed changes
   
@@ -126,6 +135,11 @@ import { AssignmentsComponent } from './assignments/assignments.component';
     ModuleheaderComponent
   
 
+=======
+    AssignmentsComponent,
+    AssignmentListComponent
+  
+>>>>>>> Stashed changes
   ],
 
   
@@ -144,14 +158,13 @@ import { AssignmentsComponent } from './assignments/assignments.component';
     MatCardModule,
     CarouselModule,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
-
-    YouTubePlayerModule,
 
 =======
-    YouTubePlayerModule,
 >>>>>>> Stashed changes
+    YouTubePlayerModule,
     ToastrModule.forRoot({
       timeOut: 15000,
       extendedTimeOut: 3000,
