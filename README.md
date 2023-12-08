@@ -4,8 +4,7 @@
 The Online Learning Management System is designed to assist teachers and students in effectively organizing online education. It offers a user-friendly interface for accessing educational resources and course content.
 
 ## Project Architecture:
-
-![image](https://github.com/lpatcha/elearning/assets/146805651/0d3e1dfa-c9b2-49a0-9278-3f4b936c7ceb)
+![image](https://github.com/lpatcha/elearning/assets/146805651/b4049c39-ccca-4a68-87ef-a182bcec77e1)
 
 ### Presentation Layer:
 This layer is responsible for the user interface and interaction with the OLMS.
